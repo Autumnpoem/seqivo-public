@@ -7,13 +7,19 @@
   "status": {
     "code": "current product source complete for this release scope",
     "documentation": "Chinese and English installation/configuration/first-project guides prepared",
-    "publicRepository": "Prepared in private staging; public visibility not yet enabled",
-    "release": "not yet published",
+    "publicRepository": "Public; repository and release read successfully without authentication",
+    "release": "Published v0.4.1 with macOS arm64 ZIP and SHA256SUMS.txt",
     "installed": "existing v0.4.1 Mac installation unchanged by this documentation/licensing work",
     "deployed": "no Hub deployment in this publication task"
   },
   "checks": {
-    "privacy": "Current source, license texts and 83 tracked raster images checked; known private terms and exact server address scan completed before export",
+    "privacy": {
+      "sourceFiles": 845,
+      "appFiles": 4129,
+      "knownPrivateTermAndTokenMatches": 0,
+      "trackedRasterImagesReviewed": 83,
+      "oldGitHistoryExported": false
+    },
     "cloudCI": "disabled by owner preference",
     "newComputerNativeInstall": "not tested on a clean machine",
     "platformPackages": [
@@ -26,6 +32,32 @@
       "other scenario-specific checks remain in feature validation docs"
     ],
     "documentation": "Chinese/English local links and image references verified; official AI installation references checked",
-    "packagingScript": "Node syntax check passed; copies own and third-party license files into app resources"
-  }
+    "packagingScript": "Node syntax check passed; copies own and third-party license files into app resources",
+    "package": {
+      "sha256": "9188e3b399a26d63fb90698c204ef086df53073bc4f5a3adbcb087417821fbfa",
+      "bytes": 174354491,
+      "nodePtyProbe": true,
+      "zipRoundTripHashesEqual": true,
+      "deepStrictSignatureVerified": true,
+      "applicationCodeOutsideSignatureUnchanged": true
+    }
+  },
+  "publishedAt": "2026-10-31T10:28:47Z",
+  "sourceTagCommit": "fb940d59f9da915dc13b2367b270efc6875c6a72",
+  "releaseUrl": "https://github.com/Autumnpoem/seqivo-public/releases/tag/v0.4.1",
+  "privateVulnerabilityReportingEnabled": true,
+  "assets": [
+    {
+      "name": "Seqivo-0.4.1-macos-arm64.zip",
+      "size": 174354491,
+      "digest": "sha256:9188e3b399a26d63fb90698c204ef086df53073bc4f5a3adbcb087417821fbfa",
+      "url": "https://github.com/Autumnpoem/seqivo-public/releases/download/v0.4.1/Seqivo-0.4.1-macos-arm64.zip"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "size": 95,
+      "digest": "sha256:fe70389f7d2529ff3a69b62c756702f79309f5429280fcc81359137de0d33151",
+      "url": "https://github.com/Autumnpoem/seqivo-public/releases/download/v0.4.1/SHA256SUMS.txt"
+    }
+  ]
 }
