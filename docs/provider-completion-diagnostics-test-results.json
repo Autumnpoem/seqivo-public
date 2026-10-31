@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-18",
+  "id": "IMPL356",
+  "status": "bounded-diagnostics-implemented-and-fake-regressions-passed; real-workflow-cause-unconfirmed",
+  "scope": {
+    "provider": "fake-provider regression only",
+    "taskJobBackend": null,
+    "proofEnvironment": "mockOS",
+    "realWorkflowFixEstablished": false,
+    "note": "taskJobBackend:null and mockOS apply to the new diagnostic integration cases; the five existing host regressions retain their own production/legacy backend scopes."
+  },
+  "sourcePins": {
+    "host": "b8cf4e462d760c0da3c75b81c3b8e4adf4138a651851ff5efc39e1729eb78d82",
+    "helper": "d13bfdd4137d6c1d89fab39233e5c27c1f816cecefe1d038e1eafa67df150456",
+    "targetTest": "8e68ef3c68e7ccc1f51a920488e7302837eaf839255ce7c21cf71c132a2717dd",
+    "fakeProvider": "8d0f594b3755d3ae865167bc2603e62bc98a7c61fd68d1fb4c184b55efae7c99",
+    "workflow": "7ee691b2ee09c2daa9e612ef352f9bddb6106b1f54908cc69bb4aaa9a4777fd2",
+    "workflowTest": "3c559f84de2aed3112d18f2968d4c0b7ca4b3b4a05185688a24cd2e5cd3888ac",
+    "note": "SHA-256 of each tested diagnostic source or test file"
+  },
+  "testRuns": [
+    {
+      "name": "targeted-provider-completion-diagnostics",
+      "cases": 3,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "target-r2.log",
+      "sha256": "6e304e063063f9955a5cdbbba45dbe6953bf8618ce32523f4b9db0ebad3a38ae"
+    },
+    {
+      "name": "automatic-workflow-regression",
+      "cases": 18,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "workflow-r1.log",
+      "sha256": "411eb5d66259c425d89eef84ead26aaeb2b4fa293b98fa8fb0fc02e9a04bdfd6"
+    },
+    {
+      "name": "host-regression-targeted",
+      "cases": 5,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "host-regression-r1.log",
+      "sha256": "39da32c3d53c2a619c39232ce23ec32956f398765e6b2c0c7d8b975094286abd"
+    }
+  ],
+  "covered": [
+    "verified failure is distinguished from unverified unknown and finalThreadCheck",
+    "one-start limit is retained",
+    "fake process identity is checked for exit in finally",
+    "fixed workflow labels are used without exposing rawSummary or raw error text",
+    "legacy host regressions cover completed Mac job retirement, quota failure, new-turn proof invalidation, short command, and restart fencing"
+  ],
+  "review": {
+    "id": "REVIEW360",
+    "result": "no new confirmed P1/P2 in the bounded diagnostic diff",
+    "limitation": "review and tests do not validate real provider failure payloads"
+  },
+  "historical": {
+    "target-r1": "two-case earlier run; not the latest targeted result"
+  },
+  "limits": [
+    "The WORKTREE324 real attempt remains incomplete: A's rollout-busy response does not establish the turn/completed.turn.error payload shape or which final-thread predicate failed; B was interrupted with its original outcome still unconfirmed.",
+    "No original unknown record was cleared; no real-workflow cause, fix, or successful collaboration is established.",
+    "Fake-provider and mockOS results do not establish real Codex, Core, Android, or client behavior.",
+    "A diagnostic fallback for an unrecognized executor error remains outside the fixed-label guarantee."
+  ]
+}

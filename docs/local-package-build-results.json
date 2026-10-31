@@ -1,0 +1,103 @@
+{
+  "date": "2026-10-18",
+  "sourceCommit": "07cfc53b98f99692c54c1aec7af04c70dd91d13e",
+  "scope": "Local builds and ordinary Android emulator in-place upgrade; full workflow acceptance remains pending",
+  "android": {
+    "file": "seqivo-debug-v5.apk",
+    "sha256": "c78a99ece7c5d9f3172236526fa4515511b234d3e56f31b9b3085f39b4fd2387",
+    "versionCode": 5,
+    "package": "app.seqivo.android",
+    "debugUnitTests": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "debugBuildExitCode": 0,
+    "releaseBuildExitCode": 0,
+    "signature": "existing Android debug certificate, same as v4",
+    "releaseSigned": false,
+    "defaultServerAddress": "empty",
+    "testCAIncluded": false,
+    "testNetworkConfigIncluded": false,
+    "webAssetsBundled": false,
+    "webVersionControlledByHub": true,
+    "installed": true,
+    "upgrade": {
+      "environment": "isolated Android emulator API 35",
+      "fromVersionCode": 4,
+      "toVersionCode": 5,
+      "installAttempts": 1,
+      "installExitCode": 0,
+      "installedApkMatchesDeliverable": true,
+      "connectionSettingsHashUnchanged": true,
+      "cookieDatabaseIntegrityOK": true,
+      "cookieDatabaseHashUnchanged": true,
+      "cookieLogicalDigestUnchanged": true,
+      "cookieRowsBefore": 0,
+      "cookieRowsAfter": 0,
+      "loginRecoveryVerified": false,
+      "appLaunchedAfterInstall": false,
+      "existingTestAppAndTerminalProcessesPreserved": true
+    }
+  },
+  "macOS": {
+    "sourceCommit": "07cfc53b98f99692c54c1aec7af04c70dd91d13e",
+    "sourceOverlay": false,
+    "platform": "macOS arm64",
+    "buildStepsPassed": 7,
+    "signature": "local-ad-hoc",
+    "notarized": false,
+    "nodeRuntimeProbePassed": true,
+    "packagedServerHashesMatched": [
+      "server/core.mjs",
+      "server/store.mjs",
+      "server/hub/preview.mjs",
+      "server/preview/local.mjs",
+      "server/preview/node-link.mjs",
+      "server/preview/access-intents.mjs"
+    ],
+    "zip": "seqivo-macos-arm64-07cfc53-local.zip",
+    "zipSha256": "b83bc7ee3db24cd43edea61fb95193ed5c75d5d0bf516626b47fa20da9eda1b6",
+    "installedApplicationChanged": false,
+    "nativeWindowAcceptance": "not_run_mac_locked",
+    "limits": [
+      "No Developer ID distribution signature",
+      "No full App workflow or native quit acceptance"
+    ]
+  },
+  "productionDeployment": false,
+  "publicRelease": false,
+  "cloudCI": false,
+  "limits": [
+    "Ordinary Android emulator v4-to-v5 in-place upgrade preserved existing local data; current Android v13 was reused and not retested in this Mac installation run; physical-device and complete account/terminal flow remain unverified",
+    "BUILD1038 Mac candidate is installed and its normal quit/same-data reopen passed narrowly; Hub deployment and full Mac workflow remain unverified",
+    "Local debug/ad-hoc signatures are not production distribution signatures; Mac package is not notarized",
+    "No physical phone or Windows/Ubuntu native validation in this build"
+  ],
+  "build1038MacInstallAndReopen20261030": {
+    "candidateCommit": "a74d53b45ff0e1b6ec739bcda5aadf4b3a395ef6",
+    "installed": true,
+    "installReceipt": ".runtime/install1043/installed-result.json",
+    "dataUnchangedAtInstall": true,
+    "signature": "local-ad-hoc",
+    "notarized": false,
+    "normalQuitAndReopen": "NATIVE1057 narrow pass; 14/14 shutdown stages fulfilled, four plugin closes, no canonical process or Core lock, both cold SQLite integrity checks passed; re-opened same data.",
+    "readback": {
+      "projects": 6,
+      "tasks": 66,
+      "manualAcceptancePreserved": true,
+      "evidence": ".runtime/native1057/result.json",
+      "originalUnknownLeaseCount": 2,
+      "originalUnknownCommandCount": 2
+    },
+    "hubDeployed": false,
+    "androidVersionCode": 13,
+    "androidRebuiltOrRetestedThisRun": false,
+    "scopeLimits": [
+      "Notarization, Hub deployment, physical Android, and full App workflow remain incomplete.",
+      "The two old command outcomes remain unknown; their state was preserved.",
+      "APP1042 remains a separate historical API 35 emulator task-flow result."
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "workId": "UI1100",
+  "sourceCommit": "e0f1e1f6b3a5b2b2813544cc7b9b31b21f6c2fdd",
+  "change": {
+    "file": "src/supervision.css",
+    "sha256": "434ee1657d31ac73921e5ec279cd121cf49b0b4229fc2e7800f0aa1cbd265368",
+    "scope": "CSS line-clamps supervision summary and next-step text to two lines each; no task data or workflow change is claimed."
+  },
+  "verification": {
+    "build": {
+      "result": "passed",
+      "signed": true,
+      "signatureVerified": true,
+      "installed": false,
+      "deployed": false,
+      "candidateMainSha256": "888b8f8a102beb13d796db38402e08ba8408f07a1e88b0b6083af4fa51c53334",
+      "distFileCount": 14,
+      "distManifestSha256": "cc234fce2bc3d31c057a057285e8fd2ae2434d4c5e6cf1c4c514a95d649f175b",
+      "resourceFileCount": 4228,
+      "resourceManifestSha256": "b2ec44bc63f5d6cd0c455bb4cfee91d439b7b842bddee7db163dc505ac1dc151",
+      "evidence": {
+        "result": ".runtime/build1100/result.json",
+        "resultSha256": "225073fdcf28742ff142732a866fba77689321e672487be2906cd50193115f09",
+        "packageCheck": ".runtime/build1100/package-check.json",
+        "packageCheckSha256": "a9a8519538a24505f62ffaf41e5d45a13a09ca832b58b9c247ed9082fa1dc22e",
+        "inputs": ".runtime/build1100/inputs.json",
+        "inputsSha256": "c24cced54b31158a1942a9758fabefc771fdcccbda67e75f80cb0b7651262fd4"
+      }
+    },
+    "layoutFixture": {
+      "result": "passed visual check",
+      "method": "Root visually checked the component SSR render with long synthetic paragraphs",
+      "views": [
+        {
+          "appearance": "desktop light",
+          "evidence": ".runtime/ui1100/desktop-light.png",
+          "sha256": "5bf30002ef559b54612df0b66751d22f3fc834e6a8760767461d6960438288f4"
+        },
+        {
+          "viewport": "390px mobile",
+          "appearance": "dark",
+          "evidence": ".runtime/ui1100/mobile-dark.png",
+          "sha256": "79bb76b38ff50c4f4b3dd6eb58cc7b30bda14cf497d98f6c05029f9326d6dc23"
+        }
+      ],
+      "limits": [
+        "Synthetic long-text layout fixture only; not a full application action test.",
+        "No Mac installation was performed."
+      ]
+    },
+    "webDeployment": {
+      "result": "deployed and verified",
+      "webCommit": "e0f1e1f6b3a5b2b2813544cc7b9b31b21f6c2fdd",
+      "manifestFileCount": 205,
+      "manifestSha256": "4e0309133da6113f94185f5750261940070e656746e7243ca9c4ea281b9f31f9",
+      "currentDistFilesVerified": 14,
+      "publicTlsVerified": true,
+      "unauthenticatedStateStatus": 401,
+      "firewallActive": true,
+      "hubRestarted": false,
+      "configurationUnchanged": true,
+      "serviceProcessUnchanged": true,
+      "commandsAndRecoveryUnchanged": true,
+      "evidence": {
+        "deployReceipt": ".runtime/delivery1100/deploy-stdout.json",
+        "deployReceiptSha256": "0a35ef5e1575892b1099bb918431e3dac5601133195ec350885c7caee90c3e12",
+        "postcheckSummary": ".runtime/delivery1100/postcheck-summary.log",
+        "postcheck": ".runtime/delivery1100/postcheck.json",
+        "postcheckSha256": "0f439ab44deb7353e8feb2624ab95c3626d05ee1075b96416f771555be9fdd5d"
+      }
+    }
+  },
+  "mac": {
+    "installedBuild": "BUILD1097",
+    "candidateBuild": "BUILD1101",
+    "candidateStatus": "signed_candidate_awaiting_unlock_install",
+    "candidateInstalled": false,
+    "candidateNote": "Unified BUILD1101 supersedes the uninstalled BUILD1100 candidate and includes the same compact CSS. See remote-task-creation-results.json for package identity; native installation still pending."
+  },
+  "board": {
+    "previousRevision": 17,
+    "revision": 19,
+    "verification": "partial",
+    "previousChecksPreserved": 12,
+    "completedLayoutChecksAdded": 1,
+    "pendingMacInstallationChecksAdded": 1,
+    "manualAcceptancePreserved": true,
+    "receipt": ".runtime/ui1100/board-result.json",
+    "receiptSha256": "2a264d990205c2fc471d16e1353a5de25c2df9af5c29bbca8e0090b0a513dfb1"
+  },
+  "wholeProjectComplete": false
+}

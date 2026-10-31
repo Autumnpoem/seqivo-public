@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-30T17:02:05+00:00",
+  "workId": "LINUX1072",
+  "baseCommit": "5cc69d7f0ff7b5c82e01e60182fb9687e2fea2e0",
+  "status": "partial-platform-implementation",
+  "delivery": {
+    "codeCompleteForSlice": true,
+    "targetedTestsPassed": true,
+    "installed": false,
+    "deployed": false,
+    "wholeProjectComplete": false
+  },
+  "files": {
+    "server/terminal/process-inspection.mjs": "c9b6360747a49a5cf67dcb8d37f43c95653540faf8b94b602afa0caa56c8a863",
+    "tests/terminal-linux-writers.test.mjs": "d6961ed3f877628508c0baccaaa7a48172b39e8fd53f1e09a484e5d092d932fb",
+    "tests/terminal-process-inspection.test.mjs": "62549153b3c5311098bd50ac05006d88e069d56ff26cd34d2349cd03f4f26ab8"
+  },
+  "baseline": {
+    "source": "execution tool output; not a retained raw log",
+    "host": "macOS",
+    "command": "node --test tests/terminal-linux-writers.test.mjs",
+    "exitCode": 1,
+    "passed": 4,
+    "failed": 3,
+    "skipped": 1,
+    "cause": "Linux success and empty-selection cases returned unsupported-platform; failure count includes their parent subtest."
+  },
+  "firstNativeRun": {
+    "host": "Ubuntu 22.04 x86_64",
+    "uid": 65534,
+    "exitCode": 1,
+    "passed": 11,
+    "failed": 1,
+    "skipped": 2,
+    "cause": "lsof could not stat tracefs; output remained unknown rather than reporting success",
+    "localRawLog": ".runtime/linux1072/ubuntu-tests.log"
+  },
+  "testFixtureCorrection": "First Mac post-change run failed because its assertion expected /var rather than the canonical /private/var path. The assertion was corrected to use realpath; product canonicalization was retained.",
+  "targetedMac": {
+    "command": "node --test tests/terminal-linux-writers.test.mjs tests/terminal-process-inspection.test.mjs",
+    "exitCode": 0,
+    "passed": 14,
+    "failed": 0,
+    "skipped": 1,
+    "skipReason": "Linux-native process test runs on Linux",
+    "localRawLog": ".runtime/linux1072/mac-tests-final.log"
+  },
+  "targetedUbuntu": {
+    "host": "Ubuntu 22.04 x86_64",
+    "node": "v24.21.0",
+    "uid": 65534,
+    "command": "node --test --test-reporter=tap tests/terminal-linux-writers.test.mjs tests/terminal-process-inspection.test.mjs",
+    "exitCode": 0,
+    "passed": 13,
+    "failed": 0,
+    "skipped": 2,
+    "skipReason": "Two macOS-native process tests run on macOS",
+    "temporaryDirectoryRemoved": true,
+    "localRawLog": ".runtime/linux1072/final/ubuntu-tests.log"
+  },
+  "review": {
+    "independent": true,
+    "confirmedBlockingFindings": 0,
+    "scope": "actual diff, call sites, original failure, bounded tracefs probe and final raw logs"
+  },
+  "remaining": [
+    "Linux exact session identity, durable managed-pane recovery and AI command stop proof",
+    "Ubuntu native desktop installation, update and complete terminal takeover",
+    "Windows native Shell, WSL tmux and process proof",
+    "No new Mac, Android or physical-phone acceptance from this backend change"
+  ]
+}

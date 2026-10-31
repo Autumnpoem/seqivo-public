@@ -1,0 +1,17 @@
+[Unit]
+Description=Back up Seqivo Hub database and owner credentials
+After=tuijin-hub.service
+
+[Service]
+Type=oneshot
+User=tuijin
+Group=tuijin
+ExecStart=/bin/sh -c 'exec /usr/bin/node /opt/tuijin/scripts/hub-backup.mjs --data-dir /var/lib/tuijin-hub --output /var/backups/tuijin-hub/$$(date -u +%%Y%%m%%dT%%H%%M%%SZ)'
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+# The read-only SQLite connection may need to create WAL/SHM coordination files
+# immediately after Hub shutdown/restart; the backup script never writes SQL.
+ReadWritePaths=/var/backups/tuijin-hub /var/lib/tuijin-hub

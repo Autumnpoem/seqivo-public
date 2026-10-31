@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-23",
+  "sourceCommit": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+  "scope": "isolated native macOS QA553 package; not installed production application or whole-project acceptance",
+  "mainSha256": "5f19c6c0aa07d0b19ce24f757594cda814d18a52540a69ff599e7ea05925dd24",
+  "ssh": {
+    "transport": "actual SSH via disposable local ssh2 fixture",
+    "tmux": "real isolated tmux server",
+    "hostFingerprintIndependentlyCompared": true,
+    "firstTrustConfirmedInNativeUi": true,
+    "hostCreatedInNativeUi": true,
+    "credentialSavedByExplicitTestSelection": true,
+    "mainAndReviewCommandsExecuted": true,
+    "exactOnceMarkers": true,
+    "defaultSession": "main",
+    "temporarySession": "review",
+    "temporarySwitchPreservedDefault": true,
+    "explicitReconnectOpenedDefault": true,
+    "lightAndDarkVisuallyChecked": true,
+    "managedTakeoverRouteRemainsSeparate": true,
+    "normalQuitWhileSshAttached": true,
+    "tmuxServerNativeIdentityUnchanged": true,
+    "sessionIdsAndBirthTimesUnchanged": true,
+    "sameDataReopenConnectedDefaultWithoutCredentialReprompt": true
+  },
+  "codex": {
+    "singleRealTurnSubmittedInNativeUi": true,
+    "expectedFileBytes": 17,
+    "fileSha256": "a1d9721e47d56507ec9ae06a26b1ecff0a9f41af2238372183346a1e3186a552",
+    "finalReply": "APP571_FINAL_VISIBLE",
+    "finalReplyVisibleBeforeAndAfterReopen": true,
+    "taskRevisionUnchangedAfterReopen": true,
+    "activeLeasesAfterReopen": 0,
+    "taskStatus": "submitted",
+    "humanAcceptance": "unverified",
+    "normalQuitAfterCompletedTurn": true,
+    "scope": "completed turn only; running-AI quit is a separate test"
+  },
+  "nativeExits": [
+    {
+      "launch": 1,
+      "exitCode": 0,
+      "signal": null,
+      "at": "2026-10-23T13:06:05.098Z"
+    },
+    {
+      "launch": 2,
+      "exitCode": 0,
+      "signal": null,
+      "at": "2026-10-23T13:13:18.997Z"
+    },
+    {
+      "launch": 3,
+      "exitCode": 0,
+      "signal": null,
+      "at": "2026-10-23T13:13:59.208Z"
+    }
+  ],
+  "finalCoreStage": "closed",
+  "productionAppReplaced": false,
+  "limits": [
+    "No physical phone, Windows or Ubuntu native acceptance is implied.",
+    "The local and Hub host libraries are still separate.",
+    "Active-AI quit, busy terminal and all exit entry points are not covered by this record."
+  ]
+}

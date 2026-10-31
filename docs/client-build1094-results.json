@@ -1,0 +1,18 @@
+{
+  "bundleId": "com.autumnpoem.tuijin",
+  "candidate": "~/Applications/Seqivo Runtime Tests/Candidate/序程.bundle",
+  "canonicalMainUnchanged": true,
+  "fullSuiteRun": false,
+  "installed": false,
+  "launched": false,
+  "mainSha256": "3ff50f5940e607076926d9d2efae1bbec8e69e072d80d3a4a097398dceebc8ef",
+  "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+  "notarized": false,
+  "packageCheck": "8 changed source files, 3 packaged runtime syntax checks, 14 dist files, 4227 resource hashes and strict signature passed",
+  "resourceFileCount": 4227,
+  "resourceManifestSha256": "70c5e8b76f623badc96071cdbc5e11f08cc7b807574dad23b557cb74d0df5151",
+  "runtimeModel": "NOT VERIFIED",
+  "schema": "client-build1094-results.v1",
+  "signature": "local-ad-hoc verified",
+  "sourceCommit": "4672c738c670d1da02163b1ae9d87b6e501c1cee"
+}

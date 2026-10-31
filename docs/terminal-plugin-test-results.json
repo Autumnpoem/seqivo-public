@@ -1,0 +1,488 @@
+{
+  "date": "2026-10-18",
+  "scope": "Built-in local-terminal lifecycle and owner UI slice",
+  "baseCommit": "c61087c",
+  "sourceOverlay": true,
+  "sourceSha256": {
+    "plugins/local-terminal/plugin.json": "b452830f6ab885a14d413d83f29441ef02f3aafa5511ef1b46b142bf3914ba0e",
+    "server/plugin-loader.mjs": "2e076d546d3dc4836945f25de10fa5b04c88dccb477151c5651fb20aa063190c",
+    "server/core.mjs": "a7204fdacd14dad6a2fbbca4ce27d25d4ace2c6d88c0d02f71bdfda0aeea371f",
+    "server/terminal/plugin-lifecycle.mjs": "3f8b58b7c49e3244e6b98fec5b425e7977790012f8f2be3108c2c001bf9d717b",
+    "server/terminal/manager.mjs": "6d4af7a054c5c9fb7e4355a2d20463931ceceb78e9b79a393e8301d1aaff2a88",
+    "src/PluginCatalog.tsx": "61655bc55c6ae9c58f0cccfa9963526558497cec09e907258475a29b3a125698",
+    "tests/terminal-plugin.test.mjs": "55f4ac1cb8b4019875cdd0a5f6bee9a62570cff0ce0bbc218303da4fe1b3cbe2",
+    "tests/terminal-plugin-live.test.mjs": "776f4c373971fd7d804b028947ee3aa65083e5234915a1aa7eec9f297d3ddb39",
+    "tests/e2e/terminal-plugin-ui.mjs": "2a4be712c6ffe62837949f5e4183b499049a44e707e952b59f3893109082667b",
+    "src/TerminalPanel.tsx": "6ccae4fc8cfb04793ed757dd3ab1ef16b4a6796c78bba5fa21456744060ae347",
+    "src/terminal-types.ts": "a6a76dcfafa7079938a844fa52ff8425289e412ccf6593e12f033871b779b694"
+  },
+  "verifiedBehavior": [
+    "Fixed package-adjacent manifest registers a Core-owned terminal capability; side-loaded code cannot claim that ID",
+    "Owner can manage the plugin; other roles are denied",
+    "Disable gates new terminal access, preserves human control, and blocks ticket creation",
+    "Real Core/PTY/tmux disable-enable cycle preserves A/B pane PIDs and their /bin/ps lstart observations; this is not exact process-birth proof",
+    "Active ordinary Shell prevents disable and remains usable",
+    "A separate clean-disabled Core restart remains disabled and preserves profiles; that test has no active pane",
+    "Same-process failed-detach recheck is covered by lifecycle unit tests"
+  ],
+  "checks": {
+    "lifecycleUnitTests": {
+      "passed": 11,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "legacyRegressionTests": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "realCorePtyTmuxIntegration": {
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "uiTypeCheck": {
+      "exitCode": 0
+    },
+    "uiMockBrowser": {
+      "exitCode": 0,
+      "physicalApp": false,
+      "checks": [
+        "legacy plugin display",
+        "reject state transition",
+        "disable and enable",
+        "unknown state and check action",
+        "late plugin-list response",
+        "local owner status"
+      ]
+    },
+    "webBuild": {
+      "exitCode": 0
+    }
+  },
+  "broaderRegressionSnapshot": {
+    "result": "targeted_retry_passed_with_configured_runtime",
+    "initial": {
+      "passed": 29,
+      "failed": 1,
+      "exitCode": 1,
+      "failedCase": "plugin-isolation fakeCodex host: invalid_job_configuration"
+    },
+    "diagnosis": "Fixture uses relative python3 when TASKBOARD_TEST_PYTHON is unset; the macOS managed executor requires an absolute interpreter path. No production or fixture change was needed.",
+    "configuredRuntimeRetry": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "scope": "Only the previously failed fake app-server test",
+      "environment": "TASKBOARD_TEST_PYTHON set to the existing bundled absolute Python executable"
+    },
+    "systemPythonProbe": {
+      "passed": 0,
+      "failed": 1,
+      "exitCode": 1,
+      "error": "job_stop_or_identity_unconfirmed",
+      "scope": "Same fake app-server test with system Python; shutdown outcome not verified",
+      "diagnostic": "System Python was denied permission to open the plugin executor script. No matching job label or path-matching process was observed afterward, but the removed fixture record prevents exact retirement proof.",
+      "privateResidue": "Preserved; no cleanup or process signal performed"
+    },
+    "note": "This is an initial 29/30 run plus a targeted configured-runtime retry, not a fresh combined 30/30 run. System Python is not accepted as a fallback."
+  },
+  "limitations": [
+    "No final Android or macOS installation package or native GUI flow was tested",
+    "Remote grants were not exercised",
+    "Unknown PTY recovery across Core restart remains unimplemented and unverified",
+    "The clean-disabled restart case checked plugin state and profiles, not active panes",
+    "No in-flight native UI lifecycle race test was run",
+    "No plugin upgrade/rollback, third-party isolation, Windows or Ubuntu acceptance",
+    "The real pane identity assertion uses PID plus second-resolution /bin/ps lstart observation, not an exact birth identity",
+    "The system-Python fake executor probe failed shutdown verification; only the configured bundled interpreter retry passed."
+  ],
+  "evidence": "Local test output was reviewed; raw local logs are not included in this artifact.",
+  "userAcceptance": false,
+  "independentReview": {
+    "blockingFindingsRemaining": 0,
+    "scope": "Frozen backend lifecycle and live test source/log review",
+    "testsRunByReviewer": false
+  },
+  "restartRecovery20261026": {
+    "baseCommit": "882aa3b7df335b9d044e09738084318e4c22f8e8",
+    "sourceOverlay": true,
+    "sourceSha256": {
+      "server/terminal/plugin-lifecycle.mjs": "2c493675762f7b412051f2951025e261acff17fbf24986401db9bf2f9cdd5332",
+      "server/terminal/manager.mjs": "2f6a644d30de2f72ee1530a470062c969e09c53eeffc5b854b13d52bd9fa75b4",
+      "tests/terminal-plugin-restart.test.mjs": "7995d59bb22fb8fe9fa72b06a7a2038c9b2ee53b3f96f8f4f11582d3135cb550",
+      "tests/terminal-default-transfer-live.test.mjs": "70182a56c783dfa9c4d52e44c7005d3610f9a0a7cd4d18e7ef375a31106f4333"
+    },
+    "codeComplete": true,
+    "installed": false,
+    "deployed": false,
+    "scope": "Explicit owner check may finish an interrupted disable only with an exact durable zero-attachment witness. It stays disabled until a separate enable.",
+    "targetedTests": {
+      "passed": 36,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "realTmuxDefaultTransferTest": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "hubLink": "stubbed",
+      "scope": "A default, temporary B, new phone connection A, explicit default B, control transfer, new other-device connection B, actual marker writes, old input denied after revoke, original pane PIDs preserved"
+    },
+    "independentReview": {
+      "result": "no remaining confirmed unsafe promotion or authorization bypass",
+      "resolvedFinding": "Recover the exact known post-witness disable-unknown error, while rejecting unrelated unknown states.",
+      "testsRunByReviewer": false
+    },
+    "verifiedRecoveryCases": [
+      "Separate process killed after durable empty-attachment witness; restart check stays disabled; explicit enable is separate",
+      "Known post-witness failure recorded as unknown; separate process restart check recovers only to disabled",
+      "Legacy/missing/malformed/mismatched/symlinked/unrelated-error evidence rejected",
+      "Witness write failure remains fenced",
+      "No process UID preserves ordinary disable without generating cold recovery proof",
+      "Committed disabled transition with exact surviving witness finishes cleanup"
+    ],
+    "notCovered": [
+      "unknown prior attachments or orphan PTYs",
+      "full Hub transport or client UI for the combined tmux case",
+      "new packaged runtime or deployment",
+      "Windows/Ubuntu native behavior",
+      "whole project or human acceptance"
+    ],
+    "fixturePermissionCorrection": {
+      "reason": "A restrictive build umask changed the intended public-mode fixture to 0600; the negative test now chmods its disposable witness to 0644 and asserts the actual mode. Product code is unchanged.",
+      "testSha256": "da9db73dd57b8650d029f739c71b40dbaa7970c3c602a2e6d661be899a2eb9f3",
+      "umask077": {
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0
+      },
+      "umask022": {
+        "passed": 6,
+        "failed": 0,
+        "skipped": 0
+      },
+      "originalBuildTestFailureRetained": true
+    }
+  },
+  "packagedValidation20261028": {
+    "productCommit": "719d67c7413418b8290cd9d0da2ad2f9a13a3330",
+    "testOnlyOverlayCommit": "87ccb5fa6c2f5012decaa4223503c4e69df496b8",
+    "scope": "Signed local macOS candidate and its packaged Node/Core; this is not native UI or device acceptance.",
+    "checks": {
+      "passed": 46,
+      "failed": 0,
+      "skipped": 0,
+      "composition": "31 successful BUILD1000 tests plus 15 BUILD1004 tests after the test-only permission fixture correction"
+    },
+    "originalFixtureFailureRetained": true,
+    "candidateSignaturesVerified": true,
+    "hubArchiveVerified": true,
+    "installed": false,
+    "deployed": false,
+    "privateGithubSourceCommit": "87ccb5fa6c2f5012decaa4223503c4e69df496b8",
+    "boardProjection": {
+      "checkedAtUtc": "2026-10-28T12:48:47.783826+00:00",
+      "taskCount": 2,
+      "summariesAndPendingChecksMatched": true,
+      "manualAcceptanceUnchanged": true
+    },
+    "remaining": [
+      "Original attached PTY cold recovery",
+      "Native plugin-page and phone-connected enable/disable flow",
+      "Installation/rollback and platform-specific verification"
+    ]
+  },
+  "attachedRecovery20261028": {
+    "baseCommit": "87ccb5fa6c2f5012decaa4223503c4e69df496b8",
+    "sourceOverlay": true,
+    "sourceSha256": {
+      "server/terminal/plugin-lifecycle.mjs": "174bda377130c32a0ce701aac6cd70ec38a5c0d20bfd2c01eab64d76c4308638",
+      "server/terminal/manager.mjs": "b7704579f1fc512c951df1d9e66e247db0652b69b2d4e3b718a0eed50d5edecf",
+      "tests/terminal-plugin-restart.test.mjs": "8e2cb3f517dbfeee33e605f7e0f614800c1db17ff767d3daf303cc363a7c8706"
+    },
+    "codeComplete": true,
+    "tests": {
+      "passed": 24,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "suites": [
+        "terminal-plugin-restart",
+        "terminal-plugin-live",
+        "terminal-plugin"
+      ]
+    },
+    "scope": "Interrupted disable with a complete durable record of existing tmux clients on macOS; explicit check confirms exact original births are gone before reaching disabled.",
+    "verifiedBehavior": [
+      "Live original attachment blocks recovery, including unchanged birth with changed process group or UID",
+      "Writable real tmux client writes a marker; after fixture Core loss, original client birth ends and the session pane and marker remain",
+      "Strict complete attachment set, digest, counts and profile binding reject altered or incomplete evidence",
+      "Native proof unavailable preserves ordinary same-process disable; a later crash remains unknown",
+      "Recovery sends no signal, preserves project control, and requires separate explicit enable"
+    ],
+    "independentReview": {
+      "blockingFindingsRemaining": 0,
+      "rawTestLogReview": "24 passed, zero failed/skipped confirmed from Root-run log; final source hashes matched"
+    },
+    "built": false,
+    "installed": false,
+    "deployed": false,
+    "notCovered": [
+      "Process loss before a matching attachment witness is durably stored",
+      "General ready-state orphan accounting or retrospective recovery of older unrecorded PTYs",
+      "Native App GUI and connected-phone lifecycle combinations",
+      "Windows/Ubuntu cold process proof, package upgrade/rollback and whole-project acceptance"
+    ]
+  },
+  "packagedFixtureCorrection20261030": {
+    "baseProductCommit": "e4cf3e94d850924bd3519ee359b8c929c2191932",
+    "cause": "Restart test hardcoded the development .tools tmux path and ignored the packaged executable setting; an archived source tree does not contain that directory",
+    "originalBuild1023RestartResult": {
+      "tests": 10,
+      "passed": 8,
+      "failed": 0,
+      "skipped": 2,
+      "validationGatePassed": false,
+      "originalReceiptAndLogPreserved": true
+    },
+    "correction": "Use TMUX_TEST_EXECUTABLE when supplied, matching the other terminal integration tests; keep the existing development fallback",
+    "testSourceSha256": "96b416f64a1a7f61d384312153bbdcbd85b64895355da9743b773ab25ed4cfda",
+    "rootCorrectedCheck": {
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "runtime": "BUILD1023 packaged Python and tmux; matching terminal source from workspace",
+      "evidence": ".runtime/recovery1013/root-packaged-tmux-fixture.log"
+    },
+    "scope": "Test harness path correction only; BUILD1028 subsequently completed candidate validation with this exact fixture overlay",
+    "installed": false,
+    "deployed": false
+  },
+  "candidateBuild20261030": {
+    "productCommit": "e4cf3e94d850924bd3519ee359b8c929c2191932",
+    "testOverlaySha256": "96b416f64a1a7f61d384312153bbdcbd85b64895355da9743b773ab25ed4cfda",
+    "nativeBuild": "BUILD1023 fresh Cargo target; BUILD1018 stale cache failure retained",
+    "validation": "BUILD1028 test-only overlay; original 8-pass/2-skip result retained",
+    "checks": {
+      "passed": 50,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "priorPassed": 31,
+      "resumedPassed": 19
+    },
+    "mac": {
+      "built": true,
+      "signed": "local-ad-hoc, strict signature verified before and after tests",
+      "notarized": false,
+      "mainSha256": "39ede2cacf8091aaac5955210633ee004d85e1484f86218b7f4f93e183ef8eed",
+      "packagedResourcesUnchanged": true,
+      "installed": false
+    },
+    "hub": {
+      "archivePrepared": true,
+      "archiveVerified": true,
+      "archiveSha256": "330834df2bb496edd321023d57a3f53af7faac264283c77616de8e53891eda63",
+      "deployed": false
+    },
+    "android": {
+      "nativeVersionCode": 13,
+      "rebuilt": false,
+      "reason": "Native wrapper inputs unchanged; retained APK bytes match existing provenance"
+    },
+    "notIncluded": "Later CLOSE1027 shutdown diagnostics are a separate source change and are not in this e4 candidate",
+    "evidence": [
+      ".runtime/build1023/result.json",
+      ".runtime/build1028/resume-result.json"
+    ]
+  },
+  "unifiedCandidate20261030": {
+    "id": "BUILD1031",
+    "sourceCommit": "6125a5c6cdb1b25e0911673ae40759ff65dd2a6b",
+    "sourceTreeDigest": "2feac14332082d67a1cceb8e00c74de166ff94f9eab08765d477fe319c19f41e",
+    "status": "built_tested_not_installed_not_deployed",
+    "checks": {
+      "passed": 59,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "suites": {
+        "terminal-manager.test": {
+          "tests": 19,
+          "pass": 19,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        },
+        "terminal-default-transfer-live.test": {
+          "tests": 1,
+          "pass": 1,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        },
+        "terminal-plugin.test": {
+          "tests": 11,
+          "pass": 11,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        },
+        "terminal-plugin-restart.test": {
+          "tests": 10,
+          "pass": 10,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        },
+        "terminal-plugin-live.test": {
+          "tests": 3,
+          "pass": 3,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        },
+        "terminal-recovery-remote.test": {
+          "tests": 1,
+          "pass": 1,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        },
+        "packaged-sidecar-shutdown": {
+          "tests": 4,
+          "pass": 4,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        },
+        "packaged-sidecar-startup-blocked": {
+          "tests": 1,
+          "pass": 1,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        },
+        "plugin-shutdown-diagnostics.test": {
+          "tests": 9,
+          "pass": 9,
+          "fail": 0,
+          "skipped": 0,
+          "cancelled": 0,
+          "todo": 0
+        }
+      }
+    },
+    "mac": {
+      "built": true,
+      "localSignatureVerified": true,
+      "resourcesUnchanged": true,
+      "notarized": false,
+      "mainSha256": "f2b722b8accadad7fb768e0cf277ea558abf4ca4c52be7a977b8abf08c51bea3",
+      "installed": false,
+      "launched": false
+    },
+    "hub": {
+      "archiveVerified": true,
+      "archiveSha256": "a2fa839dae652fdeed84d162db9193b30a643d610981dcc034d6339f07e1eede",
+      "deployed": false
+    },
+    "android": {
+      "nativeVersionCode": 13,
+      "rebuilt": false,
+      "reason": "Native wrapper sources unchanged; previously built APK retained, no new App acceptance claimed"
+    },
+    "includes": [
+      "REC1013 attached terminal restart recovery",
+      "CLOSE1027 bounded named shutdown diagnostics",
+      "Committed packaged tmux restart test fixture"
+    ],
+    "limits": [
+      "Targeted Mac-host checks only; not full UI, real AI, phone or Windows/Ubuntu acceptance",
+      "Current Mac installation and live Hub remain on their separately recorded versions",
+      "Historical failed attempts and unknown results remain unchanged"
+    ],
+    "evidence": [
+      ".runtime/build1031/result.json",
+      ".runtime/build1031/source-manifest.json"
+    ],
+    "receiptSha256": "25bb0981c14a7bfa552bd378d4d3324769eda89756d5250f3b3c2fe263195849"
+  },
+  "unifiedCandidateBuild1038_20261030": {
+    "id": "BUILD1038",
+    "sourceCommit": "a74d53b45ff0e1b6ec739bcda5aadf4b3a395ef6",
+    "sourceTreeDigest": "dd271ce4eecb35e23503353b8a643c3ffe25ea2e5ea470cf3beb0448e38efe96",
+    "status": "built_tested_not_installed_not_deployed",
+    "checks": {
+      "passed": 174,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "suites": {
+        "terminal-manager.test": 19,
+        "terminal-default-transfer-live.test": 1,
+        "terminal-plugin.test": 11,
+        "terminal-plugin-restart.test": 10,
+        "terminal-plugin-live.test": 3,
+        "terminal-recovery-remote.test": 1,
+        "packaged-sidecar-shutdown": 4,
+        "packaged-sidecar-startup-blocked": 1,
+        "plugin-shutdown-diagnostics.test": 9,
+        "plugin-worktree-startup-recovery.test": 7,
+        "plugin-host.test": 108
+      }
+    },
+    "mac": {
+      "built": true,
+      "localSignatureVerified": true,
+      "resourcesUnchanged": true,
+      "notarized": false,
+      "installed": false,
+      "launched": false,
+      "mainSha256": "4571807bc79c90762c398b1d6877986980f10c845ce826b1133483e5b01ae626"
+    },
+    "hub": {
+      "archiveVerified": true,
+      "archiveSha256": "76d7b6870d36b70fb14f495d0c800bce781bd3de5e50d915ee8b3704251af7ed",
+      "deployed": false
+    },
+    "android": {
+      "nativeVersionCode": 13,
+      "rebuilt": false,
+      "sha256": "60fa04a9f52a8922c0fd8ea794d83cc3a1b2c714506408d41d78afaad71bacb1",
+      "reason": "Native wrapper sources were unchanged; existing APK was reused, so this receipt establishes no new Android package acceptance."
+    },
+    "includes": [
+      "BUILD1038 packaged plugin host regression",
+      "packaged plugin worktree startup recovery fixture",
+      "packaged sidecar shutdown and bounded shutdown diagnostics",
+      "existing terminal A/B default transfer targeted case"
+    ],
+    "limits": [
+      "Targeted packaged Mac-host suites only; no installed UI, native Android, physical phone, Windows or Ubuntu acceptance.",
+      "No plugin upgrade/rollback or full unknown-PTY recovery acceptance is established by this candidate build.",
+      "Mac candidate is signed local ad-hoc but not notarized, installed or launched; Hub archive is not deployed.",
+      "Prior failed attempts and unknown results remain unchanged."
+    ],
+    "evidence": [
+      ".runtime/build1038/result.json",
+      ".runtime/build1038/source-manifest.json"
+    ]
+  }
+}

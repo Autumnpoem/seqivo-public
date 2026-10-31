@@ -1,0 +1,10 @@
+import { createCore } from './core.mjs';
+import { startHttp } from './http.mjs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join, resolve } from 'node:path';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const dataDir=resolve(process.env.TUIJIN_DATA_DIR||join(root,'.runtime'));
+const core=await createCore({dataDir,pluginDir:process.env.TUIJIN_PLUGIN_DIR||join(root,'plugins'),workspace:process.env.TUIJIN_WORKSPACE});
+const http=await startHttp({core,dataDir,distDir:join(root,'dist'),port:Number(process.env.PORT||4317),host:process.env.TUIJIN_HOST||'127.0.0.1',publicOrigin:process.env.TUIJIN_PUBLIC_ORIGIN});
+console.log(`推进已启动：http://127.0.0.1:${http.port}\n访问密钥保存在 ${join(dataDir,'access.json')}（请勿公开）。`);
+let closing=false;async function stop(){if(closing)return;closing=true;await http.close();await core.close();process.exit(0);}process.on('SIGINT',stop);process.on('SIGTERM',stop);

@@ -1,0 +1,270 @@
+{
+  "date": "2026-10-21",
+  "sourceCommit": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+  "hub": {
+    "deployed": true,
+    "archiveSha256": "94aa2b16938b4a795f6abe73cf891011f126ed6f7ab8f8b6bcf6bbf94f2b096d",
+    "manifestFilesVerified": 143,
+    "tlsValidationDisabled": false,
+    "firewall": "active",
+    "dataDirectoryMode": "0o700",
+    "sshVaultKeyMode": "0o600",
+    "nginxEnabledLinkPreserved": true,
+    "existingAccountsAndSessionsPreserved": true,
+    "unknownCommandRecordsPreserved": true,
+    "backupServiceBeforeAndAfter": "passed",
+    "coldBackup": "v2, private 0700/0600, SQLite integrity passed",
+    "restoreProbe": "new full Hub then previous full Hub opened and closed against isolated cold snapshot copy",
+    "rollback": "previous application and nginx bytes retained; no live database restore",
+    "publicChecks": {
+      "sourceCommit": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+      "at": "2026-10-21T15:12:18.245Z",
+      "tlsValidationDisabled": false,
+      "/api/auth/status": 200,
+      "/api/state": 401,
+      "/api/ssh/hosts": 401,
+      "indexSha256": "53421103a85ad2647f8efc383bac32f1e9dcbaac486b259388eaf08352bce2fb",
+      "assets": [
+        {
+          "path": "/assets/index-4-zVlPLj.js",
+          "sha256": "389a919704d0e6314d4637a51f95300b0f1c3145e8ac84c8f917093cf4d07cbe"
+        },
+        {
+          "path": "/assets/index-CCLuRB72.css",
+          "sha256": "8b41a63442d92d5147571972028a3c68ca80bda0bf1b232127bba9d2ca8299cc"
+        }
+      ],
+      "websocketAnonymousStatus": 403,
+      "existingOwnerBearerStateStatus": 200,
+      "scope": "public TLS, deployed asset identity, anonymous denial, existing owner bearer preserved; account-authorized SSH native flow remains pending"
+    },
+    "authorizedAccountSshUi": "pending"
+  },
+  "packagingCorrections": [
+    {
+      "status": "rejected before service stop",
+      "reason": "Ubuntu runuser path differs; deployment precheck corrected from observed path"
+    },
+    {
+      "status": "rejected before service stop",
+      "reason": "tar root directory and bundled license paths were not recognized; exact extraction block now validated locally"
+    },
+    {
+      "status": "candidate not installed; previous Hub restarted",
+      "reason": "ws ESM wrapper.mjs missing although CommonJS require passed; bundle fixed, isolated ESM import moved before service stop"
+    }
+  ],
+  "mac": {
+    "candidateBuilt": true,
+    "sourceCommit": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+    "mainSha256": "5f19c6c0aa07d0b19ce24f757594cda814d18a52540a69ff599e7ea05925dd24",
+    "signing": "local-ad-hoc",
+    "notarized": false,
+    "isolatedLaunchStarted": true,
+    "nativeSshUi": "passed_with_scope in isolated native QA553 on 2026-10-23; see qa/ssh-terminal/integration-native-mac.json",
+    "productionAppReplaced": false,
+    "productionProcessAndBinaryUnchanged": true,
+    "initialNativeSshUiStatusOct21": "pending; desktop locked",
+    "limits": [
+      "Local synthetic SSH target, not a user-owned OpenSSH host.",
+      "Completed Codex turn only; active-AI quit was not tested.",
+      "No formal production app replacement."
+    ]
+  },
+  "android": {
+    "versionCode": 12,
+    "apkSha256": "fef4f725909f87c8e35268edfa76bfa9cabd3d1f9cd2cb3a465e381d443cf4b4",
+    "signing": "existing-debug-key",
+    "emulatorUpgradeFromVersion11": true,
+    "ordinaryLoginPageReached": true,
+    "sshUiFlow": "partial on emulator v12: login, host trust/credential save, session listing, main attach and UI file creation passed; switching/reconnect remains in progress",
+    "physicalDeviceAcceptance": false,
+    "initialSshUiStatusOct21": "pending"
+  },
+  "cleanup": {
+    "supersededNeverLaunchedQaBundlesMovedToTrash": 2,
+    "onlyCurrentCandidateRetained": true,
+    "userDataPreserved": true
+  },
+  "board": {
+    "status": "running",
+    "verification": "partial",
+    "humanAcceptance": "unverified",
+    "completionCirclesPreserved": true,
+    "otherTasksUnchanged": true,
+    "remoteBoardSynced": true
+  },
+  "github": {
+    "private": true,
+    "codePushed": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+    "cloudCiRequested": false
+  },
+  "limits": [
+    "This is partial integration delivery, not whole-project completion.",
+    "QA553 isolated native Mac SSH/tmux and completed-turn Codex flow passed with scope; f357c82 is installed in place and same-data reopen passed, but those QA553 interactions were not re-run as part of the ordinary installed-app check.",
+    "The QA553 Mac SSH target was synthetic and local; write access through the deployed Hub to a user-owned target remains unverified.",
+    "Android v12 local-fixture UI has scoped main/default/file-creation evidence. Android v13 is installed but its SSH UI is unverified; physical-phone use remains pending.",
+    "The active-AI quit result is from the 9c5b6b7 package and leaves provider outcome, turn completion and stop proof unknown with the lease fence retained; it is not an f357c82 result.",
+    "Windows/Ubuntu native clients and automatic desktop/Hub host-library synchronization remain pending."
+  ],
+  "repeatableHubPackaging": {
+    "regressions": {
+      "tests": 5,
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "evidence": "integration-hub-package.log",
+    "sourceCommit": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+    "files": 143,
+    "esmImportPassed": true,
+    "isolatedFromCheckoutNodeModules": true,
+    "changedRuntimeFilesComparedWithDeployed": [],
+    "missingRuntimeFilesComparedWithDeployed": [],
+    "scope": "packager only; no Hub/SSH/AI service started",
+    "deployedArchiveContainsNoHiddenConfigPaths": true
+  },
+  "nativeMacQaOct23": {
+    "sourceCommit": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+    "evidence": "qa/ssh-terminal/integration-native-mac.json",
+    "scope": "isolated native QA package; local synthetic SSH target using real SSH and tmux",
+    "ssh": "main/review writes once, temporary review leaves main default, disconnect/reconnect returns to main, Command-Q while attached closes Core, same-data reopen preserves tmux server/session identities and start times",
+    "codex": "one real UI turn writes the expected 17-byte file once; final reply remains visible after normal quit and same-data reopen; task revision 4; active lease count 0; human acceptance unverified",
+    "nativeExitCount": 3,
+    "allNativeExits": "exit 0; Core closed",
+    "productionAppReplaced": false,
+    "limits": [
+      "Not a user-owned OpenSSH target or deployed-Hub account flow.",
+      "No active-AI quit or busy terminal command.",
+      "Not whole-project acceptance."
+    ]
+  },
+  "androidEmulatorOct23": {
+    "package": "ordinary debug v12",
+    "scope": "local fixture Hub while QA553 Mac app was closed",
+    "passedWithScope": [
+      "login",
+      "save host credential and host trust",
+      "list real main/review sessions",
+      "main default",
+      "attach main",
+      "UI-created file"
+    ],
+    "pending": [
+      "session switching and reconnect",
+      "physical phone"
+    ]
+  },
+  "build589": {
+    "sourceCommit": "f357c82",
+    "mac": "normal ad-hoc package verified; not installed as production app",
+    "android": "v13 built, not installed",
+    "hub": "archive prepared, not deployed; October 21 deployed version remains 9c5b6b7",
+    "scope": "packaging only",
+    "recordDate": "2026-10-23 package-build snapshot, before installation/deployment",
+    "supersededBy": "currentHubDeploymentOct23, macInstallationOct23, androidV13Oct23"
+  },
+  "updatedAt": "2026-10-23",
+  "currentHubDeploymentOct23": {
+    "sourceCommit": "f357c82a350f02715bab3e6386f87a5512ca7191",
+    "deployed": true,
+    "deploymentExitCode": 0,
+    "manifestFilesVerified": 142,
+    "publicChecks": {
+      "tlsValidationDisabled": false,
+      "httpsAuthStatus": 200,
+      "anonymousState": 401,
+      "anonymousSshHosts": 401,
+      "anonymousSshWebSocket": 403,
+      "existingOwnerBearerState": 200
+    },
+    "indexSha256": "d3828c5f6a3853c5f4b4e6d9371ffeda1d007ecc33f36603d51dbe03154f26c4",
+    "assetSha256": [
+      "569b60f43406d79eb8e46b8f0c256e965dd14abc92e59837440d861026e5c53e",
+      "8b41a63442d92d5147571972028a3c68ca80bda0bf1b232127bba9d2ca8299cc"
+    ],
+    "assetIdentityValidated": true,
+    "firewall": "active and unchanged",
+    "environmentAndNginx": "not rewritten",
+    "previousAppAndBackup": "retained",
+    "authorizedAccountSshUi": "pending"
+  },
+  "macInstallationOct23": {
+    "sourceCommit": "f357c82a350f02715bab3e6386f87a5512ca7191",
+    "evidence": "integration-mac-install.json",
+    "installedInPlace": true,
+    "originalBundleIdentity": true,
+    "backupArchiveVerified": true,
+    "prelaunchAppData": "unchanged",
+    "prelaunchProjectTaskRowsByteIdentical": true,
+    "firstLaunchOriginalProjectLoaded": true,
+    "projectCount": 2,
+    "taskCount": 62,
+    "accountAndPluginSettings": "preserved",
+    "remoteCredentialsAndBinding": "preserved",
+    "expectedRuntimeChanges": [
+      "local API URL regenerated",
+      "remote sync sequence advanced",
+      "empty executor and completed-conversation dictionaries initialized"
+    ],
+    "normalQuitCoreClosed": true,
+    "corelockPresentAfterQuit": false,
+    "appProcessGone": true,
+    "sameDataReopen": "passed",
+    "sameDataReopenOriginalProjectLoaded": true,
+    "sameDataReopenStatePreserved": true,
+    "permanentlyDeleted": false,
+    "canonicalAppAndRollbackArchive": "retained",
+    "signing": "local ad-hoc; not notarized",
+    "limits": [
+      "Native SSH/tmux interaction and active-AI shutdown evidence remains QA553 scope, not personal-host acceptance in the installed ordinary bundle.",
+      "Not a notarized public release or whole-project acceptance."
+    ],
+    "unusedSupersededBundlesMovedToRecoverableTrash": 17,
+    "normalQuitNativeExitCodeCaptured": false
+  },
+  "androidV13Oct23": {
+    "package": "ordinary debug v13",
+    "installedOnEmulator": true,
+    "installMethod": "adb install -r",
+    "sshUiFlow": "not exercised",
+    "physicalDeviceAcceptance": false
+  },
+  "androidV12HistoricalOct23": {
+    "package": "ordinary debug v12",
+    "scope": "local fixture Hub; main/review listing, main attach and UI file creation passed with scope",
+    "switchingReconnect": "pending at that time",
+    "note": "Does not establish v13 SSH UI or deployed-Hub account flow."
+  },
+  "activeAiQuitOct23": {
+    "evidence": "integration-active-quit.json",
+    "packageSource": "9c5b6b7, not f357c82",
+    "shutdownScope": "passed_with_scope",
+    "providerOutcome": "unknown",
+    "turnComplete": "unverified",
+    "stopProof": "unverified",
+    "leaseFence": "retained",
+    "taskCompletion": "not established"
+  },
+  "androidV12UiOct23": {
+    "evidence": "integration-android-emulator.json",
+    "package": "ordinary WebView APK v12",
+    "environment": "Android emulator; disposable HTTPS Hub and local synthetic SSH/tmux target",
+    "result": "passed_with_scope",
+    "passed": [
+      "native APK login",
+      "host trust and credential save",
+      "main/review listing",
+      "main set as default and attached",
+      "one actual terminal UI file creation",
+      "host/trust persistence after leaving and reentering terminal route"
+    ],
+    "pending": [
+      "Android UI temporary switch and default reconnect",
+      "physical-device acceptance",
+      "deployed-Hub account-authorized SSH UI"
+    ],
+    "humanAcceptance": "unverified"
+  }
+}

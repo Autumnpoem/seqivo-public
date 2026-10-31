@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "installedSource": "c7095d6e737af2649211a6b1c9b77f16bfc52418",
+  "status": "historical_c7095d6_failure; e5de02b_bounded_physical_recovery_and_lock_check_passed",
+  "physicalAndroidOfflineScenario": {
+    "deviceConnectivity": "Wi-Fi and cellular disabled; ADB reported no active default network",
+    "sshUi": "connection failed; terminal input shortcut disabled",
+    "afterWifiRestored": "main board recovered but SSH session remained failed",
+    "automaticRecovery": "failed",
+    "replayOrNewCommand": "not established by this observation",
+    "screenLock": "not tested"
+  },
+  "candidateFix": {
+    "sourceCommit": "e5de02bb15d9c82a3bfe4df49cebfd6ea4097509",
+    "installedOrDeployed": true,
+    "build636": "passed; isolated package build",
+    "deploy637": "deployed; post-deployment manifest and database/data checks passed",
+    "rootCause": "confirmed in SSH631/634: recovery intent could be consumed before the SSH ticket POST failed, preventing the intended subsequent retry",
+    "hypothesis": "superseded by the confirmed ticket-request ordering cause for the tested failure path",
+    "review": "REVIEW635 found no confirmed issue in reviewed scope; POST-never-settles and concurrent retry remain limitations",
+    "helperTest": "1/1 passed",
+    "typecheckWebBuild": "passed",
+    "macInstallation": "replaced production app in place; backup verified",
+    "androidRetest": "passed_with_scope; existing ordinary Android v13 APK loaded updated e5de02b Hub web bundle; no APK rebuild/upgrade",
+    "currentlyDeployedHubSource": "e5de02bb15d9c82a3bfe4df49cebfd6ea4097509",
+    "macLaunch": "initial API wait timed out then app became ready; original project/task rows unchanged",
+    "productionAppReplaced": true,
+    "normalCommandQ": "passed; Core closed, no app lock or app processes remained",
+    "sameDataReopen": "passed without manual retry; original project and 2 projects/62 task rows unchanged",
+    "androidOfflineEvidence": {
+      "wifiAndMobileDataDisabled": true,
+      "deviceDefaultNetwork": "none",
+      "samePageRetained": true,
+      "newConnectionOrReload": "none",
+      "automaticOriginalSessionReconnectAfterNetworkRestore": true,
+      "readOnlyMarkers": "both remained one line",
+      "inputReplayObserved": false,
+      "screenLock": "passed_with_scope; see screenLockRecovery",
+      "cleanup": "passed; only test-owned assets removed; unrelated sessions preserved",
+      "screenLockRecovery": "passed; same page and original session retained after short lock/unlock",
+      "listRefresh": "the displayed list could remain stale immediately after channel exit until a new connection; no live refresh is claimed"
+    },
+    "screenLockRecovery": "passed_with_scope; about 10 seconds locked then unlocked on the same page without a new connection or reload",
+    "cleanup": "passed; test-owned sessions, marker files, and temporary directory removed; unrelated sessions preserved; prior null default retained"
+  },
+  "browserEvidence": {
+    "installedC7095d6Baseline": "after a 12-second transport failure, the SSH session stayed disconnected",
+    "candidateAutomaticReconnect": "exact selected review session, not the host default; marker written once",
+    "backAndCancel": "39.6 seconds; zero new SSH commands observed"
+  },
+  "defaultSessionChecks": {
+    "setAThenSwitchBManualDisconnectReconnect": "returned to A; markers remained one line each",
+    "clearDefault": "server state null at revision 4",
+    "newConnectionAfterClear": "explicit session chooser passed",
+    "testSessions": "retained for retest"
+  },
+  "limits": [
+    "The c7095d6 OS-offline recovery failure remains a historical result for that version.",
+    "The bounded e5de02b physical Android OS-offline restoration and short lock/unlock scenarios passed on the existing v13 APK loading updated Hub web content; no APK rebuild or upgrade was part of the test.",
+    "The tested scenarios do not establish recovery from other network failures or support on other platforms.",
+    "Initial cold Mac launch required one manual retry; later warm reopen succeeded without manual retry.",
+    "Full device and whole-project acceptance remain incomplete."
+  ],
+  "wholeProjectComplete": false
+}

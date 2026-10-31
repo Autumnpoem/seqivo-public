@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-30T18:13:58.739218+00:00",
+  "workId": "LINUX1075",
+  "baseCommit": "c255194d43ceeccd1d93726e1e9eacc82cd605d2",
+  "status": "partial-platform-implementation",
+  "files": {
+    "server/core.mjs": "66e0718685cb2fc112946ac9c1e34c6562c5eae7231c8a54e705c3a5fbb8c325",
+    "server/terminal/manager.mjs": "431a0a845986bf36d5d61e1fae60fa0045b941d3b1f0c305e3a418d98e0161cd",
+    "server/terminal/managed-pane-registry.mjs": "bd03f5b1c6be24a87b4a70bd008a656395a488e32b6ef07369271f840246771e",
+    "server/terminal/linux-managed-writers.mjs": "71ee9b667d39d7cb34441821fce5163b172b1ca4b6df25377c0f831ca0a99b9d",
+    "tests/terminal-linux-managed-writers.test.mjs": "c19948337d314d5ffd8b0b0a45134c8d6ae7205159e193cfa41739cd1c025b2b",
+    "tests/terminal-managed-integration.test.mjs": "449b12c8d1f51a605d12767744ac2669e8ec5598d4101c4a30344d6e149d6514",
+    "tests/fixtures/linux-managed-core-controller.mjs": "65958451e3eb83eae74ffbb3ea848398fefb21702a38d2d2fd2f9284a0464ebd"
+  },
+  "delivery": {
+    "codeCompleteForSlice": true,
+    "targetedTestsPassed": true,
+    "packaged": false,
+    "installed": false,
+    "deployed": false,
+    "wholeProjectComplete": false
+  },
+  "scope": [
+    "Core creates and registers original managed Linux tmux records",
+    "A separate Node controller explicitly recovers the same shell PID, boot ID and start ticks with one registry entry",
+    "Linux managed mode only; current-user-visible workspace writer inspection with stable selected identities",
+    "Changed birth, unregistered sessions and existing-mode adoption are rejected; unconfirmed AI return remains fenced"
+  ],
+  "bounds": {
+    "selectedPidsTotal": 128,
+    "parentChainDepth": 32,
+    "identityBatchSize": 8,
+    "proofIsFullProcessStop": false
+  },
+  "baseline": {
+    "exitCode": 1,
+    "passed": 0,
+    "failed": 1,
+    "reason": "Real Core registration reached the macOS-only tmux provenance gate",
+    "testOnlyChange": "Admit Linux to the existing real Core fixture; product from baseCommit unchanged",
+    "localRawLog": ".runtime/linux1075/baseline/tests.log"
+  },
+  "reviewFixes": [
+    {
+      "finding": "Supervisor siblings and relay descendants were incorrectly authorized as original-shell writers",
+      "beforeExitCode": 1,
+      "afterUnitPassed": 3,
+      "beforeEvidenceType": "Actual execution-output transcription, not raw capture",
+      "localEvidence": ".runtime/linux1075/writer-roots-test-transcribed.txt",
+      "repair": "Authorize original shell ancestry and exact recorded infrastructure PIDs only"
+    },
+    {
+      "finding": "A registered managed pane could enter unsupported Linux existing-session control mode",
+      "nativeBefore": {
+        "passed": 2,
+        "failed": 1,
+        "localRawLog": ".runtime/linux1075/mode-baseline/tests.log"
+      },
+      "repair": "Require managed control mode before Linux private-record writer proof",
+      "nativeAfterIncludedInFinalRun": true
+    }
+  ],
+  "candidate1": {
+    "passed": 5,
+    "failed": 0,
+    "skipped": 10,
+    "localRawLog": ".runtime/linux1075/candidate1/tests.log",
+    "scope": "Before the existing-mode gate; not final acceptance"
+  },
+  "targetedUbuntu": {
+    "host": "Ubuntu 22.04 x86_64",
+    "node": "v24.21.0",
+    "python": "3.10.12",
+    "tmux": "3.2a",
+    "uid": 65534,
+    "locale": "C",
+    "command": "node --test --test-concurrency=1 --test-reporter=tap tests/terminal-managed-integration.test.mjs tests/terminal-linux-managed-writers.test.mjs",
+    "exitCode": 0,
+    "passed": 8,
+    "failed": 0,
+    "skipped": 8,
+    "skipReason": "Existing macOS-only managed return, registry failure and restore cases",
+    "localRawLog": ".runtime/linux1075/candidate2/tests.log",
+    "temporaryDirectoryRemoved": true,
+    "dependencyBuild": "node-pty compiled only in the isolated fixture using previously verified Node headers"
+  },
+  "targetedMac": {
+    "node": "v24.19.0",
+    "initial": {
+      "passed": 34,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "command": "node --test --test-concurrency=1 --test-reporter=tap tests/terminal-managed-integration.test.mjs tests/terminal-manager.test.mjs tests/terminal-linux-managed-writers.test.mjs",
+      "localRawLog": ".runtime/linux1075/mac-tests.log",
+      "scope": "Before final Linux-only mode gate and three test changes"
+    },
+    "finalFocused": {
+      "passed": 3,
+      "failed": 0,
+      "skipped": 1,
+      "exitCode": 0,
+      "skipReason": "Linux-only return/mode boundary test",
+      "scope": "Original Core recovery, changed birth and legacy session after final changes",
+      "localRawLog": ".runtime/linux1075/mac-final-focused.log"
+    }
+  },
+  "cleanup": {
+    "allFourRemoteTemporaryDirectoriesRemoved": true,
+    "failedFixtureSignalsSent": 0,
+    "servicesOrFirewallChanged": false,
+    "realProviderCalls": 0,
+    "userAcceptanceChanged": false
+  },
+  "review": {
+    "independent": true,
+    "confirmedFindingsFixed": 2,
+    "remainingP1P2InSlice": 0,
+    "localRecord": ".runtime/linux1075/review.md",
+    "requestedModel": "gpt-6-sol",
+    "requestedEffort": "high",
+    "actualRuntimeModel": "NOT VERIFIED"
+  },
+  "remaining": [
+    "Linux full process inventory and AI stop/return proof",
+    "Linux retired-session proof and arbitrary existing-session adoption",
+    "Ubuntu native UI, installation, suspend/resume and upgrade",
+    "Windows native Shell and WSL tmux",
+    "Unified package inclusion; no new Mac/Android installation or physical-device acceptance"
+  ],
+  "evidence": {
+    ".runtime/linux1075/baseline/tests.log": "2adaeabbc0216f5d0f3e4c9bd6643d65373e0545610dabb77a68c604ca06ab95",
+    ".runtime/linux1075/candidate1/tests.log": "733de14cdbc5e880915511666ecb5007e33d73daccaa77bf333823721ae00ef8",
+    ".runtime/linux1075/mode-baseline/tests.log": "fcb0d5d7b06b0642808b4ffddf891abc4c320ba70977984734d631d93de6cbf2",
+    ".runtime/linux1075/candidate2/tests.log": "272ef1f5480f5a121d5476a5a5010ff0996d9c6c09afb7edb6350b0028ef4b0d",
+    ".runtime/linux1075/mac-tests.log": "10ac0b882a7f675b26a4c975c61abe184d57b5a3d95365fe24ecd091c46521db",
+    ".runtime/linux1075/mac-final-focused.log": "c03e4ace9b89c62cf97054340fa89b51d94ed78ea6562e3fd2f7392089348cba",
+    ".runtime/linux1075/writer-roots-test-transcribed.txt": "8c179ab41df0576f62dfe8ee99ac5bd88bd629ed4c090ea7b66493f6b9714ea4",
+    ".runtime/linux1075/review.md": "914197d98593564b80d4f231ef10183317dc769c0b9c4735071a409d5654b9d4",
+    ".runtime/linux1075/baseline-cleanup.json": "a8282350ba269aa2517a5d50b8812bf16e643803eaaca3c2666f4f04c5203635",
+    ".runtime/linux1075/mode-baseline-cleanup.json": "18fc73cccc4cc65e511c3da1fe34f3b9138206de06cb7493fcb7d05e43c3388f"
+  }
+}

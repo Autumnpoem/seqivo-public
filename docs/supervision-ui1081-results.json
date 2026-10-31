@@ -1,0 +1,87 @@
+{
+  "workId": "UI1081",
+  "date": "2026-10-31",
+  "sourceCommit": "95d22d9f609940d97730632a4894c0de48f7adea",
+  "codeComplete": true,
+  "validation": {
+    "typescript": "passed",
+    "vite": "passed_with_existing_lucide_use_client_warning",
+    "independentReview": "no_unresolved_P1_P2_after_orphan_item_navigation_fix",
+    "browser": "passed_scoped_disposable_fixture",
+    "observed": [
+      "Six status/acceptance cards and colored project/conversation summary numbers",
+      "Clicking summary count selects group and status",
+      "Two inbox items for one task remain two items and one task row",
+      "Submitted task with all criteria passed remains pending acceptance",
+      "Cancelled task excluded; empty project percentage is dash",
+      "Same source across two projects groups together; different providers remain separate",
+      "Search, missing criteria and task title opens correct details",
+      "Unlisted task items show project inbox link; clicking opens correct inbox",
+      "Desktop light/dark, mobile 390px and 320px dark layouts; no document horizontal overflow"
+    ],
+    "viewportWidths": [
+      390,
+      320
+    ],
+    "realProviderCalls": 0,
+    "repeatedQuitTests": false
+  },
+  "mac": {
+    "installed": false,
+    "candidateRefreshed": true,
+    "reason": "Native UI inventory reported Mac locked; existing installed UI1066 remains.",
+    "candidate": "BUILD1082",
+    "buildDetails": "docs/client-build1082-results.json"
+  },
+  "web": {
+    "deployed": true,
+    "workId": "UI1081",
+    "webCommit": "95d22d9f609940d97730632a4894c0de48f7adea",
+    "backendBase": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "hubProjectionCommit": "d5c8a43a6819e923acfd784758c23a1287c9b9ec",
+    "staticWebDeployed": true,
+    "publicTlsVerified": true,
+    "currentDistFilesVerified": 14,
+    "unauthenticatedStateStatus": 401,
+    "firewallActive": true,
+    "configUnchanged": true,
+    "serviceProcessUnchanged": true,
+    "hubRestarted": false,
+    "commandsAndRecoveryUnchanged": true,
+    "quickCheck": "ok",
+    "manifestFileCount": 173,
+    "manifestSha256": "e87c2a9da94bb1c4416555e4f357352aa214da35568b72d5ca07e46fae9cd2db"
+  },
+  "android": {
+    "ordinaryVersionCode": 14,
+    "apkRebuilt": true,
+    "nativeRetested": false,
+    "physicalDeviceRetested": false,
+    "installedOnIsolatedEmulator": true,
+    "buildDetails": "docs/client-build1082-results.json"
+  },
+  "wholeProjectComplete": false,
+  "evidence": {
+    ".runtime/ui1081/desktop-light.png": "c8181a8640fb7fa04ed318c0527cdf165e659fcc6778cfd9da9c06e3effd04d8",
+    ".runtime/ui1081/desktop-dark.png": "ce188b8675b85dca6fc6f34a7681a914281818853b41e7be767412105e61377d",
+    ".runtime/ui1081/desktop-details.png": "c9ba08fd7a962183c3b84ed3a3812c3335bf5e789c13b9767bd543e1eaeb3e9a",
+    ".runtime/ui1081/mobile-overview.png": "c2eda8c2f70c93d24f529d12adfcefe19b32a2f349d219eaf3ce6dd05101b603",
+    ".runtime/ui1081/mobile-detail.png": "a207768a86d16a79d6f7acfb9b8d5379c9f435565e48c9b1c6f78dfe493cbffe",
+    ".runtime/ui1081/mobile-320-dark.png": "0e7404b47b8c7adafede77516032f151aedace3a38e02188047fe9cd67fb1ac8",
+    ".runtime/ui1081/attention-filter.txt": "2da62448338ac05b6354c0e3ea75e00c90512616b3a9c31b407c9d794237e454",
+    ".runtime/ui1081/orphan-before.txt": "be0ee739ca8e024bbff5c075c45f1d657ec96d91efca046fa6ac29cd7294ad66",
+    ".runtime/ui1081/orphan-after.txt": "9d3aa362a1be29b9fdda3882771d841ac76cc592c666b6221841f3624190d863",
+    ".runtime/ui1081/mobile-task-open.txt": "6c3c52282366b28bb974f43cfdf9cf4d1317a61ad9b94b92caa0624342d217db",
+    ".runtime/ui1081/review.md": "9873c98a1aa5077b33255af5a0ce6fcf200e95b8f12730c69723a4d1e20f8d16",
+    ".runtime/ui1081/build.log": "f2712186c5055a84470634573e6e5448d87ac1cd8990bc28c7ba661bbaf5dfbc",
+    ".runtime/ui1081/typecheck.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".runtime/delivery1081/postcheck.json": "57b1772be2860bf69837aa52e9cd1478b1a2a55afe3ee8a301718c98c0f84e8b",
+    ".runtime/ui1081/board-result.json": "2f790c3e7b13eaf6e660fa9377afaaeb537d8646855d9a7f75aff9fdaf8a6cba"
+  },
+  "board": {
+    "updatedTask": "c17167c9-4e21-4e51-84ad-1fa231b4a370",
+    "verification": "partial",
+    "manualAcceptanceUnchanged": true,
+    "otherTasksUnchanged": 66
+  }
+}

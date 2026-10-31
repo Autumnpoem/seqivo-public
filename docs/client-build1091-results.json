@@ -1,0 +1,69 @@
+{
+  "workId": "BUILD1091",
+  "date": "2026-10-31",
+  "sourceCommit": "7b5609e988ae27191a984db5ec4edc1d4d3cad7a",
+  "scope": "Single refreshed Mac candidate, not the installed application",
+  "status": {
+    "codeIncluded": true,
+    "built": true,
+    "signed": true,
+    "candidatePromoted": true,
+    "installed": false,
+    "launched": false,
+    "nativeUserFlowValidated": false,
+    "wholeProjectComplete": false
+  },
+  "artifact": {
+    "location": "Candidate/序程.bundle",
+    "mainSha256": "478ea6bbc2eae7484b86d5c0601881d3c0e55d60b91c7e376a6884005e60c5ac",
+    "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "resourceFileCount": 4227,
+    "resourceManifestSha256": "c653eec294b8a68a4a41ecf13f9c90537b2dbf6b84a9b1212b46195b19d34d7d",
+    "signature": "local_ad_hoc_not_notarized"
+  },
+  "validation": {
+    "trackedProductInputs": 336,
+    "uiChangedFiles": 5,
+    "runtimeChangedFiles": 10,
+    "linuxPackagingConfigChangedFiles": 1,
+    "frozenWebFiles": 14,
+    "strictSignature": true,
+    "runtimeParseChecks": {
+      "runtimeFilesParsed": 10,
+      "allMatchSource": true,
+      "signatureVerified": true,
+      "nodeFromCandidate": true,
+      "appLaunched": false,
+      "providerCalls": 0,
+      "repeatedQuitTests": 0
+    },
+    "sharedWebTests": "APP1091: 24 targeted tests and 8 post-fix browser categories; see task-form-drafts-test-results.json",
+    "nativeBehaviorTestsRepeated": false
+  },
+  "preservation": {
+    "canonicalMacUntouched": true,
+    "originalDataUntouched": true,
+    "oneCandidate": true,
+    "newQaAppCreated": false,
+    "transientAppAbsent": true,
+    "previousCandidateArchived": true
+  },
+  "android": {
+    "nativeApkRebuiltThisWork": false,
+    "existingOrdinaryVersionCode": 14,
+    "sharedWebDeployed": true,
+    "nativeAppRetested": false
+  },
+  "remaining": [
+    "Mac normal in-place installation and actual UI confirmation when unlocked",
+    "Ordinary Android App background/restart, native Back and complete task flow checks",
+    "Windows/Ubuntu native packaging and UI acceptance"
+  ],
+  "evidence": {
+    ".runtime/build1091/result.json": "32623a6c90ac3d2c7e597c3867e11ca519f2ada263fea213379aa748cb57a458",
+    ".runtime/build1091/package-identity.json": "2525f4074117e1279c683171f084764486ba7381d83a1c7278ee99df7854c833",
+    ".runtime/app1091/package-check.json": "7164e110add55e2dcdb3d5aca1359ffac17d771df757881798ebb4ae5e30f5bf",
+    ".runtime/app1091/promotion-result.json": "0addc644874f2cfe740f21cf490132212fec97cd7c9e3fcbd03a15d14b6ad8b6",
+    ".runtime/app1091/delivery-review.md": "eb0f68234fa09f8fb4a58d17ddbb549b359330be9bb6ffd6233988c13228ce94"
+  }
+}

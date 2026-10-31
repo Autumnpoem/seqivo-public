@@ -1,0 +1,102 @@
+{
+  "workId": "APP1079",
+  "date": "2026-10-31",
+  "productCommit": "c66ca00324600a3538691f6c35d1e90178d7d54c",
+  "codeCompleteForSlice": true,
+  "validation": {
+    "typecheckExitCode": 0,
+    "viteBuildExitCode": 0,
+    "diffCheckExitCode": 0,
+    "independentCodeReview": "no blocking findings in five-file navigation diff",
+    "browser": "in-app browser with disposable presentation fixture",
+    "flowsPassed": [
+      "selected conversation to project terminal",
+      "task detail to project terminal",
+      "terminal context back to original task and evidence",
+      "project change removes previous task context",
+      "unselected conversation has no task shortcut",
+      "ordinary terminal navigation opens SSH host library",
+      "disabled terminal stays disconnected and connect controls disabled",
+      "light 390px and dark 320px mobile layouts have no root horizontal overflow",
+      "1440px dashboard statistics, project/conversation matrix and task details render"
+    ],
+    "navigationExecutionWrites": 0,
+    "fixtureMutations": [
+      {
+        "method": "PATCH",
+        "path": "/api/settings"
+      },
+      {
+        "method": "PATCH",
+        "path": "/api/settings"
+      }
+    ],
+    "scope": "Navigation and layout only; no real provider, SSH connection, takeover, or terminal input executed.",
+    "independentDashboardReview": "Three supplied reference layouts mapped to existing implementation; no confirmed code gap in scoped review."
+  },
+  "initialFixtureErrors": [
+    "Terminal status mock initially omitted grants/pendingDevices; corrected mock contract without product changes.",
+    "SSH library mock initially returned an array instead of the declared library object; corrected mock without product changes."
+  ],
+  "productFiles": {
+    "src/App.tsx": "7bdd8c7dc42af7a680b94614a5072a03a23038b5c8a474063d05a2d077e8ee7e",
+    "src/ConversationPanel.tsx": "8c584ee5922f5bef427f6f4e07b9f056606fe063615d788d4c6ea32e23b99d5a",
+    "src/TerminalWorkspace.tsx": "2a33d39979fee3bc3194267d9fde7f74d14e8d79327ee6a07258946370c319a8",
+    "src/ssh.css": "1ec90a79ae77f7a11a04d7613cce376e46a0ad0eed4005ed9ab786c2010fff89",
+    "src/styles.css": "e889ad75c76120932ea142f3661079c56dbf9a6fd1640ba2a877bdc6efaa66b5"
+  },
+  "evidence": {
+    ".runtime/app1079/build.log": "fd1f909ca549cb27f78897bc0f6e58d27fc23222b856b9ae0f12faae172fe52a",
+    ".runtime/app1079/mobile-task-terminal.png": "fb3c1c4e2a6126277780be21b1fe0fedcf78dfa0c0fe49531b14e8bd66ce5a47",
+    ".runtime/app1079/mobile-task-terminal-dark-320.png": "050efa636f83f2b3d83b6e6be0c1a36512e12132d9c38b3e7ba8dd63f2d59ef5",
+    ".runtime/app1079/dashboard-reference-light.png": "37b42b06a26b360f33ebc2ba9c27a0d0c76ced33259a482bf93eee67ede7f24b",
+    ".runtime/app1079/preview-contract-fixed.log": "be996ec3ccbb9033686b9a3db1125040ae6fb8e48828755d7142760518dd58fb",
+    ".runtime/app1079/dashboard-reference-review.md": "bbef7c20263a0f6ce42c3c7cdbc90b2a0ff69fab4252fde1337ab000c307a520",
+    ".runtime/delivery1079/postcheck.json": "681698a6f9299d782cc3e2be90ec34db25a8e2cf0c0ccfaa83794dd0fbccda56",
+    ".runtime/app1079/board-result.json": "b9778e6db89b50c4aff50de47da5251f16f86f27d4761d2cbb9f21c39673cae7"
+  },
+  "delivery": {
+    "webDeployed": true,
+    "macPackaged": false,
+    "macInstalled": false,
+    "androidApkRebuilt": false,
+    "nativeAppRetested": false,
+    "reason": "Mac is locked; no native interaction attempted. Android v13 host unchanged.",
+    "webDeployment": {
+      "workId": "APP1079",
+      "webCommit": "c66ca00324600a3538691f6c35d1e90178d7d54c",
+      "backendBase": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+      "hubProjectionCommit": "d5c8a43a6819e923acfd784758c23a1287c9b9ec",
+      "staticWebDeployed": true,
+      "publicTlsVerified": true,
+      "currentDistFilesVerified": 14,
+      "unauthenticatedStateStatus": 401,
+      "firewallActive": true,
+      "configUnchanged": true,
+      "serviceProcessUnchanged": true,
+      "hubRestarted": false,
+      "commandsAndRecoveryUnchanged": true,
+      "quickCheck": "ok",
+      "manifestFileCount": 167,
+      "manifestSha256": "dfaba271128da8f82ad597ceffa6c4539f587b70fd7937d10564dbcf0b38438e"
+    }
+  },
+  "wholeProjectComplete": false,
+  "board": {
+    "updated": [
+      {
+        "id": "91f0f8a7-c59f-4538-840b-1eceb486f35b",
+        "revision": 53,
+        "status": "partial"
+      },
+      {
+        "id": "c17167c9-4e21-4e51-84ad-1fa231b4a370",
+        "revision": 11,
+        "status": "partial"
+      }
+    ],
+    "otherTasksUnchanged": 65,
+    "manualAcceptanceUnchanged": true,
+    "newNativeAppCheckCompleted": false
+  }
+}

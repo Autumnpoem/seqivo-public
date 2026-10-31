@@ -1,0 +1,53 @@
+{
+  "schema": "seqivo.android-preview-resume-result.v1",
+  "scenario": "APP979 isolated ordinary Android v13 readback of disposable APP959 records-v1 fixture",
+  "environment": {
+    "android": "API 35 emulator",
+    "ordinaryApkVersionCode": 13,
+    "ordinaryApkSha256": "60fa04a9f52a8922c0fd8ea794d83cc3a1b2c714506408d41d78afaad71bacb1",
+    "webCoreHubSourceCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "newApkBuilt": false
+  },
+  "uiObservation": {
+    "loginRetained": true,
+    "projectTaskCount": 2,
+    "humanAcceptedTaskCount": 0,
+    "originalRecordVisible": true,
+    "singleLinkedFeedbackTaskVisible": true,
+    "selectedSecondPreviewRendered": "APP959 v2",
+    "recheckRequiredCount": 1,
+    "impactUncertainCount": 2,
+    "thirdCriterionChangedFile": "index.html",
+    "thirdCriterionVisibleCheckSteps": 2
+  },
+  "independentReadOnlyDataEvidence": {
+    "originalRecordCount": 1,
+    "originalOperationConfirmedInCoreAndHub": true,
+    "confirmedFeedbackTaskCount": 1,
+    "readyPreviewCount": 2,
+    "humanAcceptanceUnchanged": true,
+    "hubCommandCount": 0,
+    "hubContinueLeaseCount": 0
+  },
+  "closeAndColdAudit": {
+    "originalHelperClosed": false,
+    "originalHelperFailureCodes": [
+      "cold_after_audit"
+    ],
+    "otherResourceCloseFailures": [],
+    "independentColdAuditExitCode": 0,
+    "independentColdAuditMode": "read-only immutable after proving closed databases and absent WAL/SHM sidecars",
+    "threeDatabaseIntegrity": "ok",
+    "logicalResultEqualToPrecloseBaseline": true,
+    "originalFailureRetained": true,
+    "cleanShutdownAcceptanceClaimed": false
+  },
+  "remainingScope": [
+    "network/receipt fault cases",
+    "authorization revocation",
+    "service restart and different node",
+    "physical Android device",
+    "complete Mac/Android/iPhone client flow",
+    "human acceptance and formal release"
+  ]
+}

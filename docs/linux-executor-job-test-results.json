@@ -1,0 +1,95 @@
+{
+  "workId": "LINUX1085",
+  "date": "2026-10-31",
+  "sourceBaseCommit": "39a3c6517f08df983e45007c1f60b23e1c17fb21",
+  "scope": "Standalone Linux job supervisor and recovery primitive; Core/host integration is pending.",
+  "codeCompleteForSlice": true,
+  "targetedTestsPassed": true,
+  "applicationIntegrated": false,
+  "packaged": false,
+  "installed": false,
+  "deployed": false,
+  "wholeProjectComplete": false,
+  "environment": {
+    "os": "Ubuntu 22.04 x86_64",
+    "node": "24.21.0",
+    "python": "3.10.12",
+    "uid": 65534,
+    "realProviderCalls": 0
+  },
+  "final": {
+    "tests": 6,
+    "pass": 6,
+    "fail": 0,
+    "skipped": 0,
+    "runnerExit": 0,
+    "uid": 65534,
+    "exitCode": 0,
+    "timeout": null,
+    "subreaper": true,
+    "unexpectedChildren": 0,
+    "cleanupSignals": 0,
+    "remainingChildren": 0,
+    "temporaryDirectoryRemoved": true
+  },
+  "sourceFiles": {
+    "server/terminal/process-identities.mjs": "1c6885df46b0b0bc5c2fb928052402722cdf3cacd7d997f01cbce6ca4bbed14b",
+    "server/linux-executor-job.mjs": "583228c6364513599caee173bee307b75dcf248f9fd51a15d2fd34594aa26c32",
+    "plugins/codex-autocontinue/linux_executor_job.py": "ad47f0ca7ef10580cb529bb8eb21938c4a5abe936e20444b659ccec1f54555ad",
+    "plugins/codex-autocontinue/process_snapshot.py": "fce1888db8338407e481be0b707cd99751c60d8f347fb20f324da5524411216e",
+    "plugins/codex-autocontinue/process_identities.py": "0beb77b5554b1357988e88537b3d969b3740b052ca8a32ebf9409b290432b4fc",
+    "tests/linux-executor-job.test.mjs": "d33edaeac7870788c43a9e22a2a034c29084514171d05fedee3387206b70977a",
+    "tests/fixtures/linux-job-controller.mjs": "95507e449d49e1966acdd83d12b61fefde72f06ba617256026b48f4cce1b5e55",
+    "tests/fixtures/linux-job-workload.py": "466ac34b825574b4d3bcf310073a712fcc484c39d61d9854ddb0e5f8b9c6a334"
+  },
+  "initialFailures": [
+    {
+      "attempt": "candidate1",
+      "pass": 3,
+      "fail": 1,
+      "cleanupSignals": 2,
+      "remainingChildren": 0,
+      "reason": "Fast-exit bridge correctly failed live-start admission; fixture changed to recover the original attempted record, without relaxing admission."
+    },
+    {
+      "attempt": "candidate2",
+      "pass": 3,
+      "fail": 3,
+      "cleanupSignals": 2,
+      "remainingChildren": 0,
+      "reason": "UnknownSnapshot from exited descendants terminated the supervisor; a suspended supervisor left socket requests waiting indefinitely."
+    }
+  ],
+  "fixes": [
+    "Expected process snapshot failures now return unknown without terminating the supervisor. Exited descendants are excluded from live members only after a readable pidfd proves exit; final retirement still requires all children reaped.",
+    "Socket connection and acknowledgment have one 5 second deadline; timeout destroys the socket, preserves the original record and never retries the operation."
+  ],
+  "independentReview": {
+    "status": "no_open_P1_P2_in_scoped_primitive",
+    "scope": "Standalone primitive, tests and isolated native harness"
+  },
+  "pending": [
+    "Core/host registration and task/worktree/handoff-generation/lease binding",
+    "Controlled complete Core crash and recovery",
+    "Current workspace writer verification before terminal handback",
+    "Real AI provider and native application validation",
+    "Packaging and deployment"
+  ],
+  "evidence": {
+    ".runtime/linux1083/proof-restart/tests.log": "c3b4160fb3c7848ca10694ce3f8332780007219bb8404546db329cdca2215d2b",
+    ".runtime/linux1083/proof-reparent/tests.log": "6ac1e93873ab2770ca020a70c3b2475a3a6e64a1c8311e8ef8c06ad6e51fab6d",
+    ".runtime/linux1085/candidate1/tests.log": "120cb7397d5c8c19df4bf2614d3d428ca71466ff77961ad07964f00855ba70fd",
+    ".runtime/linux1085/candidate2/tests.log": "9a2231c1223c6e96ce571a6164bca97e47f134e2a7af01c18343734125d2b39b",
+    ".runtime/linux1085/candidate3/intent.json": "9c9bf3e6ac24babe9511bbfe0b0cc969c535bf91b7487e806b2f9bd0bb1aef41",
+    ".runtime/linux1085/candidate3/tests.log": "3474c0004b67f4afeba3ae625f05eb44dc49309ca778088765679eeb89e09758",
+    ".runtime/linux1085/candidate3/result.json": "b7e8196a711759744d4b261e2fd068a10ced0bf138d6b81fbed78a7a0c2df0b9",
+    ".runtime/linux1085/review.md": "cb1add5dc66c512de563faff389b32a0339e1b097c441d1cbe6d9eaed60d90cd",
+    ".runtime/linux1085/board-result.json": "39c61b163e695c259c4fe98f388fdcd666a6a161d2aff55f268ccbc098b1e33b"
+  },
+  "board": {
+    "verification": "partial",
+    "taskStatus": "running",
+    "manualAcceptanceUnchanged": true,
+    "otherTasksUnchanged": 66
+  }
+}

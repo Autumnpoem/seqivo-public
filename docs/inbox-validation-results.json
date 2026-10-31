@@ -1,0 +1,1910 @@
+{
+  "version": "0.4.0",
+  "baselineCommit": "b256038c91aa695d9ce545f49f93624e71ec9416",
+  "checkedAt": "2026-10-13T15:13:55.949Z",
+  "status": "phone_scope_verified_p0_01_original_shutdown_cause_pending_product_acceptance_not_granted",
+  "automated": {
+    "passed": 229,
+    "failed": 0,
+    "skipped": 0,
+    "evidence": "design/qa/v0.4/native-shutdown-fix/full-backend.log",
+    "scope": "full backend suite on October 13 after native shutdown repair and phone stale-conflict harness additions",
+    "previousFullSuitePassed": 215
+  },
+  "browser": {
+    "passedFlows": 9,
+    "chromium": [
+      "board",
+      "features",
+      "verification",
+      "remote",
+      "accounts-conversations",
+      "inbox"
+    ],
+    "webkit": [
+      "remote",
+      "accounts-conversations",
+      "inbox"
+    ],
+    "physicalPhone": false,
+    "provider": "protocol fixtures except separately recorded real Codex test"
+  },
+  "realCodex": {
+    "startedAt": "2026-10-11T09:40:51.874Z",
+    "test": "mobile browser -> Hub -> desktop Core -> real Codex edits scratch file -> phone output",
+    "realAI": true,
+    "physicalPhone": false,
+    "checks": [
+      "phone created actual task/session and real Codex changed only test file to 2; output returned; acceptance remains unverified",
+      "phone followup resumed same session and edited file to 3 without duplicate task"
+    ],
+    "passed": true,
+    "cleanShutdown": true,
+    "finishedAt": "2026-10-11T09:41:31.255Z"
+  },
+  "upgrade": {
+    "checkedAt": "2026-10-11T09:35:48.315Z",
+    "platform": "darwin",
+    "node": "v24.19.0",
+    "sourceReadOnly": true,
+    "isolatedCopy": true,
+    "tasks": 25,
+    "projects": 1,
+    "accepted": 11,
+    "inboxItems": 35,
+    "originalTaskFieldsPreserved": true,
+    "currentReviewBackfilled": true,
+    "restartIdempotent": true,
+    "journalReplayPassed": true,
+    "exactBackupRollbackPassed": true,
+    "preUpgradeHash": "55ae54162141584a372019e11b1e7601c8ea950a755c6c2978ede8d67b1fcf56",
+    "rollbackHash": "55ae54162141584a372019e11b1e7601c8ea950a755c6c2978ede8d67b1fcf56"
+  },
+  "production": {
+    "checkedAt": "2026-10-11T15:54:49.730Z",
+    "passed": true,
+    "checks": [
+      "/api/state rejects unauthenticated access",
+      "/api/inbox rejects unauthenticated access",
+      "deployed index and hashed assets match tested frontend build",
+      "public HTTPS certificate validation and security headers pass",
+      "desktop recently synchronized plan tasks and nonempty inbox through authenticated Hub"
+    ],
+    "projects": 2,
+    "tasks": 50,
+    "inboxItems": 108,
+    "physicalPhone": false,
+    "reviewFeedbackCopyDeployment": {
+      "checkedAt": "2026-10-12T13:21:43.510Z",
+      "passed": true,
+      "checks": [
+        "/api/state rejects unauthenticated access",
+        "/api/inbox rejects unauthenticated access",
+        "deployed index and hashed assets match tested frontend build",
+        "public HTTPS certificate validation and security headers pass",
+        "desktop recently synchronized plan tasks and nonempty inbox through authenticated Hub"
+      ],
+      "projects": 2,
+      "tasks": 52,
+      "inboxItems": 123,
+      "physicalPhone": false
+    },
+    "decisionConflictDeployment": {
+      "checkedAt": "2026-10-12T14:02:49.096Z",
+      "passed": true,
+      "checks": [
+        "/api/state rejects unauthenticated access",
+        "/api/inbox rejects unauthenticated access",
+        "deployed index and hashed assets match tested frontend build",
+        "public HTTPS certificate validation and security headers pass",
+        "desktop recently synchronized plan tasks and nonempty inbox through authenticated Hub"
+      ],
+      "projects": 2,
+      "tasks": 54,
+      "inboxItems": 126,
+      "physicalPhone": false
+    }
+  },
+  "native": {
+    "platform": "macOS arm64",
+    "build": "passed",
+    "inboxAndOriginalTaskDetails": "observed",
+    "disposablePhoneProjectFinalRestart": "passed",
+    "cleanQuit": true,
+    "remainingAppProcessesAfterQuit": 0,
+    "localPortClosedAfterQuit": true,
+    "tasksPreservedAfterRestart": 58,
+    "originalAcceptancesPreserved": 11,
+    "phoneProjectSynced": true,
+    "checkedAt": "2026-10-13T14:41:56.957Z",
+    "reviewRejectionRestart": {
+      "checkedAt": "2026-10-11T15:34:55.407Z",
+      "passed": true,
+      "tasksPreserved": 48,
+      "acceptedPreserved": 11,
+      "activeExecutions": 0,
+      "remote": "connected"
+    },
+    "staleDialogRestart": {
+      "checkedAt": "2026-10-11T15:54:49.031Z",
+      "passed": true,
+      "tasksPreserved": 49,
+      "acceptedPreserved": 11,
+      "activeExecutions": 0,
+      "remote": "connected"
+    },
+    "staleDialogInitialCheck": "connecting during Hub restart; not counted as pass; confirmed connected on subsequent check",
+    "reviewFeedbackCopyRestart": {
+      "checkedAt": "2026-10-12T13:21:47.028Z",
+      "passed": true,
+      "tasksPreserved": 52,
+      "acceptedPreserved": 12,
+      "activeExecutions": 0,
+      "remote": "connected"
+    },
+    "decisionConflictRestart": {
+      "build": "passed",
+      "normalQuit": "failed_25_second_guard_exhausted",
+      "automaticRestart": "blocked_by_unclean_shutdown_lock",
+      "manualRecovery": "read-only process checks, verified owner-only closed-database backup, quarantined confirmed-dead lock, CUA relaunch",
+      "afterRecovery": {
+        "checkedAt": "2026-10-12T14:06:34.952Z",
+        "passed": true,
+        "tasksPreserved": 54,
+        "acceptedPreserved": 13,
+        "activeExecutions": 0,
+        "remote": "connected"
+      },
+      "normalQuitAfterFixRetested": false,
+      "evidenceDirectory": "design/qa/v0.4/phone-remainder/native-shutdown"
+    },
+    "latestSummarySupersedesEarlierCleanQuit": false,
+    "normalRestartRequiredManualRecovery": false,
+    "acceptedRecordsPreservedAfterRestart": 13,
+    "activeExecutionsAfterRestart": 0,
+    "originalRevisionsAndAcceptancesPreserved": true,
+    "fixedShutdownRestart": {
+      "checkedAt": "2026-10-13T14:10:45.114Z",
+      "build": "passed",
+      "normalQuitAndRestart": true,
+      "manualLockRecovery": false,
+      "incompleteRequestClosedByServer": true,
+      "requestBodyCompleted": false,
+      "requestDispatchedToCore": false,
+      "coreCloseMs": 6,
+      "httpCloseMs": 2,
+      "tasksPreserved": 56,
+      "acceptedPreserved": 13,
+      "originalRevisionsAndAcceptancesPreserved": true,
+      "activeExecutions": 0,
+      "remote": "connected",
+      "originalIntermittentTriggerEstablished": false,
+      "evidence": [
+        "design/qa/v0.4/native-shutdown-fix/native-incomplete-socket.json",
+        "design/qa/v0.4/native-shutdown-fix/native-fixed-quit.jsonl",
+        "design/qa/v0.4/native-shutdown-fix/native-fixed-restart.json",
+        "design/qa/v0.4/native-shutdown-fix/fixed-build.log"
+      ]
+    },
+    "latestSummarySupersedesEarlierFailure": true,
+    "subsequentInboxFixRestart": {
+      "checkedAt": "2026-10-13T14:41:56.957Z",
+      "passed": true,
+      "normalQuitAndRestart": true,
+      "manualLockRecovery": false,
+      "tasksPreserved": 58,
+      "acceptedRecordsPreserved": 13,
+      "originalRevisionsAndAcceptancesPreserved": true,
+      "activeExecutions": 0,
+      "hubSynced": true,
+      "source": "design/qa/v0.4/native-shutdown-fix/race-native-restart.json"
+    }
+  },
+  "operations": {
+    "hub": "active",
+    "nginx": "active",
+    "firewall": "active",
+    "backupTimer": "active",
+    "certificateRenewalTimer": "active"
+  },
+  "independentSecurityReview": {
+    "initialFindings": 5,
+    "addressed": 5,
+    "pureDomainTestsPassed": 16,
+    "httpRerun": "sandbox listen EPERM; reviewed parent execution evidence",
+    "actualModelMetadata": "NOT VERIFIED",
+    "newMaterialRegressionFound": false
+  },
+  "pending": [
+    "historical 25-second macOS shutdown trigger remains unknown; the reproduced incomplete HTTP body path is fixed and normal native quit/restart passed",
+    "user P0 acceptance",
+    "native Windows/Ubuntu/macOS Intel",
+    "real Claude/Cursor",
+    "actual five-hour quota recovery",
+    "P1 terminal takeover",
+    "P2 authenticated live previews",
+    "P3 expansion"
+  ],
+  "cloudCI": "paused_by_user",
+  "humanAcceptanceAutomaticallyGranted": false,
+  "mobileFocusFix": {
+    "chromium": "passed",
+    "webkit": "passed",
+    "inboxRegressionBothEngines": "passed",
+    "accountConversationRegressionBothEngines": "passed",
+    "physicalIPhoneFocus": "passed",
+    "desktopBundle": "built_and_restarted",
+    "hubFrontend": "deployed",
+    "firewall": "active",
+    "nativeRestart": {
+      "checkedAt": "2026-10-11T11:00:07.088Z",
+      "passed": true,
+      "tasksPreserved": 45,
+      "originalAcceptancesPreserved": 11,
+      "activeExecutions": 0,
+      "remote": "connected",
+      "previousLocalPortClosed": true
+    }
+  },
+  "physicalPhones": {
+    "iPhone": {
+      "checkedAt": "2026-10-13T14:55:15.559Z",
+      "device": "iPhone 15",
+      "browser": "Safari",
+      "osVersion": "not recorded",
+      "network": "Wi-Fi",
+      "control": "Apple iPhone Mirroring via CUA",
+      "physicalPhone": true,
+      "passed": [
+        "existing user login and selected shared project visible",
+        "shared decision selected Wi-Fi; exactly one local decision and Hub item resolved",
+        "new conversation initiated in physical Safari; real Codex changed demo.js from 1 to 2; tool output and final answer visible on phone",
+        "followup sent from phone; same task and Codex conversation changed demo.js from 2 to 3; one created task only",
+        "pause sent while real Codex turn was running; local and Hub paused, active lease cleared, acknowledged pause receipt",
+        "task detail shows original requirement and decision result",
+        "mobile input focus no longer zooms/crops after CSS repair",
+        "light and dark themes work; follow-system restored",
+        "user-performed logout followed by refresh showed only login; server confirmed one old session revoked",
+        "user-performed relogin restored original project/tasks; exactly one new active session, old revocations preserved, no credentials read, ten fixture tasks and file preserved, no AI execution",
+        "user turned off Wi-Fi master switch and cellular: review submit remained disabled with connection warning; reconnect retained draft with zero new commands and unchanged ten fixture tasks/file",
+        "autonomous CUA no-evidence review rejected with visible task-local reason above mobile navigation; one evidence then pass and return saved once each; open issue blocks passing again; five commands, two local reviews, one issue, other acceptances/file unchanged",
+        "final pending sentence explicitly says this conclusion is not yet confirmed; final-copy open-issue rejection visibly displayed beside task actions",
+        "old version-one review draft visibly disabled after desktop published version two; tapping disabled submit produced zero commands; cancelled draft, inspected version-two summary/evidence, reopened and submitted once; exactly one review bound to content version two",
+        "after a real 409 and initial false unknown-receipt message, fixed build physically retested on a new disposable iPhone item; correct not-submitted message persisted after polling, zero Hub commands, one earlier green decision"
+      ],
+      "pending": [],
+      "boardVerification": {
+        "checkedAt": "2026-10-13T15:13:27.538Z",
+        "taskStatus": "submitted",
+        "verification": "passed",
+        "acceptance": "unverified",
+        "revision": 18,
+        "contentVersion": 4,
+        "pendingChecks": []
+      },
+      "preciseConflict20261013": {
+        "checkedAt": "2026-10-13T14:33:53.311Z",
+        "physicalPhone": true,
+        "method": "in-memory stale GET projection for disposable task and item; cookie auth and all POSTs and receipts real; production bundle unchanged",
+        "oldTaskRevision": 1,
+        "currentTaskRevision": 2,
+        "oldItemRevision": 1,
+        "currentItemRevision": 2,
+        "httpStatus": 409,
+        "code": "REVISION_CONFLICT",
+        "uiMessage": "无法查询原命令回执；结果未知，请在目标任务核对，勿重复提交。",
+        "uiPassed": false,
+        "dataProtectionPassed": true,
+        "oldChoice": "blue",
+        "savedChoice": "green",
+        "decisionCount": 1,
+        "hubCommandsBefore": 0,
+        "hubCommandsAfter": 0,
+        "original54TaskRevisionsAndAcceptancesPreserved": true,
+        "tasks": 56,
+        "passedRecords": 13,
+        "activeExecutions": 0,
+        "testFileValue": 5,
+        "naturalRaceClaimed": false,
+        "source": "design/qa/v0.4/native-shutdown-fix/iphone-physical-conflict-ui-failure.json"
+      },
+      "preciseConflictRetest20261013": {
+        "checkedAt": "2026-10-13T14:55:15.559Z",
+        "physicalPhone": true,
+        "method": "in-memory stale GET projection for disposable task and item; cookie auth and all POSTs and receipts real; fixed production bundle",
+        "oldTaskRevision": 1,
+        "currentTaskRevision": 2,
+        "oldItemRevision": 1,
+        "currentItemRevision": 2,
+        "httpStatus": 409,
+        "code": "REVISION_CONFLICT",
+        "uiMessage": "任务或事项已变化；本次未提交。请刷新后核对最新状态。",
+        "messagePersistedAfterPolling": true,
+        "uiPassed": true,
+        "oldChoice": "blue",
+        "savedChoice": "green",
+        "decisionCount": 1,
+        "hubCommandsBefore": 0,
+        "hubCommandsAfter": 0,
+        "original56TaskRevisionsAndAcceptancesPreserved": true,
+        "tasks": 58,
+        "passedRecords": 13,
+        "activeExecutions": 0,
+        "testFileValue": 5,
+        "naturalRaceClaimed": false,
+        "source": "design/qa/v0.4/native-shutdown-fix/iphone-physical-conflict-retest.json"
+      },
+      "scopeLimits": [
+        "No blanket human acceptance granted",
+        "Pause/lease receipt does not establish OS process-tree quiescence or authorize terminal takeover",
+        "Mirror bulk text dropped characters; submitted requests were retyped sequentially and visually verified"
+      ],
+      "offlineReviewFollowup": {
+        "checkedAt": "2026-10-12T11:52:28.991330+00:00",
+        "device": "iPhone 15",
+        "browser": "Safari",
+        "physicalPhone": true,
+        "control": "Apple iPhone Mirroring via CUA",
+        "observations": [
+          "Mirroring reconnected after the user locked the disconnected phone.",
+          "Initially, review submit was visibly enabled and no in-dialog offline warning was shown. Exact delay was not instrumented.",
+          "Later a Chinese connection error appeared and submit became disabled.",
+          "Tapping the disabled submit did not submit; draft stayed visible.",
+          "After user restored Wi-Fi, draft remained, warning cleared, submit was enabled; zero commands and unchanged tasks/file confirmed."
+        ],
+        "taskCount": 10,
+        "newCommands": 0,
+        "taskRevisionsAndAcceptancesUnchanged": true,
+        "fileUnchanged": true,
+        "activeExecutions": 0,
+        "reconnectChecked": true,
+        "overallStatus": "partial_detection_delay_requires_fix_and_retest",
+        "limits": [
+          "navigator.onLine was not read on this physical device.",
+          "No click was attempted during the initial enabled-button interval.",
+          "No inference that a request abort proves a write was not executed."
+        ],
+        "reconnectedAt": "2026-10-12T11:56:23.266578+00:00",
+        "reconnectDraftRetained": true,
+        "reconnectDidNotSubmit": true,
+        "newCommandsAfterReconnect": 0,
+        "evidence": [
+          "design/qa/v0.4/iphone-review-offline-observed.json",
+          "design/qa/v0.4/iphone-review-reconnected.json",
+          "design/qa/v0.4/iphone-review-commands-reconnected.json"
+        ]
+      },
+      "authenticationFollowup": {
+        "logout": {
+          "checkedAt": "2026-10-12T12:05:33.377710+00:00",
+          "physicalPhone": true,
+          "device": "iPhone 15",
+          "userReply": "只显示登录页",
+          "userPerformed": [
+            "opened account",
+            "logged out",
+            "reloaded page"
+          ],
+          "newlyRevokedSessions": 1,
+          "newSessions": 0,
+          "passwordOrTokenRead": false,
+          "logoutVerified": true,
+          "reloginVerified": false,
+          "control": "user physical interaction plus read-only server verification"
+        },
+        "relogin": {
+          "checkedAt": "2026-10-12T12:07:27.092045+00:00",
+          "physicalPhone": true,
+          "device": "iPhone 15",
+          "control": "user physical interaction plus read-only server verification",
+          "userReply": "已登录、任务仍在",
+          "newActiveSessions": 1,
+          "oldRevocationsPreserved": true,
+          "passwordOrTokenRead": false,
+          "reloginVerified": true,
+          "productAcceptanceGranted": false
+        },
+        "board": {
+          "checkedAt": "2026-10-12T12:08:23.919Z",
+          "records": [
+            {
+              "id": "954d83ea-02c0-4554-8296-b0519a2ac395",
+              "verification": "partial",
+              "acceptance": "unverified",
+              "completedCheck": "iphone-logout-login"
+            },
+            {
+              "id": "f1c72dbf-cb49-4f7e-9f00-13b2287c4c2d",
+              "verification": "partial",
+              "acceptance": "unverified",
+              "completedCheck": "iphone-logout-login"
+            }
+          ],
+          "physicalPhone": true,
+          "taskCount": 10,
+          "noNewTask": true,
+          "acceptancesPreserved": true,
+          "testFileUnchanged": true,
+          "activeExecutions": 0,
+          "credentialsRead": false,
+          "productAcceptanceGranted": false
+        }
+      },
+      "connectivityRepairRetest": {
+        "status": "passed_recorded_scope",
+        "physicalPhone": true,
+        "source": "user physical operation/report, CUA reconnect screenshot and read-only backend comparison",
+        "offlineSubmitDisabled": true,
+        "reconnectDraftRetained": true,
+        "automaticReplayObserved": false,
+        "newCommands": 0,
+        "exactLatencyMeasured": false,
+        "disabledSubmitAttempted": false,
+        "otherEntryPointsVerified": false,
+        "evidence": [
+          "design/qa/v0.4/iphone-connectivity/physical-offline-v2-observed.json",
+          "design/qa/v0.4/iphone-connectivity/physical-reconnected-observed.json",
+          "design/qa/v0.4/iphone-connectivity/physical-board.json"
+        ]
+      },
+      "reviewFeedbackFollowup": {
+        "status": "passed_recorded_scope",
+        "physicalPhone": true,
+        "evidence": [
+          "design/qa/v0.4/review-feedback/physical-flow.json",
+          "design/qa/v0.4/review-feedback/physical-copy-observed.json",
+          "design/qa/v0.4/review-feedback/physical-copy-final-receipts.json",
+          "design/qa/v0.4/review-feedback/physical-board.json"
+        ],
+        "productHumanAcceptanceGranted": false
+      },
+      "staleReviewFollowup": {
+        "status": "passed_recorded_scope",
+        "physicalPhone": true,
+        "blocked": {
+          "checkedAt": "2026-10-12T13:33:48.794Z",
+          "stage": "blocked",
+          "passed": true,
+          "physicalPhone": true,
+          "taskId": "f4feefbd-8425-44c1-8bbe-3fc65ff2c603",
+          "revision": 5,
+          "contentVersion": 2,
+          "acceptance": "stale",
+          "reviewHistory": [],
+          "commands": 0,
+          "originalAcceptancesPreserved": true,
+          "testFileUnchanged": true,
+          "activeExecutions": 0,
+          "productAcceptanceGranted": false
+        },
+        "reopened": {
+          "checkedAt": "2026-10-12T13:34:45.681Z",
+          "stage": "passed",
+          "passed": true,
+          "physicalPhone": true,
+          "taskId": "f4feefbd-8425-44c1-8bbe-3fc65ff2c603",
+          "revision": 6,
+          "contentVersion": 2,
+          "acceptance": "passed",
+          "reviewHistory": [
+            {
+              "decision": "pass",
+              "contentVersion": 2,
+              "summary": "Version two"
+            }
+          ],
+          "commands": 1,
+          "originalAcceptancesPreserved": true,
+          "testFileUnchanged": true,
+          "activeExecutions": 0,
+          "productAcceptanceGranted": false
+        },
+        "board": {
+          "checkedAt": "2026-10-12T13:35:42.814Z",
+          "records": [
+            {
+              "id": "954d83ea-02c0-4554-8296-b0519a2ac395",
+              "revision": 13,
+              "verification": "partial",
+              "acceptance": "unverified",
+              "completedCheck": "iphone-review-version",
+              "pendingChecks": [
+                "iphone-offline-reconnect",
+                "iphone-review-conflict",
+                "iphone-large-text"
+              ]
+            },
+            {
+              "id": "f1c72dbf-cb49-4f7e-9f00-13b2287c4c2d",
+              "revision": 40,
+              "verification": "partial",
+              "acceptance": "unverified",
+              "completedCheck": "iphone-review-version",
+              "pendingChecks": [
+                "iphone-offline-reconnect",
+                "iphone-review-conflict",
+                "iphone-large-text",
+                "android-review-conflict"
+              ]
+            }
+          ],
+          "physicalPhone": true,
+          "operator": "assistant using CUA iPhone Mirroring",
+          "observedDraft": "Version one",
+          "observedNewReview": "Version two",
+          "staleWarningVisible": true,
+          "disabledSubmitClicked": true,
+          "newVersionSummaryAndEvidenceViewed": true,
+          "newVersionPassedVisible": true,
+          "currentTasks": 53,
+          "currentPassed": 13,
+          "acceptanceCountIncludesDisposableFixtures": true,
+          "productAcceptanceGranted": false
+        },
+        "evidence": [
+          "design/qa/v0.4/iphone-stale-review/physical-fixture.json",
+          "design/qa/v0.4/iphone-stale-review/physical-other-side.json",
+          "design/qa/v0.4/iphone-stale-review/physical-commands-blocked.json",
+          "design/qa/v0.4/iphone-stale-review/physical-blocked.json",
+          "design/qa/v0.4/iphone-stale-review/physical-commands-passed.json",
+          "design/qa/v0.4/iphone-stale-review/physical-passed.json",
+          "design/qa/v0.4/iphone-stale-review/physical-board.json"
+        ],
+        "productAcceptanceGranted": false
+      }
+    },
+    "Android": {
+      "checkedAt": "2026-10-13T15:13:27.538Z",
+      "device": "iQOO Neo10",
+      "os": "Android 16",
+      "browser": "Chrome 154.0.8037.126",
+      "network": "cellular / 5G, Wi-Fi absent in observed status bar",
+      "physicalPhone": true,
+      "control": "official scrcpy 5.0.1 through CUA keyboard and paste; ordinary Chrome tab",
+      "passed": [
+        "user signed in directly; account credentials were not read or changed",
+        "shared decision chose cellular; exactly one local decision persisted and card resolved",
+        "new conversation on physical phone drove real Codex to change demo.js from 3 to 4; readback and tool output visible",
+        "second phone message continued same task/session and changed demo.js from 4 to 5; only one matching task",
+        "pause requested while executor running; phone, local and Hub showed paused; no active lease; acknowledged receipt",
+        "required empty conversation title focused and prevented submission",
+        "task detail shows original requirement and latest partial verification; four concrete pending groups, steps and expected results synchronized to phone",
+        "after user restored cellular data, refresh preserved login; test task remained paused, file 5, decision count 1, no active execution or duplicate task",
+        "light and dark themes rendered on physical phone; follow-system restored",
+        "after the fix, real offline phone kept loaded task details readable; Edit task, Add evidence, Submit result, inbox supplement/defer and Create conversation disabled; Return did not reopen previously focused Edit form",
+        "after user restored cellular service, offline warnings cleared and Create conversation became enabled; all four fixture task revisions/acceptances unchanged, file still 5, no active execution or duplicate task",
+        "new plain-language inbox visible and login retained after reloading final deployed frontend",
+        "user locked/unlocked phone for about 10 seconds; same logged-in project was usable afterward; fixture task revisions and acceptances unchanged, file 5, no new execution or duplicate task",
+        "already-open valid edit draft: Save disabled offline, Return did not submit; cellular reconnect preserved draft without automatic submission; draft cancelled, four fixture revisions/acceptances and file unchanged",
+        "existing-conversation valid draft blocked offline; Return did not send; reconnect retained draft without automatic send; zero new Hub commands, task/file unchanged, draft cleared by reload",
+        "final deployed edit dialog initially focuses close; Shift+Tab/Tab wraps inside; Escape returns to Edit task, no save",
+        "logout replaced the board with login; refresh still required login; read-only server comparison confirmed one session revoked, no credentials read",
+        "user relogin restored original project, four original phone tasks and paused conversation output; original 46 tasks and 11 accepted records preserved; one new active login session, no execution",
+        "decision draft: submit disabled offline, Return did not submit; reconnect preserved selected option without automatic submission; six fixture tasks unchanged, zero new Hub commands",
+        "other end saved green while phone retained an unsent blue draft; phone refresh removed the stale form and moved card to handled; exactly one green answer persisted",
+        "open human-review draft: submit disabled offline; Return did not submit; reconnect preserved draft without automatic submission; six fixture tasks unchanged and zero new Hub commands",
+        "controlled stale GET projection on physical Android; real POST returned 409 REVISION_CONFLICT and showed not submitted; zero Hub commands and only the earlier green decision remained",
+        "latest deployed bundle physically retested on a new disposable Android item; correct not-submitted message persisted after polling, zero Hub commands, one earlier green decision"
+      ],
+      "pending": [],
+      "boardVerification": {
+        "checkedAt": "2026-10-13T15:13:27.538Z",
+        "taskStatus": "submitted",
+        "verification": "passed",
+        "acceptance": "stale",
+        "acceptanceReason": "summary version updated after test evidence; no human review recorded",
+        "revision": 41,
+        "contentVersion": 8,
+        "pendingChecks": []
+      },
+      "preciseConflict20261013": {
+        "checkedAt": "2026-10-13T14:21:09.990Z",
+        "physicalPhone": true,
+        "method": "in-memory stale GET projection for disposable task and item; cookie auth and all POSTs and receipts real; production bundle unchanged",
+        "oldTaskRevision": 1,
+        "currentTaskRevision": 2,
+        "oldItemRevision": 1,
+        "currentItemRevision": 2,
+        "httpStatus": 409,
+        "code": "REVISION_CONFLICT",
+        "message": "任务或事项已变化；本次未提交。请刷新后核对最新状态。",
+        "oldChoice": "blue",
+        "savedChoice": "green",
+        "decisionCount": 1,
+        "hubCommandsBefore": 0,
+        "hubCommandsAfter": 0,
+        "original54TaskRevisionsAndAcceptancesPreserved": true,
+        "tasks": 56,
+        "passedRecords": 13,
+        "activeExecutions": 0,
+        "testFileValue": 5,
+        "naturalRaceClaimed": false,
+        "passed": true,
+        "source": "design/qa/v0.4/native-shutdown-fix/android-physical-conflict.json"
+      },
+      "preciseConflictRetest20261013": {
+        "checkedAt": "2026-10-13T15:11:28.647Z",
+        "physicalPhone": true,
+        "method": "temporary QA wrapper with exact deployed bundle; only disposable task/item GET display frozen in memory; real cookie authentication and POST/receipts",
+        "oldTaskRevision": 1,
+        "currentTaskRevision": 2,
+        "oldItemRevision": 1,
+        "currentItemRevision": 2,
+        "httpStatus": 409,
+        "code": "REVISION_CONFLICT",
+        "uiMessage": "任务或事项已变化；本次未提交。请刷新后核对最新状态。",
+        "messagePersistedAfterPolling": true,
+        "uiPassed": true,
+        "oldChoice": "blue",
+        "savedChoice": "green",
+        "decisionCount": 1,
+        "hubCommandsBefore": 0,
+        "hubCommandsAfter": 0,
+        "other57TaskRevisionsPreservedSinceTestBaseline": true,
+        "allHumanAcceptancesPreservedSinceTestBaseline": true,
+        "tasks": 58,
+        "passedRecords": 13,
+        "activeExecutions": 0,
+        "testFileValue": 5,
+        "naturalRaceClaimed": false,
+        "returnedToNormalRootPage": true,
+        "source": "design/qa/v0.4/native-shutdown-fix/android-physical-conflict-retest.json"
+      },
+      "scopeLimits": [
+        "No blanket human acceptance granted",
+        "Pause receipt and empty lease do not establish OS process-tree quiescence",
+        "Keyboard automation validates phone web flow but does not prove physical touch targets; pointer injection in mirror was unreliable",
+        "Protected Chrome view was left unchanged; user opened ordinary tab; no phone security protections disabled"
+      ],
+      "historicalFailures": [
+        "physical client offline: task edit remained enabled and opened modal while Chrome reported no internet; no save attempted"
+      ],
+      "offlineRetest": {
+        "checkedAt": "2026-10-11T12:58:19.404906+00:00",
+        "observedControls": "passed",
+        "reconnectDataComparison": "passed",
+        "taskCount": 4,
+        "fileValue": 5,
+        "taskRevisionsAndAcceptancesUnchanged": true,
+        "newExecution": false,
+        "forcedOfflinePostOnDevice": false,
+        "allOfflinePathsVerifiedOnDevice": false,
+        "evidence": [
+          "design/qa/v0.4/android-offline-retest-observed.json",
+          "design/qa/v0.4/android-offline-retest-after.json"
+        ]
+      },
+      "lockRecovery": {
+        "checkedAt": "2026-10-11T13:43:59.235Z",
+        "passed": true,
+        "taskRevisionsAndAcceptancesUnchanged": true,
+        "noDuplicateTasks": true,
+        "hubPaused": true,
+        "activeExecutions": 0,
+        "performedBy": "user",
+        "observedBy": "CUA Android mirror and local/Hub comparison",
+        "evidence": "design/qa/v0.4/android-recovery-retest-after.json"
+      },
+      "openEditFormOffline": {
+        "checkedAt": "2026-10-11T14:13:23.738Z",
+        "passed": true,
+        "physicalPhone": true,
+        "offlineSaveDisabled": true,
+        "returnDidNotSubmit": true,
+        "reconnectDidNotSubmit": true,
+        "draftCancelled": true,
+        "taskRevisionsAndAcceptancesUnchanged": true,
+        "forcedOfflinePostOnDevice": false,
+        "evidence": [
+          "design/qa/v0.4/android-open-form-offline.json",
+          "design/qa/v0.4/android-open-form-retest-after.json",
+          "design/qa/v0.4/android-open-form-board.json"
+        ]
+      },
+      "existingConversationOffline": {
+        "checkedAt": "2026-10-11T14:32:24.663Z",
+        "changes": [
+          {
+            "id": "1ac25d12-9682-45ac-80ef-f9cddce6ca24",
+            "verification": "partial",
+            "acceptance": "unverified",
+            "existingConversationCheckCompleted": true
+          },
+          {
+            "id": "f1c72dbf-cb49-4f7e-9f00-13b2287c4c2d",
+            "verification": "partial",
+            "acceptance": "unverified",
+            "existingConversationCheckCompleted": true
+          }
+        ],
+        "humanAcceptanceGranted": false,
+        "physicalPhone": true,
+        "offlineSendDisabled": true,
+        "returnDidNotSubmit": true,
+        "reconnectDraftRetained": true,
+        "reconnectDidNotSubmit": true,
+        "draftClearedByReload": true,
+        "newCommands": 0,
+        "forcedOfflinePost": false
+      },
+      "dialogFocus": {
+        "checkedAt": "2026-10-11T14:31:52.974039+00:00",
+        "physicalPhone": true,
+        "device": "iQOO Neo10",
+        "browser": "Chrome",
+        "result": "passed",
+        "openedEditModal": true,
+        "initialFocusCloseButton": true,
+        "shiftTabReachedLastSaveButton": true,
+        "tabReturnedToCloseButton": true,
+        "escapeClosedModal": true,
+        "openerEditButtonRefocused": true,
+        "saveInvoked": false,
+        "draftClearedBeforeTest": true,
+        "scope": "CUA mirror keyboard; physical touch targets not covered"
+      },
+      "authentication": {
+        "checkedAt": "2026-10-11T14:36:11.608Z",
+        "physicalPhone": true,
+        "logoutUI": "login screen",
+        "afterRefresh": "login screen",
+        "serverSessionsRevoked": 1,
+        "credentialsRead": false,
+        "relogin": "passed",
+        "reloginCheckedAt": "2026-10-11T15:05:09.916Z",
+        "originalTaskCountPreserved": 46,
+        "originalAcceptedCountPreserved": 11,
+        "originalConversationOutputVisible": true,
+        "originalConversationPaused": true,
+        "newActiveSessionCount": 1,
+        "evidence": [
+          "design/qa/v0.4/android-auth-observed.json",
+          "design/qa/v0.4/android-auth-relogin-verified.json",
+          "design/qa/v0.4/android-relogin-board.json"
+        ]
+      },
+      "decisionOffline": {
+        "checkedAt": "2026-10-11T15:11:25.976Z",
+        "physicalPhone": true,
+        "offlineSubmitDisabled": true,
+        "returnDidNotSubmit": true,
+        "reconnectDraftRetained": true,
+        "reconnectDidNotSubmit": true,
+        "newCommands": 0,
+        "changes": [
+          {
+            "id": "1ac25d12-9682-45ac-80ef-f9cddce6ca24",
+            "verification": "partial",
+            "acceptance": "unverified",
+            "decisionOfflineVerified": true
+          },
+          {
+            "id": "f1c72dbf-cb49-4f7e-9f00-13b2287c4c2d",
+            "verification": "partial",
+            "acceptance": "unverified",
+            "decisionOfflineVerified": true
+          }
+        ],
+        "humanAcceptanceGranted": false
+      },
+      "decisionCrossEndRefresh": {
+        "checkedAt": "2026-10-11T15:13:46.206Z",
+        "physicalPhone": true,
+        "phoneDraft": "blue",
+        "otherEndSaved": "green",
+        "phoneRefreshRemovedStaleForm": true,
+        "handledCardVisible": true,
+        "decisionCount": 1,
+        "noStaleOverwrite": true,
+        "stalePostAttempted": false,
+        "conflict409OnDevice": false,
+        "historyWordingIssue": "Resolved card still suggests answering; HISTORY-01 fix in progress."
+      },
+      "humanReviewOffline": {
+        "checkedAt": "2026-10-11T15:18:00.457Z",
+        "physicalPhone": true,
+        "offlineSubmitDisabled": true,
+        "returnDidNotSubmit": true,
+        "reconnectDraftRetained": true,
+        "reconnectDidNotSubmit": true,
+        "newCommands": 0,
+        "changes": [
+          {
+            "id": "1ac25d12-9682-45ac-80ef-f9cddce6ca24",
+            "verification": "partial",
+            "acceptance": "unverified",
+            "reviewOfflineVerified": true
+          },
+          {
+            "id": "f1c72dbf-cb49-4f7e-9f00-13b2287c4c2d",
+            "verification": "partial",
+            "acceptance": "unverified",
+            "reviewOfflineVerified": true
+          }
+        ],
+        "humanAcceptanceGranted": false
+      },
+      "reviewRejection": {
+        "status": "fixed_and_physically_verified",
+        "physicalPhone": true,
+        "rejectionPreventedAcceptance": true,
+        "incorrectUnknownFeedback": false,
+        "subsequentWritesBlocked": false,
+        "historicalUnknownAutoResolved": false,
+        "evidence": [
+          "design/qa/v0.4/review-rejection/physical-rejected.json",
+          "design/qa/v0.4/review-rejection/physical-evidence.json",
+          "design/qa/v0.4/review-rejection/physical-passed.json",
+          "design/qa/v0.4/review-rejection/physical-failed.json",
+          "design/qa/v0.4/review-rejection/physical-commands-final.json",
+          "design/qa/v0.4/review-rejection/board.json"
+        ],
+        "historicalFailure": {
+          "status": "failed_feedback_and_recovery",
+          "physicalPhone": true,
+          "rejectionPreventedAcceptance": true,
+          "incorrectUnknownFeedback": true,
+          "subsequentWritesBlocked": true,
+          "historicalUnknownAutoResolved": false,
+          "evidence": [
+            "design/qa/v0.4/android-review-rejection-local.json",
+            "design/qa/v0.4/android-review-rejection-hub.json",
+            "design/qa/v0.4/review-rejection-board.json"
+          ]
+        },
+        "checkedAt": "2026-10-11T15:44:03.202895+00:00",
+        "retest": {
+          "noEvidence": "rejected with specific Chinese warning",
+          "addEvidence": "saved once",
+          "pass": "one disposable review record",
+          "fail": "second review record plus one open issue",
+          "originalAcceptanceStatesPreserved": true,
+          "activeExecutions": 0,
+          "testFileUnchanged": true
+        }
+      },
+      "status": "partial",
+      "largeTextAndTouch": {
+        "source": "user report plus CUA visual observation",
+        "reply": "能点到，字体已调大",
+        "numericScaleRecorded": false,
+        "scope": "inbox cards, task details, review modal and add-evidence/cancel touch"
+      },
+      "reviewVersionBinding": {
+        "staleDraftCommands": 0,
+        "reopenedCurrentVersionCommands": 1,
+        "acceptedVersion": 2,
+        "productAcceptanceGranted": false
+      }
+    }
+  },
+  "userUsabilityAcceptance": {
+    "checkedAt": "2026-10-11",
+    "status": "accepted_for_displayed_card_clarity",
+    "feedback": "能找到，但内容或操作还不够清楚",
+    "accepted": true,
+    "detail": "说明太技术化，不清楚实际完成了什么",
+    "newCopyPhysicalPhoneObserved": true,
+    "recheck": "user confirmed: 现在能看懂了",
+    "scope": "新版 Android 卡片是否讲清已完成内容、剩余事项和下一步",
+    "wholeP0Accepted": false,
+    "confirmedFeedback": "现在能看懂了",
+    "checkCompleted": true,
+    "hubSynced": true,
+    "overallTaskAcceptanceUnchanged": true
+  },
+  "mobileOfflineAndReceiptFix": {
+    "baseline": "physical Android offline edit remained enabled; isolated Hub accepted a duplicate update after response loss and reload",
+    "clientOfflineBothEngines": "passed",
+    "inboxReadabilityBothEngines": "passed",
+    "accountConversationBothEngines": "passed",
+    "receiptScenarios": [
+      "update response loss + reload",
+      "same-tick duplicate update",
+      "stale refresh 401 after logout/login",
+      "stale send GET after navigation",
+      "pending continue blocks message while allowing pause",
+      "pause 5xx receipt survives reload",
+      "new conversation response loss + reload",
+      "message response loss + reload",
+      "legacy token SHA-256 scope is stable across reload and isolated across tokens"
+    ],
+    "receiptScenarioCount": 9,
+    "receiptStatus": "fixed",
+    "receiptProvider": "fake provider; no real AI or physical phone",
+    "scopeIsolation": "account id or bearer SHA-256; no raw bearer persisted in journal",
+    "desktopBundle": "built and cleanly restarted",
+    "hubFrontend": "deployed and asset hashes referenced by index verified",
+    "firewall": "active",
+    "physicalAndroidRetest": "observed offline controls, reconnection and lock/unlock passed; remaining offline entry points pending",
+    "unknownOutcomeRecovery": "implemented and tested: original ID, durable receipts or pre-dispatch proof only; insufficient evidence remains fenced",
+    "independentReview": "no new confirmed unauthorized write or cross-account receipt disclosure; P0 partial",
+    "reviewerActualModelMetadata": "NOT VERIFIED",
+    "automated191": "earlier baseline suite, not rerun for this frontend-only correction",
+    "nativeRestart": {
+      "checkedAt": "2026-10-11T12:18:06.144Z",
+      "passed": true,
+      "tasksPreserved": 46,
+      "acceptedPreserved": 11,
+      "activeExecutions": 0,
+      "remote": "connected",
+      "previousLocalPortClosed": true,
+      "remainingAppProcesses": 0,
+      "newPlainLanguageInboxObserved": true
+    },
+    "networkMessageCopy": {
+      "text": "暂时连接不上服务器。恢复连接后，请先核对任务状态。",
+      "browserEngines": [
+        "chromium",
+        "webkit"
+      ],
+      "result": "passed",
+      "scope": "display formatting only; command and connection behavior unchanged",
+      "physicalLocalizedErrorRecheck": "not repeated; final online frontend reload observed",
+      "nativeBuild": "passed",
+      "nativeRestart": {
+        "checkedAt": "2026-10-11T12:54:57.427Z",
+        "passed": true,
+        "tasksPreserved": 46,
+        "acceptedPreserved": 11,
+        "activeExecutions": 0,
+        "remote": "connected"
+      },
+      "nativeQuit": {
+        "checkedAt": "2026-10-11T12:54:42.619Z",
+        "previousLocalPortClosed": true
+      },
+      "deployed": true,
+      "firewall": "active"
+    }
+  },
+  "unknownOutcomeRecovery": {
+    "checkedAt": "2026-10-11T13:45:59.576Z",
+    "status": "engineering_verified",
+    "realAI": false,
+    "physicalPhoneRecoveryCTA": false,
+    "checks": [
+      "durable confirmed receipt -> applied, no action callback replay",
+      "durable pre-dispatch marker -> not_applied, no automatic retry",
+      "sending, missing receipt and partial creation remain unknown",
+      "same-task and project creation fences apply across devices; pause preserves previous unknown outcomes",
+      "current actor, tenant, project and node epoch checked",
+      "late results and account/connectivity changes do not clear another scoped operation",
+      "multiple pending receipts keep polling and recover after reconnect"
+    ],
+    "browser": {
+      "chromium": "passed",
+      "webkit": "passed",
+      "scopes": [
+        "inbox",
+        "task detail",
+        "conversation",
+        "320/390 widths",
+        "reload",
+        "logout race",
+        "account isolation",
+        "multi-pending reconnect"
+      ],
+      "evidence": [
+        "design/qa/v0.4/remote-recovery/result-chromium.json",
+        "design/qa/v0.4/remote-recovery-webkit/result-webkit.json"
+      ]
+    },
+    "affectedRegressions": {
+      "inboxBothEngines": "passed",
+      "accountsConversationsBothEngines": "passed",
+      "mobileOfflineBothEngines": "passed",
+      "mobileReceiptScenarios": 9
+    },
+    "independentReview": {
+      "confirmedRemainingBlockers": 0,
+      "backendTestsPassed": 42,
+      "chromiumE2E": "passed",
+      "actualModelMetadata": "NOT VERIFIED",
+      "evidence": "design/qa/v0.4/review/unknown-recovery-review.md"
+    },
+    "nativeRestart": {
+      "checkedAt": "2026-10-11T13:45:58.745Z",
+      "passed": true,
+      "tasksPreserved": 46,
+      "acceptedPreserved": 11,
+      "activeExecutions": 0,
+      "remote": "connected"
+    },
+    "nativeQuit": {
+      "checkedAt": "2026-10-11T13:45:44.593Z",
+      "previousLocalPortClosed": true,
+      "remainingAppProcesses": 0
+    },
+    "deployment": "verified",
+    "backupService": "missing existing script restored; backup succeeded before and after deployment",
+    "firewall": "active",
+    "limits": [
+      "missing/inconclusive evidence remains unknown; no forced unlock",
+      "no OS process-stop claim",
+      "physical-device recovery CTA not exercised",
+      "human acceptance not automatically granted"
+    ],
+    "board": {
+      "checkedAt": "2026-10-11T13:52:56.713Z",
+      "taskId": "11b826d3-8719-4568-b519-bef7beb0589d",
+      "verification": "passed",
+      "status": "submitted",
+      "acceptance": "stale",
+      "humanAcceptanceGranted": false,
+      "allPreviousAcceptancesPreserved": true,
+      "hubSynced": true
+    },
+    "noticeRaceFix": {
+      "status": "passed",
+      "productChange": "unchanged pending status no longer overwrites explicit recovery notice",
+      "chromium": "passed",
+      "webkit": "passed",
+      "assertion": "holds another unknown GET; waits for full response and UI processing; confirmed notice persists and other intent stays locked",
+      "negativeControl": "old notice behavior in temporary dist fails the post-response assertion; deployed dist unchanged",
+      "fixtureCorrection": "local sending finalization exercised separately from held unknown GET; no product change for fixture deadlock",
+      "evidence": [
+        "design/qa/v0.4/notice-02-final-chromium.log",
+        "design/qa/v0.4/notice-02-final-webkit.log",
+        "design/qa/v0.4/notice-02-negative-final.log",
+        "design/qa/v0.4/notice-02/investigation.md",
+        "design/qa/v0.4/review/notice-01-review.md"
+      ]
+    },
+    "currentRegression": {
+      "status": "fixed_and_physically_verified",
+      "id": "REVIEW-REJECTION-01",
+      "previousFailurePreserved": true,
+      "oldUnknownAutoUnlocked": false,
+      "boardStatus": "engineering passed; human acceptance remains stale"
+    }
+  },
+  "dialogFocus": {
+    "status": "engineering_verified_deployed",
+    "initialFocus": "close button, without forcing the mobile keyboard",
+    "tabContainment": true,
+    "backgroundInert": true,
+    "closeRestoresOpener": true,
+    "refreshPreservesDraft": true,
+    "authLossClearsTransientDialog": true,
+    "sameRenderAuthRace": "source-derived invariant; exact interleaving not reproduced",
+    "browser": {
+      "chromium": "passed",
+      "webkit": "passed"
+    },
+    "independentReview": "no remaining confirmed finding in scope",
+    "physicalFinalRetest": true,
+    "evidence": [
+      "design/qa/v0.4/notice-01-dialog-focus-chromium.log",
+      "design/qa/v0.4/notice-01-dialog-focus-webkit.log",
+      "design/qa/v0.4/review/dialog-focus-review.md"
+    ],
+    "physicalMacFocusObserved": true,
+    "nativeBuild": "passed",
+    "nativeRestart": {
+      "checkedAt": "2026-10-11T14:21:10.791Z",
+      "passed": true,
+      "tasksPreserved": 46,
+      "acceptedPreserved": 11,
+      "activeExecutions": 0,
+      "remote": "connected"
+    },
+    "nativeQuit": {
+      "checkedAt": "2026-10-11T14:20:43.184Z",
+      "previousLocalPortClosed": true,
+      "remainingAppProcesses": 0
+    },
+    "deployment": {
+      "checkedAt": "2026-10-11T14:21:11.827Z",
+      "passed": true,
+      "checks": [
+        "/api/state rejects unauthenticated access",
+        "/api/inbox rejects unauthenticated access",
+        "deployed index and hashed assets match tested frontend build",
+        "public HTTPS certificate validation and security headers pass",
+        "desktop recently synchronized plan tasks and nonempty inbox through authenticated Hub"
+      ],
+      "projects": 2,
+      "tasks": 46,
+      "inboxItems": 98,
+      "physicalPhone": false
+    },
+    "backupIntegrity": {
+      "checkedAt": "2026-10-11T14:21:09.105Z",
+      "latestBackupIntegrity": "ok",
+      "newRecoveryTableIncluded": true,
+      "directoryOwnerOnly": true,
+      "filesOwnerOnly": true,
+      "secretContentsPrinted": false
+    },
+    "firewall": "active",
+    "phoneFinalFocusRetest": "passed via Android mirror keyboard",
+    "physicalAndroidEvidence": "design/qa/v0.4/android-dialog-focus-final.json"
+  },
+  "reviewRejectionFix": {
+    "checkedAt": "2026-10-11T15:44:03.202895+00:00",
+    "status": "deployed_and_android_verified",
+    "backendPassed": 215,
+    "independentTargetedPassed": 39,
+    "browserEngines": [
+      "chromium",
+      "webkit"
+    ],
+    "recoveryRegressionsBothEngines": true,
+    "fixedCodes": [
+      "REVIEW_NOT_SUBMITTED",
+      "REVIEW_CRITERIA_REQUIRED",
+      "REVIEW_CURRENT_EVIDENCE_REQUIRED",
+      "REVIEW_OPEN_ISSUES"
+    ],
+    "proof": "original review(pass) binding plus completed transaction rollback",
+    "oldUnknownUnchanged": true,
+    "firewall": "active",
+    "backupIntegrity": "ok",
+    "productHumanAcceptanceGranted": false,
+    "evidenceDirectory": "design/qa/v0.4/review-rejection"
+  },
+  "handledHistoryWording": {
+    "status": "deployed_and_android_observed",
+    "browserEngines": [
+      "chromium",
+      "webkit"
+    ],
+    "evidence": "design/qa/v0.4/review-rejection/physical-history.json"
+  },
+  "reviewStaleDialogFix": {
+    "id": "REVIEW-STALE-DIALOG-01",
+    "checkedAt": "2026-10-11T16:01:10.222127+00:00",
+    "status": "deployed_and_android_verified",
+    "baselineReproduced": [
+      "chromium",
+      "webkit"
+    ],
+    "scopes": [
+      "edit",
+      "evidence",
+      "review-pass",
+      "review-fail"
+    ],
+    "binding": [
+      "task",
+      "project",
+      "revision",
+      "contentVersion",
+      "accountId",
+      "authGeneration"
+    ],
+    "finalBrowserEngines": [
+      "chromium",
+      "webkit"
+    ],
+    "affectedRegressions": [
+      "mobile-offline both engines",
+      "dialog-focus both engines"
+    ],
+    "physicalAndroid": {
+      "staleDraftCommands": 0,
+      "reopenedCurrentVersionCommands": 1,
+      "acceptedVersion": 2,
+      "productAcceptanceGranted": false
+    },
+    "board": {
+      "checkedAt": "2026-10-11T16:00:10.319Z",
+      "records": [
+        {
+          "id": "1ac25d12-9682-45ac-80ef-f9cddce6ca24",
+          "verification": "partial",
+          "acceptance": "unverified",
+          "previousAcceptance": "unverified",
+          "remaining": [
+            "android-review-conflict"
+          ]
+        },
+        {
+          "id": "f1c72dbf-cb49-4f7e-9f00-13b2287c4c2d",
+          "verification": "partial",
+          "acceptance": "unverified",
+          "previousAcceptance": "unverified",
+          "remaining": [
+            "iphone-offline-reconnect",
+            "iphone-logout-login",
+            "iphone-review-conflict",
+            "iphone-large-text",
+            "android-review-conflict"
+          ]
+        },
+        {
+          "id": "11b826d3-8719-4568-b519-bef7beb0589d",
+          "verification": "passed",
+          "acceptance": "stale",
+          "previousAcceptance": "stale",
+          "remaining": [],
+          "completedCheckHistory": [
+            {
+              "id": "android-review-rejection",
+              "kind": "test",
+              "title": "Android：缺少验收证据时应说明原因并允许补充",
+              "criterionIds": [
+                "4179630d-595b-483d-9904-ec1e983beff6",
+                "26795b97-0d91-4f18-a781-bab43ba77f82"
+              ],
+              "steps": [
+                "可丢弃任务提交结果但不添加证据。",
+                "在手机尝试通过验收，确认提示缺少当前版本证据。",
+                "任务保持未验收，随后仍可补充证据；异常结果仍须保留核实入口。"
+              ],
+              "expectedResult": "明确拒绝不会误报结果未知；异常执行不会被误当作未执行。",
+              "blockedReason": "",
+              "shareWithRemote": true,
+              "completed": true
+            },
+            {
+              "id": "review-version-binding",
+              "kind": "test",
+              "title": "交付版本变化后，旧验收草稿必须重新核对",
+              "criterionIds": [
+                "4179630d-595b-483d-9904-ec1e983beff6",
+                "26795b97-0d91-4f18-a781-bab43ba77f82"
+              ],
+              "steps": [
+                "打开验收弹窗并填写草稿。",
+                "另一端更新交付内容和证据。",
+                "尝试提交旧草稿，确认不能验收未经核对的新版本。"
+              ],
+              "expectedResult": "拒绝旧草稿并明确要求查看新版本。",
+              "blockedReason": "",
+              "shareWithRemote": true,
+              "completed": true
+            }
+          ]
+        }
+      ],
+      "existingAcceptedTasksPreserved": true,
+      "productHumanAcceptanceGranted": false,
+      "androidLargeTextAndTouch": {
+        "source": "user report plus CUA visual observation",
+        "reply": "能点到，字体已调大",
+        "numericScaleRecorded": false,
+        "scope": "inbox cards, task details, review modal and add-evidence/cancel touch"
+      }
+    },
+    "evidenceDirectory": "design/qa/v0.4/review-stale-dialog"
+  },
+  "iPhoneConnectivityDetection": {
+    "issue": "IPHONE-CONNECTIVITY-01",
+    "status": "fixed_and_physically_verified_recorded_review_scope",
+    "physicalObserved": "submit initially remained available after reconnecting mirroring while internet was disconnected; eventually disabled; no attempt during enabled interval",
+    "exactPhysicalDelayMeasured": false,
+    "physicalNavigatorFlagRead": false,
+    "isolatedBaseline": {
+      "chromium": {
+        "elapsedMs": 5528,
+        "navigatorOnline": true,
+        "submitEnabled": true,
+        "alertCount": 0,
+        "stateReads": 3,
+        "readsAtHold": 3,
+        "writePosts": 0,
+        "draft": "等待网络读取时保留的草稿"
+      },
+      "webkit": {
+        "elapsedMs": 5523,
+        "navigatorOnline": true,
+        "submitEnabled": true,
+        "alertCount": 0,
+        "stateReads": 3,
+        "readsAtHold": 3,
+        "writePosts": 0,
+        "draft": "等待网络读取时保留的草稿"
+      }
+    },
+    "productHumanAcceptanceGranted": false,
+    "repair": {
+      "browserReadDeadlineMs": 8000,
+      "deadlineIncludesResponseBody": true,
+      "postDeadlineAdded": false,
+      "desktopBridgeExempt": true,
+      "resumeRequiresFreshRead": true,
+      "offlineAndOnlineInvalidatePriorReads": true,
+      "legacyIdentityReadyTriggersFreshRead": true,
+      "unknownCommandIdsPreserved": true
+    },
+    "finalArtifact": {
+      "file": "index-tM7ncMFz.js",
+      "sha256": "6644385b80ae25a1c5f7a83939feab7a8377ecf08e6c039f67e0b840225236e7"
+    },
+    "engineeringVerification": {
+      "engines": [
+        "chromium",
+        "webkit"
+      ],
+      "passedFlows": [
+        "mobile-connectivity",
+        "dialog-focus",
+        "mobile-offline",
+        "review-stale-dialog",
+        "remote-recovery",
+        "accounts-conversations",
+        "inbox"
+      ],
+      "flowRuns": 14,
+      "exitCode": 0,
+      "isolatedServices": true,
+      "realAI": false,
+      "logs": "design/qa/v0.4/iphone-connectivity/final-v2-*.log"
+    },
+    "regressionsFoundBeforeRelease": [
+      {
+        "issue": "reconnect reused a pre-disconnect read",
+        "independentlyReproduced": true,
+        "fixed": true,
+        "oldResponseDoesNotReopenWrites": true
+      },
+      {
+        "issue": "legacy-token relogin discarded the initial read after identity became ready, leaving no task state",
+        "existingDialogFocusTestFailedBothEnginesBeforeFix": true,
+        "testAssertionsUnchanged": true,
+        "passedBothEnginesAfterFix": true
+      }
+    ],
+    "physicalRepairRetest": {
+      "status": "passed_recorded_scope",
+      "physicalPhone": true,
+      "source": "user physical operation/report, CUA reconnect screenshot and read-only backend comparison",
+      "offlineSubmitDisabled": true,
+      "reconnectDraftRetained": true,
+      "automaticReplayObserved": false,
+      "newCommands": 0,
+      "exactLatencyMeasured": false,
+      "disabledSubmitAttempted": false,
+      "otherEntryPointsVerified": false,
+      "evidence": [
+        "design/qa/v0.4/iphone-connectivity/physical-offline-v2-observed.json",
+        "design/qa/v0.4/iphone-connectivity/physical-reconnected-observed.json",
+        "design/qa/v0.4/iphone-connectivity/physical-board.json"
+      ]
+    },
+    "independentReview": {
+      "status": "no_blocking_findings_in_reviewed_scope",
+      "originalCandidateRaceReproduced": true,
+      "finalArtifactRaceRetested": true,
+      "modelAndEffort": "NOT VERIFIED",
+      "report": "design/qa/v0.4/iphone-connectivity/security-review.md"
+    },
+    "deployment": {
+      "privateWeb": "passed",
+      "assetsMatchTestedBuild": true,
+      "httpsAndAccessControls": "passed",
+      "firewall": "active",
+      "backupIntegrity": "ok",
+      "backupPermissions": "owner_only",
+      "nativeBuild": "passed",
+      "nativeBeforeRestart": {
+        "tasks": 52,
+        "accepted": 12,
+        "activeExecutions": 0
+      },
+      "nativeNormalQuit": "passed",
+      "nativeRelaunch": "passed",
+      "physicalPhone": false,
+      "nativeAfterRestart": {
+        "tasksPreserved": 52,
+        "acceptancesPreserved": 12,
+        "includesDisposableTestCard": true,
+        "activeExecutions": 0,
+        "remote": "connected"
+      },
+      "desktopAndHubSync": "passed"
+    },
+    "boardRecord": {
+      "engineeringEvidenceUpdated": true,
+      "physicalCheckCompleted": true,
+      "allExistingAcceptancesPreserved": true,
+      "reference": "design/qa/v0.4/iphone-connectivity/physical-board.json"
+    }
+  },
+  "reviewFeedback": {
+    "issue": "REVIEW-FEEDBACK-01",
+    "status": "verified_recorded_physical_scope",
+    "productHumanAcceptanceGranted": false,
+    "cause": "queued receipt closed dialog; final rejection displayed only near page header, away from scrolled mobile task actions",
+    "evidence": [
+      "design/qa/v0.4/review-feedback/physical-receipts.json",
+      "design/qa/v0.4/iphone-connectivity/unexpected-review-report.json",
+      "design/qa/v0.4/review-feedback/board-gap.json",
+      "design/qa/v0.4/review-feedback/physical-flow.json",
+      "design/qa/v0.4/review-feedback/physical-copy-observed.json",
+      "design/qa/v0.4/review-feedback/physical-copy-final-receipts.json",
+      "design/qa/v0.4/review-feedback/physical-board.json"
+    ],
+    "finalArtifact": {
+      "file": "index-CsgPfagk.js",
+      "sha256": "c6924e076bfe6678153ea381da2aa1a6d51a4791a5cd79ef4a5d9e0e60d7c3ec"
+    },
+    "engineeringVerification": {
+      "runs": 19,
+      "passed": 19,
+      "engines": [
+        "chromium",
+        "webkit"
+      ],
+      "receiptLossScenariosInChromium": 9,
+      "realAI": false,
+      "physicalPhone": false,
+      "logs": "design/qa/v0.4/review-feedback/final/",
+      "backendSuiteRerun": false,
+      "wordingFollowup": {
+        "runs": 2,
+        "passed": 2,
+        "engines": [
+          "chromium",
+          "webkit"
+        ],
+        "onlyChange": "two pending-message strings",
+        "logs": [
+          "design/qa/v0.4/review-feedback/copy-chromium.log",
+          "design/qa/v0.4/review-feedback/copy-webkit.log"
+        ]
+      }
+    },
+    "independentReview": {
+      "status": "no_blocking_findings_in_reviewed_scope",
+      "report": "design/qa/v0.4/review-feedback/security-review.md",
+      "modelAndEffort": "NOT VERIFIED"
+    },
+    "deployment": {
+      "privateWeb": "passed",
+      "httpsAndAccessControls": "passed",
+      "firewall": "active",
+      "backupIntegrity": "ok",
+      "nativeBuild": "passed",
+      "nativeNormalQuit": "passed",
+      "nativeRelaunch": "passed",
+      "tasksPreserved": 52,
+      "acceptedRecordsPreserved": 12,
+      "includesDisposableTestCard": true,
+      "activeExecutions": 0,
+      "remote": "connected",
+      "finalAssetCheck": "design/qa/v0.4/review-feedback/copy-deployed-web.json",
+      "nativeRestart": "design/qa/v0.4/native-review-feedback-copy-restart.json"
+    },
+    "physicalControl": {
+      "clicks": "500ms CUA taps restored Safari control",
+      "fastTyping": "drops characters; verify per-key input before submission",
+      "systemAuthorization": "restored by user; autonomous CUA tests completed"
+    },
+    "knownFollowup": {
+      "status": "inferred_not_dynamically_reproduced",
+      "severity": "low",
+      "case": "non-dialog mutation pending while logout fails may retain busy UI after auth generation changes",
+      "productAcceptanceGranted": false
+    },
+    "originalIncident": {
+      "physicalUserReport": "意外通过了验收",
+      "verifiedBackendOutcome": "failed: REVIEW_CURRENT_EVIDENCE_REQUIRED",
+      "fixtureAcceptance": "unverified",
+      "fixtureRevision": 2,
+      "evidenceCount": 0,
+      "reviewHistoryCount": 0
+    },
+    "firstFunctionalArtifact": {
+      "file": "index-vfQ7jd5a.js",
+      "sha256": "ba0aecfd5224b4243f769c7f67ee0c2529214d1a833c9722cdd121eefc7b90c7"
+    },
+    "physicalVerification": {
+      "checkedAt": "2026-10-12T13:19:28.534080+00:00",
+      "physicalPhone": true,
+      "device": "iPhone 15 Safari",
+      "operator": "assistant using CUA iPhone Mirroring",
+      "queuedVisible": true,
+      "rejectionVisibleAboveMobileNav": true,
+      "noEvidenceRejected": true,
+      "oneEvidenceSaved": true,
+      "passThenReturn": true,
+      "reviewsAdded": 2,
+      "otherAcceptancesPreserved": true,
+      "activeExecutions": 0,
+      "testFileUnchanged": true,
+      "productHumanAcceptanceGranted": false,
+      "rawPhases": [
+        "physical-before.json",
+        "physical-rejected.json",
+        "physical-evidence.json",
+        "physical-passed.json",
+        "physical-returned.json"
+      ],
+      "finalCopyObserved": true,
+      "finalCopyEvidence": "physical-copy-observed.json",
+      "openIssueRejectionVerified": true,
+      "finalReceiptCount": 5
+    },
+    "finalCopyObservation": {
+      "checkedAt": "2026-10-12T13:28:10.614Z",
+      "physicalPhone": true,
+      "device": "iPhone 15 Safari",
+      "operator": "assistant using CUA iPhone Mirroring",
+      "artifact": "index-CsgPfagk.js",
+      "pendingText": "验收请求正在等待目标电脑确认；本次结论尚未确认。",
+      "pendingTextObserved": true,
+      "rejectionText": "本次没有保存验收结论：仍有未解决的交付偏差。请先处理问题，再进行验收。",
+      "rejectionVisibleAboveMobileNav": true,
+      "receiptCode": "REVIEW_OPEN_ISSUES",
+      "fixtureRevision": 5,
+      "fixtureAcceptance": "failed",
+      "evidenceCount": 1,
+      "localReviewHistoryCount": 2,
+      "openIssues": 1,
+      "productHumanAcceptanceGranted": false
+    },
+    "board": {
+      "checkedAt": "2026-10-12T13:28:10.665Z",
+      "records": [
+        {
+          "id": "954d83ea-02c0-4554-8296-b0519a2ac395",
+          "revision": 12,
+          "verification": "partial",
+          "acceptance": "unverified",
+          "completedChecks": [
+            "iphone-logout-login",
+            "iphone-connectivity-detection",
+            "iphone-review-feedback",
+            "iphone-review-flow"
+          ],
+          "pendingChecks": [
+            "iphone-offline-reconnect",
+            "iphone-review-conflict",
+            "iphone-large-text"
+          ]
+        },
+        {
+          "id": "f1c72dbf-cb49-4f7e-9f00-13b2287c4c2d",
+          "revision": 39,
+          "verification": "partial",
+          "acceptance": "unverified",
+          "completedChecks": [
+            "iphone-logout-login",
+            "iphone-connectivity-detection",
+            "iphone-review-feedback",
+            "iphone-review-flow"
+          ],
+          "pendingChecks": [
+            "iphone-offline-reconnect",
+            "iphone-review-conflict",
+            "iphone-large-text",
+            "android-review-conflict"
+          ]
+        }
+      ],
+      "taskCount": 52,
+      "acceptancesPreserved": true,
+      "productHumanAcceptanceGranted": false
+    }
+  },
+  "currentBoardAfterPhoneTests": {
+    "checkedAt": "2026-10-12T13:35:42.814Z",
+    "tasks": 53,
+    "passedRecords": 13,
+    "includesDisposableFixtures": true,
+    "originalProductAcceptancesUnchanged": true,
+    "activeExecutions": 0,
+    "notANewNativeRestartTest": true,
+    "supersededBy": "currentBoard"
+  },
+  "phoneRemainder20261012": {
+    "checkedAt": "2026-10-12T14:19:01.793905+00:00",
+    "physicalObservations": {
+      "checkedAt": "2026-10-12T14:13:38.790Z",
+      "largeText": {
+        "checkedAt": "2026-10-12T13:49:40.783297+00:00",
+        "device": "iPhone 15 Safari",
+        "physicalPhone": true,
+        "operator": "CUA via iPhone Mirroring",
+        "systemOriginalPosition": "middle standard text-size notch",
+        "systemTestPosition": "rightmost standard notch; larger accessibility sizes not enabled",
+        "systemFontAffectsWebText": "no obvious change in page body observed; not claimed as automatic Dynamic Type support",
+        "safariZoom": "four increase taps from original position, then four decrease taps; percentage not exposed by observed menu",
+        "checks": {
+          "inboxTextReflows": true,
+          "taskDetailsReadable": true,
+          "actionButtonsWrapAndRemainReachable": true,
+          "evidenceModalOpenedAndCancelled": true,
+          "reviewModalScrollableAndCancelled": true,
+          "conversationTextareaFocusedTypedAndCleared": true,
+          "horizontalPageCroppingObserved": false,
+          "userFingerTapTest": false
+        },
+        "restoration": {
+          "safariDecreaseTapsDone": 4,
+          "safariOriginalLayoutObserved": true,
+          "systemRestorePendingUser": false,
+          "systemRestoredByUser": true,
+          "userReply": "字号已恢复，锁屏回来正常"
+        },
+        "tasksUnchanged": true,
+        "fileUnchanged": true,
+        "activeExecutions": 0,
+        "productAcceptanceGranted": false
+      },
+      "lockRecovery": {
+        "physicalPhone": true,
+        "operator": "user lock/unlock with CUA and server observation",
+        "userReply": "字号已恢复，锁屏回来正常",
+        "taskCount": 11,
+        "commands": 0,
+        "tasksUnchanged": true,
+        "fileUnchanged": true
+      },
+      "androidStale": {
+        "physicalPhone": true,
+        "oldDraft": "blue",
+        "otherEnd": "green",
+        "oldFormRemoved": true,
+        "handledReadOnly": true,
+        "commands": 0,
+        "exact409OnDevice": false
+      },
+      "iphoneStale": {
+        "physicalPhone": true,
+        "oldDraft": "blue",
+        "otherEnd": "green",
+        "oldFormRemoved": true,
+        "decisionFilterEmpty": true,
+        "commands": 0,
+        "exact409OnDevice": false
+      },
+      "iphoneDecisionOffline": {
+        "physicalPhone": true,
+        "operator": "user toggles Wi-Fi/cellular; CUA prepares form; backend read-only check",
+        "userReply": "变灰了，请你自己继续测试",
+        "disabledSubmit": true,
+        "offlineHintConfirmed": false,
+        "disabledClickConfirmed": false,
+        "commands": 0,
+        "noAutomaticSubmissionAfterReconnect": true,
+        "draftPreservedAfterReconnect": "unconfirmed; Safari returned to main project home",
+        "taskCount": 12,
+        "fileValue": 5
+      }
+    },
+    "existingConversationOffline": {
+      "checkedAt": "2026-10-12T14:14:55.554Z",
+      "physicalPhone": true,
+      "device": "iPhone 15 Safari",
+      "userReply": "都正常 都是按照你说的来的",
+      "offlineSubmitDisabledUserConfirmed": true,
+      "restoredDraftObservedByCUA": "Offline test",
+      "draftClearedByCUA": true,
+      "commands": 0,
+      "activeExecutions": 0,
+      "fileValue": 5,
+      "productAcceptanceGranted": false
+    },
+    "boardRecords": [
+      {
+        "checkedAt": "2026-10-12T14:13:38.855Z",
+        "rows": [
+          {
+            "id": "954d83ea-02c0-4554-8296-b0519a2ac395",
+            "revision": 14,
+            "pending": [
+              "iphone-offline-reconnect",
+              "iphone-review-conflict"
+            ]
+          },
+          {
+            "id": "1ac25d12-9682-45ac-80ef-f9cddce6ca24",
+            "revision": 35,
+            "pending": [
+              "android-review-conflict"
+            ]
+          },
+          {
+            "id": "f1c72dbf-cb49-4f7e-9f00-13b2287c4c2d",
+            "revision": 41,
+            "pending": [
+              "iphone-offline-reconnect",
+              "iphone-review-conflict",
+              "android-review-conflict"
+            ]
+          }
+        ],
+        "productAcceptanceGranted": false
+      },
+      {
+        "checkedAt": "2026-10-12T14:14:55.602Z",
+        "rows": [
+          {
+            "id": "954d83ea-02c0-4554-8296-b0519a2ac395",
+            "revision": 15,
+            "pending": [
+              "iphone-review-conflict"
+            ]
+          },
+          {
+            "id": "f1c72dbf-cb49-4f7e-9f00-13b2287c4c2d",
+            "revision": 42,
+            "pending": [
+              "iphone-review-conflict",
+              "android-review-conflict"
+            ]
+          }
+        ],
+        "productAcceptanceGranted": false
+      }
+    ],
+    "physicalExact409Triggered": false,
+    "allPhoneCasesClaimedPassed": false,
+    "productHumanAcceptanceGranted": false,
+    "evidenceDirectory": "design/qa/v0.4/phone-remainder"
+  },
+  "decisionConflictFix": {
+    "id": "DECISION-CONFLICT-01",
+    "status": "both_physical_latest_bundle_conflict_flows_verified",
+    "cause": "Two proven pre-insert conflicts incorrectly said receipt unknown despite deleting the pending record.",
+    "behavior": "Only REVISION_CONFLICT / INBOX_CONFLICT on Hub command creation state not submitted; other 409 retains original unknown command ID.",
+    "isolatedCoreHubEngines": [
+      "chromium",
+      "webkit"
+    ],
+    "isolated409": {
+      "engine": "webkit",
+      "baseline": false,
+      "cases": {
+        "conflict": {
+          "httpStatus": 409,
+          "code": "REVISION_CONFLICT",
+          "commandsBefore": 0,
+          "commandsAfter": 0,
+          "decisionCount": 1,
+          "alertText": "任务或事项已变化；本次未提交。请刷新后核对最新状态。"
+        },
+        "synced": {
+          "oldFormRemoved": true
+        },
+        "lostReceipt": {
+          "pendingCommandCount": 1,
+          "hubCommandDelta": 1
+        }
+      }
+    },
+    "physicalExact409": {
+      "android": true,
+      "iPhone": true,
+      "iPhoneBackend409Observed": true,
+      "iPhoneInitialUiPassed": false,
+      "iPhoneFinalUiPassed": true,
+      "androidLatestBuildRetestPending": false,
+      "androidLatestBuildRetestPassed": true,
+      "androidMethod": "controlled stale GET projection on physical phone; actual POST and receipt, unchanged production bundle",
+      "androidSource": "design/qa/v0.4/native-shutdown-fix/android-physical-conflict.json",
+      "iPhoneRetestSource": "design/qa/v0.4/native-shutdown-fix/iphone-physical-conflict-retest.json",
+      "raceFixEvidenceDirectory": "design/qa/v0.4/native-shutdown-fix/inbox-receipt-race",
+      "androidRetestSource": "design/qa/v0.4/native-shutdown-fix/android-physical-conflict-retest.json"
+    },
+    "independentReview": "No blocking finding. Inferred pre-existing old-account false-pending after logout/unmount remains unverified.",
+    "evidenceDirectory": "design/qa/v0.4/phone-remainder/decision-conflict"
+  },
+  "nativeShutdownIssue": {
+    "id": "NATIVE-SHUTDOWN-01",
+    "status": "reproduced_partial_http_body_path_fixed_original_trigger_unknown",
+    "observedQuitDurationSeconds": 25.006,
+    "stage": "closing",
+    "exactBlockingDrain": "unknown",
+    "boundedInvestigations": {
+      "existingShutdownTestsPassed": 3,
+      "disabledPluginsCloseMs": 4,
+      "sseCloseMs": 3,
+      "partialHttpBodyRepro": "isolated HTTP shutdown waited until its test socket closed; not proven production cause"
+    },
+    "board": {
+      "taskId": "76aa2c55-33d8-4522-815b-3524fd419a56",
+      "revision": 8,
+      "contentVersion": 2,
+      "taskStatus": "submitted",
+      "verification": "partial",
+      "acceptance": "unverified",
+      "completedCheck": "native-exit-confirmation",
+      "pendingCheck": "native-shutdown-original-cause",
+      "historicalFailurePreserved": true
+    },
+    "unsafeLockProtectionPreserved": true,
+    "productAcceptancesPreserved": true,
+    "historicalBoard": {
+      "checkedAt": "2026-10-12T14:17:24.102Z",
+      "taskId": "76aa2c55-33d8-4522-815b-3524fd419a56",
+      "revision": 5,
+      "verification": "failed",
+      "acceptance": "unverified"
+    },
+    "latestRepair": {
+      "checkedAt": "2026-10-13T14:10:45.114Z",
+      "isolatedTargetedPassed": 20,
+      "independentReviewPassed": 4,
+      "desktopBuild": "passed",
+      "nativeQuitAndRestart": "passed",
+      "manualLockRecovery": false,
+      "partialRequestSocketClosed": true,
+      "coreCloseMs": 6,
+      "httpCloseMs": 2,
+      "tasksPreserved": 56,
+      "acceptedRecordsPreserved": 13,
+      "originalRevisionsAndAcceptancesPreserved": true,
+      "activeExecutions": 0,
+      "hubSynced": true,
+      "originalIntermittentTriggerEstablished": false,
+      "unsafeLockProtectionPreserved": true,
+      "evidenceDirectory": "design/qa/v0.4/native-shutdown-fix"
+    }
+  },
+  "currentBoard": {
+    "checkedAt": "2026-10-13T15:13:27.538Z",
+    "tasks": 58,
+    "passedRecords": 13,
+    "includesDisposableFixtures": true,
+    "allHumanReviewRecordsPreserved": true,
+    "all13HistoricalPassedAcceptancesPreserved": true,
+    "other56TaskRevisionsAndAcceptanceFieldsPreserved": true,
+    "intentionalVerificationTaskUpdates": 4,
+    "acceptanceFieldChanges": [
+      "Android: unverified to stale after intentional summary/content version update; no human review recorded",
+      "P0-02: unverified to stale after intentional summary/content version update; no human review recorded"
+    ],
+    "activeExecutions": 0,
+    "hubSynced": true,
+    "source": "design/qa/v0.4/native-shutdown-fix/board-final.json",
+    "productHumanAcceptanceGranted": false,
+    "other56ComparisonBaseline": "board-before-phone-pass.json: immediately before the final Android/P0-02 verification update; excludes the earlier four-task bookkeeping update and Android fixture resolution"
+  },
+  "currentP0Verification": {
+    "checkedAt": "2026-10-13T15:13:27.538Z",
+    "iPhone": {
+      "taskStatus": "submitted",
+      "verification": "passed",
+      "acceptance": "unverified",
+      "revision": 18,
+      "contentVersion": 4,
+      "pendingChecks": []
+    },
+    "Android": {
+      "taskStatus": "submitted",
+      "verification": "passed",
+      "acceptance": "stale",
+      "revision": 41,
+      "contentVersion": 8,
+      "pendingChecks": []
+    },
+    "P0-02": {
+      "taskStatus": "submitted",
+      "verification": "passed",
+      "acceptance": "stale",
+      "revision": 48,
+      "contentVersion": 8,
+      "pendingChecks": []
+    },
+    "P0-01": {
+      "taskStatus": "submitted",
+      "verification": "partial",
+      "acceptance": "unverified",
+      "revision": 8,
+      "contentVersion": 2,
+      "pendingChecks": [
+        "native-shutdown-original-cause"
+      ]
+    },
+    "source": "design/qa/v0.4/native-shutdown-fix/board-final.json"
+  },
+  "finalCleanup": {
+    "checkedAt": "2026-10-13T15:13:55.949Z",
+    "temporaryQaRoutesRemoved": true,
+    "bothPhonesReturnedToNormalRootPage": true,
+    "servicesActive": true,
+    "firewallActive": true,
+    "deployedAssetsMatchTestedBuild": true,
+    "httpsAndUnauthorizedAccessChecksPassed": true,
+    "sources": [
+      "design/qa/v0.4/native-shutdown-fix/final-qa-cleanup.json",
+      "design/qa/v0.4/native-shutdown-fix/final-cleanup-services.log",
+      "design/qa/v0.4/native-shutdown-fix/race-deployed-web.json"
+    ]
+  }
+}

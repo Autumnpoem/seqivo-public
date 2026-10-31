@@ -1,0 +1,120 @@
+{
+  "workId": "APP1093",
+  "sourceCommit": "805b26b190acf856b9f8a910270aebf1ab521019",
+  "baseRevision": "bd0722e09f9567193854b82ae9f9d2b2d04cc436",
+  "status": {
+    "implementation": "complete for inbox decision and supplement draft slice",
+    "independentReview": "no P1/P2 blocker found",
+    "webDeployment": "deployed and HTTPS assets verified",
+    "macInstalled": "UI1066 unchanged",
+    "macCandidate": "BUILD1091 unchanged and does not include APP1093",
+    "androidVersionCodeAtLastRecordedInstall": 14,
+    "androidRebuiltForThisChange": false,
+    "nativeAppRetested": false,
+    "realCoreOrProvider": false,
+    "boardUpdate": "updated; verification remains partial; human acceptance unchanged"
+  },
+  "behavior": {
+    "draftScope": "account + project + task + inbox item",
+    "decisionFields": "answer and option, saved with original task and item versions",
+    "supplement": "saved locally and restored after full reload",
+    "navigation": "answer and option restore after opening the linked task and returning to Inbox",
+    "staleItemRevision": "keeps the draft and disables submission",
+    "explicitDiscard": "clears the saved answer and option",
+    "confirmedSubmission": "only a matching completed receipt clears the exact submitted draft",
+    "logoutPrivacy": "after confirmed server logout, removes submitted answer and draft key from this account and origin's pending command records while retaining command IDs and states",
+    "autoResubmit": false
+  },
+  "verification": {
+    "targetedTests": {
+      "result": "22 passed, 0 failed, 0 skipped",
+      "breakdown": {
+        "inboxDraftTests": 7,
+        "conversationDraftRegressionTests": 8,
+        "taskFormDraftRegressionTests": 7
+      },
+      "log": ".runtime/app1093/tests.log",
+      "sha256": "e0e6ed750cd3a0dcced6dbe8b95058db11686e71148368afb053767619811df5"
+    },
+    "typecheck": {
+      "result": "passed",
+      "exitCode": 0,
+      "log": ".runtime/app1093/typecheck.log",
+      "logIsEmpty": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "vite": {
+      "result": "passed with existing lucide-react module-directive warning",
+      "exitCode": 0,
+      "log": ".runtime/app1093/build.log",
+      "sha256": "2af8a6d3753aeb9565546f71e3a7a7da86cc158b476f138c07f7b6c9315b123a"
+    },
+    "browserFixture": {
+      "result": "5 scoped browser flows passed",
+      "fixtureOnly": true,
+      "requestsBeforeExplicitSubmit": 0,
+      "explicitRequestsAfter": 1,
+      "automaticResubmissions": 0,
+      "nativeAndroidTested": false,
+      "realCoreOrProvider": false,
+      "record": ".runtime/app1093/browser-result.json",
+      "sha256": "ce2f11f6130b93160169b8cec747d523c4e1c589df9c0e05ad8cfddbee4a8316",
+      "flows": [
+        "answer and option restore after opening linked task and returning",
+        "supplement restores after full reload",
+        "stale item revision retains draft and disables submission",
+        "explicit discard clears stale answer and option",
+        "confirmed supplement submission clears exact draft"
+      ]
+    },
+    "independentReview": {
+      "result": "no P1/P2 blocker found",
+      "record": ".runtime/app1093/review.md",
+      "sha256": "ffc6de6d5411fb6b928994d929899ddf38a9ffe461550c50561c2bda52530b4c"
+    },
+    "existingSupervisionUI": {
+      "scope": "UI1081 statistics, project/conversation matrix and task detail were inspected as existing source; APP1093 did not modify them",
+      "record": ".runtime/app1093/supervision-check.md",
+      "sha256": "468073565983b6c9ab2d3c5fa7a4e7d8c89ebde4095d3773129b1e87e41d817d"
+    }
+  },
+  "sourceSha256": {
+    "src/App.tsx": "ded4cf3748ff888513c43a883deff9a73c038e1372761a1821642f3c1f935b86",
+    "src/InboxPanel.tsx": "7f2076b8ec5efb11cc8493e70b1087a45a96668e53bf3b2f5635b3aaa6bece93",
+    "src/inbox-drafts.ts": "00f04375619295e68d26d535ce35cde088a3543e008299c8368a7223136eaaed",
+    "tests/inbox-drafts.test.mjs": "3eb3bc75037c996992d07663f1c729c05fe5989c7be95d88fb68c4456b739651"
+  },
+  "limitations": [
+    "Browser checks used disposable fixture data; no real Core/provider or native Android flow was exercised.",
+    "Mac remains UI1066; BUILD1091 candidate is unchanged and does not include this Inbox change. No Android APK rebuild was needed for the shared Web update.",
+    "The independent reviewer did not independently rerun the pre-fix reproduction or the logout failure baseline; the fixed behavior and regression evidence were reviewed."
+  ],
+  "deployment": {
+    "workId": "APP1093",
+    "webCommit": "805b26b190acf856b9f8a910270aebf1ab521019",
+    "backendBase": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "hubProjectionCommit": "d5c8a43a6819e923acfd784758c23a1287c9b9ec",
+    "staticWebDeployed": true,
+    "publicTlsVerified": true,
+    "currentDistFilesVerified": 14,
+    "unauthenticatedStateStatus": 401,
+    "firewallActive": true,
+    "configUnchanged": true,
+    "serviceProcessUnchanged": true,
+    "hubRestarted": false,
+    "commandsAndRecoveryUnchanged": true,
+    "quickCheck": "ok",
+    "manifestFileCount": 188,
+    "manifestSha256": "3027b3397bac393101a168444862d4b59996a1313fae1bd6e91ec3faa121956b"
+  },
+  "board": {
+    "id": "91f0f8a7-c59f-4538-840b-1eceb486f35b",
+    "revision": 61,
+    "status": "running",
+    "verification": "partial",
+    "otherTasksUnchanged": 66,
+    "manualAcceptanceUnchanged": true,
+    "nativeAppRetested": false
+  },
+  "wholeProjectComplete": false
+}

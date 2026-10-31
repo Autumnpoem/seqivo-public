@@ -1,0 +1,68 @@
+✔ AI self report cannot mark accepted and evidence is mandatory (10.5595ms)
+✔ human acceptance binds current version; new implementation invalidates it (7.463625ms)
+✔ revision conflict never overwrites the newer report (4.09825ms)
+✔ discrepancy blocks acceptance until explicitly resolved (4.67ms)
+✔ same event is idempotent; changed payload with same id rejected (4.500584ms)
+✔ transactions roll back a malformed import and survive restart (4.622167ms)
+✔ file bridge consumes once, exports context and rejects a foreign task (8.449667ms)
+✔ HTTP authentication and role boundaries protect writes and controls (160.731834ms)
+✔ reporters cannot change the baseline, bind a session, or override a user pause (4.741458ms)
+✔ acceptance expires on changed outcome, binding and submitted content (7.389083ms)
+✔ resolving a discrepancy requires resubmission and fresh evidence (3.924583ms)
+✔ only one core can schedule against a data directory and clean close releases ownership (241.453875ms)
+✔ import rejects excessive references before creating any project or tasks (4.479875ms)
+✔ an initial file scan cannot block opening the existing task database (9.039709ms)
+✔ shutdown cancels a pending conversation, rejects new work and releases the verified lock (149.250791ms)
+✔ HTTP shutdown closes an incomplete request body without waiting for its client (35.806917ms)
+✔ HTTP shutdown waits for an already dispatched write to finish (42.016959ms)
+✔ HTTP shutdown preserves an earlier response when the same socket has a partial next body (33.307ms)
+✔ correlated detach survives a failed-switch epoch and ignores late frames (207.6945ms)
+✔ node control recovery hint rejects nonboolean values before browser forwarding (177.975125ms)
+✔ fresh tmux open relays only a valid exact recovery identity (174.880875ms)
+✔ resume expiring between ticket issue and WebSocket auth rejects old identity but permits a fresh authenticated connection (179.89525ms)
+✔ device approval, ticket, relay, stale input and live revocation (186.260666ms)
+✔ account, device, Origin and one-use ticket boundaries (341.697416ms)
+✔ an enrolled device can rotate a confirmation code without changing its credential or grants (366.499709ms)
+✔ resume binds the same account, device and node; logout ends the live stream (347.855333ms)
+✔ terminal scopes are checked per action (175.0895ms)
+✔ takeover scope gates all control actions and control replies omit authority tokens (190.876667ms)
+✔ invalid control payloads fail before reaching the node (206.8505ms)
+✔ transfer actions require both input and takeover plus a control ticket (188.5105ms)
+✔ malformed or authority-bearing transfer requests never reach the node (193.089125ms)
+✔ transfer replies omit private metadata and old control or ready cannot reopen source input (175.346791ms)
+✔ rejected transfer mutations close the frozen attachment and require a fresh ticket (186.74575ms)
+✔ status exposes only approved node profiles for the current device (175.870042ms)
+✔ replaced browser socket cannot relay after a resume takes its connection (174.19575ms)
+✔ silent WebSocket peer is disconnected after bounded ping timeout (220.290709ms)
+✔ node ready omits account identity for a legacy tenant with no account binding (5.647084ms)
+✔ createHub serves terminal and board routes together and closes live WSS connections (350.349167ms)
+✖ owner-only local transport executes real PTY input and resumes without replay (8478.94475ms)
+✔ local socket refuses hostile Origin, reused tickets and pending auth is closed at shutdown (99.0495ms)
+✖ real Hub-to-node relay reaches PTY, enforces local grants and revokes an active device (12141.280583ms)
+✔ independent Core instances do not share an implicit tmux server (31.4285ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 40
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 27047.372958
+
+✖ failing tests:
+
+test at tests/terminal-integration.test.mjs:30:1
+✖ owner-only local transport executes real PTY input and resumes without replay (8478.94475ms)
+  Error: Condition timeout; recent frames: [{"type":"output"},{"type":"output"},{"type":"control","phase":"human","reason":null},{"type":"error","code":"OUTPUT_GAP"},{"type":"control","phase":"human","reason":null},{"type":"ready"},{"type":"control","phase":"return_check","reason":null},{"type":"control","phase":"return_review","reason":null}]
+      at file://[isolated-checkout]/tests/terminal-integration.test.mjs:17:143
+      at async TestContext.<anonymous> (file://[isolated-checkout]/tests/terminal-integration.test.mjs:56:64)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at tests/terminal-integration.test.mjs:75:1
+✖ real Hub-to-node relay reaches PTY, enforces local grants and revokes an active device (12141.280583ms)
+  Error: Condition timeout; recent frames: [{"type":"authenticated"},{"type":"control","phase":"human","reason":null},{"type":"error","code":"CONTROL_REQUIRED"},{"type":"control","phase":"stopping","reason":null},{"type":"control","phase":"human","reason":null},{"type":"control","phase":"return_check","reason":null},{"type":"control","phase":"return_review","reason":null}]
+      at file://[isolated-checkout]/tests/terminal-integration.test.mjs:17:143
+      at async TestContext.<anonymous> (file://[isolated-checkout]/tests/terminal-integration.test.mjs:120:18)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

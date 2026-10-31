@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-23T14:08:31.265039+00:00",
+  "sourceCommit": "f357c82a350f02715bab3e6386f87a5512ca7191",
+  "bundleIdentifier": "com.autumnpoem.tuijin",
+  "mainSha256": "d26019d1116ff92028002b706c7e2976c2e72d578e49367b698ed4b73cd41b55",
+  "installation": {
+    "status": "installed",
+    "sameOriginalAppPath": true,
+    "dataBackupVerified": true,
+    "dataUnchangedBeforeFirstLaunch": true,
+    "projectRowsPreserved": 2,
+    "taskRowsPreserved": 62,
+    "accountAndPluginSettingsPreserved": true,
+    "remoteCredentialsAndBindingPreserved": true,
+    "expectedRuntimeChanges": [
+      "local API URL regenerated",
+      "remote sync sequence advanced",
+      "empty executor and completed-conversation dictionaries initialized"
+    ]
+  },
+  "ui": {
+    "started": true,
+    "normalQuitCoreClosed": true,
+    "quitNativeExitCode": "not captured; UI App quit plus startup closed/process absent observed",
+    "reopened": true,
+    "originalProjectReloaded": true,
+    "ordinarySshEntrySeparateFromManagedTakeover": true
+  },
+  "signing": {
+    "type": "local ad-hoc",
+    "notarized": false
+  },
+  "cleanup": {
+    "unusedAppBundlesMovedToRecoverableTrash": 17,
+    "permanentlyDeleted": false,
+    "rollbackArchiveRetained": true
+  },
+  "limitations": [
+    "Native SSH/tmux interaction and active-AI shutdown proved in isolated QA553 sharing backend/native source; not reexecuted against personal hosts in installed normal bundle",
+    "This installation is not a notarized public release",
+    "Not full-project acceptance"
+  ]
+}

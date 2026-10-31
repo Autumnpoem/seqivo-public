@@ -1,0 +1,31 @@
+{
+  "schema": "seqivo.public-release.v1",
+  "applicationVersion": "0.4.1",
+  "repository": "https://github.com/Autumnpoem/seqivo-public",
+  "tag": "v0.4.1",
+  "distribution": "source-available, PolyForm Noncommercial 1.0.0 for Seqivo-owned code; third-party licenses retained",
+  "status": {
+    "code": "current product source complete for this release scope",
+    "documentation": "Chinese and English installation/configuration/first-project guides prepared",
+    "publicRepository": "Prepared in private staging; public visibility not yet enabled",
+    "release": "not yet published",
+    "installed": "existing v0.4.1 Mac installation unchanged by this documentation/licensing work",
+    "deployed": "no Hub deployment in this publication task"
+  },
+  "checks": {
+    "privacy": "Current source, license texts and 83 tracked raster images checked; known private terms and exact server address scan completed before export",
+    "cloudCI": "disabled by owner preference",
+    "newComputerNativeInstall": "not tested on a clean machine",
+    "platformPackages": [
+      "macOS arm64"
+    ],
+    "remaining": [
+      "Windows / Ubuntu / Intel Mac native packages and acceptance",
+      "real Claude provider execution",
+      "complete iPhone SSH flow",
+      "other scenario-specific checks remain in feature validation docs"
+    ],
+    "documentation": "Chinese/English local links and image references verified; official AI installation references checked",
+    "packagingScript": "Node syntax check passed; copies own and third-party license files into app resources"
+  }
+}

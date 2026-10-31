@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-31",
+  "flow": "FLOW1104",
+  "sourceCommit": "ba06e16f47f84c6a21068b5ec35f9559eee101dc",
+  "sourceState": "Committed implementation and signed BUILD1104 candidate verified; compatible Hub/Web deployed as DELIVERY1104, Mac candidate not installed.",
+  "wholeProjectComplete": false,
+  "scope": "Explicitly consent to end precisely identified, physically stopped unknown Mac Codex turns during human takeover while preserving their unknown provider outcome.",
+  "behavior": {
+    "consentIsExplicitAndInitiallyUnchecked": true,
+    "selectionBindsExactTaskAndOriginalTurnIds": true,
+    "userDisplay": "Task title plus original turn ID; unknown task names use a fallback label.",
+    "oldOutcomeRemainsUnknown": true,
+    "automaticReplayOrResume": false,
+    "newInstructionAllowedOnlyAfter": "Normal explicit human return and acknowledgement of the exact Hub receipt for the original turn.",
+    "fullCoreHostNativeIntegrationVerified": false,
+    "singleTurnControlledMacCoreHostVerified": true
+  },
+  "checks": {
+    "ackRetry": {
+      "passed": 1,
+      "failed": 0,
+      "redBeforeFix": true,
+      "log": ".runtime/flow1104/pending-ack-green.log",
+      "sha256": "e8af4635f9cea4914e04e17636dbf6d5e88f63357527e5fc41a022c6bee50c1e"
+    },
+    "controlHistory": {
+      "passed": 3,
+      "failed": 0,
+      "redBeforeFix": true,
+      "log": ".runtime/flow1104/control-existing-history-green.log",
+      "sha256": "a8acc515f8636aab820ada9ab7937c75c8172c6e9692cf2a2bfb7c9fd213a83d"
+    },
+    "hubProtocol": {
+      "passed": 8,
+      "failed": 0,
+      "reportedBy": "Parent integration report"
+    },
+    "remoteRecovery": {
+      "passed": 15,
+      "failed": 0,
+      "reportedBy": "Parent integration report"
+    },
+    "uiHubProtocol": {
+      "passed": 39,
+      "failed": 0,
+      "log": ".runtime/flow1104/ui-protocol-green.log",
+      "sha256": "49164e98befda3ab4b13d7526eded88afe4f5822d393d5549983c852f1b04d7c"
+    },
+    "focusedQuiesce": {
+      "baselinePassed": 1,
+      "currentWorkingTreePassed": 1,
+      "currentLog": ".runtime/flow1104/current-isolated-test.log",
+      "currentLogSha256": "3c65fbf8e062a4f81e3472dc35f8ed7a40324763cc6fbac8c999db0ec0309af3",
+      "sourceSnapshotLog": ".runtime/flow1104/current-isolated-source.json",
+      "sourceSnapshotSha256": "a9f3dd1c80d73fcca29aabce1a63a9810bcf216094d3cee58f5a483f3cb116c1"
+    },
+    "broaderRegression": {
+      "passed": 95,
+      "failed": 1,
+      "failure": "One quiesce case failed setup with invalid_job_configuration in the repository environment. The same focused case passed in isolation; this does not establish a green 96-case batch or root cause.",
+      "log": ".runtime/flow1104/affected-regression.log",
+      "sha256": "8a8845b1a08cc2813b63078562b5ed79618c9798f50150eed420986a14605a60a",
+      "supersededBy": "finalIsolatedRegression; retain original environment failure as historical evidence"
+    },
+    "nativeMacControlled": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "log": ".runtime/flow1104/backend-final.log",
+      "sha256": "5504527423c687b1199cd8aea2f4988704e66706cc7b84485beb99215247be7c",
+      "realCoreWorkerAndMacJob": true,
+      "provider": "controlled fake provider",
+      "explicitCloseAsserted": true,
+      "fixtureRemoved": true,
+      "scope": "One old unknown turn → explicit consent → human → reviewed return → one new explicit turn. Exactly two turn/start calls overall; old outcome unknown and automatic policy disabled."
+    },
+    "finalIsolatedRegression": {
+      "passed": 96,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "log": ".runtime/flow1104/final-isolated-regression-complete.log",
+      "sha256": "7acc3ad074e1604bbdae1429d6e8ffea4554cf25aa16efe1dd927869e7dd2e2d",
+      "absolutePythonConfigured": true,
+      "sourceUnchanged": true
+    },
+    "webBuild": {
+      "typecheckPassed": true,
+      "buildPassed": true,
+      "log": ".runtime/flow1104/web-build-absolute-node.log",
+      "sha256": "afee72a6682e11277ced16837bdc5217e39276902cddcc37b27e3e894a716fec"
+    },
+    "independentReview": {
+      "blockingFindings": 0,
+      "scope": "Current Core/Host/lease/IPC/terminal/Node/Hub source; native raw evidence reviewed. No actual provider or GUI test.",
+      "log": ".runtime/flow1104/review-final.md",
+      "sha256": "d4501333d0b9b957a4057d3ec666a3a7cd123ab3f602c0ef5c377e531fb9c8c8"
+    },
+    "package": {
+      "sourceCommit": "88add98872ffe46104059c674fee04844c32ac77",
+      "signatureVerified": true,
+      "runtimeFilesParsed": 14,
+      "distFilesVerified": 14,
+      "resourceFileCount": 4229,
+      "resourceManifestSha256": "1fd023eea243b905c1359b95b9a861570265146dde10043aedbcfe92413b60b4",
+      "sourceOverlayMatchesCommit": true,
+      "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+      "mainSha256": "4613bafff7e668b1a81cbe058714db0a129646a4ad230924d95c6bc58ebc77d9",
+      "launched": false,
+      "installed": false,
+      "deployed": false,
+      "buildResultSha256": "b444c69ee71015e7f9dc3a33c16470d9b56aeeed1e80850e1feeedf19593a32b",
+      "packageCheckSha256": "6be303161de2a6a867ea2e66b3f8fa331e830ff65779f94cff35f206792976a1"
+    },
+    "hubDeployment": {
+      "passed": true,
+      "log": ".runtime/delivery1104/postcheck.json",
+      "sha256": "c9719c7ea3322fcc1191818c209acffd35e6fd609733991047a104a4d9bca315",
+      "manifestFilesVerified": 220,
+      "currentDistFilesVerified": 14,
+      "publicTlsVerified": true,
+      "unauthenticatedStateStatus": 401,
+      "firewallActive": true,
+      "configurationCommandsRecoveryAndLeasesUnchanged": true,
+      "commandDispositionsRowsAfterDeploy": 0,
+      "nativeWorkflowVerified": false
+    }
+  },
+  "delivery": {
+    "macInstalledBuild": "BUILD1097",
+    "macCandidate": "BUILD1104",
+    "macCandidateInstalled": false,
+    "webHubDelivery": "DELIVERY1104",
+    "flow1104Deployed": true,
+    "flow1104AvailableInCurrentInstalledBuild": false,
+    "nativeAndroidFlowVerified": false,
+    "fullHumanAiPreviewAcceptancePassed": false,
+    "flow1104Packaged": true,
+    "buildSourceCommit": "88add98872ffe46104059c674fee04844c32ac77",
+    "candidateMainSha256": "4613bafff7e668b1a81cbe058714db0a129646a4ad230924d95c6bc58ebc77d9",
+    "candidateResourceFileCount": 4229,
+    "deployedScope": "Compatible Hub modules and shared Web only; Mac Core update remains pending."
+  },
+  "pending": [
+    "Verify multiple selected stopped turns in native Mac integration; current native case covers one.",
+    "Verify real Codex, remote same-device reconnect, preview and manual acceptance together.",
+    "Install and validate signed BUILD1104 Mac candidate after normal quit; compatible Hub/Web is deployed as DELIVERY1104.",
+    "Validate ordinary Android App and physical phones; Windows/Ubuntu disposition remains unsupported.",
+    "Inspect retained failed test fixtures from duplicate fake turn IDs without assuming they shut down."
+  ],
+  "evidenceSha256": {
+    ".runtime/flow1104/root-focused.log": "85557779c1c953420db5e9b31779449686cfd9ecb5060f6ed8eafc382ac57a69",
+    ".runtime/flow1104/sync-authority.log": "a92d94f4038e98f6930a124df9b56e42bf3864e4954ab59109f42eac1317a7be",
+    ".runtime/flow1104/board-result.json": "d52e2b99dfda12299a5fefbb034bad04f296c506f93736cfcd43686847864d62",
+    ".runtime/flow1104/board-delivery-result.json": "bbffbbbfff82d29461d7458e0b670ee8116d1c38fd704185d8a4a0ff114e7c15",
+    ".runtime/delivery1104/review-final.md": "4a77fa3fb728814506ff241c1a8e5256d6e0d81b304a0ac6b28dae6376dd9e45"
+  },
+  "board": {
+    "revision": 73,
+    "status": "running",
+    "verificationStatus": "partial",
+    "newCheck": "flow1104-controlled-old-turn-return-new-instruction",
+    "manualAcceptanceAndEvidencePreserved": true,
+    "unrelatedTasksUnchanged": true,
+    "checksUnchangedDuringDeployment": true
+  },
+  "followUp": {
+    "flow": "FLOW1108",
+    "details": "docs/multi-project-takeover-test-results.json",
+    "independentProjectsNativeControlledPassed": true,
+    "sameProjectBatchVerified": false,
+    "latestDelivery": "docs/current-delivery-status.json",
+    "historicalFailedFixturesInspectedReadOnly": true,
+    "historicalFailedFixtureCleanupVerified": false
+  }
+}

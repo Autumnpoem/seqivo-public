@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "run": "APP1042",
+  "recordedAt": "2026-10-30",
+  "status": "passed_within_stated_scope",
+  "sourceCommit": "a74d53b45ff0e1b6ec739bcda5aadf4b3a395ef6",
+  "build": "BUILD1038",
+  "buildResultSha256": "a6c65ec82e6312192fac685b4dc2dd7d8a104417c4f8b2f9d43afef997dade8a",
+  "android": {
+    "package": "app.seqivo.android",
+    "versionCode": 13,
+    "apkSha256": "60fa04a9f52a8922c0fd8ea794d83cc3a1b2c714506408d41d78afaad71bacb1",
+    "rebuilt": false,
+    "environment": "isolated API 35 emulator, ordinary debug APK",
+    "physicalDevice": false
+  },
+  "transport": {
+    "https": true,
+    "tlsBypass": false,
+    "existingSimulatorOnlyTestCa": true,
+    "productionEndpointChanged": false
+  },
+  "interaction": "CUA keyboard navigation and paste through the Android mirror; pointer clicks unreliable",
+  "checks": {
+    "ordinaryApkLogin": true,
+    "projectAndTasksVisible": true,
+    "chineseDecisionPersistedOnce": true,
+    "chineseProgressExactBytesAndOneRevision": true,
+    "oneEvidencePersistedWithExactReference": true,
+    "refreshRetainedProgressEvidenceAndResolvedDecision": true,
+    "missingCurrentEvidencePassRefusedInUiAndBackend": true,
+    "unrelatedReviewTaskUnchanged": true,
+    "gracefulCoreAndHubClose": true,
+    "coreLockAbsentAfterClose": true,
+    "coldDatabaseIntegrity": true
+  },
+  "taskProgress": {
+    "afterDecisionRevision": 2,
+    "afterProgressRevision": 3,
+    "afterEvidenceAndRefreshRevision": 4,
+    "evidenceCount": 1,
+    "humanAcceptance": "unverified"
+  },
+  "missingEvidenceTask": {
+    "revisionBefore": 2,
+    "revisionAfter": 2,
+    "evidenceCount": 0,
+    "humanAcceptance": "unverified"
+  },
+  "observations": [
+    "The initial save was correctly blocked by the required expected-result field. After filling that field the progress was saved once; native validation text was English in this emulator.",
+    "Pointer clicks were unreliable in the mirror; keyboard operations and screenshots were used. This is not evidence for physical touch targets.",
+    "After clean close a read-only SQLite URI could not open the WAL-mode database; with no WAL/lock present, immutable read-only inspection passed integrity and exact task/evidence checks."
+  ],
+  "unverified": [
+    "Full App process restart, background, lock-screen and network transitions on this candidate",
+    "Pairing, terminal/SSH/tmux, AI turns and preview in this fixture",
+    "iPhone and physical Android on this candidate",
+    "Restoring the simulator previous test origin through its native menu: automation could not activate it; only the isolated emulator remains selected on the now-closed disposable service",
+    "Mac candidate installation/start, live Hub deployment, release signing/notarization and whole-project acceptance"
+  ],
+  "evidence": {
+    "missing-evidence-refused.png": "ae093dd624920c9e81d412488d03e4e0f691f98022a84232db9cc02e510a112a",
+    "evidence-after-refresh.png": "5cfc2d3ff584f3b7767f05ec7d33e537751aca34df4a7968c40b4bc81e6f976e",
+    "after-evidence-refusal-status.json": "27c1969e9e2ea3430072455beb5a664a6cdfeb01e135450bf66a272948b53918",
+    "after-progress-status.json": "3e5f2620b5c2d4b4b04fb35793057d55c6910ce508d994ae2ed301f89caa5b60",
+    "after-evidence-status.json": "d91eab07860da21ef1db0d6859dad47b0d4dfb060e99595a057403f25e599a7e",
+    "after-refresh-status.json": "770f46cb7a7265396f9bff492724188d4d67ecefe6be153c300b39b24b25562c",
+    "close-result.json": "6c6177583c4bf45ceb29a6d8ace52be8e4d3c8b4925f7bf813853fa9c9e1126b"
+  },
+  "serviceExitCode": 0,
+  "allProjectComplete": false,
+  "evidenceNote": "Raw screenshots and sanitized snapshots remain in private .runtime/app1042; only checksums are versioned."
+}

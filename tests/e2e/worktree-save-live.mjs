@@ -1,0 +1,84 @@
+/** Isolated real Core + HTTP + Git + browser save flow. No AI provider runs. */
+import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+import {cp,mkdir,mkdtemp,readFile,rm,writeFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join,resolve} from 'node:path';
+import {chromium} from '@playwright/test';
+import {createCore} from '../../server/core.mjs';
+import {startHttp} from '../../server/http.mjs';
+
+const root=await mkdtemp(join(tmpdir(),'seqivo-worktree-save-live-'));
+const qa=resolve(process.env.SEQIVO_TEST_QA_DIR||'.runtime/worktree341/live');
+const dist=resolve(process.env.SEQIVO_TEST_DIST_DIR||'.runtime/worktree341/web-r4');
+const git=(cwd,...args)=>execFileSync('git',['-C',cwd,...args],{encoding:'utf8',timeout:10000}).trim();
+const evidence={passed:false,realCore:true,realGit:true,realBrowser:true,realAi:false,checks:[]};
+let core,http,browser;
+try{
+  await mkdir(qa,{recursive:true});
+  const repo=join(root,'project');await mkdir(repo);
+  git(repo,'init','-q','-b','main');git(repo,'config','user.name','Isolated Save Test');git(repo,'config','user.email','worktree-save@example.test');
+  await writeFile(join(repo,'tracked.txt'),'base\n');git(repo,'add','.');git(repo,'commit','-qm','base');
+  const targetHead=git(repo,'rev-parse','HEAD');
+  core=await createCore({dataDir:join(root,'data'),pluginDir:join(root,'empty-plugins'),files:false});
+  const project=core.store.project({name:'审查版本真实流程',directory:repo});
+  const task=core.store.createTask({projectId:project.id,title:'保存独立工作区文件',criteria:['核对两个文件']});
+  const originalTask=core.store.getTask(task.id);
+  const appDist=join(root,'web');await cp(dist,appDist,{recursive:true});
+  http=await startHttp({core,dataDir:join(root,'data'),distDir:appDist,port:0});
+  browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});
+  const context=await browser.newContext({viewport:{width:1100,height:900},serviceWorkers:'block'});
+  await context.addInitScript(token=>sessionStorage.setItem('taskboard-token',token),http.tokens.owner);
+  const page=await context.newPage(),pageErrors=[];page.on('pageerror',error=>pageErrors.push(error.message));
+  await page.goto(`http://127.0.0.1:${http.port}`);
+  await page.getByRole('navigation',{name:'主要导航'}).getByText('更多功能').click();
+  await page.getByRole('navigation',{name:'主要导航'}).getByRole('button',{name:'协作计划'}).click();
+  await page.getByRole('heading',{name:'独立工作区'}).waitFor();
+  await page.getByText('建立角色工作区').click();
+  await page.locator('.worktree-create select').first().selectOption(task.id);
+  await page.getByRole('button',{name:'建立工作区'}).click();
+  await page.getByText('独立工作区已建立。',{exact:false}).waitFor();
+  const trees=await core.request('GET',`/api/worktrees?projectId=${project.id}`,{});
+  assert.equal(trees.length,1);const tree=trees[0];
+  assert.equal(tree.baseCommit,targetHead);
+  await writeFile(join(tree.path,'tracked.txt'),'updated by isolated browser test\n');
+  await writeFile(join(tree.path,'untracked.txt'),'new isolated text\n');
+  await page.getByRole('button',{name:'重新检查'}).click();
+  await page.getByRole('button',{name:'查看待保存文件和完整差异'}).click();
+  await page.getByText('tracked.txt · 修改',{exact:false}).waitFor();
+  await page.getByText('untracked.txt · 新增',{exact:false}).waitFor();
+  const savePatch=await page.locator('.worktree-save-preview pre').textContent();
+  assert.match(savePatch,/--- before\/tracked\.txt\nbase\n\n\+\+\+ after\/tracked\.txt\nupdated by isolated browser test\n/);
+  assert.match(savePatch,/--- before\/untracked\.txt\n\n\+\+\+ after\/untracked\.txt\nnew isolated text\n/);
+  assert.equal(await page.getByRole('button',{name:'已核对当前差异，登记人工审查'}).isDisabled(),true);
+  await page.getByRole('button',{name:'确认保存为审查版本'}).click();
+  await page.getByText(/已保存审查版本/).waitFor();
+  const sourceHead=git(tree.path,'rev-parse','HEAD');
+  assert.notEqual(sourceHead,targetHead);
+  assert.equal(git(tree.path,'status','--porcelain'),'','tracked and previously untracked files are clean after save');
+  assert.equal(git(tree.path,'show','HEAD:tracked.txt'),'updated by isolated browser test');
+  assert.equal(git(tree.path,'show','HEAD:untracked.txt'),'new isolated text');
+  assert.equal(git(repo,'rev-parse','HEAD'),targetHead,'target project is not merged');
+  const saved=await core.request('GET',`/api/worktrees/${tree.id}`,{});
+  assert.equal(saved.phase,'ready');assert.equal(saved.head,sourceHead);assert.equal(saved.dirty,false);
+  const currentTask=core.store.getTask(task.id);
+  assert.equal(currentTask.status,originalTask.status,'saving does not complete the task');
+  assert.equal(currentTask.acceptance,originalTask.acceptance,'saving does not accept the task');
+  assert.equal(currentTask.contentVersion,originalTask.contentVersion,'saving does not revise task content');
+  assert.equal(core.store.db.prepare('SELECT count(*) AS n FROM worktree_reviews WHERE worktree_id=?').get(tree.id).n,0,'saving does not record human review');
+  assert.deepEqual(pageErrors,[]);
+  await page.screenshot({path:join(qa,'after-save.png'),fullPage:true});
+  evidence.checks.push('UI preview displayed complete tracked and untracked text changes before explicit save');
+  evidence.checks.push('real Git source commit changed and became clean while target SHA remained unchanged');
+  evidence.checks.push('task status, acceptance, content version and human-review table remained unchanged');
+  evidence.passed=true;
+}catch(error){evidence.error=error.message;process.exitCode=1;}
+finally{
+  await browser?.close();
+  const cleanup=await Promise.allSettled([http?.close(),core?.close()]);
+  evidence.cleanShutdown=cleanup.every(item=>item.status==='fulfilled');
+  if(!evidence.cleanShutdown){evidence.passed=false;process.exitCode=1;}
+  await mkdir(qa,{recursive:true});await writeFile(join(qa,'result.json'),JSON.stringify(evidence,null,2));
+  console.log(JSON.stringify(evidence));
+  if(evidence.cleanShutdown)await rm(root,{recursive:true,force:true});
+}

@@ -1,0 +1,454 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-18",
+  "sourceCommit": "6d1e0444b7954e6f230bae45e8b8dcc0a2a7ed58",
+  "scope": "Isolated local macOS Core with the existing provider configuration; not Android UI, physical-device or production deployment acceptance",
+  "PAUSE240": {
+    "passed": true,
+    "scope": "one controlled long-running command; not short-command or arbitrary-descendant acceptance",
+    "entryPoint": "real Core conversation and pause APIs",
+    "controlledCommandStarted": true,
+    "pauseElapsedMs": 345,
+    "pauseStatus": "paused",
+    "actualProcessExited": true,
+    "otherProjectProcessAlive": true,
+    "delayedWriteExists": false,
+    "functionalChecksPassed": true,
+    "cleanShutdown": true,
+    "shutdownElapsedMs": 50,
+    "sourceHashes": {
+      "server/codex-process-proof.mjs": "0cff2571abedf141c6ddc4e288d863f72c8b14f1e2ff40263ebb2c69c61c85a8",
+      "server/executor-process-proof.mjs": "078098254e3c9690c9f4b96fa67f4d50a1653bb88c81af9e85611cf67b1213ef",
+      "plugins/codex-autocontinue/process_snapshot.py": "62f98380039db241da354b1dc276496ee70551f805943e39b3be5a9f1a5dd0f5",
+      "server/terminal/process-inspection.mjs": "75c3f41ae0b7a2f52d90b2907ca8eda3829e1a981c2929eb704fe77e88971123",
+      "plugins/codex-autocontinue/host.mjs": "c328e5f6a2be235992439b2a18561e989446f2c4ede408f50a464931d06234eb",
+      "plugins/codex-autocontinue/auto-policy.mjs": "8ae899b1fccfa7b774f7eba592c27e3655ea9e430a1bcbaf3f2e3de7707c77f5",
+      "plugins/codex-autocontinue/bridge.py": "82fd6567dd18f91c031d6ba3e60813a186445401de57c6e88b4a8c286659b257",
+      "server/core.mjs": "5099d77cb380e3cf24a36bb18e4196289287c51153583c2f7baa2e9b1bb23cf9",
+      "plugins/codex-autocontinue/job-transport.mjs": "29920fd2ec9d66c399dab120e94379387430b7d305d13f4e0af7209c58e34f1b",
+      "plugins/codex-autocontinue/executor_job.py": "e61eb245bda838b92a987b7eddae2b4af1fa33bd72ea30db923b99bb1eb1a81c",
+      "server/macos-executor-job.mjs": "7d1f3fb7f1dc138408cc113c7862cbcac95d4594f97fcd1613dddda8c1afcf86",
+      "server/macos-executor-job-record.mjs": "53b90082222b832df54045e532c8cc7b78fcd8e3d502d228eb18b33e7e46abab",
+      "scripts/verify-real-pause.mjs": "e69baca6367ba9b3bab7b36f8cd3ce770a6cd2174e7ac902e634d1c712b1d7ee"
+    }
+  },
+  "HANDOFF241": {
+    "passed": false,
+    "firstTurnCompleted": true,
+    "humanEditConfirmed": true,
+    "originalShellStoppedAndRelayFrozen": true,
+    "secondTurnStatus": "failed",
+    "secondResumeError": {
+      "outcome": "rejected",
+      "code": "MANAGED_PANE_UNKNOWN",
+      "message": "原受管 Shell 或其他写入者未停止"
+    },
+    "cleanShutdown": true,
+    "originalPaneRetired": false,
+    "secondProviderTurnStarted": false,
+    "diagnosticMethod": "Private wrapper observed and rethrew the exact second resume error; production code and result were not changed",
+    "sourceHashes": {
+      "scripts/verify-real-managed-handoff.mjs": "37b75bad3ec6ffc1a0ece9c84e871da1f8a3e7d243c23c2a416344d3d0df53d0",
+      "server/core.mjs": "5099d77cb380e3cf24a36bb18e4196289287c51153583c2f7baa2e9b1bb23cf9",
+      "server/terminal/control.mjs": "546ac09556a654351831b9a0a5c59084527fe03a65880dcc5b1ded6630cd236b",
+      "server/terminal/manager.mjs": "b7f1124b5c5ab7449d04c4e7e42f27481e689cd326162d49ef032ed1fd621f28",
+      "server/terminal/managed-pane-registry.mjs": "a0ce3e0ae62491d77075b51c60d44cf658290622ffad61c670dd0e35558489ba",
+      "server/terminal/managed-pane-record.mjs": "e2cc7755f4830801cab983787fc29093640b67021c7d20b6432374af1974e6aa",
+      "server/terminal/managed-pane.mjs": "d06ecec79509e5714a6dc28169f070f81b5a922ac6a82e1b531107b55879ff11",
+      "server/terminal/managed-pane-supervisor.py": "4d32600c43080ce9a0b987df7b9c19b833879d575dfb9cbec63fe56f514bd32d",
+      "server/terminal/managed-pane-relay.py": "6ebe8888d02ca4a5871c29bfe0f6ff5235050f17149d454c8d0d1809c3a36522",
+      "server/codex-process-proof.mjs": "0cff2571abedf141c6ddc4e288d863f72c8b14f1e2ff40263ebb2c69c61c85a8",
+      "server/executor-process-proof.mjs": "078098254e3c9690c9f4b96fa67f4d50a1653bb88c81af9e85611cf67b1213ef",
+      "server/macos-executor-job.mjs": "7d1f3fb7f1dc138408cc113c7862cbcac95d4594f97fcd1613dddda8c1afcf86",
+      "server/macos-executor-job-record.mjs": "53b90082222b832df54045e532c8cc7b78fcd8e3d502d228eb18b33e7e46abab",
+      "plugins/codex-autocontinue/executor_job.py": "e61eb245bda838b92a987b7eddae2b4af1fa33bd72ea30db923b99bb1eb1a81c",
+      "plugins/codex-autocontinue/process_snapshot.py": "62f98380039db241da354b1dc276496ee70551f805943e39b3be5a9f1a5dd0f5",
+      "plugins/codex-autocontinue/host.mjs": "c328e5f6a2be235992439b2a18561e989446f2c4ede408f50a464931d06234eb",
+      "plugins/codex-autocontinue/auto-policy.mjs": "8ae899b1fccfa7b774f7eba592c27e3655ea9e430a1bcbaf3f2e3de7707c77f5",
+      "plugins/codex-autocontinue/bridge.py": "82fd6567dd18f91c031d6ba3e60813a186445401de57c6e88b4a8c286659b257",
+      "plugins/codex-autocontinue/job-transport.mjs": "29920fd2ec9d66c399dab120e94379387430b7d305d13f4e0af7209c58e34f1b"
+    }
+  },
+  "limits": [
+    "PAUSE238/239 failures remain historical and distinct from PAUSE240 and the later PAUSE308 scoped pass.",
+    "PAUSE308 proves one real Core/Codex controlled long-command pause only; short commands, arbitrary descendants, restart recheck, and Android remain unproven.",
+    "HANDOFF241 remains a preserved historical failure. REPRO242 reproduced a Core self-writer cwd rejection but did not prove it was HANDOFF241’s only cause. HANDOFF310 later passed one limited real two-turn managed-tmux backend flow; manual acceptance and App acceptance remain unverified.",
+    "The failed HANDOFF241 parked pane and original evidence remain preserved; no automatic cleanup or resend was counted as recovery."
+  ],
+  "REPRO242": {
+    "passed": true,
+    "scope": "isolated no-AI macOS Core and managed tmux startup-order reproduction",
+    "runs": 2,
+    "parkedWorkspaceInitiallyReady": true,
+    "ownNewExecutorCwdRejected": true,
+    "exactNativeBirthAndWriterPidMatched": true,
+    "readyAfterExactExecutorRetirement": true,
+    "independentCwdWriterStillRejected": true,
+    "productionFixVerified": false,
+    "testFile": "tests/terminal-executor-start-admission.test.mjs"
+  },
+  "ADMISSION270": {
+    "date": "2026-10-18",
+    "status": "focused-startup-admission-test-passed; earlier-r2-failure-cause-unreproduced",
+    "sourceBase": "0a82074947daf8c5a9150cfabf0c4da5f48540ea",
+    "sourceSha256": {
+      "plugins/codex-autocontinue/host.mjs": "a6e9e1beb35be4d0834c8486b5b16ae851ff8fa9a56acc62c242c6c3f9c5f381",
+      "server/core.mjs": "e73f51bec6d61b9b366e2ad21c24ff482784b71453bdbda16fb3c15540e5e3f1",
+      "server/execution-leases.mjs": "709157fac17f3eeae04766c565559e04dc37161baadc5bd7da084138c9ec15f5",
+      "server/macos-executor-job.mjs": "772bbd841fb42efa679345019e1648dd4e7344ebf6c384e6595dbd253b4465dc",
+      "server/plugin-loader.mjs": "a3383bd506cfaa822b429aaf5ee563296ef5998ef2194ac76b904e1e1dc80a1f",
+      "server/plugin-process.mjs": "aebddc61f8aab674f91e1c3516be9322972a57392f93090bd96d793149c292ea",
+      "server/plugin-worker.mjs": "32effbf0739bb7203ef6eefad30404592342225301294e31a436cbc0dcc8f0f5",
+      "server/terminal/managed-pane-registry.mjs": "8375668bcab810717747488f144f81c9165d3e87b952483314fff4c5aa19c1ab",
+      "server/terminal/manager.mjs": "8e71b6b4151aceb78b29aa96604fe182d6686f4a428deed4784c1c978cf3f228"
+    },
+    "test": {
+      "file": "tests/terminal-executor-start-admission.test.mjs",
+      "sha256": "5b474b18a382aacd758ee922c75d2d56a51953bab2b44b615f53c232bdead84b",
+      "diagnosticOverlaySha256Prefix": "2d69c691",
+      "name": "the original job cohort may hold cwd after startup admission while a foreign writer remains blocked",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "observed": {
+      "initialReturnPhase": "ai_ready",
+      "generation": 1,
+      "managed": true,
+      "foreignWriterRemainedBlocked": true
+    },
+    "limits": [
+      "This is a focused startup-admission test, not full Android or handoff acceptance",
+      "The earlier r2 failure cause was not reproduced or established",
+      "FIX269R3 is a separate later change and is recorded independently; it must not be inferred from this startup-admission run."
+    ]
+  },
+  "FIX269R3": {
+    "date": "2026-10-18",
+    "status": "focused-real-macos-job-retirement-reopen-check-passed-on-pinned-source; later-policy-revision-pending-retest",
+    "sourceSha256": {
+      "plugins/codex-autocontinue/host.mjs": "0911a0392e4acc0b776bfdc20deda3e29933f15fb15cd8d10c0c71d38a9fa5e0",
+      "tests/executor-startup-retirement.test.mjs": "3110aa5a6688d91ae8cf88c44ec79af572ffcdbd284370d3f0e76a4cd11d1302",
+      "server/core.mjs": "e73f51bec6d61b9b366e2ad21c24ff482784b71453bdbda16fb3c15540e5e3f1",
+      "server/execution-leases.mjs": "709157fac17f3eeae04766c565559e04dc37161baadc5bd7da084138c9ec15f5"
+    },
+    "execution": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "realRetiredMacOSJob": true,
+      "newHostAfterOriginalOwnerProcessExit": true,
+      "provider": "fake",
+      "leaseAuthority": "SQLite lease store through direct Host path",
+      "fullCoreInjection": false,
+      "actualCodexTurn": false
+    },
+    "independentReview": {
+      "originalOwnerChildProcessActuallyExited": true,
+      "wrongTurnRejectedByNewHost": true,
+      "contentEditThenStaleObservationOnlyAugmentsOriginalStopProof": true,
+      "staleObservationDoesNotMutateTask": true,
+      "duplicateTurnStarted": false,
+      "independentLeaseChanged": false,
+      "cleanupFailures": 0
+    },
+    "previousAttempts": {
+      "r1": "retained as fixture-related failure; not counted as a pass",
+      "r2": "retained as exact-wording/expectation failure; not counted as a pass"
+    },
+    "limits": [
+      "This narrowly closes the two specific review findings on the pinned host hash; it is not full Core injection, real Codex, or App acceptance",
+      "A later FIX274 policy change followed this run; the updated host requires revalidation",
+      "No claim of full handoff or complete startup-unknown recovery"
+    ]
+  },
+  "FIX274_REGRESSION281": {
+    "date": "2026-10-18",
+    "status": "focused-regression-suite-passed; fake-provider-only",
+    "sourceSha256": {
+      "plugins/codex-autocontinue/host.mjs": "7355929f5ef1eb6fdf25e2d1a72d1e2b7d707b9aea7a86d2762df3df456cb840",
+      "tests/executor-startup-retirement.test.mjs": "4ed893b261ffebfa3c28a50431b129c285bbc0a0cd45c39e372b9074a3cab33e"
+    },
+    "tests": 39,
+    "passed": 39,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "scope": "Normal-pause original scenario regression on FIX274; fake provider. This closes the specified regression suite only, not a real-provider controlled pause."
+  },
+  "PAUSE282": {
+    "date": "2026-10-18",
+    "status": "real-Core-start-attempt-unknown-before-controlled-command; clean-shutdown",
+    "entryPoint": "real Core conversation and pause APIs",
+    "controlledCommandStarted": false,
+    "startStatus": "unknown",
+    "errorCode": "ERR_ASSERTION",
+    "executionStatus": "not_started",
+    "cleanShutdown": true,
+    "shutdownElapsedMs": 490,
+    "recheckExercised": false,
+    "sourceSha256": {
+      "scripts/verify-real-pause.mjs": "a71a0ff2e0ed19c3afc9367c85bc0d3dc88e749ecad139e1efed28101ae21b26"
+    },
+    "limits": [
+      "No controlled command began; this is neither a successful real pause nor evidence that a controlled command failed after starting."
+    ]
+  },
+  "PAUSE288": {
+    "date": "2026-10-18",
+    "status": "real-Core-start-attempt-unknown-before-controlled-command; clean-shutdown",
+    "entryPoint": "real Core conversation and pause APIs",
+    "controlledCommandStarted": false,
+    "startStatus": "unknown",
+    "errorCode": "EXECUTION_STARTUP_UNKNOWN",
+    "executionStatus": "not_started",
+    "cleanShutdown": true,
+    "shutdownElapsedMs": 464,
+    "recheckExercised": false,
+    "sourceSha256": {
+      "scripts/verify-real-pause.mjs": "6caa85193e2364ed69695d7ab3b3526fb22bb9260217438d384f59c4837d0627"
+    },
+    "limits": [
+      "No controlled command began; this is neither a successful real pause nor evidence that a controlled command failed after starting."
+    ]
+  },
+  "DIAG290": {
+    "date": "2026-10-18",
+    "status": "read-only-CLI-session-cohort-diagnostic; no-turn-requested",
+    "observation": {
+      "initialSampleCount": 4,
+      "nextSampleCount": 5,
+      "subsequentSamplesStableAt": 5,
+      "currentJobCohortVerified": false,
+      "proofReason": "job_current_cohort_unconfirmed",
+      "turnRequested": false,
+      "cleanShutdown": true
+    },
+    "interpretation": "The samples locate a stable cohort window for diagnosis; CLI createSession was called but no provider turn started. No root cause for the startup-unknown results is asserted.",
+    "followUp": "FIX291 is pending test."
+  },
+  "ACCEPTANCE302": {
+    "date": "2026-10-18",
+    "status": "startup-and-retirement-suite-partial-pass; two-failures-preserved",
+    "sourceSha256": {
+      "plugins/codex-autocontinue/host.mjs": "7355929f5ef1eb6fdf25e2d1a72d1e2b7d707b9aea7a86d2762df3df456cb840",
+      "server/macos-executor-job.mjs": "e4804a0e1da44ec884f267a8af5734f121e92395295411ee5d0b58f762af49a6",
+      "tests/executor-startup-retirement.test.mjs": "4ed893b261ffebfa3c28a50431b129c285bbc0a0cd45c39e372b9074a3cab33e",
+      "tests/executor-startup-cohort.test.mjs": "96b0818a48d922fb9e60307487d7679b25a5e2d81e30967a4cc749120b983588"
+    },
+    "tests": 50,
+    "passed": 48,
+    "failed": 2,
+    "skipped": 0,
+    "observedIssue": "A fractional monotonic-clock timeout reached the native helper and raised ERR_OUT_OF_RANGE; this cause was directly confirmed for the identified timeout path.",
+    "limits": [
+      "The two failures remain attached to this historical run; later integer-floor correction and results are recorded separately."
+    ]
+  },
+  "FIX305": {
+    "date": "2026-10-18",
+    "status": "post-floor-fix-suite-partial-pass; admission-directcat-still-unknown",
+    "sourceSha256": {
+      "plugins/codex-autocontinue/host.mjs": "7355929f5ef1eb6fdf25e2d1a72d1e2b7d707b9aea7a86d2762df3df456cb840",
+      "server/macos-executor-job.mjs": "f8791def49f103f86820392be3798458a8daf2a3ac5f93b74d94163476775253",
+      "tests/executor-startup-retirement.test.mjs": "4ed893b261ffebfa3c28a50431b129c285bbc0a0cd45c39e372b9074a3cab33e",
+      "tests/executor-startup-cohort.test.mjs": "ced6c761771e18c719f078f049b9efffd92594c476b4cf8a4108c29863429508"
+    },
+    "tests": 51,
+    "passed": 50,
+    "failed": 1,
+    "skipped": 0,
+    "checks": {
+      "nativeBinCat": "passed",
+      "startupAdmissionDirectCat": "unknown at test line 195"
+    },
+    "limits": [
+      "The remaining directcat unknown has not been attributed to a cause; do not count the suite as passing."
+    ]
+  },
+  "DIAG307": {
+    "date": "2026-10-18",
+    "status": "diagnostic-only-focused-test-passed; production-cause-unresolved",
+    "productionBaseSha256": "f8791def49f103f86820392be3798458a8daf2a3ac5f93b74d94163476775253",
+    "tests": 1,
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "scope": {
+      "cwd": "repository",
+      "executionProvider": "mock",
+      "diagnosticOnly": true
+    },
+    "limits": [
+      "This diagnostic run does not establish a production startup-admission fix or explain the remaining directcat unknown."
+    ]
+  },
+  "PAUSE308": {
+    "date": "2026-10-18",
+    "status": "one-real-Core-and-Codex-controlled-long-command-pause-passed",
+    "sourceSha256": {
+      "plugins/codex-autocontinue/host.mjs": "7355929f5ef1eb6fdf25e2d1a72d1e2b7d707b9aea7a86d2762df3df456cb840",
+      "server/macos-executor-job.mjs": "f8791def49f103f86820392be3798458a8daf2a3ac5f93b74d94163476775253",
+      "server/core.mjs": "e73f51bec6d61b9b366e2ad21c24ff482784b71453bdbda16fb3c15540e5e3f1",
+      "server/execution-leases.mjs": "709157fac17f3eeae04766c565559e04dc37161baadc5bd7da084138c9ec15f5",
+      "scripts/verify-real-pause.mjs": "6caa85193e2364ed69695d7ab3b3526fb22bb9260217438d384f59c4837d0627"
+    },
+    "passed": true,
+    "realProvider": true,
+    "physicalPhone": false,
+    "entryPoint": "real Core conversation and pause APIs",
+    "controlledCommandStarted": true,
+    "startStatus": "running",
+    "pauseAcknowledgedAfterMs": 428,
+    "actualProcessExited": true,
+    "delayedWriteExists": false,
+    "otherProjectProcessAlive": true,
+    "cleanShutdown": true,
+    "shutdownElapsedMs": 66,
+    "recheckExercised": false,
+    "scope": "One controlled long-running command only; does not establish short-command, arbitrary-descendant, Android, or real AI handoff acceptance."
+  },
+  "HANDOFF310": {
+    "date": "2026-10-18",
+    "status": "limited-real-two-turn-managed-tmux-handoff-passed; manual-acceptance-unverified",
+    "sourceManifest": "ACCEPTANCE305 immutable source; all 10 shared source hashes match",
+    "sourceBaseCommit": "0a82074947daf8c5a9150cfabf0c4da5f48540ea",
+    "sourceSha256": {
+      "scripts/verify-real-managed-handoff.mjs": "957553258b30fb0856eea4e0cbf640057145d65949e408134fd618fb92cf5d19",
+      "server/core.mjs": "e73f51bec6d61b9b366e2ad21c24ff482784b71453bdbda16fb3c15540e5e3f1",
+      "server/terminal/control.mjs": "546ac09556a654351831b9a0a5c59084527fe03a65880dcc5b1ded6630cd236b",
+      "server/execution-leases.mjs": "709157fac17f3eeae04766c565559e04dc37161baadc5bd7da084138c9ec15f5",
+      "server/plugin-loader.mjs": "a3383bd506cfaa822b429aaf5ee563296ef5998ef2194ac76b904e1e1dc80a1f",
+      "server/plugin-process.mjs": "aebddc61f8aab674f91e1c3516be9322972a57392f93090bd96d793149c292ea",
+      "server/plugin-worker.mjs": "32effbf0739bb7203ef6eefad30404592342225301294e31a436cbc0dcc8f0f5",
+      "server/terminal/manager.mjs": "8e71b6b4151aceb78b29aa96604fe182d6686f4a428deed4784c1c978cf3f228",
+      "server/terminal/managed-pane-registry.mjs": "8375668bcab810717747488f144f81c9165d3e87b952483314fff4c5aa19c1ab",
+      "server/terminal/managed-pane-record.mjs": "e2cc7755f4830801cab983787fc29093640b67021c7d20b6432374af1974e6aa",
+      "server/terminal/managed-pane.mjs": "d06ecec79509e5714a6dc28169f070f81b5a922ac6a82e1b531107b55879ff11",
+      "server/terminal/managed-pane-supervisor.py": "4d32600c43080ce9a0b987df7b9c19b833879d575dfb9cbec63fe56f514bd32d",
+      "server/terminal/managed-pane-relay.py": "6ebe8888d02ca4a5871c29bfe0f6ff5235050f17149d454c8d0d1809c3a36522",
+      "server/codex-process-proof.mjs": "0cff2571abedf141c6ddc4e288d863f72c8b14f1e2ff40263ebb2c69c61c85a8",
+      "server/executor-process-proof.mjs": "078098254e3c9690c9f4b96fa67f4d50a1653bb88c81af9e85611cf67b1213ef",
+      "server/macos-executor-job.mjs": "f8791def49f103f86820392be3798458a8daf2a3ac5f93b74d94163476775253",
+      "server/macos-executor-job-record.mjs": "53b90082222b832df54045e532c8cc7b78fcd8e3d502d228eb18b33e7e46abab",
+      "plugins/codex-autocontinue/executor_job.py": "e61eb245bda838b92a987b7eddae2b4af1fa33bd72ea30db923b99bb1eb1a81c",
+      "plugins/codex-autocontinue/process_snapshot.py": "62f98380039db241da354b1dc276496ee70551f805943e39b3be5a9f1a5dd0f5",
+      "plugins/codex-autocontinue/host.mjs": "7355929f5ef1eb6fdf25e2d1a72d1e2b7d707b9aea7a86d2762df3df456cb840",
+      "plugins/codex-autocontinue/auto-policy.mjs": "8ae899b1fccfa7b774f7eba592c27e3655ea9e430a1bcbaf3f2e3de7707c77f5",
+      "plugins/codex-autocontinue/bridge.py": "82fd6567dd18f91c031d6ba3e60813a186445401de57c6e88b4a8c286659b257",
+      "plugins/codex-autocontinue/job-transport.mjs": "29920fd2ec9d66c399dab120e94379387430b7d305d13f4e0af7209c58e34f1b"
+    },
+    "passed": true,
+    "realProvider": true,
+    "managedTmux": true,
+    "physicalPhone": false,
+    "precondition": {
+      "pausePrerequisiteConfirmed": true,
+      "sourceRecord": "PAUSE308"
+    },
+    "firstTurn": {
+      "completed": true,
+      "sameConversationBound": true
+    },
+    "managedPane": {
+      "originalIdentityVerified": true,
+      "shellStoppedAfterReturn": true,
+      "relayFrozenAfterReturn": true,
+      "humanAddedLines": 1,
+      "linesAfterHumanEdit": 2
+    },
+    "secondTurn": {
+      "completed": true,
+      "sameConversation": true,
+      "exactFinalLineCount": 3,
+      "originalShellStillStopped": true,
+      "preservedPriorLines": 2,
+      "appendedLines": 1
+    },
+    "acceptanceUnverified": true,
+    "cleanCoreShutdown": true,
+    "originalPaneRetired": true,
+    "limits": [
+      "This proves the isolated backend flow with one exact managed tmux pane only; it does not establish Android/Mac App acceptance, manual acceptance, or all control/exception scenarios."
+    ]
+  },
+  "UI309": {
+    "date": "2026-10-18",
+    "status": "isolated-budget-exhaustion-reproduction-passed; UI298-integrated-r3-timeout-unresolved",
+    "outcome": "passed",
+    "sourceHashes": {
+      "panel": "b27abe3190cf0797fc36d0941fdbd99a437d8a359aa5c2819c76aa0eb3f52381",
+      "client": "7c6375b6028da2005a37ac5c6d68df67a8684cd09f76692ce7765e75212ae777",
+      "test": "09b1a17ef907c075875435025aa4d64fe97fc58acd5a145561ed6d2186f50174",
+      "index": "90ba7c505aa798bd12539fac2a960bd3cc57e64893d1cf070a5b9c2735c319b2"
+    },
+    "checks": {
+      "transientResumeFailuresBeforeExhaustion": 7,
+      "exhaustionNoticeElapsedMsApprox": 52398,
+      "lateResponseStatuses": [200, 401, 403],
+      "lateResponsesCreatedAdditionalTickets": false,
+      "explicitReconnectToExactOriginalSessionSucceeded": true,
+      "inputStateChanged": false,
+      "defaultSessionChanged": false
+    },
+    "scope": "One isolated reproduction of ticket-budget exhaustion and subsequent explicit reconnect. This does not establish the cause of UI298's integrated r3 timeout or prove a product fix.",
+    "userAcceptanceChanged": false
+  },
+  "UI326": {
+    "date": "2026-10-18",
+    "status": "single-comprehensive-frozen-browser-mock-suite-pass; prior-integrated-r3-timeout-root-cause-unknown",
+    "sourceBaseCommit": "644feb6965eeb0be7a8c5fd5f029f39900eb661b",
+    "productSourceOverlay": false,
+    "testOverlay": "UI321 failure-only sanitized diagnostic in tests/e2e/terminal-ui.mjs",
+    "sourceHashes": {
+      "test": "97d2cde29f6d30946823f0294465f4a9a585dfbb3969b3f497e680ee2d165007",
+      "panel": "b27abe3190cf0797fc36d0941fdbd99a437d8a359aa5c2819c76aa0eb3f52381",
+      "client": "7c6375b6028da2005a37ac5c6d68df67a8684cd09f76692ce7765e75212ae777",
+      "ui298DistIndex": "90ba7c505aa798bd12539fac2a960bd3cc57e64893d1cf070a5b9c2735c319b2"
+    },
+    "execution": {
+      "runCount": 1,
+      "exitCode": 0,
+      "durationMsApprox": 167000,
+      "completeSuiteReachedFinalPassMessage": true,
+      "diagnosticTriggered": false,
+      "ownedProcessCleanupSucceeded": true
+    },
+    "scope": "The complete browser terminal UI suite passed once on the frozen 644feb6 product source and UI298 web bundle, with mocked terminal HTTP/WebSocket transport. This is not real Hub, PTY/tmux, Android, or native App acceptance.",
+    "priorTimeout": "UI298 comprehensive r3 previously timed out; its root cause remains unknown. This single green run does not prove that the failure cannot recur.",
+    "userAcceptanceChanged": false
+  },
+  "FIX327": {
+    "date": "2026-10-18",
+    "status": "focused-startup-authority-tests-passed; repinned-real-workflow-pending",
+    "sourceBaseCommit": "644feb6965eeb0be7a8c5fd5f029f39900eb661b",
+    "sourceHashes": {
+      "server/core.mjs": "b18e65ec777f408d998193f024aec1fe5dbf71d4d3e2915062b6b095f00da50c",
+      "server/execution-leases.mjs": "0f07dd86c7bca54c4ac7520e6bdac180d56108ffa634eeade7dc0d229c59b710",
+      "tests/workflow-startup-readiness.test.mjs": "64980026c541f8fd4b43bab8376742404f3d0ad5cb7564662a4f7c3ff28b8b58",
+      "tests/execution-startup-leases.test.mjs": "38098be8478ec9040dc6a4eb6fd1b976fea454bd5ab202fd16e97c6370fa93ca",
+      "tests/execution-leases.test.mjs": "33f4a157c082ee96297ac57109cdade189a3274a9464e50f1999da06e8ab6b6e",
+      "tests/workflow-worktrees.test.mjs": "adde9bc741525af78a8af609914c9cfe24db40bcb524c9ceaabdc7ffc04b2c64"
+    },
+    "tests": {
+      "files": [
+        "tests/workflow-startup-readiness.test.mjs",
+        "tests/execution-startup-leases.test.mjs",
+        "tests/execution-leases.test.mjs",
+        "tests/workflow-worktrees.test.mjs"
+      ],
+      "passed": 23,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "finding": "The workflow's strict availability check treated its own already-confirmed startup as busy.",
+    "fixBoundary": "A dedicated hint permits only that task's own confirmed ready startup; generic availability checks and final reservation remain strict.",
+    "independentStaticReview": "No confirmed P1/P2 findings.",
+    "realWorkflowRepinAndExecution": "Pending; no real AI turn is included in these tests.",
+    "preparation": "The first preparation attempt failed because system Python tarfile lacked the filter parameter; no product test ran. Preparation succeeded on retry with bundled Python 3.12.",
+    "userAcceptanceChanged": false
+  }
+}

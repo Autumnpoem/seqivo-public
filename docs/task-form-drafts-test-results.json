@@ -1,0 +1,133 @@
+{
+  "workId": "APP1091",
+  "sourceRevisionAtFreeze": {
+    "baseCommit": "83192781f182c836d802c5c652f5a73de76af7cc",
+    "workingTreeChanges": false,
+    "sourceCommit": "7b5609e988ae27191a984db5ec4edc1d4d3cad7a"
+  },
+  "status": {
+    "implementation": "complete for scoped web form drafts",
+    "webDeployment": "deployed and verified",
+    "androidPackage": "not rebuilt",
+    "macCandidate": "signed and promoted; not installed or launched",
+    "nativeAndroidUI": "not tested",
+    "realProvider": "not used"
+  },
+  "behavior": {
+    "draftScope": "account + project + task + form kind (edit, evidence, review)",
+    "reload": "restores fields and review decision",
+    "cancel": "removes the exact saved snapshot",
+    "staleVersion": "restores draft but disables Save",
+    "confirmedTaskBoundHubResult": "closes form and clears the submitted snapshot",
+    "unknownHubResult": "retains draft; after reload task write actions remain gated while unresolved, and the form cannot be reopened until the receipt is resolved",
+    "lateConfirmation": "clears only the submitted snapshot and preserves newer edits",
+    "autoSubmit": false
+  },
+  "verification": {
+    "targetedTests": {
+      "result": "24 passed, 0 failed, 0 skipped",
+      "breakdown": {
+        "taskFormDraftStorage": "7 passed",
+        "conversationDraftRegression": "8 passed",
+        "reviewRejectionRegression": "9 passed"
+      },
+      "log": ".runtime/app1091/targeted-tests.log",
+      "sha256": "d7a5e52fc6be5c7e2d6106c1981c4fae8e76d17a4a94da7e2f7c7b21c0540065"
+    },
+    "typescript": {
+      "result": "passed",
+      "exitCode": 0,
+      "log": ".runtime/app1091/tsc.log",
+      "logIsEmpty": true,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "vite": {
+      "result": "passed",
+      "exitCode": 0,
+      "log": ".runtime/app1091/build.log",
+      "sha256": "8587b260d653d1808b346d2cc26a063395e5e6ce4a35f93fe00e2ac6665509c0"
+    },
+    "browserFixture": {
+      "result": "8 post-fix passing categories and 1 pre-fix reproduction recorded",
+      "fixture": true,
+      "realProvider": false,
+      "nativeUI": false,
+      "mutationCount": 4,
+      "record": ".runtime/app1091/browser-results.json",
+      "recordSha256": "c9673dca97093985a133e81ff8b0624b170306b26646572161d12487158b07e8",
+      "cases": [
+        "pre-fix evidence reload loses fields",
+        "evidence draft restores after reload",
+        "edit draft restores after reload",
+        "review decision and summary restore after reload",
+        "explicit cancel clears the draft",
+        "stale version preserves values and disables Save",
+        "task-bound Hub applied-running result clears the submitted draft",
+        "Hub unknown retains draft and blocks repeat submission after reload",
+        "late local success preserves newer edits and stale-guards the old snapshot"
+      ],
+      "screenshots": {
+        "edit-restored.png": "7782fad81ba541c1ad243001327d05169434192e03a7de8608fad1ad479935aa",
+        "evidence-restored-after-reload.png": "81e250add90ba75c6431a1aa746b1aa4143286a0ab7a6436d0651a03a94751b5",
+        "review-restored.png": "18af7f0a1951faeac40532344c10057c44bb088fd8bf00cc93455c29a64ceda0",
+        "stale-draft-blocked.png": "a77b1d8b9bd0683044f5a61ef80c604a9c93690c64dc906473ffac96d25abd44",
+        "applied-running-cleared.png": "48bb0cb0358d712cd3f744d4bd5131e4e8302c2199e30b7d2caac3d883f382e1",
+        "unknown-draft-retained.png": "6e4af24e1b5e287ceb36af83c7ae1884ce6c8c6331e73251eb24862e9a18593f",
+        "newer-draft-after-confirmation.png": "fbaca815f595c777425d6482b7ff9e7386b9a7301f13b8e0be3d47067b78c587"
+      }
+    },
+    "independentReview": {
+      "result": "no remaining P1/P2",
+      "record": ".runtime/app1091/review.md",
+      "sha256": "207d0b0f4d7f5f8cfcd308f9d8b0a89734003270710d1fde9c21fd338ae69346"
+    }
+  },
+  "sourceSha256": {
+    "src/App.tsx": "c530fee0e81f4e5aad48ecd1b06431a0bab5c2031d737bbdaa64350719cf6ef5",
+    "src/task-form-drafts.ts": "a3a48d554685f583df65088e777a5d5489f396bb47d393d4164d55770bcc6865",
+    "tests/task-form-drafts.test.mjs": "d79a12f0949f9f25a5dcce86b1c55d7ea409fb9c96b4630c548ca2484d04b79a"
+  },
+  "limitations": [
+    "Browser checks used a disposable synthetic fixture; no real Hub task data or provider was used.",
+    "No Android APK was rebuilt or installed, and no native Android UI or physical device was tested.",
+    "No real provider was used."
+  ],
+  "deployment": {
+    "postcheck": ".runtime/delivery1091/postcheck.json",
+    "postcheckSha256": "9edbe560450ea4b5623645d26c623c5a6ef40d370eafe514becef2313974cd61",
+    "webCommit": "7b5609e988ae27191a984db5ec4edc1d4d3cad7a",
+    "backendBase": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "hubProjectionCommit": "d5c8a43a6819e923acfd784758c23a1287c9b9ec",
+    "staticWebDeployed": true,
+    "publicTlsVerified": true,
+    "currentDistFilesVerified": 14,
+    "unauthenticatedStateStatus": 401,
+    "firewallActive": true,
+    "configUnchanged": true,
+    "serviceProcessUnchanged": true,
+    "hubRestarted": false,
+    "commandsAndRecoveryUnchanged": true,
+    "quickCheck": "ok",
+    "manifestFileCount": 183,
+    "manifestSha256": "580308dcafc1a3b6bc398decc278f2bdf2f888951c31bf8cb7366224205ef5e9"
+  },
+  "macCandidate": {
+    "promotionRecord": ".runtime/app1091/promotion-result.json",
+    "promotionRecordSha256": "0addc644874f2cfe740f21cf490132212fec97cd7c9e3fcbd03a15d14b6ad8b6",
+    "sourceCommit": "7b5609e988ae27191a984db5ec4edc1d4d3cad7a",
+    "target": "Candidate/序程.bundle",
+    "mainSha256": "478ea6bbc2eae7484b86d5c0601881d3c0e55d60b91c7e376a6884005e60c5ac",
+    "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "signedResources": 4227,
+    "signatureVerified": true,
+    "promoted": true,
+    "canonicalTouched": false,
+    "installed": false,
+    "appLaunched": false
+  },
+  "deliveryReview": {
+    "result": "no blocker found in prepared static package and Mac candidate review; the review did not execute deployment",
+    "record": ".runtime/app1091/delivery-review.md",
+    "recordSha256": "eb0f68234fa09f8fb4a58d17ddbb549b359330be9bb6ffd6233988c13228ce94"
+  }
+}

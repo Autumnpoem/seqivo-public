@@ -1,0 +1,204 @@
+{
+  "workId": "LINUX1086",
+  "baseCommit": "bbb5ccb9b4888f8d592e927e3a62aee9053b3f8e",
+  "status": "source_implemented; latest_scoped_crash_and_handoff_run_passed; pre_dispatch_rejection_cleanup_pending",
+  "verification": {
+    "linuxPrimitive": {
+      "run": ".runtime/linux1086/candidate1",
+      "result": "7 passed, 0 failed, 0 skipped",
+      "runnerExit": 0,
+      "unexpectedChildren": 0,
+      "cleanupSignals": 0,
+      "remainingChildren": 0,
+      "temporaryDirectoryRemoved": true,
+      "testsLogSha256": "c011ac505646bd145c71b3d9dea575edf711409510e5d3730030eeb4e83a66af"
+    },
+    "linuxCoreCrashRecovery": {
+      "run": ".runtime/linux1086/core4",
+      "command": "tests/linux-job-core-recovery.test.mjs tests/plugin-linux-authority.test.mjs tests/execution-leases.test.mjs",
+      "result": "14 passed, 0 failed, 0 skipped",
+      "runnerExit": 0,
+      "unexpectedChildren": 0,
+      "cleanupSignals": 0,
+      "remainingChildren": 0,
+      "temporaryDirectoryRemoved": true,
+      "testsLogSha256": "7e6668c23cb4592e33007d7137f8d86595f9c329a811f853732f98c9c5678eaa",
+      "snapshotScope": "Intermediate core4 snapshot. Latest source recovery-only cases also passed in accepted; do not sum overlapping counts."
+    },
+    "macFocused": {
+      "run": ".runtime/linux1086/mac-focused-final.log",
+      "result": "4 passed, 0 failed, 0 skipped",
+      "testsLogSha256": "f34b5710565fd8a5985d5478f8f7d91b537f5400846014cc481e7af1701c7898"
+    },
+    "localLeaseAndRpc": {
+      "run": ".runtime/linux1086/local-tests.log",
+      "result": "9 passed, 0 failed, 2 Linux-only skipped",
+      "testsLogSha256": "ae3c40e542b864737eb5b3b76ff0fe7a6aedabb2c5c8198ae2b3acdccab667cc"
+    },
+    "sameCoreManagedShellIntegration": {
+      "run": ".runtime/linux1086/live-fixed",
+      "result": "1 passed, 0 failed, 0 skipped",
+      "scope": "Normal interrupted final turn, exact original shell restored, Core close confirmed. Later combined runs and startup failure are recorded separately.",
+      "testsLogSha256": "fa1024e3efa4e210a07094a80d1f80fb1f93dc2e629564d4b85e9495e62d897f"
+    },
+    "liveDiagnostic": {
+      "run": ".runtime/linux1086/live-diagnostic",
+      "result": "0 passed, 1 failed",
+      "reason": "Confirmed interrupted turn was incorrectly classified as unknown; fixed by exact final-turn status persistence and Core proof scope.",
+      "testsLogSha256": "4e0ff9ccc4c47d6890a34e8d012c7432b102d7810ff56e9471c0b83d20f5432e"
+    }
+  },
+  "historicalFailures": [
+    {
+      "run": ".runtime/linux1086/core1",
+      "result": "11 passed, 3 failed, 0 skipped",
+      "failure": "three recovery cases ended with unconfirmed executor shutdown",
+      "testsLogSha256": "5384840477a18d3641e02c02798ece61310ecd07a1ac0e38fab7476b76b93856"
+    },
+    {
+      "run": ".runtime/linux1086/core2",
+      "result": "0 passed, 1 failed, 0 skipped",
+      "failure": "recovery fixture close was unconfirmed; test also recorded a pane control connection EPIPE",
+      "testsLogSha256": "a647b8465a0a34fac6c898e463147bb53d257820e89f607ab3ff7e5147ea747a"
+    },
+    {
+      "run": ".runtime/linux1086/core3",
+      "result": "11 passed, 3 failed, 0 skipped",
+      "failure": "three recovery/cleanup cases remained unresolved",
+      "testsLogSha256": "e159a6894fb6b02dd5d888f62a5140493c811dca45e06eb0b5d0670e46567d4a"
+    },
+    {
+      "run": ".runtime/linux1086/verified",
+      "result": "3 passed, 1 failed; incomplete process snapshot refused initial pause",
+      "exitCode": 1,
+      "unexpectedChildren": 2,
+      "cleanupSignals": 2,
+      "remainingChildren": 0,
+      "testsLogSha256": "2da2d58c646396aaa0e83e7941292794cd7128d18a2269dbda1513914295f7c6"
+    },
+    {
+      "run": ".runtime/linux1086/final-verified",
+      "result": "2 passed, 2 failed; fixture checked tmux exit before relay finished",
+      "exitCode": 1,
+      "unexpectedChildren": 0,
+      "cleanupSignals": 0,
+      "remainingChildren": 0,
+      "testsLogSha256": "7f0a13651e52e61b633ec8aa5d29210e3119e861b1c7ccb631f0f44e56c144f3"
+    },
+    {
+      "run": ".runtime/linux1086/accepted",
+      "result": "3 passed, 1 failed; crash recovery cases passed, live fixture kill-server raced with server exit",
+      "exitCode": 1,
+      "unexpectedChildren": 0,
+      "cleanupSignals": 0,
+      "remainingChildren": 0,
+      "testsLogSha256": "a77aed4fb511b808b2ca775af0ff392c9125dd40ad3af1a9515c1e38edf3346c"
+    },
+    {
+      "run": ".runtime/linux1086/live-cleanup",
+      "result": "0 passed, 1 failed; session startup refused list_changed_during_scan",
+      "exitCode": 1,
+      "unexpectedChildren": 0,
+      "cleanupSignals": 0,
+      "remainingChildren": 0,
+      "testsLogSha256": "41b20eb0145772ba5105ed7294a30df8435fa5c66d8b571a7be1c87fae07caea"
+    }
+  ],
+  "testedSnapshotSha256": {
+    "server/core.mjs": "c19d31597b706ba78d060d203bb884a20796b5e427079e438b045d0a69b1b467",
+    "server/linux-executor-authority.mjs": "0a34de614aa6c71632f60a21ee8a3438ed5355ce9950f994938b94d98b890dea",
+    "server/linux-executor-job.mjs": "b00fc6a8eb6b32dd3a10df07f433eef97375ed8d9a6b02f6febfe327a73b7a31",
+    "server/execution-leases.mjs": "75b43bdcd0252e54871c28245b3a975c9c84611e194d731d2280a9849dc0bac1",
+    "server/plugin-process.mjs": "c96913d9be00818f188cc2360c6e1e0d60a36286f12145f1e3eb71cbec14e65e",
+    "plugins/codex-autocontinue/host.mjs": "5a1f97c0925813e64a954599c2322b71feb9ba39b47c612ae2f4a9932964e1fc",
+    "plugins/codex-autocontinue/linux-job-transport.mjs": "fc7f2914c21fe65ee21be38a5ec1058fc0e20880bb7b685bbff75f86679b61c6",
+    "tests/linux-job-core-recovery.test.mjs": "e099364a4debf5f6177c6f04b9ab2a9b90ab496309c7dac53ab33262e11c8f9a",
+    "tests/plugin-linux-authority.test.mjs": "8e5767f6c225e88e04ccb5a0a0c314971149379df014dc0b686c3fed3a0f1904",
+    "tests/fixtures/linux-managed-codex-controller.mjs": "c843b53818567a2e06dd14108134697c2e0b070aec9f7b3149ba5f3f57582258",
+    "tests/terminal-managed-integration.test.mjs": "a196ecd0ab5b81793fc439af1944c6fd6fa7f9c565f0677e2dd9f23f696a0408",
+    "server/plugin-loader.mjs": "99d4642e1d75ff206cb32abba4ea0bdb3cc964083f3194fb7b22f625f3706768",
+    "server/plugin-worker.mjs": "d45183f9c9c03166276c5b5f5c7534b8ae8a237eb7a767ef067afa8b1316ef11",
+    "plugins/codex-autocontinue/linux_executor_job.py": "d7b3def55b96aa26e587c9eafe0cc36eda19926d8f111740b4b3b285478124b0",
+    "tests/fixtures/linux-job-core-recovery-controller.mjs": "0d84fd4a3ac69f09755da049282125124f4ad422ee41f66ac5b6c038c49d2e87"
+  },
+  "limitations": {
+    "packaged": false,
+    "installed": false,
+    "deployed": false,
+    "realAiProvider": false,
+    "windowsValidation": false,
+    "linuxSameCoreManagedHandoffAccepted": false,
+    "reason": "Historical narrow handoff pass exists; latest source startup is not stable. Native UI, real provider, packaging and installation remain pending."
+  },
+  "date": "2026-10-31",
+  "wholeProjectComplete": false,
+  "latestRecoveryCases": {
+    "run": ".runtime/linux1086/accepted",
+    "passed": 3,
+    "failedInRecoveryCases": 0,
+    "wholeRunPassed": false,
+    "explicitRechecksUsedInPositiveCase": 0,
+    "scope": "Core crash, interrupted+unverified result, missing turn ID. The fourth live-handoff case failed in fixture cleanup; not one 4/4 run."
+  },
+  "latestStartupCheck": {
+    "run": ".runtime/linux1086/live-cleanup",
+    "passed": false,
+    "reason": "Native process snapshot is unconfirmed: list_changed_during_scan",
+    "sessionStatus": "not_started",
+    "coreCloseConfirmed": false,
+    "outerCleanupRemainingChildren": 0,
+    "followup": "Investigate failed admission before claiming startup/close stability. Do not weaken process proof or automatically resend a command."
+  },
+  "latestFixtureSha256": {
+    "tests/fixtures/linux-managed-codex-controller.mjs": "49666a2374f7c9bc65a9be9f96de00461e5da83ee75c06cf904d4e6615fddc71"
+  },
+  "fixes": [
+    "Linux filesystem socket supports long private application-data paths through a held directory descriptor.",
+    "Recover pause through the original durable job without relaunching a provider.",
+    "Recheck exact persistent retirement receipts after human takeover without releasing unknown leases.",
+    "Persist the already-verified running-to-interrupted final turn before Core retirement; unknown retirement cannot become a verified final outcome.",
+    "Fixture cleanup now waits for the original tmux relay/session exit without racing kill-server. The latest run failed earlier at startup, so that run does not validate cleanup."
+  ],
+  "independentReview": {
+    "scope": "Linux authority, host integration and affected test fixtures",
+    "status": "no_new_P1_P2_in_static_review; known_runtime_startup_failure_open",
+    "evidence": ".runtime/linux1086/final-review.md"
+  },
+  "evidence": {
+    ".runtime/linux1086/core4/intent.json": "abdbd4d6e793dd6560edd4c142884082aee0f9f2a717f997ce0a4ec46a557589",
+    ".runtime/linux1086/accepted/intent.json": "a40dc28e3a77aa27d6717e58f72bce384cbf4557841e4cb956d4799396a2f018",
+    ".runtime/linux1086/accepted/result.json": "95240b86b5b378d2125a74af2eae34f320612b048e78d2362af313f77ed4d5fc",
+    ".runtime/linux1086/live-cleanup/result.json": "56fa9b8e2467b6c3eb41faf241e6f21e755ca629f6378ff0a63fc77afa6b0475",
+    ".runtime/linux1086/core1/cleanup-result.json": "b46876805b4d066dbf0c03328b4e19841e72df167ab3e68a2740f25804052c54",
+    ".runtime/linux1086/board-result.json": "769ea64abfad1e3596d0deccdde1b55c205fa6fb511ec4e4e4563cb748fba817",
+    ".runtime/linux1086/final-review.md": "47ec0fda94a8b8452e8c9ba0de2c5f02d27a853faebe8bd44ff6515ee67c4bc9"
+  },
+  "board": {
+    "taskId": "59509a5a-590c-47c5-b059-e2c9204474bf",
+    "revision": 13,
+    "status": "running",
+    "verification": "partial",
+    "completedChecks": [
+      "linux-live-managed-return-script",
+      "linux-session-core-integration",
+      "linux-ai-stop-proof",
+      "linux-job-recovery-primitive",
+      "ubuntu-deb-dependencies"
+    ],
+    "pending": [
+      "linux-session-app-integration",
+      "ubuntu-windows-native-app",
+      "linux-real-provider-return",
+      "linux-startup-admission-stability"
+    ],
+    "manualAcceptanceUnchanged": true,
+    "otherTasksUnchanged": 66
+  },
+  "latestAdmissionUpdate": {
+    "workId": "LINUX1088",
+    "details": "docs/linux-startup-admission-test-results.json",
+    "hostRegressionPassed": 1,
+    "coreIntegrationPassed": 4,
+    "scope": "Controlled fake provider with real Linux processes; no packaging/install/deploy. All historical failures below are retained."
+  }
+}

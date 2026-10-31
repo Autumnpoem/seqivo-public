@@ -1,0 +1,1262 @@
+{
+  "schemaVersion": 1,
+  "status": "partial; source 92ecc4d is installed at the canonical Mac app location; BUILD817 passed 17/17 steps and five packaged checks; NATIVE819 verified first launch, application-menu quit, same-data reopen, user-operated idle Dock quit, and post-Dock relaunch readback matching 2 projects/62 tasks/62 gates; AppleEvent, system logout, and busy-work exits remain unverified; Hub remains on 41bcc810 and Android native v13 is unchanged (APP795 loaded the 41bcc810 Web/Core/Hub bundle); RECOVERY816 quarantined the incident810-era Core lock after identity checks but did not prove normal shutdown or clear the unknown fence; incident810 initiator/cause remain unknown; APP795 limited emulator flow passed; default reconnect/grant lifecycle, manual acceptance, other active-work pause/failure combinations and formal distribution remain pending; historical unknown records are preserved and not replayed; APP821 scoped real-AI pause passed on ordinary v13/API35 emulator with verified original process stop, independent B survival, no late A write, and normal disposable Core close; not a physical-phone or latest M5 package result",
+  "scope": "Terminal return review: pause/freeze, inspect bounded change summary, explicit confirm or cancel",
+  "source": {
+    "baseCommit": "61237b89a3b672914cdb6c3dea0a3c4c7131f2d4",
+    "overlayFiles": {
+      "server/core.mjs": "121d8a0f0f92a79d83f580eb17e56b2f48dbecad268905b1f0a646ec07500224",
+      "server/hub/terminal.mjs": "058ce0501dffea60ec08bc85e4056ea43742b755310188fd4511bf85ea8a58fd",
+      "server/terminal/control.mjs": "90175b1b688d58568073f77d4cf0a813c0269a1627473baea89e497d00454fd5",
+      "server/terminal/manager.mjs": "8dbc2ae3bcce088df0e8b281f2b61373271d6d8d23106bae4fd5511878abc5fc",
+      "src/App.tsx": "fd744f483956f6a707ef4d03ab38ccb7002c49ef8888d7f7c3db1144ac6d9d95",
+      "src/ProjectHandoff.tsx": "fc409c4078857656933ac6c565499efd299283b245b3a235ed7596144a9c9ff6",
+      "src/TerminalPanel.tsx": "c89889485f34ff3d0e1a331ebe3d7b042769802c554df591b7c19557f777ffe9",
+      "src/TerminalReturnReview.tsx": "943134b57344310370bed8809c0a44b45c4f2d84b414ded89ca89dc0af0de892",
+      "src/handoff-summary.ts": "300c3d81ca33bdc273810a85c6c8a2dcfdc8d0fb08b3db4c0b4420e165584e8f",
+      "src/terminal-client.ts": "ed8ec0b6df08b4ba58a8148632d1bb6f0853c107f42414b3adbeb16fa9ed8c74",
+      "src/terminal-return-review.css": "1eaf151b53fb7f3f53a342343e314917ab7e9e973fc06f0109dcdcb8ac82ac01",
+      "src/terminal-types.ts": "65ba957dec9f6e4c41b68786ba2b6530d3b03d406a6008074b870014fad2f8b9"
+    },
+    "webBundleFiles": {
+      "assets/App-DsoXuGGJ.js": "a4083e1627d97a8d50711f60ddc9da9fe29dff5bda4e0cdd049ef5b4ab8099ac",
+      "assets/App-IEbqvCxV.css": "e28b16327664e1874c2d9122acb7b3cdd5eb97cf734d7ab96ed5d6e159e37b4a",
+      "assets/PreviewPanel-BMZcDJkj.js": "6c8644d1eb8ecad0242b87d313d85580e62b068a28aea80cc613c05cb247805b",
+      "assets/PreviewPanel-FWgQ4G7u.css": "381f1c23f6679013dbf5ed3cfd2c10c679f9422840fa6d19f2822d15b17fd63d",
+      "assets/TerminalPanel-BnISduK_.css": "d89d6113fe83920a663ec38c9d2c745bb8a730da74db17a9b1fff2fc4c2b19ca",
+      "assets/TerminalPanel-C7JbZe2a.js": "e2e9374dd3ea9ae64e099cd137eee501cd5cbfe63fdfcd7fc884167976553130",
+      "assets/api-DnOcLhHk.js": "727de9f54361e82c4640847adcbd92adc9f20d1ff4eda00a600140c55545de1d",
+      "assets/index-CCLuRB72.css": "8b41a63442d92d5147571972028a3c68ca80bda0bf1b232127bba9d2ca8299cc",
+      "assets/index-DlwFu8iv.js": "3201a1555de6b367501a6f0099bf1a9e5c7ba967d7cc4d9a2bb8509e82b71cfa",
+      "brand-mark.svg": "b1e4c0a2b072fbbf9085b85510db4cf95d08d503a16751b8a2f84a646569a58d",
+      "icon.svg": "574a993c3b98d8310821c7d19d70acdae36be25a6a1c439ca133104cd2b94834",
+      "index.html": "7e0353314ec874e257f5194a8e7a5b60239fe17745d31ecffc3f2ea4d2d40a7e",
+      "manifest.webmanifest": "68623363216b1b1d15880bbf387448db778b151399766b6b0d3da925839b784a",
+      "sw.js": "b4a4cd1bbe58521b433c50790a1b3e62478aee4f74c36fd0de6834aa72b0aada"
+    }
+  },
+  "backendChecks": [
+    {
+      "name": "control-and-hub",
+      "passed": 44,
+      "failed": 0,
+      "exitCode": 0,
+      "coreHub": true,
+      "provider": "fake"
+    },
+    {
+      "name": "terminal-manager",
+      "passed": 19,
+      "failed": 0,
+      "exitCode": 0,
+      "coreHub": true,
+      "provider": "fake"
+    },
+    {
+      "name": "managed-tmux",
+      "passed": 1,
+      "failed": 0,
+      "exitCode": 0,
+      "realTmux": true,
+      "realCore": true,
+      "provider": "fake"
+    },
+    {
+      "name": "return-disconnect-close-barrier",
+      "passed": 2,
+      "failed": 0,
+      "exitCode": 0,
+      "scope": "focused race checks"
+    }
+  ],
+  "uiChecks": [
+    {
+      "name": "terminal-client-fake-transport",
+      "passed": 17,
+      "failed": 0,
+      "exitCode": 0
+    },
+    {
+      "name": "typecheck",
+      "exitCode": 0
+    },
+    {
+      "name": "build",
+      "exitCode": 0
+    },
+    {
+      "name": "browser-mock",
+      "exitCode": 0,
+      "transport": "mock terminal HTTP/WS"
+    }
+  ],
+  "APP464": {
+    "scope": "ordinary local debug APK v8 on isolated API 35 emulator; separate candidate web bundle; real Hub/Core/tmux; not physical-device, release-signature, APK-to-APK, or full task-flow acceptance",
+    "source": {
+      "nativeCommit": "61237b89a3b672914cdb6c3dea0a3c4c7131f2d4",
+      "baseTreeSha256": "73ded4e6289c4dc6986ed0414ee340bda406011dbea6958cc1eed36f4656d142",
+      "webTreeSha256": "5a8569a1f0fbdac16062d13aaa198e781db084288adcb35277dd234413499425",
+      "webBundledInApk": false
+    },
+    "upgrade": {
+      "fromVersionCode": 7,
+      "toVersionCode": 8,
+      "sameSignatureInstall": true,
+      "apkSha256": "cbd22bf688c2f60a0a3b737639155cfef7cb286a8bfc7b6a9a1a3d0e25d4cac6",
+      "preferencesPreserved": true,
+      "projectUiVisible": true,
+      "loginPromptVisible": false,
+      "terminalGrantPreserved": true,
+      "serverSessionContinuityProven": false
+    },
+    "returnReview": {
+      "appTerminalCreated": true,
+      "humanInputWroteFile": true,
+      "prepareDisplayedProjectRoot": true,
+      "prepareDisplayedOneAddedFile": true,
+      "prepareDisplayedOneParkedManagedSession": true,
+      "cancelFencedInput": true,
+      "reconcileAndExplicitOriginalSessionSelection": true,
+      "originalRecordPaneProcessIdentitiesAndFilePreserved": true,
+      "secondPrepareAndExplicitConfirm": true,
+      "finalPhase": "ai_ready",
+      "finalGeneration": 2,
+      "taskStatusesRemainPlanned": true,
+      "automaticAcceptance": false
+    },
+    "realAiAttempt": {
+      "passed": false,
+      "blockedBeforeCreateThread": true,
+      "executionScriptStarted": false,
+      "causeEstablished": false,
+      "laterReadOnlyCohortVerified": true,
+      "laterCohortMembers": 2,
+      "originalExecutorRetired": true,
+      "leaseCountAfterRetirement": 0,
+      "laterObservationProvesOriginalFailureCause": false
+    },
+    "cleanup": {
+      "servicesClosed": true,
+      "originalShellRelaySupervisorGone": true,
+      "originalSessionsGone": true,
+      "productionAppPreserved": true,
+      "originalRecordsPreserved": true
+    }
+  },
+  "flow": [
+    "prepare return with terminal input frozen",
+    "review bounded notes, directories, change summary and digest-bound identity",
+    "explicitly confirm after fresh recheck, or cancel while input remains frozen"
+  ],
+  "reviewStatus": "passed-scoped-no-confirmed-p1-p2 for the earlier IMPL466/UI468 candidate only; not a review of APP496 runtime behavior",
+  "notCovered": [
+    "APP782 second-turn business result and final reply remain unknown after one submitted request; stop proof is unverified and the request must not be resent",
+    "APP682 historical second-turn business outcome remains unknown; do not replay it",
+    "active AI/terminal exit, manual acceptance, physical-device acceptance, and formal notarized distribution remain pending"
+  ],
+  "historicalEvidence": "APP464 remains its own scoped APK/Web return-review flow and its earlier startup-identity failure remains unexplained. DIAG495 session creation without a model turn does not explain or resolve that failure. HANDOFF310 is a separate pinned-source backend scenario and does not prove APP496.",
+  "APP496": {
+    "status": "partial_second_turn_unconfirmed",
+    "scope": "ordinary v8 APK on isolated API 35 emulator with the candidate475 web bundle and real app/Core/Hub/managed tmux; not physical-device, full two-turn, or full-app acceptance",
+    "source": {
+      "commit": "6d1b4758ace8f195b0693591651391bd0ebaebb4",
+      "trackedTreeSha256": "0641be5bac611e1dab79b16dc5a2618d85632aa6ee02e0eb9e353446b324e6b9",
+      "trackedFileCount": 505,
+      "dependencyCapture": "node_modules symlink received lockfile-only validation; full dependency tree is not frozen",
+      "apkVersionCode": 8,
+      "apkSha256": "cbd22bf688c2f60a0a3b737639155cfef7cb286a8bfc7b6a9a1a3d0e25d4cac6",
+      "webTreeSha256": "5a8569a1f0fbdac16062d13aaa198e781db084288adcb35277dd234413499425",
+      "apkAndWebPinsInheritedFrom": "APP464"
+    },
+    "firstTurnAndHumanReturn": {
+      "taskAndConversationCreated": true,
+      "firstAiTurnWroteMarkerBytes": 9,
+      "formalAppStopAndReturnRequested": true,
+      "humanLinesAppended": 1,
+      "fileBytesAfterHumanAppend": 32,
+      "fileSha256AfterHumanAppend": "235b05a0a765fb8e014ff380f2cedccf478e41a40f92b77708d92519c876e559",
+      "reviewDisplayedProjectRoot": true,
+      "reviewDisplayedChangedFiles": 1,
+      "reviewDisplayedParkedManagedSessions": 1,
+      "explicitConfirmReached": "ai_ready",
+      "generation": 1,
+      "returnReviewCleared": true,
+      "fileUnchangedAfterConfirm": true,
+      "taskAutomaticallyAccepted": false,
+      "managedTmuxSessionCreatedAfterTakeover": true,
+      "managedTmuxSetAsDefault": true,
+      "managedTmuxRecordUnchangedThroughHumanWriteAndReview": true
+    },
+    "secondTurn": {
+      "sendCount": 1,
+      "turnStartedObserved": true,
+      "providerToolReadHumanAppend": true,
+      "secondFileCreated": false,
+      "turnCompleteEventObserved": false,
+      "commandStatus": "running",
+      "leaseStatus": "unknown",
+      "pluginStatus": "unknown",
+      "causeEstablished": false,
+      "originalJobRetired": true,
+      "executorStatus": "retirement_unknown"
+    },
+    "pause": {
+      "formalAppPauseResult": "unknown",
+      "safetyFenceRetained": true
+    },
+    "shutdownAndCleanup": {
+      "coreCloseRequested": true,
+      "coreCloseExitCode": 1,
+      "coreCloseFailures": [
+        "core"
+      ],
+      "relatedPortsGone": true,
+      "normalCoreCloseConfirmed": false,
+      "managedTmuxCleanup": "completed-disposable-asset-cleanup; does-not-confirm-product-shutdown",
+      "coreProcessGone": true,
+      "twoOriginalJobIdentitiesGone": true,
+      "allMarkerKnownBirthsGone": true,
+      "productionAppStillPresent": true,
+      "managedTmuxBirthsPresentBeforeCleanup": [
+        "supervisor",
+        "shell",
+        "relay"
+      ]
+    },
+    "runtimeMetadata": {
+      "observedModel": "gpt-6-astra",
+      "userModelConfigurationChanged": false
+    },
+    "independentReviewReported": false,
+    "cleanupAfterUnknown": {
+      "passed": true,
+      "exitCode": 0,
+      "inputAttempted": true,
+      "procedureSha256": "615dd34ca284f3566bdd58080ba9926080156ddd0fc70c241a41063a7d8cab8e",
+      "freshIdentityProofAndNoOtherWriter": true,
+      "originalTmuxExitAndPaneShutdown": true,
+      "twoFinalSamplesAgree": true,
+      "coreGone": true,
+      "originalShellRelaySupervisorGone": true,
+      "twoAiExecutorBirthsGone": true,
+      "allMarkerKnownBirthsGone": true,
+      "ownTmuxCount": 0,
+      "originalExecutionRecordUnchanged": true,
+      "pluginUnknownBytesUnchanged": true,
+      "productExecutionStillUnknown": true,
+      "androidTestAppStopped": true,
+      "regularMacAppTouched": false,
+      "kind": "Root disposable-fixture cleanup, not product shutdown or AI-handoff acceptance"
+    }
+  },
+  "APP512": {
+    "status": "blocked-before-first-turn",
+    "scope": "ordinary v8 APK on API 35 emulator; separate account and newly created conversation; not a physical-device or full handoff test",
+    "sourceCommit": "160f7672d7c909294514ae3a5aa6b4ceead2a222",
+    "ordinaryAndroidLogin": true,
+    "newConversationRequestClickedOnce": true,
+    "taskAndThreadCreated": true,
+    "verificationFailure": "verify.first native_observe helper_unavailable",
+    "underlyingHelperFailure": "unknown",
+    "firstPromptCommandCount": 0,
+    "firstFileCreated": false,
+    "fullTwoTurnFlowPassed": false,
+    "shutdown": {
+      "normalControlCloseExitCode": 0,
+      "coreGone": true,
+      "originalJobPhase": "retired",
+      "originalJobBirthGone": true,
+      "knownBirthsGone": true,
+      "relatedPortsClosed": true,
+      "productionAppPreserved": true,
+      "appForceStoppedWithDataPreserved": true
+    },
+    "notCovered": [
+      "cause of native_observe helper_unavailable",
+      "first AI prompt execution or file write",
+      "human takeover and second AI turn",
+      "APP496 in-flight failure or full Mac application exit acceptance"
+    ]
+  },
+  "APP520": {
+    "status": "limited-two-turn-return-passed; final-output-refresh-defect-open",
+    "scope": "ordinary v8 APK on API 35 emulator; web frontend reused APP512 pin and was not rebuilt from the same full source; not physical-device or full-app acceptance",
+    "sourceCommit": "530a6d63f30cb84198c23f71a02852c3b05ec48e",
+    "firstTurn": {
+      "actualAiTurnCompleted": true,
+      "firstFileBytes": 9
+    },
+    "takeoverAndRecovery": {
+      "managedTmuxCreatedAfterTakeover": true,
+      "managedTmuxSetAsDefault": true,
+      "humanAppendCount": 1,
+      "emulatorClosedOvernight": true,
+      "loginSessionRestoredWithoutRelogin": true,
+      "sameDeviceControlRechecked": true,
+      "originalSessionExplicitlySelected": true,
+      "inputAutomaticallyResent": false,
+      "firstFileAndManagedRecordUnchanged": true
+    },
+    "returnReviewAndSecondTurn": {
+      "changedFilesShown": 1,
+      "explicitConfirmReached": "ai_ready",
+      "generation": 2,
+      "reviewCleared": true,
+      "secondTurnSendCount": 1,
+      "secondActualAiTurnCompleted": true,
+      "turnCompleteEventObserved": true,
+      "secondFileBytes": 42,
+      "secondFilePreservesFirstFileAndHumanAppend": true,
+      "firstFileUnchanged": true,
+      "taskSubmittedRevision": 6,
+      "taskAcceptance": "unverified",
+      "activeLeaseCount": 0,
+      "commandStopProofsVerified": true
+    },
+    "coreClose": {
+      "controlCloseExitCode": 0,
+      "coreLockReleased": true,
+      "relatedPortsClosed": true,
+      "twoNativeObservationsConfirmCoreAndJobBirthsGone": true,
+      "managedSessionPreserved": true,
+      "productionAppPreserved": true
+    },
+    "knownIssue": {
+      "finalConversationOutputStaleAfterCompletion": true,
+      "fixInProgress": "IMPL525",
+      "integratedRetestPassed": false
+    },
+    "notCovered": [
+      "physical Android device",
+      "same-source full APK and web rebuild",
+      "human task acceptance",
+      "Mac native menu/Dock exit under active AI or busy terminal",
+      "final conversation output refresh after IMPL525"
+    ]
+  },
+  "APP658": {
+    "status": "partial-first-turn-and-human-takeover; no-return-confirm-or-second-turn",
+    "scope": "Hub web content for package 652 corresponds to source eeada3524eea703291a2374f47f327a1d24b9bc2; hash-pinned ordinary Android v13 APK was reused, not rebuilt from that source; API 35 emulator; not a physical device",
+    "sourceCommit": "eeada3524eea703291a2374f47f327a1d24b9bc2",
+    "package": {
+      "hubWebContentBuild": "652",
+      "hubWebContentMatchesSource": true,
+      "apk": {
+        "version": "v13",
+        "sha256": "60fa04a9f52a8922c0fd8ea794d83cc3a1b2c714506408d41d78afaad71bacb",
+        "rebuiltFromPinnedSource": false,
+        "loadsHubWebContentBuild": "652"
+      },
+      "environment": "API 35 Android emulator"
+    },
+    "firstTurn": {
+      "sendCount": 1,
+      "completed": true,
+      "stopProofVerified": true,
+      "fileBytes": 9,
+      "fileContent": "AI-FIRST\n"
+    },
+    "humanTakeover": {
+      "explicitManagedTakeover": true,
+      "generation": 1,
+      "managedTmuxCreated": true,
+      "setAsDefault": true,
+      "terminalAppendCount": 1,
+      "fileBytesAfterAppend": 20,
+      "fileSha256AfterAppend": "e4ddcc1ec50269fa07a5c53db2d2ce17f726617c6899c0f98a132f0d529a7f54",
+      "expectedContent": "AI-FIRST\nHUMAN-EDIT\n"
+    },
+    "finalReply": {
+      "visibleAfterAppReopen": true,
+      "evidence": "private screenshot retained outside the repository"
+    },
+    "returnReview": {
+      "prepared": false,
+      "confirmed": false,
+      "secondTurnSent": false
+    },
+    "coreAndSessionClose": {
+      "normalControlCloseExitCode": 0,
+      "forceKilled": false,
+      "retainedTmuxCleanupPending": false,
+      "fixtureProcessExitCode": 0
+    },
+    "task": {
+      "revision": 4,
+      "acceptance": "unverified",
+      "activeLeaseCount": 0,
+      "commandCount": 1,
+      "executorCount": 0
+    },
+    "uiFollowup": {
+      "keyboardFocusTrapObserved": true,
+      "distinctFromMouseAutomationFailure": true,
+      "candidateCommit": "c46cc49",
+      "focusedTestsPassed": 3,
+      "independentReviewPassed": true,
+      "APP665Retest": "limited-scenario-observed; later APP665 turn/pause and shutdown failures remain open",
+      "remainingGuiCandidate": "UX674: focused 5/5 tests and independent code review passed; actual GUI validation pending"
+    },
+    "notCovered": [
+      "return-review and explicit confirmation",
+      "second AI turn",
+      "physical Android device",
+      "human task acceptance",
+      "broader GUI validation for UX674"
+    ],
+    "disposableFixtureCleanup": {
+      "passed": true,
+      "inputAttempted": true,
+      "ownedTmuxNormalExit": true,
+      "authenticatedSupervisorShutdown": true,
+      "twoFinalBirthSamplesPassed": true,
+      "fixtureRecordsUnchanged": true,
+      "scope": "Root cleanup of disposable test assets only; not product shutdown or AI-handoff acceptance"
+    }
+  },
+  "IMPL673": {
+    "status": "implemented-and-bounded-tests-reviewed; patched-app-validation-pending",
+    "sourcePin": "0c3aa528c5aa981a0f679769537af84e9987f77c",
+    "testResults": {
+      "tests/executor-shutdown-unknown-core.test.mjs": {
+        "passed": 7,
+        "total": 7,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "executor-startup-rpc": {
+        "passed": 2,
+        "total": 2,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "overlappingGatedSubset": {
+        "passed": 3,
+        "total": 3,
+        "additive": false
+      },
+      "parentRegression": {
+        "passed": 15,
+        "total": 15,
+        "skipped": 0,
+        "exitCode": 0,
+        "groups": {
+          "lease": 7,
+          "startupIntent": 2,
+          "pluginApprovalAndQuit": 6
+        },
+        "countedSeparately": true
+      },
+      "UX674Focused": {
+        "passed": 5,
+        "total": 5,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "typecheck": {
+        "exitCode": 0
+      }
+    },
+    "covered": [
+      "durable running record with exact thread/turn approval, OS-verified stop, and Core close/reopen",
+      "unknown execution remains fenced without replay",
+      "missing-turn and early exact-turn cases retain no-receipt and close-failure behavior"
+    ],
+    "independentReview": "REVIEW684 passed scoped review with no confirmed P1/P2",
+    "integratedOrdinaryAppRetest": "pending",
+    "installedOrDeployed": false,
+    "realAIResult": "APP665 remains unknown; this test suite does not resolve it",
+    "codeCommit": "0c3aa528c5aa981a0f679769537af84e9987f77c"
+  },
+  "APP665": {
+    "status": "partial-return-confirmed; second-turn-and-pause-unknown; core-close-failed",
+    "scope": "source c46cc49 candidate web build 664 loaded by hash-pinned ordinary Android v13 APK on API 35 emulator; APK reused, not rebuilt from candidate source; build 664 not installed, deployed, or pushed",
+    "candidate": {
+      "sourceCommit": "c46cc49",
+      "webBuild": "664",
+      "apkVersion": "v13",
+      "apkSha256": "60fa04a9f52a8922c0fd8ea794d83cc3a1b2c714506408d41d78afaad71bacb",
+      "apkRebuiltFromCandidateSource": false,
+      "installedDeployedOrPushed": false,
+      "environment": "API 35 Android emulator"
+    },
+    "uiAndReturnReview": {
+      "shiftEscapeOpenedReadyScreen": true,
+      "readOnlyReturnFocusPassed": true,
+      "firstReplyVisible": true,
+      "reviewPhase": "return_review",
+      "changedFiles": 1,
+      "parkedManagedSessions": 1,
+      "unownedWorkspaceWriters": 0,
+      "explicitConfirmReached": "ai_ready",
+      "controlGeneration": 1
+    },
+    "secondTurn": {
+      "sendCount": 1,
+      "providerStopRequestObserved": true,
+      "finalResultReceived": false,
+      "commandStatus": "running",
+      "stopProof": "not available",
+      "activeLease": "unknown",
+      "artifactBytes": 20,
+      "artifactUnchangedFromHumanEdit": true,
+      "secondTurnMarkerPresent": false,
+      "artifactSha256AfterHumanEdit": "e4ddcc1ec50269fa07a5c53db2d2ce17f726617c6899c0f98a132f0d529a7f54"
+    },
+    "pause": {
+      "attempted": true,
+      "result": "unknown",
+      "followUpControlsBlocked": true
+    },
+    "shutdown": {
+      "coreCloseExitCode": 1,
+      "failure": "core close rejected",
+      "fixtureProcessExitCode": 1,
+      "forceKilled": false
+    },
+    "diagnostic": {
+      "observedSequence": "provider stop request, executor process exited without a final result, Core rejected lease retirement",
+      "exactProviderRequestMethod": "unknown",
+      "attributedToPythonPermissions": false,
+      "pendingFix": "IMPL673 implemented in 0c3aa528; bounded tests and scoped review passed; patched-app GUI validation pending"
+    },
+    "uiFollowup": {
+      "UI662FocusScenarioObservedInApp": true,
+      "UX674FocusedTestsPassed": 5,
+      "UX674IndependentReview": "passed-scoped",
+      "UX674GuiValidation": "pending"
+    },
+    "taskAcceptance": "unverified",
+    "notCovered": [
+      "second-turn completion and verified stop proof",
+      "successful formal pause and normal Core shutdown",
+      "physical Android device",
+      "task acceptance",
+      "IMPL673 patched-app GUI validation",
+      "UX674 actual GUI validation"
+    ],
+    "disposableFixtureCleanup": {
+      "initialPreflight": {
+        "passed": false,
+        "inputAttempted": false,
+        "recordsUnchanged": true
+      },
+      "correctedPrivateCopy": {
+        "passed": true,
+        "inputAttempted": true,
+        "ownedTmuxNormalExit": true,
+        "authenticatedSupervisorShutdown": true,
+        "twoFinalBirthSamplesPassed": true,
+        "fixtureRecordsUnchanged": true,
+        "productUnknownPreserved": true
+      },
+      "scope": "Cleanup of disposable fixture assets only; APP665 second-turn unknown and Core-close failure remain unchanged"
+    }
+  },
+  "currentDelivery": {
+    "status": "source 92ecc4d installed on Mac; initial board readback, application-menu quit, same-data reopen, user-operated idle Dock quit, and post-Dock relaunch readback passed; AppleEvent/system logout/busy-work exit remain unverified; Hub remains on 41bcc810; Android native v13 is unchanged and APP795 loaded the 41bcc810 Web/Core/Hub bundle; bounded evidence only, not full product acceptance",
+    "macApp": {
+      "sourceCommit": "92ecc4dda5fa83a5012c51e786de601ea7b24e9c",
+      "installed": true,
+      "native819": {
+        "initialBoardReadback": {
+          "projects": 2,
+          "taskRows": 62,
+          "gates": 62
+        },
+        "applicationMenuQuitPassed": true,
+        "originalAppProcessesAbsent": true,
+        "coreLockAbsent": true,
+        "shutdownStagesFulfilled": true,
+        "sameDataReopen": "passed",
+        "dockQuitVerified": true,
+        "appleEventVerified": false,
+        "busyWorkExit": "not verified",
+        "reopenedBoardReadback": {
+          "projects": 2,
+          "taskRows": 62,
+          "gates": 62,
+          "matchesInitialReadback": true
+        },
+        "newBootAfterReopen": true,
+        "secondQuitPerformed": true,
+        "dockQuitUserOperated": true,
+        "dockQuitBackendConfirmed": true,
+        "postDockRelaunchObserved": true,
+        "postDockRelaunchSnapshot": "passed",
+        "postDockRelaunchBoardReadback": {
+          "projects": 2,
+          "taskRows": 62,
+          "gates": 62,
+          "matchesInitialReadback": true
+        }
+      },
+      "strictAdHocSignatureVerified": true,
+      "activeWorkExitOrFormalDistribution": "not verified"
+    },
+    "hub": {
+      "sourceCommit": "41bcc810d57e342ff202803b04be9feac4b6c3b6",
+      "deployed": true,
+      "updatedTo92ecc4d": false
+    },
+    "android": {
+      "nativeApkVersion": "v13",
+      "nativeContainerChangedFor92": false,
+      "APP795": "reused v13 APK to load the 41bcc810 Web/Core/Hub bundle"
+    }
+  },
+  "latestLifecycleObservation": {
+    "sourceCommit": "41bcc810d57e342ff202803b04be9feac4b6c3b6",
+    "phase": "reopened app observed after a prior idle launch/quit/reopen pass",
+    "status": "unconfirmed; do not describe the current app lifecycle as healthy",
+    "originalProcessesGone": true,
+    "canonicalProcessCount": 0,
+    "coreLockAbsent": false,
+    "startupStage": "core-start",
+    "normalQuitObserved": false,
+    "reportedCoreShutdownFulfilled": false,
+    "separatelyRecordedShutdownStages": [
+      "ssh fulfilled",
+      "terminal seal fulfilled",
+      "controlled preview builds fulfilled",
+      "plugins started; no Core fulfillment observed"
+    ],
+    "startupAndShutdownLogsShareBootId": false,
+    "interpretation": "The startup snapshot and retained shutdown-stage log cannot be proven to belong to the same boot generation; no full successful shutdown receipt is established for this incident.",
+    "initiator": "unknown",
+    "cause": "unknown",
+    "crashReportFoundForCurrentDate": false,
+    "userReportedPermissionPrompt": true,
+    "permissionChangesMade": false,
+    "inferenceLimits": "The user has not identified the program or folder named by the prompt. Do not attribute the incident to TCC or another permission cause."
+  },
+  "historicalDelivery3ce4686": {
+    "codeCommit": "3ce4686633d9c81d887576e9ddb0fe53262baaf6",
+    "privateGitHubSynced": true,
+    "build680": {
+      "builtAndSigned": true,
+      "macInstalled": true,
+      "macLaunched": true
+    },
+    "boundedChecks": {
+      "executorRegression": {
+        "passed": 9,
+        "total": 9,
+        "skipped": 0
+      },
+      "relatedRegression": {
+        "passed": 15,
+        "total": 15,
+        "skipped": 0
+      },
+      "UX674FocusedUI": {
+        "passed": 5,
+        "total": 5,
+        "skipped": 0
+      },
+      "scopedIndependentReview": "passed"
+    },
+    "hubDeployment": {
+      "deployed": true,
+      "uploadedFiles": 3,
+      "executeExitCode": 0,
+      "postdeployExitCode": 0,
+      "manifestRuntimeFilesVerified": 142,
+      "originalAccountSessionCommandSnapshotRowsPreserved": true,
+      "firewallActive": true,
+      "externalHttpsFromMac": {
+        "standardTlsValidation": true,
+        "root": 200,
+        "authStatus": 200,
+        "unauthenticatedSshHosts": 401,
+        "unauthenticatedState": 401
+      },
+      "independentEvidenceReview": "passed; no claim of App acceptance or exact firewall ruleset equality"
+    },
+    "APP682": {
+      "scope": "ordinary v13 APK on API 35 emulator",
+      "formalDeviceGrantCount": 1,
+      "firstTurnSendCount": 1,
+      "firstTurnCompleted": true,
+      "finalReplyVisible": true,
+      "backendCompletionAndStopProofVerified": true,
+      "humanReturn": "passed-scoped-in-app-review-and-explicit-confirm",
+      "secondTurn": "unknown-after-provider-approval-stop; no final reply",
+      "taskAcceptance": "unverified",
+      "explicitConfirmActor": "Root-operated authorized test GUI; not personal user acceptance",
+      "managedTmuxCreatedAndSetDefault": true,
+      "humanAppendCount": 1,
+      "reviewSnapshot": {
+        "changedFiles": 1,
+        "parkedManagedSessions": 1,
+        "otherWriters": 0
+      },
+      "secondTurnRequestCount": 1,
+      "secondTurnFinalReplyVisible": false,
+      "secondTurnBusinessOutcome": "unknown",
+      "secondTurnLease": "unknown",
+      "secondTurnExecutorRetirementProof": "persisted-and-verified; job retired",
+      "secondTurnExactApprovalMethod": "not-recorded",
+      "humanEditPreserved": true,
+      "secondTurnMarkerFileCreated": false,
+      "coreClose": {
+        "closed": true,
+        "failures": [],
+        "originalProcessGone": true,
+        "httpsPortClosed": true
+      },
+      "sendButtonDisabledWhileTaskUnknown": false,
+      "perTaskExecutionGate": "not authoritative end-to-end; fresh Core-to-Hub-to-UI gate remains to implement and verify",
+      "manualAcceptance": "unverified",
+      "humanEditedFileBytes": 20,
+      "secondTurnCommandState": "unknown",
+      "secondTurnExecutorRetirement": "verified; durable intent, stop proof and stopped receipt persisted; job retired",
+      "imeHiddenThenTabReviewButtonVisible": true,
+      "humanEditedFileSha256": "e4ddcc1ec50269fa07a5c53db2d2ce17f726617c6899c0f98a132f0d529a7f54",
+      "ownedTestAssetCleanup": "passed after normal Core close; original tmux shell exited and supervisor shut down; records and unknown outcome unchanged"
+    },
+    "notCovered": "The APP682 second request has verified executor retirement but no confirmed business result or final reply; do not resend it. The exact provider-approval request method is not recorded. The UI send control lacks an authoritative per-task execution gate while task state is unknown. Mac idle launch/quit/reopen passed, but active-work exit combinations and notarized/formal distribution remain unverified. Manual acceptance, physical-device acceptance, and busy-command/native-exit combinations remain pending; historical APP665 unknown and Core-close failure remain unchanged.",
+    "priorMacAppNormalQuit": "passed; Core closed and original app/Node processes gone",
+    "coldBackup": {
+      "status": "passed",
+      "filesChecked": 11,
+      "databasesChecked": 2
+    },
+    "macInstall": {
+      "source": "3ce4686",
+      "installedInPlace": true,
+      "receiptVerified": true,
+      "appDataUnchanged": true,
+      "backupVerified": true
+    },
+    "macFirstLaunch": "passed; ready and original board loaded automatically",
+    "macNormalQuitAndReopen": "passed limited idle flow; normal quit reached closed startup stage, removed Core lock and main/sidecar processes; same-path reopen loaded the original board with equal readbacks",
+    "macIdleNormalQuit": "passed; startup stage closed, Core lock absent, main and sidecar processes gone",
+    "macSamePathReopen": {
+      "passed": true,
+      "boardLoadedAutomatically": true,
+      "readbacksEqual": true,
+      "projects": 2,
+      "tasks": 62,
+      "manualAcceptanceStatePreserved": true
+    },
+    "macLifecycleLimits": [
+      "idle launch/quit/reopen only",
+      "busy AI and SSH/PTY exit combinations not tested",
+      "not notarized or formal distribution"
+    ],
+    "historicalLabel": "Previous 3ce4686 delivery snapshot from HEAD; retained for history, not the current 41bcc810 delivery."
+  },
+  "latestCandidate41bcc810": {
+    "sourceCommit": "41bcc810d57e342ff202803b04be9feac4b6c3b6",
+    "privateGitHubSynced": true,
+    "status": "Historical source 41bcc810 delivery and scoped checks; the currently installed Mac source is 92ecc4d, Hub remains on 41bcc810, and Android native v13 is unchanged.",
+    "scopedChecks": {
+      "pythonBytecodeR4": {
+        "passed": 3,
+        "total": 3
+      },
+      "handoff790ProviderR2": {
+        "passed": 2,
+        "total": 2
+      },
+      "handoff790ControlR2": {
+        "passed": 4,
+        "total": 4
+      },
+      "managedTmuxR1": {
+        "passed": 2,
+        "total": 2
+      },
+      "faultInjectorBArgumentFix": {
+        "passed": 3,
+        "total": 3
+      },
+      "pureMockLegacyEnumeration": {
+        "passed": 1,
+        "total": 1
+      },
+      "review792R3": "scoped review found no confirmed P1/P2"
+    },
+    "nonPassingOrEnvironmentSpecificRuns": {
+      "r1": "wrong Python executable produced ENOENT before the product tests; environment/tooling failure",
+      "documentsR2": {
+        "passed": 23,
+        "total": 37,
+        "failedGroups": [
+          "13 job-startup cases",
+          "1 stale Python mock"
+        ]
+      },
+      "temporaryNativeFullRun": {
+        "passed": 15,
+        "total": 18
+      },
+      "interpretation": "These are separate runs and scopes; do not combine their counts into a full-suite pass."
+    },
+    "diagnosticLimits": {
+      "tccCauseEstablished": false,
+      "temporaryDirectoryCorrelation": "unknown",
+      "residualTestJobCleanup": "A missing PID label in a cleanup receipt is not product stop-proof evidence."
+    },
+    "build791": {
+      "stepsPassed": 19,
+      "stepsFailed": 0,
+      "exitCode": 0,
+      "workerSourceTests": {
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "macCandidate": {
+        "built": true,
+        "signed": "local ad-hoc",
+        "strictSignatureVerification": true,
+        "notarized": false,
+        "installedAtBuildReceipt": false,
+        "launchedAtBuildReceipt": false
+      },
+      "hubArchive": {
+        "built": true,
+        "fileCount": 145,
+        "sha256": "014bac17a466b2431dba3de8fefe9f11072d8ed6fe0be8725697b81e69d51077",
+        "verified": true,
+        "deployedAtBuildReceipt": false
+      },
+      "sourceArtifact": {
+        "trackedFileCount": 586,
+        "treeDigest": "b8ea3d893e5dd5736917e55a87a5b2cac990fd465f64f4fe7336768f2448ed53",
+        "docsWorktreeChangesIncluded": false
+      },
+      "distribution": {
+        "fileCount": 14,
+        "treeDigest": "da5e9f2f1f3932739edb170e626fd754fff3b7daf069cd4570bc33481281427a"
+      },
+      "packagedPluginProbe": {
+        "python": "configured cached plugin runtime; distinct from the default provider Python",
+        "rounds": 2,
+        "mode": "fresh quota-only fake-provider rounds; not GUI launches or real AI turns",
+        "manifestEntries": 4646,
+        "manifestDigest": "42e5418ef9946748238beb8c96d4752b6e8012c19494c1d6e999a5faa649a65f",
+        "digestUnchangedAcrossRounds": true,
+        "nativeIdentityVerified": true
+      }
+    },
+    "realAiOrAppRetest": "APP795 limited two-turn flow passed on emulator; full M3, manual acceptance, active pause, and busy-exit validation remain pending",
+    "app795Retest": {
+      "status": "limited-two-turn-handoff-passed",
+      "sourceCommit": "41bcc810d57e342ff202803b04be9feac4b6c3b6",
+      "scope": "Ordinary Android v13 APK on API 35 emulator; reused APK (not rebuilt from 41bcc810) loaded the 41bcc810 Web/Core/Hub source bundle.",
+      "apk": {
+        "version": "v13",
+        "sha256": "60fa04a9f52a8922c0fd8ea794d83cc3a1b2c714506408d41d78afaad71bacb1",
+        "reusedExistingApk": true,
+        "rebuiltFromCandidateSource": false,
+        "sourceLabel": "f357 existing v13 APK; not rebuilt from 41bcc810"
+      },
+      "firstTurn": {
+        "sentOnce": true,
+        "completed": true,
+        "turnCompleteEvent": true,
+        "stopProof": "verified"
+      },
+      "humanHandoff": {
+        "managedTmuxCreatedThroughUi": true,
+        "humanAppendCount": 1,
+        "returnReviewAndExplicitConfirm": true,
+        "reviewedChangedFiles": 1,
+        "otherWriters": 0
+      },
+      "secondTurn": {
+        "sentOnce": true,
+        "sameConversation": true,
+        "completed": true,
+        "turnCompleteEvent": true,
+        "stopProof": "verified"
+      },
+      "fileEvidence": {
+        "bytes": 46,
+        "sha256": "ad08eb73f75aa8fc950f6a47dda35ca0feb467b5d4b5b96c37ef4fc44198c2e3",
+        "firstAiMarkerCount": 1,
+        "humanMarkerCount": 1,
+        "secondAiMarkerCount": 1
+      },
+      "finalReplyVisibleWithoutRefresh": true,
+      "activeLeases": 0,
+      "normalCloseObserved": true,
+      "fixtureExitCode": 0,
+      "strictSignaturePassed": true,
+      "packageBytesUnchanged": true,
+      "independentReview799": "passed-scoped; no confirmed P1/P2",
+      "manualAcceptance": "unverified",
+      "notCovered": [
+        "active-AI pause, busy-terminal shutdown, and native process-birth checks for this observation",
+        "physical-device acceptance or full M3 user acceptance",
+        "default reconnect and complete grant lifecycle/revocation"
+      ],
+      "acceptanceScope": "limited M3 two-turn and final-output flow passed; M3 overall remains incomplete",
+      "defaultPersistenceAudit": {
+        "persistedDefaultMatchesSelectedAndManagedRecord": true,
+        "revision": 1,
+        "reconnectVerified": false
+      },
+      "grantScopeSnapshot": {
+        "scopeCount": 5,
+        "scopeNames": [
+          "view",
+          "input",
+          "takeover",
+          "create",
+          "default"
+        ],
+        "notRevokedLocally": true,
+        "notRevokedAtHub": true,
+        "databaseClosedWithNoWalOrShm": true,
+        "fullGrantLifecycleOrRevocationTested": false
+      }
+    },
+    "macDelivery": {
+      "sourceCommit": "41bcc810d57e342ff202803b04be9feac4b6c3b6",
+      "installedAtCanonicalLocation": true,
+      "installationDataUnchanged": true,
+      "firstLaunchReady": true,
+      "firstReadback": {
+        "projects": 2,
+        "taskRows": 62,
+        "gates": 62
+      },
+      "normalQuit": {
+        "passed": true,
+        "observedOriginalProcessesGone": 6,
+        "coreLockAbsent": true,
+        "startupStage": "closed",
+        "failure": false
+      },
+      "sameDataReopen": {
+        "passed": true,
+        "projects": 2,
+        "taskRows": 62,
+        "gates": 62,
+        "readbacksMatched": true
+      },
+      "strictSignatureAfterReopen": true,
+      "scope": "idle launch, normal quit, and same-data reopen; not active-AI/busy-terminal exit or notarized distribution",
+      "historicalScopeLabel": "The idle launch/quit/reopen pass is historical relative to latestLifecycleObservation."
+    },
+    "hubDelivery": {
+      "currentHubSourceCommit": "41bcc810d57e342ff202803b04be9feac4b6c3b6",
+      "candidate41Deployed": true,
+      "runtimeFilesVerified": 144,
+      "archiveFiles": 145,
+      "executeExitCode": 0,
+      "postdeployExitCode": 0,
+      "existingRecordIdentitiesPreserved": true
+    },
+    "macInstalled": true,
+    "hubDeployed": true,
+    "currentMacSource": "41bcc810d57e342ff202803b04be9feac4b6c3b6",
+    "currentHubSource": "41bcc810d57e342ff202803b04be9feac4b6c3b6",
+    "historical": true
+  },
+  "historicalDeliveryE229": {
+    "codeCommit": "e22946ad13d2da63fb78bf52e4fd524092b3abee",
+    "privateGitHubSynced": true,
+    "build771": {
+      "builtAndSigned": "local ad-hoc",
+      "notarized": false,
+      "stepsPassed": 16,
+      "stepsFailed": 0,
+      "exitCode": 0,
+      "workerSourceTests": {
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "workerPackagedTests": {
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      }
+    },
+    "delivery780AndNative785": {
+      "installedAtCanonicalLocation": true,
+      "installationDataUnchanged": true,
+      "firstLaunchReady": true,
+      "boardReadback": {
+        "projects": 2,
+        "taskRows": 62,
+        "matchedIgnoringEphemeralGateFields": true,
+        "freshGatesObserved": 62
+      },
+      "normalQuit": {
+        "passed": true,
+        "observedProcessesGone": 6,
+        "coreLockAbsent": true,
+        "coreAndFileBridgeCloseMs": 33,
+        "forceKill": false
+      },
+      "sameDataReopenAfterNewBoot": true,
+      "scope": "idle launch/quit/reopen only; not busy AI/terminal/SSH/PTY shutdown, notarization or formal distribution"
+    },
+    "delivery784Hub": {
+      "deployed": true,
+      "sourceCommit": "e22946ad13d2da63fb78bf52e4fd524092b3abee",
+      "uploadedFiles": 3,
+      "executeExitCode": 0,
+      "postdeployExitCode": 0,
+      "runtimeFilesVerified": 144,
+      "existingRecordIdentitiesPreserved": true,
+      "firewallActive": true,
+      "tlsAndAuthGuardsPassed": true
+    },
+    "APP782": {
+      "scope": "Ordinary Android v13 test app on API 35 emulator; first turn and human handoff passed; second request ended unknown",
+      "firstRequest": {
+        "sentOnce": true,
+        "status": "completed",
+        "stopProof": "verified",
+        "activeLeases": 0,
+        "firstMarkerCount": 1
+      },
+      "humanControl": {
+        "ownership": "human",
+        "generation": 1,
+        "managedSessionCreatedThroughUI": true,
+        "sessionReady": true,
+        "sessionCount": 1,
+        "humanTerminalWriteVerified": true,
+        "defaultSessionVerified": false,
+        "humanAppendedLines": 1,
+        "humanFileBytes": 29,
+        "reviewChangedFiles": 1,
+        "reviewOtherWriters": 0,
+        "explicitReturnConfirmed": true,
+        "returnState": "ai_ready",
+        "humanFileSha256Prefix": "0a7dba79",
+        "activeLeasesBeforeSecondTurn": 0
+      },
+      "secondTurn": {
+        "submittedOnce": true,
+        "commandCount": 2,
+        "status": "unknown after command_approval stop",
+        "taskThreadTurnMatched": true,
+        "stopProof": "unverified",
+        "finalReplyVisible": false,
+        "secondMarkerCreated": false,
+        "humanEditedFilePreserved": true,
+        "resend": "do not resend; preserve the unknown record",
+        "activeLeaseState": "unknown",
+        "activeLeaseCount": 1,
+        "turnCompleteEventObserved": false,
+        "originalOsJob": "retired with receipt persisted; this does not prove the business result",
+        "possibleContributor": "approval required by a diagnostic tool action; not established as sole cause"
+      },
+      "taskAcceptance": "unverified",
+      "manualAcceptance": "unverified",
+      "notCovered": [
+        "second-turn business result/final reply and verified command stop proof; outcome remains unknown and one lease remains unknown",
+        "active AI pause and busy-exit combinations",
+        "complete M3 flow and user manual acceptance",
+        "physical-device acceptance",
+        "default-session status was not verified in this observation"
+      ],
+      "uiUnknownState": {
+        "message": "last execution result unconfirmed",
+        "sendDisabledInObservedScreen": true
+      },
+      "postRunCoreClose": {
+        "result": "closed",
+        "fixtureProcessExitCode": 0,
+        "originalCoreProcessGone": true,
+        "forceKill": false
+      }
+    },
+    "notCovered": [
+      "APP782 business result for its second request, final reply and verified command stop proof; the business outcome is unknown, one lease remains unknown, and the request must not be resent",
+      "active AI pause and busy-terminal/SSH/PTY shutdown combinations",
+      "manual user acceptance, complete M3 acceptance, physical-device acceptance, notarization and formal distribution"
+    ],
+    "historicalLabel": "Prior combined e229 snapshot before both the Mac app and Hub were updated to source 41bcc810."
+  },
+  "board807Sync": {
+    "targetSummariesReviewed": 4,
+    "currentDeliverySummarySynced": true,
+    "manualAcceptanceAndCompletionStatesChanged": false
+  },
+  "board820Sync": {
+    "updatedTaskCount": 6,
+    "unrelatedTaskCount": 56,
+    "projectsUnchanged": true,
+    "manualAcceptanceEvidenceCriteriaAndCheckStatesPreserved": true,
+    "hubTaskProjectionsMatched": 6,
+    "legacyOmittedCompletedFieldsNormalizedToFalse": true,
+    "scope": "correct four stale P1 progress descriptions and record Mac installation, application-menu quit, user-operated idle Dock quit and same-data reopen as partial verification; no whole-task or whole-project completion"
+  },
+  "mac814Recovery815Candidate": {
+    "basedOnInstalledSourceCommit": "41bcc810d57e342ff202803b04be9feac4b6c3b6",
+    "sourceState": "committed, privately pushed, built, signed, and installed in place; first launch, application-menu quit, same-data reopen, user-operated idle Dock quit, and post-Dock relaunch readback passed; AppleEvent and broader native acceptance remain pending",
+    "implementationScope": [
+      "Tao fork registers an applicationShouldTerminate handler before delegate setup; it cancels the OS termination request and lets the existing receipt-backed normal-exit gate decide",
+      "unclean-startup state displays a fixed Chinese explanation without unlocking or clearing unknown execution state"
+    ],
+    "automatedChecks": {
+      "rust": {
+        "passed": 15,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "node": {
+        "passed": 16,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "taoOnlineVendorTests": {
+        "passed": 3,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "independentReview": "no confirmed P1/P2"
+    },
+    "environmentAttempt": "Initial standalone vendor-test attempts lacked workspace/development dependencies; a separate official-registry run passed without changing the product Cargo lockfile.",
+    "notCovered": [
+      "AppleEvent/system logout and live busy-work/active-AI shutdown acceptance",
+      "Hub remains on 41bcc810 and Android native v13 is unchanged; APP795 loaded the 41bcc810 Web/Core/Hub bundle, so this native check is not a same-source Mac/Hub delivery claim",
+      "incident810 cause or repair; RECOVERY816 lock quarantine does not prove normal shutdown"
+    ],
+    "incident810": "Trigger and cause remain unknown; startup and shutdown records are not bound to a shared process generation.",
+    "recovery816": {
+      "prepared": true,
+      "executed": true,
+      "lockQuarantinedAfterIdentityChecks": true,
+      "otherDataFilesUnchanged": true,
+      "backupRetained": true,
+      "unknownFencePreserved": true,
+      "normalShutdownProven": false,
+      "applicationReopened": false,
+      "meaning": "bounded recovery of the stale lock only; it does not prove a normal product shutdown or clear the unknown execution fence"
+    },
+    "sourceCommit": "92ecc4dda5fa83a5012c51e786de601ea7b24e9c",
+    "build817": {
+      "stepsPassed": 17,
+      "stepsFailed": 0,
+      "exitCode": 0,
+      "retainedBundleFileCount": 4226,
+      "strictAdHocSignatureVerified": true,
+      "packagedTestsPassed": 5,
+      "installed": false,
+      "launched": false,
+      "deployed": false,
+      "notarized": false
+    },
+    "native819": {
+      "initialBoardStable": true,
+      "applicationMenuQuitPassed": true,
+      "menuItem": "退出并停止后台",
+      "originalAppProcessesAbsent": true,
+      "coreLockAbsent": true,
+      "startupClosed": true,
+      "coreShutdownFulfilled": true,
+      "coreShutdownRejected": false,
+      "dockQuitVerified": true,
+      "appleEventVerified": false,
+      "sameDataReopenPending": false,
+      "busyWorkExitVerified": false,
+      "sameDataReopenPassed": true,
+      "reopenedBoardReadback": {
+        "projects": 2,
+        "taskRows": 62,
+        "gates": 62,
+        "matchesInitialReadback": true
+      },
+      "newBootAfterReopen": true,
+      "postDockRelaunchSnapshot": "passed",
+      "postDockRelaunchBoardReadback": {
+        "projects": 2,
+        "taskRows": 62,
+        "gates": 62,
+        "matchesInitialReadback": true
+      },
+      "dockQuitUserOperated": true,
+      "dockQuitBackendConfirmed": true,
+      "sameDataReopenVerified": true,
+      "postDockRelaunchObserved": true,
+      "secondQuitPerformed": true,
+      "systemLogoutVerified": false
+    },
+    "installation818": {
+      "installed": true,
+      "canonicalAppReplacedInPlace": true,
+      "dataUnchanged": true,
+      "backupVerified": true,
+      "extraQAAppsCreated": false
+    }
+  },
+  "APP821": {
+    "status": "passed_scoped_active_ai_pause",
+    "scope": "ordinary Android v13 app on isolated API 35 emulator; disposable BUILD817 source 92ecc4d Web/Core/Hub; one real AI command in project A; project B is an independent non-AI process",
+    "sourceCommit": "92ecc4dda5fa83a5012c51e786de601ea7b24e9c",
+    "apkVersionCode": 13,
+    "apkBuiltFromSourceCommit": false,
+    "firstObserverAttemptExcluded": "nativeProcessTable was not awaited; later corrected observations alone support this result",
+    "beforePause": {
+      "oneAiCommandRunning": true,
+      "threadAndTurnBound": true,
+      "matchingActiveLease": true,
+      "originalAProcessBirthAlive": true,
+      "independentBProcessBirthAlive": true,
+      "aAndBIdentityDistinct": true
+    },
+    "pause": {
+      "buttonPressedOnceThroughOrdinaryApp": true,
+      "taskStatus": "paused",
+      "commandStatus": "interrupted",
+      "stopProof": "verified",
+      "activeOriginalLeases": 0,
+      "originalAProcessBirthAbsent": true,
+      "independentBOriginalBirthStillAlive": true
+    },
+    "afterBothDeadlines": {
+      "originalAProcessBirthAbsent": true,
+      "aLateWriteAbsent": true,
+      "independentBOriginalBirthAbsent": true,
+      "bExactMarkerPresent": true,
+      "bNormalExitReportedByOwnerControl": true,
+      "bExitCodeIndependentlyRead": false
+    },
+    "close": {
+      "ownerControlSnapshotBeforeClose": true,
+      "closeResult": "closed",
+      "closeFailures": [],
+      "closeResultAt": "2026-10-24T14:08:45.038Z",
+      "ownerSessionExitCodeReportedByRoot": 0,
+      "originalFixturePidAbsent": true,
+      "matchingFixtureProcessCommandsAbsent": true,
+      "coreLockAbsent": true,
+      "ownerSocketAbsent": true,
+      "fixtureOriginalPortListenersAbsent": true,
+      "forceKill": false
+    },
+    "caReload": {
+      "ordinaryAppForceStopViaAndroidSettings": true,
+      "purpose": "reload approved CA trust for HTTPS login",
+      "countsAsProductExitAcceptance": false
+    },
+    "evidenceSha256": {
+      "beforePause": "36699fdfb4835c27c8264c2f747747c488b5e4654379bc7a2a6056704ac775c6",
+      "afterPause": "1aa00a1336421533e258e1b9ad30e180fdd72798001a72bc212b930fda7d026e",
+      "afterBothDeadlines": "b3bd57f99968b5d2917da33de9ce9f476145faaf41a983acd470f3f859ff4adc",
+      "audit": "0084b59d16f535f53daba6df151a4eb7ff14508b747f867360eedbeeaa576b6e",
+      "closeResult": "70ad621ceaa8339e229733642986b630bc3dd5eff79d64f4556eedb55bbf322d"
+    },
+    "notCovered": [
+      "physical Android phone",
+      "latest M5 candidate package or cross-device flow",
+      "manual task acceptance or complete M3",
+      "unknown-outcome recovery and busy Mac/SSH/terminal exit",
+      "independent B exit code was not separately captured by this auditor"
+    ]
+  }
+}

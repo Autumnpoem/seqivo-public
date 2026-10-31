@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-23T14:11:36.908947+00:00",
+  "sourceCommit": "f357c82a350f02715bab3e6386f87a5512ca7191",
+  "deployed": true,
+  "manifestFilesVerified": 142,
+  "publicChecks": {
+    "sourceCommit": "f357c82a350f02715bab3e6386f87a5512ca7191",
+    "at": "2026-10-23T14:02:33.825Z",
+    "tlsValidationDisabled": false,
+    "/api/auth/status": 200,
+    "/api/state": 401,
+    "/api/ssh/hosts": 401,
+    "indexSha256": "d3828c5f6a3853c5f4b4e6d9371ffeda1d007ecc33f36603d51dbe03154f26c4",
+    "assets": [
+      {
+        "path": "/assets/index--i98uh7A.js",
+        "sha256": "569b60f43406d79eb8e46b8f0c256e965dd14abc92e59837440d861026e5c53e"
+      },
+      {
+        "path": "/assets/index-CCLuRB72.css",
+        "sha256": "8b41a63442d92d5147571972028a3c68ca80bda0bf1b232127bba9d2ca8299cc"
+      }
+    ],
+    "websocketAnonymousStatus": 403,
+    "existingOwnerBearerStateStatus": 200,
+    "scope": "public TLS, deployed asset identity, anonymous denial, existing owner bearer preserved; account-authorized SSH native flow remains pending"
+  },
+  "dataChecks": {
+    "accountsSessionsCommandsCountsPreserved": true,
+    "unknownCommandsPreserved": true,
+    "integrity": "ok",
+    "vaultKeyMode": "0o600",
+    "dataMode": "0o700"
+  },
+  "rollbackChecks": {
+    "onlineBackupBeforeAndAfter": true,
+    "coldBackup": true,
+    "candidateAndPreviousHubStartCloseOnSnapshotCopy": true,
+    "oldApplicationRetained": true
+  },
+  "security": {
+    "firewallActive": true,
+    "noFirewallChanges": true,
+    "noNginxConfigurationChanges": true,
+    "existingEnvironmentAndUnitsPreserved": true,
+    "existingOwnerBearerPreserved": true
+  },
+  "boardSync": {
+    "revision": 7,
+    "verification": "partial",
+    "humanAcceptance": "unverified",
+    "otherTasksAndCompletionCirclesPreserved": true
+  },
+  "limitations": [
+    "Account-authorized SSH terminal UI against deployed Hub remains pending",
+    "Not full-project acceptance"
+  ]
+}

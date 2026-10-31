@@ -1,0 +1,48 @@
+# Replace every occurrence of the documentation IP with the real public IPv4.
+# Use only after Certbot has issued a publicly trusted certificate for that IP.
+map $http_upgrade $seqivo_connection_upgrade {
+    default upgrade;
+    '' '';
+}
+
+server {
+    listen 80;
+    server_name 203.0.113.10;
+    server_tokens off;
+    access_log off;
+
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/lib/letsencrypt;
+        try_files $uri =404;
+    }
+
+    location / {
+        return 308 https://203.0.113.10$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name 203.0.113.10;
+    server_tokens off;
+    access_log off;
+    ssl_certificate /etc/letsencrypt/live/203.0.113.10/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/203.0.113.10/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_session_cache shared:SeqivoTLS:10m;
+    ssl_session_tickets off;
+    add_header Strict-Transport-Security "max-age=86400" always;
+    client_max_body_size 2m;
+
+    location / {
+        proxy_pass http://127.0.0.1:4318;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $seqivo_connection_upgrade;
+        proxy_connect_timeout 5s;
+        proxy_read_timeout 30s;
+    }
+}

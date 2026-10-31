@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-31",
+  "sourceCommit": "b5b195d85dfb2f4189e4f5be265a5196b825e07a",
+  "wholeProjectComplete": false,
+  "scope": "Start an existing planned, unbound Codex task with one explicit submission; retain its task ID, requirements and evidence. New conversation remains separate.",
+  "checks": {
+    "backend": {
+      "passed": 62,
+      "failed": 0,
+      "log": ".runtime/flow1102/backend-focused.log"
+    },
+    "frontendGates": {
+      "passed": 6,
+      "failed": 0,
+      "log": ".runtime/flow1102/frontend-gates-final.log"
+    },
+    "independentReview": {
+      "passed": 8,
+      "failed": 0,
+      "runtime": "previous packaged Node, current source tests",
+      "log": ".runtime/flow1102/reviewer.log"
+    },
+    "typescriptExitCode": 0,
+    "viteBuildExitCode": 0
+  },
+  "browser": {
+    "environment": "disposable real Core and Hub, real Codex provider, desktop in-app browser",
+    "fixtureSourceHeadBeforeCommit": "1fa698f6c2a63529ad87e76e90600acce0ff068f",
+    "fixtureSourceIdentity": "Server bytes frozen from working tree and matched to committed implementation b5b195d before running the flow.",
+    "startConfirmed": true,
+    "taskCount": 1,
+    "sameTaskIdPreserved": true,
+    "matchingReceiptClearedDraft": true,
+    "generatedWebFiles": [
+      {
+        "path": "index.html",
+        "size": 2716,
+        "sha256": "069e1ccd3c4e21f0bbd66be9417ae45aa3b997cfa6da8217b2c55f2e8fd7bbc3"
+      },
+      {
+        "path": "main.js",
+        "size": 416,
+        "sha256": "708917f4c72fa970fd1c654074971cbf15b8ab3c51bf150588536fac48ced0da"
+      },
+      {
+        "path": "styles.css",
+        "size": 3033,
+        "sha256": "dd0fe96dd50857ceec6899f1dcbe4723ec91d5ac58e90d8946dd7bef44d1f13d"
+      }
+    ],
+    "originalReadmePreserved": true,
+    "finalTaskStatus": "blocked",
+    "finalEvidenceCount": 0,
+    "manualAcceptance": null,
+    "fullDeliveryAccepted": false,
+    "limitation": "Codex requested approval for the Git index operation. Original process stopped but provider outcome remains unknown. The task reports blocked; start receipt running only confirms initial dispatch, not completion.",
+    "humanTakeover": {
+      "passed": false,
+      "observed": "Both takeover and reconcile left the terminal in an unknown state with input disabled. No terminal command, manual edit, return to AI, preview or acceptance was performed."
+    },
+    "fixtureClosedNormally": true,
+    "closureFailures": []
+  },
+  "delivery": {
+    "codeCompleteForStartSlice": true,
+    "targetedTestsPassed": true,
+    "mac": {
+      "candidate": "BUILD1102",
+      "installed": false,
+      "installedBuild": "BUILD1097",
+      "launched": false,
+      "reason": "Native desktop tool still reports locked despite user unlock reply. No force quit or replacement attempted.",
+      "sourceCommit": "b5b195d85dfb2f4189e4f5be265a5196b825e07a",
+      "mainSha256": "29c70c01e7bb97f79f3f67c2323f7f5360fbb8bfcbc3d640cd9c79dc2c10e2c0",
+      "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+      "signatureVerified": true,
+      "signatureType": "local ad hoc, not notarized",
+      "sourceFilesByteMatched": 11,
+      "runtimeFilesByteMatched": 7,
+      "distFiles": 14,
+      "resourceFiles": 4228,
+      "resourceManifestSha256": "5d742fbcb8d2b80b7b015b9d03beb08a15a81f22e3b0f36bc05888c8884d81fd"
+    },
+    "hub": {
+      "backendBase": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+      "commandsAndRecoveryUnchanged": true,
+      "configUnchanged": true,
+      "continueLeasesUnchanged": true,
+      "currentDistFilesVerified": 14,
+      "firewallActive": true,
+      "hubProjectionCommit": "b5b195d85dfb2f4189e4f5be265a5196b825e07a",
+      "hubRestarted": true,
+      "hubStoreCommit": "b5b195d85dfb2f4189e4f5be265a5196b825e07a",
+      "manifestFileCount": 215,
+      "manifestSha256": "c2c595efa9ed23e5fad2732ab3e26bff18cbf600d9eb27799b92482d21de2b16",
+      "nginxConfigValid": true,
+      "nodeImageUnchanged": true,
+      "publicTlsVerified": true,
+      "quickCheck": "ok",
+      "sourceCommit": "b5b195d85dfb2f4189e4f5be265a5196b825e07a",
+      "unauthenticatedStateStatus": 401,
+      "webCommit": "b5b195d85dfb2f4189e4f5be265a5196b825e07a",
+      "workId": "DELIVERY1102"
+    },
+    "android": {
+      "nativeHostUnchanged": true,
+      "newApkRequiredForSharedWebChange": false,
+      "sameTaskStartNativeTested": false,
+      "sameTaskStartPhysicalPhoneTested": false
+    },
+    "availability": "Web and Hub are deployed. The project computer must advertise taskStart. The canonical Mac Core has not yet been upgraded, so current deployment does not establish production availability of this action."
+  },
+  "board": {
+    "revision": 67,
+    "taskStatus": "running",
+    "verification": "partial",
+    "previousChecksPreserved": 23,
+    "completedStartCheckAdded": true,
+    "pendingTakeoverCheckAdded": true,
+    "pendingNativeCheckAdded": true,
+    "manualAcceptanceAndEvidencePreserved": true,
+    "unrelatedTasksUnchanged": true
+  },
+  "remaining": [
+    "Resolve the original Codex command outcome and obtain verifiable exact stop evidence; do not replay while its outcome is unknown.",
+    "Validate same-device disconnect/reconnect recovery and Core close after a real human return.",
+    "Only after the original command is resolved, validate a new explicit instruction, same-task AI continuation, versioned preview and manual acceptance.",
+    "Normally install and launch BUILD1103 on Mac, then validate the same-task flow on native Mac and ordinary Android/physical phone."
+  ],
+  "localEvidenceSha256": {
+    ".runtime/flow1102/backend-focused.log": "8b4a2ee79e5223c5ccf34a96f45186608d77de2a8a9c9d25f531b38a543908f8",
+    ".runtime/flow1102/reviewer.log": "c5f27e794b88af8780be94611427e86a38bd0d2b7f76e4890d69ee9181998338",
+    ".runtime/flow1102/frontend-gates-final.log": "6bc6f20fc1b4a5f655389157fbffd4ff4c288ddbb3e29c50823d7924dfd03404",
+    ".runtime/flow1102/frontend-tsc-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".runtime/flow1102/vite-build.log": "6cb68fc9025afa51a2d83144d0efa03ff3121ac1492c691e8159caaf489cd2d3",
+    ".runtime/flow1102/final-status.json": "cb3b156ea58757dfced8c7a35c1a79bf5ef6573c12c0b8b9d3af25d147fdba64",
+    ".runtime/flow1102/started-same-task.png": "443b34c9b92c34d2bf29699876971219b37678ed697c9bbef677ca077c977b83",
+    ".runtime/flow1102/supervision-real-task.png": "8a9f268407bba48f3dd99407ce4c26fe86bac069d7774ea092d5d390423674e6",
+    ".runtime/flow1102/supervision-task-detail.png": "b8d855f453650e8a29bee042a5c5d3f1dd23ead4cea8b0f46d8632a2ec8889bd",
+    ".runtime/flow1102/board-result.json": "aa7e410eb73fd873f101dfba05b66172ad9e2d0d17fd645b3b889678b15f6f67",
+    ".runtime/build1102/result.json": "41de0ebfb30c2398716e9b4b9cc4e08e71d3cf0cc94127f20b0c8b7b72f9043b",
+    ".runtime/build1102/package-check.json": "aa069c735b6808671f00d3dfbec4a0150c66f336228e20ce890cef84834c1388",
+    ".runtime/build1102/inputs.json": "0c99436bbfd252103f359df10d3cab51883c21610a66fead4f0c5f5d5e0da2e9",
+    ".runtime/delivery1102/postcheck.json": "f194912c059c35f3b6a6bd6ee2d2b51e962804f4d4f06ecbdf186a3a6a2adc7d"
+  },
+  "flow1103Followup": {
+    "sourceCommit": "0abd6b346f63cf4309ae4ea36d2a1de5795939b8",
+    "scope": "Narrow host-side change permits human takeover only after exact proof the Mac executor process has stopped; provider outcome remains unknown.",
+    "tests": {
+      "stoppedHumanTakeover": {
+        "passed": 5,
+        "failed": 0,
+        "log": ".runtime/flow1103/fixed-final.log"
+      },
+      "controlStateRegression": {
+        "passed": 8,
+        "failed": 0,
+        "log": ".runtime/flow1103/control-state-regression.log"
+      },
+      "broaderTerminalRegression": {
+        "passed": 8,
+        "failed": 1,
+        "failure": "invalid_job_configuration during setup because Python was not configured",
+        "log": ".runtime/flow1103/control-regression.log"
+      },
+      "independentReviewSha256": "6b8e18dc494daedd3fc99108405281b3a1980bf7e8cecebf7c98d6b2c0f2d99f",
+      "mutationNegativeCases": 2,
+      "mutationNegativeCaseCoreCloseConfirmed": false,
+      "allFixtureCleanupConfirmed": false,
+      "cleanupNote": "The retained fixture did not close Core successfully; do not interpret the 5/5 test assertion result as all-cleanup success."
+    },
+    "isolatedBrowser": {
+      "humanControlRoundtripPassed": true,
+      "managedTmuxCommandsEntered": 2,
+      "readmeFilesChanged": 1,
+      "returnedPhase": "ai_ready",
+      "generation": 5,
+      "originalCodexCommandOutcome": "unknown; its receipt/disposition has not been confirmed",
+      "originalStopProof": "unverified field for the original command/turn",
+      "aiRestarted": false,
+      "newAiTurnStarted": false,
+      "previewOpened": false,
+      "acceptanceCompleted": false,
+      "taskStatus": "blocked",
+      "taskRevision": 4,
+      "evidenceCount": 0,
+      "coreClose": {
+        "closed": false,
+        "failure": "core",
+        "processExitCode": 1,
+        "forcedShutdownUsed": false,
+        "fixtureRetained": true
+      },
+      "fixtureRetained": true,
+      "physicalStopVerifiedForHumanTakeover": true,
+      "humanTakeoverStopProof": "exact physical executor-process stop was verified before human takeover",
+      "terminalInputDescription": "two actual commands entered through the terminal UI",
+      "cleanupScopeNote": "The fixture Core close was unconfirmed and the fixture retained; this does not establish clean completion of all cleanup."
+    },
+    "delivery": {
+      "macInstalledBuild": "BUILD1097",
+      "BUILD1102IncludesHostPatch": false,
+      "webHub": "DELIVERY1102 remains deployed; FLOW1103 was not redeployed",
+      "androidNativeSameTaskFlowVerified": false,
+      "fullHumanAiPreviewAcceptancePassed": false,
+      "build1103Candidate": {
+        "status": "signed_bundle_not_installed_not_launched_not_deployed",
+        "provenance": "BUILD1102 resource repack plus the committed FLOW1103 host resource; no Tauri rebuild",
+        "changedBundlePaths": [
+          "Contents/MacOS/tuijin",
+          "Contents/Resources/resources/plugins/codex-autocontinue/host.mjs",
+          "Contents/_CodeSignature/CodeResources"
+        ],
+        "sourceCommit": "0abd6b346f63cf4309ae4ea36d2a1de5795939b8",
+        "mainSha256": "056be782903d20f3323dbba31df0a8f0e605d721e460b6055ea89131dffabfd6",
+        "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+        "distFiles": 14,
+        "resourceFiles": 4228,
+        "signatureVerified": true,
+        "installed": false,
+        "launched": false,
+        "deployed": false,
+        "resultSha256": "4eca3c496d7a86aa2333d8b211e0de85819c2d3ab5b167508caade4cf857cc5c",
+        "packageCheckSha256": "897cb54cf1e8e7348dadeea373c70b329ea4afaff3d3aae2b63fcb806995e831",
+        "nativeInstallAttemptsReportedLocked": 2
+      }
+    },
+    "evidenceSha256": {
+      ".runtime/flow1103/actual-human-handoff.json": "3a375afeb965bf39df03c20f2dbbd743c9d803e8a3c59a481b8d8870c117fa21",
+      ".runtime/flow1103/after-human-write.json": "de52bd398bee394478ee881b100adf340f142d264c2132f5abb9bbddc8666043",
+      ".runtime/flow1103/after-return-status.json": "949c780114089215f2f9bd352217e790e55dce2ad11fed5f3d64429c37e86db2",
+      ".runtime/flow1103/human-return-review.png": "469623861e0d4a2594263c517392e9a5d3b5ca3436a8adb650c2c1ff98cead8c",
+      ".runtime/flow1103/human-terminal-write.png": "7d16d953f3096ee09e070e320a93e5a131a49635a6ebf715510da77fb0efd11b",
+      ".runtime/flow1103/close-result.json": "59fe6e42eca7dea7172e98c86063b8fdc9ffa1a1ecd65f0958b4b595497158f6",
+      ".runtime/flow1103/final-review.md": "6b8e18dc494daedd3fc99108405281b3a1980bf7e8cecebf7c98d6b2c0f2d99f",
+      ".runtime/build1103/result.json": "4eca3c496d7a86aa2333d8b211e0de85819c2d3ab5b167508caade4cf857cc5c",
+      ".runtime/build1103/package-check.json": "897cb54cf1e8e7348dadeea373c70b329ea4afaff3d3aae2b63fcb806995e831",
+      ".runtime/flow1103/board-result.json": "b39b0b397ecde79b6c8a4e782228d23379c8f52c47ef39b29e624c8cdb3c42a8"
+    },
+    "board": {
+      "revision": 69,
+      "taskStatus": "running",
+      "verification": "partial",
+      "completedHumanHandoffCheck": true,
+      "originalFLOW1102TakeoverCheck": "pending",
+      "manualAcceptanceAndEvidencePreserved": true,
+      "unrelatedTasksUnchanged": true,
+      "receiptSha256": "b39b0b397ecde79b6c8a4e782228d23379c8f52c47ef39b29e624c8cdb3c42a8"
+    },
+    "remaining": [
+      "Explicitly close/disposition the old AI turn while preserving its outcome as unknown; do not replay it or infer a result.",
+      "Validate same-device disconnect/reconnect recovery and normal Core close after a real human return.",
+      "After the old turn is precisely settled, the user may submit a separate explicit instruction; then validate same-task AI continuation, versioned preview and manual acceptance.",
+      "Install and launch BUILD1103 on Mac, then validate the same-task flow on native Mac and ordinary Android/physical phone."
+    ]
+  }
+}

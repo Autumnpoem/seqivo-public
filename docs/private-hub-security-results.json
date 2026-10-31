@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-26",
+  "scope": "Transport encryption and strict access control, as selected by the user; no end-to-end encryption implementation.",
+  "firewall": {
+    "before": "UFW inactive; found during security follow-up",
+    "after": "active",
+    "persistentAtBoot": true,
+    "ipv4AndIpv6DefaultInput": "DROP",
+    "newInboundTcpRules": {
+      "22": "LIMIT (SSH administration)",
+      "80": "ALLOW (ACME and HTTPS redirect)",
+      "443": "ALLOW (HTTPS)"
+    },
+    "hubListener": "127.0.0.1:4318",
+    "freshSshAfterEnableAndRateLimit": "passed",
+    "firewallWasNotDisabledDuringThisWork": true,
+    "cloudSecurityGroup": "preserved; not modified via SSH"
+  },
+  "transport": {
+    "TLSv1.2": {
+      "negotiated": "TLSv1.2",
+      "cipher": "ECDHE-ECDSA-AES256-GCM-SHA384",
+      "certificateVerified": true
+    },
+    "TLSv1.3": {
+      "negotiated": "TLSv1.3",
+      "cipher": "TLS_AES_256_GCM_SHA384",
+      "certificateVerified": true
+    },
+    "internalPortPubliclyReachable": false
+  },
+  "accessChecks": [
+    "anonymous API denied",
+    "invalid credential denied",
+    "pairing code cannot be reused",
+    "viewer cannot administer, upload a node snapshot, or control tasks",
+    "foreign origin rejected even with a valid device credential",
+    "ungranted projects and tasks invisible",
+    "revocation blocks subsequent access",
+    "plain HTTP does not serve task data; redirects to HTTPS"
+  ],
+  "temporaryTestDevices": "revoked; existing user devices preserved",
+  "serviceContinuity": {
+    "httpsPage": 200,
+    "unauthenticatedApi": 401,
+    "authenticatedRead": "passed",
+    "desktopSync": "connected"
+  },
+  "storagePermissions": {
+    "dataDirectory": "0700",
+    "sqliteFiles": "0600",
+    "backupDirectory": "0700",
+    "certificatePrivateDirectories": "0700 root only"
+  },
+  "privacyBoundaries": {
+    "endToEndEncryption": false,
+    "applicationLevelDatabaseEncryption": false,
+    "serverRootCanReadTaskAndCommandText": true,
+    "fieldProjectionIsNotSemanticSecretRedaction": true,
+    "aiProviderReceivesExecutionPrompts": true,
+    "revocationDoesNotEraseStoredHistoryOrBackups": true,
+    "siteAccessLog": "off",
+    "diagnosticNetworkMetadataMayRemain": true
+  },
+  "limitations": [
+    "Not a full penetration test",
+    "Existing SSH password/key authentication policy retained; connection rate limiting enabled",
+    "Natural certificate-expiry cycle and full VM reboot not performed"
+  ],
+  "independentReview": {
+    "role": "security_reviewer",
+    "requestedModel": "gpt-6-sol",
+    "requestedEffort": "high",
+    "actualRuntimeModel": "NOT VERIFIED",
+    "scope": "Read-only code review of transport, authorization, caching, projection and storage trust boundary"
+  },
+  "localOnlyEvidence": "design/qa/private-hub-deployment/security-transport.json and security-access.json; no credentials or task text included here."
+}

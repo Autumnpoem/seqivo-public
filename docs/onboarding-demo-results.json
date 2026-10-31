@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-31",
+  "sourceRevision": "64dee96",
+  "scope": "isolated local file-reporting tutorial; current web UI on macOS",
+  "acceptedFileEvents": 6,
+  "eventTypes": {
+    "task.create": 3,
+    "task.update": 2,
+    "evidence.add": 1
+  },
+  "taskStates": {
+    "planned": 2,
+    "submitted": 1
+  },
+  "humanAcceptedTasks": 0,
+  "generatedFiles": [
+    ".taskboard/tasks.json",
+    ".taskboard/CONTEXT.md",
+    ".taskboard/inbox/",
+    ".taskboard/receipts/"
+  ],
+  "automaticallyGeneratesProjectJson": false,
+  "demoFunctionTests": {
+    "passed": 2,
+    "failed": 0,
+    "command": "node --test count-files.test.mjs"
+  },
+  "coreFileBridgeTests": {
+    "passed": 19,
+    "failed": 0,
+    "skipped": 0,
+    "command": "node --test tests/core.test.mjs tests/file-bridge-worker.test.mjs",
+    "runBy": "read-only investigation subagent"
+  },
+  "screenshots": "docs/assets/onboarding/",
+  "notTested": [
+    "fresh computer install",
+    "real Codex or Claude provider execution in this tutorial",
+    "phone synchronization in this tutorial",
+    "Windows or Ubuntu native installation"
+  ],
+  "productionDataChanged": false,
+  "wholeProjectComplete": false
+}

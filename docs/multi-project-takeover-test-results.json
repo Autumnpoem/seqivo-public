@@ -1,0 +1,106 @@
+{
+  "workId": "FLOW1108",
+  "date": "2026-10-31",
+  "testedHead": "3fd4556cfe7c841004c3bbb5fdca9dc3637fcc12",
+  "productSourceCommit": "34170bddc85a12a613faac7881289998d426f0e4",
+  "productChanged": false,
+  "wholeProjectComplete": false,
+  "scope": "Two independent disposable projects using real Core, plugin worker, macOS jobs and terminal-control APIs, with a controlled fake Codex provider. This is not GUI, real AI, same-project batch disposition or Android acceptance.",
+  "runtime": {
+    "package": "BUILD1107",
+    "node": "Contents/MacOS/taskboard-node",
+    "python": "Contents/Resources/resources/preview-python/bin/seqivo-python",
+    "tmux": "Contents/Resources/resources/terminal/bin/tmux",
+    "run": "Set TASKBOARD_TEST_PYTHON and TASKBOARD_TEST_TMUX to the package paths; run the packaged Node with --test tests/executor-multiple-unknown-disposition.test.mjs from the repository root.",
+    "sourceCopies": "Current server/plugins copied to an isolated temporary directory; bundled Python/toolchain copied and bundled node_modules referenced."
+  },
+  "validation": {
+    "passed": 1,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "mixedProjectSelectionRejected": {
+      "code": "CONTROL_STALE",
+      "message": "旧轮次已变化，请重新打开接管确认"
+    },
+    "bothOriginalLeasesUnchangedAfterRejection": true,
+    "otherProjectCompleteCommandMarkerPolicyUnchangedAfterFirstProjectNewTurn": true,
+    "eachProjectSeparateTakeoverReviewedReturnNewInstruction": true,
+    "oldProviderOutcomesRemainUnknown": true,
+    "automaticPoliciesRemainDisabled": true,
+    "providerTurnStartCalls": 4,
+    "originalInstructionsReplayed": 0,
+    "explicitCoreCloseSucceeded": true,
+    "successfulFixtureRemoved": true,
+    "independentReview": "no_blocking_finding_in_tested_scope"
+  },
+  "attemptHistory": {
+    "first": {
+      "passed": 0,
+      "failed": 1,
+      "cause": "The fake approval gate from project A remained open when B started; B immediately entered awaiting_approval instead of the running state expected by the test.",
+      "coreCloseConfirmed": false,
+      "failedFixtureRetained": true,
+      "recordedTwoJobReceiptsRetired": true,
+      "recordedBridgePidsObservedAbsent": true,
+      "fullFailedFixtureCleanupVerified": false
+    },
+    "second": {
+      "passed": 1,
+      "failed": 0,
+      "change": "Reset the test-owned gate before each original turn and release only after that turn is durably running."
+    },
+    "final": {
+      "passed": 1,
+      "failed": 0,
+      "change": "Require the exact cross-project rejection and compare B complete command/marker/policy snapshots before and after processing A."
+    }
+  },
+  "sameProjectBatch": {
+    "verified": false,
+    "currentEntryPointLimitation": "A root-workspace unknown lease prevents another root-workspace task from starting. Distinct worktrees have separate workspace bindings, but current project takeover consent is bound to the root workspace. No synthetic database merge or forged stop proof was used.",
+    "pending": "Same-project multiple-selection integration remains unverified; this cross-project test does not replace it."
+  },
+  "historicalFixtureInspection": {
+    "flow": "FLOW1104",
+    "fixtures": 2,
+    "jobRecordsObservedRetired": 4,
+    "recordedBridgePidsObservedAbsent": true,
+    "allDescendantsOrHistoricalCoreCloseProven": false,
+    "dataOrLeasesChanged": false,
+    "fixturesRetained": true
+  },
+  "delivery": {
+    "installedMac": "BUILD1097",
+    "candidateMac": "BUILD1107",
+    "candidateInstalled": false,
+    "sharedWeb": "WEB1107",
+    "apkRebuilt": false,
+    "nativeAndroidRetested": false,
+    "physicalDeviceRetested": false,
+    "newQaAppCreated": false
+  },
+  "board": {
+    "taskId": "91f0f8a7-c59f-4538-840b-1eceb486f35b",
+    "revision": 80,
+    "status": "running",
+    "verification": "partial",
+    "pendingCheckCount": 31,
+    "newScopedCheckCompleted": "flow1108-cross-project-takeover",
+    "oldCheckFlagsPreserved": true,
+    "manualAcceptanceAndEvidencePreserved": true,
+    "otherTasksUnchanged": 66,
+    "webDeployed": true,
+    "macCandidateBuilt": true,
+    "macInstalled": false
+  },
+  "evidence": {
+    "tests/executor-multiple-unknown-disposition.test.mjs": "895ec202f49a16d383bd6530c73605182aebf861950063edaae07edf91c3eb30",
+    ".runtime/flow1108/native1.log": "b13877ff436a6a88f2f64cbd817fcea5e623d62b84b450930c9b20c1da60685d",
+    ".runtime/flow1108/native2.log": "38ac7b2730208368df9f2a3791f00b251b09b15903171c3f06ae7671835901b1",
+    ".runtime/flow1108/native-final.log": "6a10e7027ed832ddbe3205c9ad46c7567c85910fa534e6ca4d58797c439cedb8",
+    ".runtime/flow1108-root/review.md": "6c62d7814e6966c69e4c68beec5297fa86337d409dd1ee961331af1e165dba7c",
+    ".runtime/flow1108-root/old-fixtures-inspection.json": "77c451b031fba1fe659f78bef0260be35063b42d4346a639de0ee66fc9051e12",
+    ".runtime/flow1108-root/board-result.json": "d497fd37f6ab709e22cfabc78f1d858c8586c1198737015282f661d235c49555"
+  }
+}

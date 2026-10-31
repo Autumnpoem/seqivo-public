@@ -1,0 +1,4 @@
+allowBuilds:
+  cpu-features: false
+  node-pty: true
+  ssh2: false

@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "sourceCommit": "c7095d6e737af2649211a6b1c9b77f16bfc52418",
+  "status": "delivered_with_scope",
+  "build": {
+    "package625StepsAllExitZero": true,
+    "typecheckExitCode": 0,
+    "webBuildExitCode": 0,
+    "macBuildAndSigningExitCode": 0,
+    "signing": "local ad-hoc; not notarized",
+    "sourceChangeFromPriorBuild": "src/SshPanel.tsx",
+    "earlier144eBackendRegressionSuiteRerun": false
+  },
+  "macInstallation": {
+    "install627": true,
+    "backupVerified": true,
+    "firstLaunchOriginalProjectVisible": true,
+    "projectsAndTaskRowsUnchanged": true,
+    "normalQuitCoreClosed": true,
+    "noLockOrAppProcessesAfterQuit": true,
+    "sameDataReopen": "passed; original project visible and project/task rows unchanged",
+    "mainBinarySha256": "dccaa2d89e3ff7cb2e7d67ce1853da0c3bda5dfa45e898b5e110014fac1e83be"
+  },
+  "hubDeployment": {
+    "sourceCommit": "c7095d6e737af2649211a6b1c9b77f16bfc52418",
+    "deploy626AndPostdeployReviewed": true,
+    "manifestVerification": "passed",
+    "databaseIntegrity": "passed",
+    "vaultAndDataPermissions": "preserved",
+    "firewall": "active",
+    "tlsValidationDisabled": false,
+    "anonymousHostStatus": 401,
+    "anonymousSshWebSocketStatus": 403,
+    "existingAccountSessionAndCommandIdentities": "preserved",
+    "oldAndNewVersionRestoreChecks": "passed"
+  },
+  "ssh623": {
+    "callbackCases": 13,
+    "currentOrMissingDefaultClear": "verified in source callback scope",
+    "persistedDefaultAfterClear": null,
+    "newConnectionWithoutDefault": "opens explicit session chooser",
+    "physicalKeyboardMapping": "not established by callback tests",
+    "physicalAndroidDefaultFlow": "A set default; temporary B; manual disconnect then new connection returned to A",
+    "clearDefault": "server null at revision 4 confirmed",
+    "afterClearNewConnectionChooser": "passed; explicit chooser shown after clearing default",
+    "cleanup": "fixtures retained for e5de02b retest; later cleanup recorded in delivery-e5de02b.json",
+    "physicalKeyboardShortcut": "Ctrl+Shift+M moved focus from terminal to session bar and opened drawer on three attempts; pointer action remains unreliable"
+  },
+  "android": {
+    "physicalV13ObservationSource": "Hub 386ddd7 deployment; predates Hub c7095d6 deployment",
+    "aAndBSessions": "dedicated session markers written; B append verified once; UI switched B to A",
+    "backgroundReturn": "Home/background then user-assisted foreground return retained the original B identity and readable output",
+    "systemOfflineOrLock": "386ddd7 historical check did not cover these; c7095d6 OS-offline recovery later failed; screen-lock not tested on c7095d6",
+    "defaultReconnectOnCurrentHub": "passed_with_scope on c7095d6; see currentHubC7095d6",
+    "fullAcceptance": "incomplete",
+    "currentHubC7095d6": {
+      "defaultSessionFlow": "A explicitly set default; temporary B selected; manual disconnect/new connection returned to A",
+      "markerReadback": "A and B each remained one line",
+      "clearDefault": "server null at revision 4 confirmed",
+      "afterClearNewConnectionChooser": "passed; explicit chooser shown after clearing default",
+      "physicalKeyboardShortcut": "Ctrl+Shift+M focus transition and drawer opening observed on three attempts on this device; direct pointer unreliable",
+      "cleanup": "fixtures retained for e5de02b retest; later cleanup recorded in delivery-e5de02b.json"
+    }
+  },
+  "scopeLimits": [
+    "The earlier 144e059 15-test backend suite was not rerun for c7095d6.",
+    "The physical Android A/B observation used Hub 386ddd7 and does not verify the newly deployed Hub c7095d6 UI.",
+    "The Mac package is ad-hoc signed and not notarized.",
+    "Whole-project acceptance is incomplete.",
+    "The current-Hub physical default, clearing and chooser flows passed with scope; fixtures were retained for the later e5de02b retest and cleanup. Keyboard observation is device-specific."
+  ],
+  "wholeProjectComplete": false
+}

@@ -1,0 +1,565 @@
+{
+  "schemaVersion": 2,
+  "date": "2026-10-24",
+  "currentDelivery": {
+    "code": "Candidate e5de02b is installed in place as the production Mac app and deployed to the Hub with scoped post-deployment checks. Initial cold launch required one manual retry after an API timeout; normal quit/Core close and subsequent same-data warm reopen passed without manual retry. A bounded physical Android v13 OS-offline restoration and short lock/unlock scenario also passed on the existing APK loading updated Hub web content. Broader network/platform and whole-project acceptance remain incomplete.",
+    "automatedTests": "The 9c5 checks and 144e059 15-test recovery suite are version-scoped. Package625 build/typecheck/web/Mac/signing/Hub steps passed; the 144e059 backend suite was not rerun for c7095d6.",
+    "macInstalled": "e5de02b replaced the canonical Mac app in place; backup verified; initial cold API timeout required one manual retry; normal Command-Q/Core close and later same-data warm reopen passed without manual retry; original project/task rows unchanged; local ad-hoc signed, not notarized",
+    "androidInstalled": "bounded physical Android v13 OS-offline recovery and short lock/unlock passed using existing APK with updated Hub web content; no APK rebuild/upgrade; cleanup passed; other network/platform scenarios remain unverified",
+    "hubDeployed": true,
+    "nativeSshUiAccepted": false,
+    "wholeProjectComplete": false,
+    "nativeMacQaPassedWithScope": true,
+    "deployedHubAuthorizedSshUiAccepted": false,
+    "nativeMacQa": {
+      "date": "2026-10-23",
+      "candidateSourceCommit": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+      "evidence": "qa/ssh-terminal/integration-native-mac.json",
+      "environment": "isolated native macOS QA package; local synthetic SSH target over real SSH and real tmux",
+      "ssh": {
+        "hostFingerprintIndependentlyChecked": true,
+        "mainAndReviewEachWrittenOnce": true,
+        "temporaryReviewPreservedMainDefault": true,
+        "disconnectReconnectReturnedToMain": true,
+        "quitWhileSshAttached": "Command-Q; exit 0; Core closed",
+        "sameDataReopenReturnedToMain": true,
+        "tmuxServerSessionIdentityAndStartTimeUnchanged": true,
+        "lightDarkChecked": true,
+        "managedAiRouteSeparate": true
+      },
+      "codex": {
+        "realUiTaskTurnSubmittedOnce": true,
+        "exclusiveFileWriteBytes": 17,
+        "finalReplyVisibleBeforeAndAfterSameDataReopen": true,
+        "taskRevisionAfterReopen": 4,
+        "activeLeasesAfterReopen": 0,
+        "normalQuitAfterCompletedTurn": true,
+        "subsequentNormalQuit": "exit 0; Core closed",
+        "humanAcceptance": "unverified"
+      },
+      "limits": [
+        "Does not test a user-owned OpenSSH target or the deployed Hub account flow.",
+        "Does not cover quitting while AI is active or a terminal command is busy.",
+        "Not physical-device or whole-project acceptance."
+      ],
+      "note": "This isolated QA result is separate from the current f357c82 in-place installation record below."
+    },
+    "androidEmulator": {
+      "date": "2026-10-23",
+      "package": "ordinary debug v12",
+      "evidence": "qa/ssh-terminal/integration-android-emulator.json",
+      "environment": "Android emulator; disposable HTTPS Hub and local synthetic SSH/tmux target",
+      "passedWithScope": [
+        "account login through native APK UI",
+        "host trust and credential save",
+        "main/review session listing",
+        "set main as default and attach main",
+        "one UI terminal file creation",
+        "saved host and trust persist after route change"
+      ],
+      "pending": [
+        "temporary tmux switch and default reconnect from Android UI",
+        "v13 SSH UI flow",
+        "deployed-Hub account-authorized SSH UI",
+        "physical phone"
+      ],
+      "humanAcceptance": "unverified",
+      "physicalPhoneAccepted": false
+    },
+    "newerBuild": {
+      "sourceCommit": "f357c82",
+      "mac": "installed in place; first launch, normal quit and same-data reopen passed; original project and application data preserved",
+      "android": "v13 installed on emulator; SSH UI flow pending; v12 scoped UI evidence is separate",
+      "hub": "deployed October 23; 142 manifest entries verified",
+      "scope": "does not establish deployed-Hub account-authorized SSH UI, Android v13 SSH flow, physical-device acceptance or whole-project completion"
+    },
+    "macFirstLaunch": {
+      "sameBundleIdentityAndOriginalPath": true,
+      "backupArchiveVerified": true,
+      "appDataComparedBeforeLaunch": "unchanged",
+      "projectsAndTasks": "same two projects and 62 tasks as database comparison",
+      "authAndPluginFiles": "unchanged",
+      "remoteLinkSequence": "changed",
+      "localConnectionUrl": "rotated as expected",
+      "ordinarySshAndManagedEntry": "verified as separate entries",
+      "normalQuitCoreClosed": true,
+      "corelockPresentAfterQuit": false,
+      "appProcessGone": true,
+      "sameDataReopen": "passed; original project loaded and preserved data verified",
+      "sameDataReopenEvidence": "qa/ssh-terminal/integration-mac-install.json",
+      "prelaunchProjectsAndTasksByteIdentical": true,
+      "settingsAndRemoteBinding": "preserved; expected local URL/sequence runtime changes noted",
+      "unusedQaBundles": "17 moved to recoverable Trash; not permanently deleted",
+      "canonicalAppAndRollbackArchive": "retained",
+      "unusedSupersededBundlesMovedToRecoverableTrash": 17,
+      "permanentlyDeleted": false,
+      "normalQuitNativeExitCodeCaptured": false,
+      "expectedRuntimeChanges": [
+        "local API URL regenerated",
+        "remote sync sequence advanced",
+        "empty executor and completed-conversation dictionaries initialized"
+      ],
+      "sourceCommit": "f357c82",
+      "scopeNote": "Historical f357c82 first-launch snapshot; current 144e059 installation and post-quit reopen status is recorded separately."
+    },
+    "activeAiQuit": {
+      "evidence": "qa/ssh-terminal/integration-active-quit.json",
+      "source": "9c5b6b7 package; not f357",
+      "shutdownScope": "passed_with_scope",
+      "providerOutcome": "unknown",
+      "turnComplete": "unverified",
+      "stopProof": "unverified",
+      "leaseFence": "retained",
+      "taskCompletion": "not established"
+    },
+    "androidV12Historical": {
+      "date": "2026-10-23",
+      "package": "ordinary debug v12",
+      "scope": "local fixture Hub; main/review listing, main attach and one UI file creation passed with scope; switching/reconnect was ongoing",
+      "doesNotVerify": "v13 SSH UI or deployed-Hub account flow"
+    },
+    "sshTransientRecovery": {
+      "sourceCommit": "144e059",
+      "regression": "15/15, zero skipped, exit 0; typecheck/web build pass; REVIEW607 no confirmed P1/P2",
+      "contract": "resume only for exact session ID, tmux server and host revision; otherwise require explicit choice; manual new connections use default; manual disconnect remains disconnected; never replay input",
+      "isolatedNetworkFault": "active WebSocket alone was abruptly closed; review stayed selected; attach-session observed twice; marker written once; deliberate disconnect/new connection used default main",
+      "limits": "IAB remained visible; not OS-offline/background recovery; no Android terminal command success"
+    },
+    "ssh613KeyboardFix": {
+      "review": "REVIEW614 passed in reviewed scope",
+      "typecheckExitCode": 0,
+      "webBuildExitCode": 0,
+      "isolatedBrowserFlow": "Ctrl+Shift+M focuses the session bar; Enter opens drawer and focuses first main item; closing returns focus to session bar",
+      "packageBuildAndInstall": "included in installed c7095d6 Mac package",
+      "AndroidValidation": "limited device check: Ctrl+Shift+M moved focus to the session selector and opened its drawer on three attempts; direct pointer remains unreliable; not universal keyboard acceptance",
+      "remoteTmuxCaptureBeforeAndAfter": "byte-identical; no Enter or terminal mutation observed",
+      "currentHubAndroidValidation": "limited device keyboard shortcut observation recorded; no general keyboard mapping claim",
+      "currentPhysicalKeyboard": "Ctrl+Shift+M focused session selector and opened drawer on three attempts on this device; pointer remained unreliable"
+    },
+    "macInstallation144e059": {
+      "installedInPlace": true,
+      "firstLaunchOriginalProjectLoaded": true,
+      "projectsAndTasks": "two projects and 62 task rows unchanged against cold backup",
+      "accountAndPluginSettings": "preserved",
+      "remoteBinding": "preserved",
+      "normalQuitCoreClosed": true,
+      "noCoreLockOrProcessAfterQuit": true,
+      "sameDataReopenAfterLatestQuit": "pending",
+      "scope": "Historical 144e059 install; not a re-test of source 386ddd7."
+    },
+    "currentHubDeployment386ddd7": {
+      "date": "2026-10-23",
+      "sourceCommit": "386ddd7c1a812315b42a39d01a0d84bcff191a4e",
+      "deployed": true,
+      "manifestFilesVerified": 142,
+      "databaseIntegrity": "passed",
+      "vaultAndDataPermissions": "preserved",
+      "firewall": "active",
+      "tlsValidationDisabled": false,
+      "anonymousHostStatus": 401,
+      "anonymousSshWebSocketStatus": 403,
+      "existingAccountSessionAndCommandIdentities": "preserved",
+      "oldAndNewVersionRestoreChecks": "passed",
+      "evidence": "qa/ssh-terminal/delivery-386ddd7.json",
+      "scope": "Historical deployment used by the limited Android A/B physical-device observation; current Hub deployment is recorded in c7095d6Delivery."
+    },
+    "macInstallation386ddd7c": {
+      "installedInPlace": true,
+      "applicationSha256": "184b605bcaeb04d974831d94e4cc812072ea60836dfb13635124b623bb2a81f7",
+      "signature": "ad-hoc; not notarized",
+      "backupVerified": true,
+      "firstLaunchOriginalProjectLoaded": true,
+      "projectsAndTaskRows": "unchanged",
+      "normalQuit": "app exited; Core closed; no lock or process remained",
+      "sameDataReopen": "original project loaded and task rows remained identical",
+      "evidence": "qa/ssh-terminal/delivery-386ddd7.json"
+    },
+    "ssh613Keyboard613": {
+      "review": "REVIEW614 passed in reviewed scope",
+      "typecheckExitCode": 0,
+      "webBuildExitCode": 0,
+      "isolatedBrowserFlow": "passed",
+      "remoteTmuxCaptureBeforeAndAfter": "byte-identical; no Enter or terminal mutation",
+      "AndroidRetest": "pending",
+      "evidence": "qa/ssh-terminal/delivery-386ddd7.json"
+    },
+    "androidV13Current": {
+      "physicalDeviceFlow": "partial_with_scope",
+      "hub386ddd7Observation": {
+        "dedicatedSessionA": "marker write confirmed",
+        "dedicatedSessionB": "marker write and append confirmed; read-only line count remained one",
+        "homeBackgroundReturn": "user-assisted foreground return preserved original B identity/readability",
+        "manualSwitchBToA": "UI switch verified; markers remained one line each"
+      },
+      "hubC7095d6Observation": {
+        "setAAsDefaultAndTemporaryB": "passed",
+        "manualDisconnectAndNewConnection": "returned to A",
+        "clearDefault": "server state null at revision 4",
+        "newConnectionAfterClear": "explicit chooser passed",
+        "osOfflineAutomaticRecovery": "failed; after Wi-Fi/cellular were disabled the SSH UI failed, and SSH remained disconnected after Wi-Fi returned while the board recovered",
+        "screenLock": "not tested",
+        "keyboardShortcut": "Ctrl+Shift+M moved focus to selector and opened drawer on three attempts; direct pointer remained unreliable",
+        "testSessions": "retained for retest"
+      },
+      "fullAcceptance": "incomplete",
+      "evidence": "qa/ssh-terminal/offline-recovery.json"
+    },
+    "historicalHubDeployment144e059": {
+      "date": "2026-10-23",
+      "sourceCommit": "144e059",
+      "deployed": true,
+      "manifestFilesVerified": 142,
+      "databaseIntegrity": "passed",
+      "vaultAndDataPermissions": "preserved",
+      "tlsValidationDisabled": false,
+      "anonymousHostStatus": 401,
+      "anonymousSshWebSocketStatus": 403,
+      "existingAccountData": "preserved",
+      "coldBackupRestore": "two-version restore checks passed",
+      "previousAppAndBackup": "retained",
+      "authorizedAccountSshUi": "pending",
+      "evidence": "qa/ssh-terminal/transient-recovery.json",
+      "scope": "Historical 144e059 deployment record; current 386ddd7 deployment is recorded in sibling fields."
+    },
+    "androidV13Historical144e059": {
+      "apkSha256": "60fa04a9f52a8922c0fd8ea794d83cc3a1b2c714506408d41d78afaad71bacb1",
+      "physicalDeviceFlow": "partial_with_scope",
+      "loginHostSessionListNamedTmuxCreation": "confirmed",
+      "terminalCommandInput": "not passed",
+      "successfulCommandOrFileWrite": "not established",
+      "fullAcceptance": "incomplete",
+      "evidence": "qa/ssh-terminal/transient-recovery.json",
+      "scope": "Historical 144e059 physical-device attempt; later limited command/write evidence is recorded in androidV13Current."
+    },
+    "ssh623DefaultBehavior": {
+      "callbackCases": 13,
+      "currentOrMissingDefaultClear": "verified in source callback scope",
+      "persistedDefaultAfterClear": null,
+      "newConnectionWithoutDefault": "opens explicit session chooser",
+      "physicalKeyboardMapping": "on this device Ctrl+Shift+M moved focus from terminal to session bar and opened drawer on three attempts; direct pointer action remains unreliable; not a general keyboard claim",
+      "chooserAfterClear": "passed on the physical device; the no-default chooser appeared after server default was cleared"
+    },
+    "currentHubDeploymentC7095d6": {
+      "sourceCommit": "c7095d6e737af2649211a6b1c9b77f16bfc52418",
+      "deployed": true,
+      "manifestVerification": "passed",
+      "databaseIntegrity": "passed",
+      "vaultAndDataPermissions": "preserved",
+      "firewall": "active",
+      "tlsValidationDisabled": false,
+      "anonymousHostStatus": 401,
+      "anonymousSshWebSocketStatus": 403,
+      "existingAccountSessionAndCommandIdentities": "preserved",
+      "oldAndNewVersionRestoreChecks": "passed",
+      "evidence": "qa/ssh-terminal/delivery-c7095d6.json"
+    },
+    "macInstallationC7095d6": {
+      "installedInPlace": true,
+      "applicationSha256": "184b605bcaeb04d974831d94e4cc812072ea60836dfb13635124b623bb2a81f7",
+      "signature": "local ad-hoc; not notarized",
+      "backupVerified": true,
+      "firstLaunchOriginalProjectVisible": true,
+      "projectAndTaskRowsUnchanged": true,
+      "normalQuitCoreClosed": true,
+      "noLockOrAppProcessesAfterQuit": true,
+      "sameDataReopen": "passed; original project visible and rows unchanged",
+      "evidence": "qa/ssh-terminal/delivery-c7095d6.json"
+    },
+    "physicalAndroidC7095d6DefaultTest": "passed_with_scope; A default→temporary B→manual disconnect/new connect→A; clear default null rev4 and chooser passed; fixtures retained",
+    "physicalAndroidC7095d6OfflineRecovery": "failed; Wi-Fi/cellular disabled and ADB reported no default network; SSH showed connection failure/input disabled; after Wi-Fi restoration main board recovered but SSH remained disconnected; screen lock not tested",
+    "offlineRecoveryFixCandidate": {
+      "sourceCommit": "e5de02bb15d9c82a3bfe4df49cebfd6ea4097509",
+      "build636": "passed; isolated package build",
+      "deploy637": "deployed; post-deployment manifest and database/data checks passed",
+      "helperTest": "1/1 passed",
+      "typecheckWebBuild": "passed",
+      "review": "REVIEW635 no confirmed issue in reviewed scope; POST-never-settles and concurrent retry limitations remain",
+      "rootCause": "confirmed in SSH631/634: recovery intent was consumed before the SSH ticket POST failed, blocking the intended retry",
+      "navigatorOnlineExplanation": "not the confirmed cause for this failure path",
+      "browserRegression": "c709 baseline remains disconnected after 12-second transport failure; candidate exact-review reconnect wrote one marker, not host default",
+      "backCancel": "39.6 seconds; zero new SSH commands observed",
+      "evidence": "qa/ssh-terminal/delivery-e5de02b.json",
+      "macInstallation": "replaced production app in place; backup verified; initial API wait timed out then recovered; normal quit/Core close and same-data warm reopen passed without manual retry; original project and 2 projects/62 task rows unchanged",
+      "androidRetest": "passed with scope on existing ordinary v13 APK loading updated deployed Hub web bundle; same-page OS-offline restoration and short lock/unlock; no APK rebuild/upgrade",
+      "macInstalledNotLaunched": true,
+      "hubDeploymentExecuted": true,
+      "androidInstalledOrTested": false,
+      "currentlyDeployedHubSource": "e5de02bb15d9c82a3bfe4df49cebfd6ea4097509",
+      "macLaunch": "verified",
+      "productionAppReplaced": true,
+      "androidCleanup": "passed for test-owned assets; unrelated sessions preserved and prior null default retained"
+    },
+    "currentHubAndroidOfflineRecovery": "e5de02b bounded physical OS-offline restoration and short lock/unlock passed; c7095d6 failure remains historical; broader network/platform scenarios are unverified",
+    "currentlyDeployedHubSource": "e5de02bb15d9c82a3bfe4df49cebfd6ea4097509",
+    "candidateE5de02b": {
+      "sourceCommit": "e5de02bb15d9c82a3bfe4df49cebfd6ea4097509",
+      "buildSteps": "all recorded steps exit 0",
+      "signed": "local ad-hoc; not notarized",
+      "installedOnMac": true,
+      "launched": true,
+      "backupVerified": true,
+      "dataUnchangedBeforeLaunch": true,
+      "hubArchiveUploaded": true,
+      "hubDeploymentExecuted": true,
+      "postDeployChecks": "passed; 142-file manifest and database/data checks",
+      "evidence": "qa/ssh-terminal/delivery-e5de02b.json",
+      "firstLaunch": "initial API request timed out; sidecar later became ready; manual retry then loaded the original board with project/task rows unchanged",
+      "normalCommandQ": "passed; Core closed and no app lock/process remained",
+      "processAndCoreCloseVerification": "passed",
+      "sameDataReopen": "passed without manual retry; original project and 2 projects/62 task rows unchanged",
+      "productionAppReplaced": true,
+      "androidExistingApk": "ordinary v13 APK; updated web bundle served from deployed Hub; no APK rebuild or upgrade",
+      "androidOfflineRecovery": "passed_with_scope; same page restored connectivity and automatically reattached to original session; read-only markers unchanged, no input replay observed",
+      "androidScreenLock": "passed_with_scope; about 10-second lock/unlock without reload or new connection",
+      "androidCleanup": "passed; test-owned sessions/files/temp directory removed; unrelated sessions preserved; prior null default retained",
+      "androidListFreshness": "display could remain stale immediately after channel exit until a new connection; no live-refresh claim"
+    }
+  },
+  "mainlineIntegration": {
+    "id": "integration566",
+    "sourceCommit": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+    "includesPriorShutdownFix": "18cf26581c028b5b1ec64b7d1861b151f487a73b",
+    "sideBranchCommits": [
+      "fa22daaa15d37bbbdd3653f2f3e60b4c72282643",
+      "3649399"
+    ],
+    "fixes": [
+      "Synchronously seal old terminal input before switching or creating a session",
+      "Validate the account and host identity before each output chunk",
+      "Keep public IPv4 filtering separate from IPv4-mapped IPv6 denial",
+      "Back up encrypted SSH hosts and matching vault key; handle first-start empty library",
+      "Update managed return tests to review then explicitly confirm; do not weaken fencing",
+      "Ship a reusable pure-JavaScript Hub packager with ESM exports, exact manifests and hidden-config rejection"
+    ],
+    "checks": [
+      {
+        "id": "ssh-hub-shutdown",
+        "tests": 27,
+        "passed": 27,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0,
+        "evidence": "qa/ssh-terminal/integration-ssh-hub-shutdown-r3.log"
+      },
+      {
+        "id": "core-managed-shutdown",
+        "tests": 42,
+        "passed": 42,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0,
+        "evidence": "qa/ssh-terminal/integration-core-managed-r1.log"
+      },
+      {
+        "id": "backup-and-prior-executor-shutdown",
+        "tests": 24,
+        "passed": 24,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0,
+        "evidence": "qa/ssh-terminal/integration-backup-executor-r2.log"
+      },
+      {
+        "id": "security-negative-control",
+        "status": "expected_failure",
+        "baseline": "cf1ee80",
+        "tests": 2,
+        "failed": 2,
+        "exitCode": 1,
+        "evidence": "qa/ssh-terminal/integration-ssh-negative-control.log",
+        "meaning": "The same two new safety tests detect the original switch-input and revoked-output defects."
+      },
+      {
+        "id": "actual-openssh-readonly",
+        "status": "passed_with_scope",
+        "sourceCommit": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+        "passedWithScope": true,
+        "fingerprintMatchedExistingTrust": true,
+        "authentication": "existing key on actual OpenSSH host",
+        "command": "one read-only printf, not retried",
+        "markerOccurrence": 1,
+        "storedCredential": false,
+        "reassessment": "Original assertion assumed adjacent CRLF but real shell inserted bracketed-paste ANSI toggle. Re-evaluated retained output with ANSI stripped and independent line boundaries; no second command executed.",
+        "scope": "source transport / actual OpenSSH; not native UI or tmux modification"
+      },
+      {
+        "id": "deployed-hub-basic-acceptance",
+        "status": "passed_with_scope",
+        "evidence": "qa/ssh-terminal/integration-delivery.json",
+        "scope": "TLS/assets/anonymous guards/backup/restore/previous owner access; authenticated SSH native UI is pending"
+      },
+      {
+        "id": "hub-runtime-package",
+        "tests": 5,
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0,
+        "evidence": "qa/ssh-terminal/integration-hub-package.log",
+        "scope": "self-contained ESM runtime closure, no overwrite, manifest and hidden-secret-path rejection"
+      }
+    ],
+    "review": "REVIEW572 + REVIEW573: no remaining confirmed P1/P2 in reviewed integration scope; native clients and production are separate checks.",
+    "delivery": {
+      "code": "integrated",
+      "tests": "passed within recorded scope",
+      "mac": "f357c82 is installed in place; backup, first-launch preservation, normal quit and same-data reopen passed. The original project loaded and data was preserved; QA553 remains a separate limited isolated native Mac scope.",
+      "android": "ordinary v13 is installed on an emulator but its SSH UI has not been exercised; separate v12 local-fixture SSH UI evidence passed with scope.",
+      "hub": "f357c82 deployed October 23; public health and anonymous-denial checks passed. Deployed-Hub account-authorized SSH UI remains pending.",
+      "github": "source 9c5b6b7 pushed to private main; no cloud CI requested",
+      "scope": "Historical f357c82 delivery snapshot, not the current c7095d6 state; later limited Android A/B SSH writes were tested on Hub 386ddd7 and default-session flow on c7095d6, where OS-offline recovery failed."
+    },
+    "remaining": [
+      "Verify the deployed-Hub account-authorized SSH UI flow and user-owned OpenSSH write acceptance.",
+      "Exercise Android v13 SSH UI, including host authorization, session switching and reconnect; v12 has separate scoped evidence.",
+      "Physical iPhone/Android input and network transitions; Windows/Ubuntu native clients.",
+      "Local desktop and Hub account host-library synchronization (not implemented)."
+    ],
+    "deliveryEvidence": "qa/ssh-terminal/integration-delivery.json",
+    "nativeMacQaEvidence": "qa/ssh-terminal/integration-native-mac.json"
+  },
+  "initialBranchSnapshot": {
+    "schemaVersion": 1,
+    "date": "2026-10-21",
+    "branch": "codex/ssh-host-manager",
+    "implementationCommit": "fa22daaa15d37bbbdd3653f2f3e60b4c72282643",
+    "baseCommit": "2e9a0a76f9c890ef01ca5dd92a6e7065aa3b871c",
+    "scope": "General SSH host library, direct desktop SSH and account-scoped Hub gateway; separate from existing managed AI terminals.",
+    "environment": {
+      "host": "macOS arm64",
+      "sshTarget": "isolated loopback ssh2.Server, synthetic credentials",
+      "tmux": "real tmux executable",
+      "browser": "Codex in-app browser; desktop and 390x844 viewport"
+    },
+    "checks": [
+      {
+        "id": "ssh-and-hub",
+        "status": "passed",
+        "tests": 24,
+        "passed": 24,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0,
+        "evidence": "qa/ssh-terminal/ssh-and-hub.log",
+        "command": "TMUX_TEST_EXECUTABLE=<tmux-path> node --test --test-concurrency=1 tests/ssh-terminal.test.mjs tests/remote-hub.test.mjs"
+      },
+      {
+        "id": "existing-core-shutdown-and-managed-terminal",
+        "status": "partial",
+        "tests": 42,
+        "passed": 40,
+        "failed": 2,
+        "skipped": 0,
+        "exitCode": 1,
+        "evidence": "qa/ssh-terminal/existing-regression.log",
+        "command": "node --test --test-concurrency=1 tests/core.test.mjs tests/shutdown.test.mjs tests/terminal-integration.test.mjs tests/terminal-hub.test.mjs",
+        "baseline": "71ab8de",
+        "notes": "Both failures wait at the existing return_review flow and reproduce at the same test lines on the unmodified baseline; no fix or pass is claimed."
+      },
+      {
+        "id": "baseline-managed-terminal",
+        "status": "failed",
+        "tests": 4,
+        "passed": 2,
+        "failed": 2,
+        "skipped": 0,
+        "exitCode": 1,
+        "evidence": "qa/ssh-terminal/baseline-managed-terminal.log",
+        "source": "git archive 71ab8de; isolated execution of tests/terminal-integration.test.mjs"
+      },
+      {
+        "id": "typescript-and-production-web-build",
+        "status": "passed",
+        "exitCode": 0,
+        "command": "pnpm build",
+        "evidence": "qa/ssh-terminal/build.log"
+      },
+      {
+        "id": "desktop-runtime-resources",
+        "status": "passed",
+        "exitCode": 0,
+        "command": "pnpm desktop:prepare, followed by loading SSH manager from an isolated copy of packaged resources",
+        "evidence": "qa/ssh-terminal/runtime-package.log",
+        "notes": "Dependency resolution, host API and SSH license checked; native .app launch not tested."
+      },
+      {
+        "id": "real-browser-flow",
+        "status": "passed_with_scope",
+        "actions": [
+          "add host with visible username/password without saving credentials",
+          "explicit first host-key confirmation",
+          "create main and write UI_SSH_OK exactly once to fixture file",
+          "default main, temporary review, disconnect/reconnect main",
+          "set default review and reconnect review",
+          "edit name/category/group, search hosts",
+          "wrong password displays failure",
+          "private-key and passphrase fields visible",
+          "desktop/mobile light/dark; no managed control block on SSH home",
+          "managed computer route remains reachable"
+        ],
+        "mobileModal": {
+          "viewportWidth": 390,
+          "left": 10,
+          "right": 380,
+          "clientWidth": 368,
+          "scrollWidth": 368,
+          "verticalOverflow": "scrollable"
+        },
+        "evidence": [
+          "assets/ssh-hosts-desktop.jpg",
+          "assets/ssh-hosts-mobile.jpg"
+        ],
+        "limits": "Browser viewport only; synthetic local credentials, not native apps or production SSH."
+      }
+    ],
+    "remaining": [
+      "native Mac application acceptance",
+      "physical iPhone/Android soft keyboard, IME, locking and network transitions",
+      "actual user OpenSSH server acceptance",
+      "Windows/Ubuntu native clients and Windows Shell/WSL distinctions",
+      "automatic local desktop and Hub library synchronization (not implemented)"
+    ],
+    "deployment": {
+      "installedAppUpdated": false,
+      "productionHubUpdated": false,
+      "githubPushed": false,
+      "reason": "Isolated side-conversation branch; main-thread application and acceptance environment left untouched."
+    },
+    "privacy": "Only synthetic local fixture endpoints and accounts in evidence. Log checkout paths replaced with [isolated-checkout]. No saved credentials returned by APIs.",
+    "sourceSha256": {
+      "package.json": "d1a4c2d43af0197c39ad287850419b234e3fa001884c54cd45fe59b94d1e0c59",
+      "pnpm-lock.yaml": "00bb348293ad37958d10f97caec18cd2ae9863292196b0b4b68bd04a306b2236",
+      "scripts/prepare-desktop.mjs": "2460ecf78df198a2de5e68ddd9d65aabb1e7ddd12c14e5ef3b76990aa4cb2b70",
+      "server/core.mjs": "f7b67e5ffc72d7ee5e2dc5b360e5450059388e4c77cf974cb981a16ba77ef0c4",
+      "server/http.mjs": "cf646b1b2a2dba90291b26c4e19654c1451234f51f2320df539e9061839a2d47",
+      "server/hub/http.mjs": "2ee7d9a1cb13f1cb2d5391a045474c890c4dcee09285ecd2685149bddad9f24b",
+      "server/terminal/socket.mjs": "478d9554c19d8f7aa8f9087c0ed020e619a3c14ed9b5bb86819c8b0854776847",
+      "src/App.tsx": "8f74788911babc1eb467446865c215d73abf05259921e3ee41d0fa58550762f2",
+      "src/SshPanel.tsx": "60766be8f8ee16d32df8f18e8286cb4443af8cae4c4bb7c5ffefb114aca1541f",
+      "src/TerminalWorkspace.tsx": "99ff21cff904abfba5c777398c6bb1db3910d2559503fa538643d4a01b572e55",
+      "src/ssh.css": "38964087f06a9b4182645747bfbc791f32277c19ad2b2707c3f8179ec8981d7c",
+      "tests/ssh-terminal.test.mjs": "e193194acc3d72105b7bd0ed21de6bb35227953e595ee616627eb7767477ba4e",
+      "tests/helpers/ssh-server.mjs": "bdb459d0a8748e13f9102cdcef9149f997c0fb78005f0b2783d43c72e5f70502",
+      "server/ssh/hub.mjs": "a52105702e31c5647cca3287dc84a041ff57bdbe0fc70950aba3af088e5a5660",
+      "server/ssh/manager.mjs": "d7f4594c949e995733c9681bc7bedd009f9afa95d3e39a2ce0713f4d86f3e5a8",
+      "server/ssh/network.mjs": "84afed57de2d3e02881379ae77e0688d244da30faf6e40b234ad3fe762aaa47d",
+      "server/ssh/session.mjs": "763a23d7290beff767b203b56909736ef78ed0b139d1e93184a3459707703f38",
+      "server/ssh/store.mjs": "ee7154acd959e67124005828fed0caf12824e3c92f99bda10c933954fa9e5ba1"
+    }
+  },
+  "privacy": "Public evidence omits private endpoints, credentials and personal checkout paths. Historical branch fixture evidence and current production metadata are separated.",
+  "updatedAt": "2026-10-23",
+  "currentDeliveryEvidence": "qa/ssh-terminal/delivery-c7095d6.json",
+  "activeAiQuitEvidence": "qa/ssh-terminal/integration-active-quit.json",
+  "androidV12Evidence": "qa/ssh-terminal/integration-android-emulator.json",
+  "macInstallEvidence": "qa/ssh-terminal/integration-mac-install.json",
+  "latestHubUpdateEvidence": "qa/ssh-terminal/integration-hub-update.json",
+  "transientRecoveryEvidence": "qa/ssh-terminal/transient-recovery.json",
+  "latestMac144Evidence": "qa/ssh-terminal/transient-recovery.json",
+  "latestHub144Evidence": "qa/ssh-terminal/transient-recovery.json",
+  "androidV13Evidence": "qa/ssh-terminal/transient-recovery.json",
+  "latestDeliveryEvidence": "qa/ssh-terminal/delivery-e5de02b.json",
+  "currentAndroidOfflineRecoveryEvidence": "qa/ssh-terminal/offline-recovery.json",
+  "latestRecoveryEvidence": "qa/ssh-terminal/offline-recovery.json",
+  "currentCandidateEvidence": "qa/ssh-terminal/delivery-e5de02b.json"
+}

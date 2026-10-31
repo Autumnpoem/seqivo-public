@@ -1,0 +1,36 @@
+✔ session startup is the durable active lease before conversation binding; not_started cannot release it (13.026209ms)
+✔ a pre-intent startup remains fenced after recreating the lease manager (4.57175ms)
+✔ one startup row upgrades for turns and returns to startup only after confirmed command outcome (5.787958ms)
+✔ original job retirement atomically closes only an exactly settled active command (5.210542ms)
+✔ verified shutdown keeps an in-flight original turn unknown and blocks generic release and replay (5.495583ms)
+✔ a retired startup receipt is idempotent only for its exact original job and command (6.114875ms)
+✔ real Core close/reopen preserves shutdown-unknown fence (same-boot) (3170.773542ms)
+✔ real Core close/reopen preserves shutdown-unknown fence (historical-exact-receipt) (2969.225625ms)
+✔ real Core close/reopen preserves shutdown-unknown fence (historical-missing-core-receipt) (2965.816458ms)
+ℹ Expected close rejection retained its isolated fixture: [isolated-fixture]
+ℹ Retained shutdown-unknown fixture for diagnosis: [isolated-fixture]
+✔ real Core close/reopen preserves shutdown-unknown fence (historical-wrong-core-receipt) (2907.866583ms)
+ℹ Expected close rejection retained its isolated fixture: [isolated-fixture]
+ℹ Retained shutdown-unknown fixture for diagnosis: [isolated-fixture]
+✔ the same late completion event does not invent a final idle proof during shutdown (0.339959ms)
+✔ closing a live original turn retains an active unknown lease after exact job retirement (767.006333ms)
+✔ failed pre-stop shutdown intent cannot become a post-stop receipt (558.563583ms)
+✔ a stopped-unknown original job stays fenced after owner exit and simulated boot change (complete) (968.435083ms)
+✔ a stopped-unknown original job stays fenced after owner exit and simulated boot change (final-write-fail) (621.418709ms)
+✔ a crashed owner rechecks retired job without replay (original-pause) (1189.783667ms)
+✔ a crashed owner rechecks retired job without replay (startup-policy) (1210.219208ms)
+✔ a crashed owner rechecks retired job without replay (other-unknown) (1173.083625ms)
+✔ only the trusted built-in receives narrowly validated startup callbacks (56.6465ms)
+✔ side-loaded plugin with the built-in ID cannot invoke startup authority (53.15525ms)
+✔ Hub backup preserves a live SQLite snapshot and owner token for isolated restore (33.281ms)
+✔ Hub backup restores encrypted SSH host data and its vault key without exposing credentials (28.826334ms)
+✔ Hub backup and restore accept the real SSH store key-only empty state (29.512125ms)
+✔ Hub backup rejects incomplete SSH state and symbolic links without a success manifest (53.413375ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 19018.287166

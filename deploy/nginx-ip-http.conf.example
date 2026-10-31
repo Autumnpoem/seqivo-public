@@ -1,0 +1,17 @@
+# Replace the documentation IP with the server's real public IPv4 address.
+# Install this HTTP-only configuration before requesting the first certificate.
+server {
+    listen 80;
+    server_name 203.0.113.10;
+    server_tokens off;
+    access_log off;
+
+    location ^~ /.well-known/acme-challenge/ {
+        root /var/lib/letsencrypt;
+        try_files $uri =404;
+    }
+
+    location / {
+        return 503;
+    }
+}

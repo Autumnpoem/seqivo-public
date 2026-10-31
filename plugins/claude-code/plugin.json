@@ -1,0 +1,50 @@
+{
+  "id": "claude-code",
+  "name": "Claude Code",
+  "version": "0.1.0",
+  "apiVersion": 1,
+  "entry": "host.mjs",
+  "defaultEnabled": false,
+  "permissions": [
+    "tasks.read",
+    "tasks.write",
+    "thread.create",
+    "task.resume",
+    "task.pause"
+  ],
+  "capabilities": [
+    "thread.create",
+    "task.resume",
+    "task.pause",
+    "task.reconcile"
+  ],
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "executablePath": {
+        "type": "string",
+        "title": "Claude Code 可执行文件"
+      },
+      "model": {
+        "type": "string",
+        "title": "本任务模型（可选）"
+      },
+      "maxDurationSeconds": {
+        "type": "integer",
+        "minimum": 10,
+        "maximum": 14400,
+        "title": "单次运行最长秒数"
+      },
+      "maxBudgetUsd": {
+        "type": [
+          "number",
+          "null"
+        ],
+        "exclusiveMinimum": 0,
+        "maximum": 1000,
+        "title": "单次预算美元（可选）"
+      }
+    }
+  },
+  "compatibilityNotice": "已通过协议测试，尚未验证真实 Claude Code 运行。"
+}

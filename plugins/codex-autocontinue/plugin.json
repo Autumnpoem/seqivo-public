@@ -1,0 +1,54 @@
+{
+  "id": "codex-autocontinue",
+  "name": "Codex Auto Continue",
+  "version": "0.1.0",
+  "apiVersion": 1,
+  "permissions": [
+    "quota.read",
+    "thread.verify",
+    "task.resume",
+    "task.pause",
+    "tasks.read",
+    "tasks.write",
+    "thread.create"
+  ],
+  "entry": "host.mjs",
+  "bridge": "bridge.py",
+  "defaultEnabled": false,
+  "upstream": {
+    "url": "https://github.com/Autumnpoem/codex-autocontinue",
+    "commit": "fa37ce7f2df1744119149edff661826c33611303"
+  },
+  "capabilities": [
+    "quota.read",
+    "task.resume",
+    "task.pause",
+    "thread.create",
+    "task.reconcile"
+  ],
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "pythonPath": {
+        "type": "string",
+        "title": "Python 路径"
+      },
+      "codexPath": {
+        "type": "string",
+        "title": "Codex 路径"
+      },
+      "graceSeconds": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 3600,
+        "title": "恢复宽限秒数"
+      },
+      "pollSeconds": {
+        "type": "integer",
+        "minimum": 5,
+        "maximum": 86400,
+        "title": "检查间隔秒数"
+      }
+    }
+  }
+}

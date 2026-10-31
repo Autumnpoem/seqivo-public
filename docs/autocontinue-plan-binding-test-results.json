@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "id": "IMPL485-488",
+  "status": "first-enable-binding-fake-provider-verified; real-provider-and-app-flow-unverified",
+  "source": {
+    "baseCommit": "f84969a",
+    "files": {
+      "plugins/codex-autocontinue/host.mjs": "1a01f4f6e75bbb1379c13d872f0b08d848bc6d4553ec8a977155f337d148aeaf",
+      "tests/autocontinue-policy.test.mjs": "9b6f0b694da36af8388584d67869b174a7ff104a2877dd7bffbf3c750333eafa"
+    },
+    "hashAlgorithm": "sha256"
+  },
+  "testRuns": [
+    {
+      "name": "autocontinue-policy-fake-provider-suite",
+      "passed": 32,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "impl488-fake-final"
+    },
+    {
+      "name": "first-enable-binding-target-cases",
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "impl488-target-r1"
+    }
+  ],
+  "covered": [
+    "first enable binds revision, content version, conversation, project, workspace/worktree, and handoff context",
+    "binding is rechecked during quota wait and before dispatch",
+    "repeated enable does not refresh an existing binding",
+    "binding clears only after the first automatic turn is observed started and running state plus confirmation marker are durably persisted",
+    "subsequent valid task revisions may continue under normal policy rules",
+    "legacy plan without explicit first-turn confirmation does not infer confirmation from a manual auto-looking receipt and requires explicit restart",
+    "explicit manual resume remains available"
+  ],
+  "review": {
+    "id": "REVIEW489",
+    "result": "no newly confirmed P1/P2 in the bounded change",
+    "type": "independent static review"
+  },
+  "limits": [
+    "Tests use a fake provider; no real Codex turn or provider error path was exercised.",
+    "No real quota restoration cycle was tested.",
+    "No native job backend, Android app flow, or full product acceptance was tested.",
+    "This evidence does not complete the broader M5 automatic-continuation and worktree-collaboration scope."
+  ]
+}

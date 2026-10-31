@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.application'
+}
+
+def defaultOrigin = System.getenv('SEQIVO_ANDROID_DEFAULT_ORIGIN') ?: ''
+if (defaultOrigin && !defaultOrigin.matches('https://[A-Za-z0-9.:-]+(:[0-9]+)?/?')) {
+    throw new GradleException('SEQIVO_ANDROID_DEFAULT_ORIGIN must be an HTTPS origin without a path')
+}
+def versionCodeValue = providers.gradleProperty('seqivoVersionCode').orElse('1').get()
+if (!versionCodeValue.matches('[1-9][0-9]{0,8}')) {
+    throw new GradleException('seqivoVersionCode must be a positive integer of at most nine digits')
+}
+def instrumentationRunner = providers.gradleProperty('seqivoInstrumentationRunner')
+    .orElse('app.seqivo.android.HubAcceptanceInstrumentation').get()
+if (!(instrumentationRunner in ['app.seqivo.android.HubAcceptanceInstrumentation', 'app.seqivo.android.PointerProbeInstrumentation', 'app.seqivo.android.KeyInputProbeInstrumentation', 'app.seqivo.android.XtermInputProbeInstrumentation'])) {
+    throw new GradleException('Unknown Seqivo test instrumentation runner')
+}
+
+android {
+    namespace 'app.seqivo.android'
+    compileSdk 35
+    buildToolsVersion '35.0.0'
+
+    defaultConfig {
+        applicationId 'app.seqivo.android'
+        minSdk 26
+        targetSdk 35
+        versionCode Integer.parseInt(versionCodeValue)
+        versionName '0.1.0'
+        testInstrumentationRunner instrumentationRunner
+        buildConfigField 'String', 'DEFAULT_ORIGIN', '"' + defaultOrigin + '"'
+    }
+
+    buildTypes {
+        fixtureDebug {
+            initWith debug
+            applicationIdSuffix '.testca'
+            matchingFallbacks = ['debug']
+        }
+    }
+
+    buildFeatures { buildConfig true }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+def testCa = System.getenv('SEQIVO_ANDROID_TEST_CA')
+def stagedTestCa = layout.buildDirectory.dir('generated/test-ca-res')
+android.sourceSets.fixtureDebug.res.srcDir(stagedTestCa)
+def stageTestCa = tasks.register('stageTestCa', Copy) {
+    doFirst {
+        if (!testCa || !file(testCa).isFile())
+            throw new GradleException('SEQIVO_ANDROID_TEST_CA must point to a readable PEM certificate for the isolated fixtureDebug build')
+    }
+    from testCa ?: 'missing-test-ca.pem'
+    into stagedTestCa.map { it.dir('raw') }
+    rename { 'seqivo_test_ca.pem' }
+}
+tasks.configureEach {
+    if (name in ['generateFixtureDebugResources', 'mapFixtureDebugSourceSetPaths', 'mergeFixtureDebugResources'])
+        dependsOn stageTestCa
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+}

@@ -1,0 +1,41 @@
+{
+  "id": "cursor-agent",
+  "name": "Cursor Agent",
+  "version": "0.1.0",
+  "apiVersion": 1,
+  "entry": "host.mjs",
+  "defaultEnabled": false,
+  "permissions": [
+    "tasks.read",
+    "tasks.write",
+    "thread.create",
+    "task.resume",
+    "task.pause"
+  ],
+  "capabilities": [
+    "thread.create",
+    "task.resume",
+    "task.pause",
+    "task.reconcile"
+  ],
+  "configSchema": {
+    "type": "object",
+    "properties": {
+      "executablePath": {
+        "type": "string",
+        "title": "Cursor Agent 可执行文件"
+      },
+      "model": {
+        "type": "string",
+        "title": "本任务模型（可选）"
+      },
+      "maxDurationSeconds": {
+        "type": "integer",
+        "minimum": 10,
+        "maximum": 14400,
+        "title": "单次运行最长秒数"
+      }
+    }
+  },
+  "compatibilityNotice": "已通过协议测试，尚未验证真实 Cursor Agent 运行。"
+}

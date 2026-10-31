@@ -1,0 +1,162 @@
+{
+  "date": "2026-10-31",
+  "scope": "Current tracked source and macOS v0.4.1 private release attachments",
+  "sourceProductCommit": "9df881b2a3607ce1999087cef55bbbf7fca33369",
+  "releaseTag": "v0.4.1-r1",
+  "releasePublished": true,
+  "installed": true,
+  "candidate": {
+    "completeFileCount": 4121,
+    "personalHomeAndUsernameHits": 0,
+    "privateServerExactMatchHits": 0,
+    "commonTokenPatternsFound": false,
+    "wordPersonalMetadataFound": false,
+    "signatureVerified": true,
+    "realTmuxSessionPassed": true,
+    "serverAndPluginFilesMatched": 106,
+    "onlyChangedBundleFiles": [
+      "Contents/MacOS/tuijin",
+      "Contents/Resources/resources/terminal/bin/tmux",
+      "Contents/Resources/resources/terminal/lib/libjemalloc.2.dylib",
+      "Contents/_CodeSignature/CodeResources"
+    ]
+  },
+  "binaryHashes": {
+    "mainSha256": "8e3755c2a2ac14b12fac17f7588564ab4ca4729bd654dc14c54e95ae1d614312",
+    "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "tmuxSha256": "e1ff288b69f674cf45baf6cae904bb9e1ac5bd7f5726a8d683cc2bec620000d3",
+    "jemallocSha256": "c1302049b67f5a74a59f4d00ca48a6eeb37d5f341765110ff7d5adad9fb4b71c"
+  },
+  "sourceChanges": {
+    "hardcodedPersonalPathsRemoved": 4,
+    "previewIntegrationTestsPassed": 1,
+    "liveProviderTestsRerun": false
+  },
+  "limitations": [
+    "Historical Git commits retain old local paths; shared history and existing tags were not rewritten. Repository remains private. Review and sanitize history before any public migration.",
+    "Bundled Python includes public upstream certificate test fixtures; these are not user credentials.",
+    "Pattern scanning does not prove the absence of every possible secret. Actual authentication and connection files were not read or changed."
+  ],
+  "localCleanup": {
+    "mode": "apply",
+    "status": "passed",
+    "applied": true,
+    "projectsAfter": 1,
+    "tasksAfter": 48,
+    "deleted": {
+      "projects": 5,
+      "tasks": 20,
+      "events": 174,
+      "inboxItems": 59,
+      "inboxReceipts": 18,
+      "leases": 10,
+      "metadataRows": 20
+    },
+    "preserved": {
+      "project": true,
+      "tasks": 48,
+      "events": 525,
+      "receipts": 49,
+      "settings": true,
+      "unrelatedMetadata": true,
+      "mainInboxItems": 491,
+      "preview": true
+    },
+    "foreignKeysValid": true,
+    "journalReplay": "not-run",
+    "backupHashMatched": true,
+    "directoryArchive": {
+      "testProjects": [
+        {
+          "projectId": "d3c33643-3657-497c-ae0c-e50bbcb33c77",
+          "archived": true
+        },
+        {
+          "projectId": "6f4cebb6-4fae-4888-9926-e92bef223a94",
+          "archived": true
+        },
+        {
+          "projectId": "7ea841aa-3b10-40b9-b081-e3c19d290f00",
+          "archived": true
+        },
+        {
+          "projectId": "9c605153-52c3-4d21-8f5d-7f99806130f0",
+          "archived": true
+        },
+        {
+          "projectId": "28594223-6a54-4128-b307-e5c6e4e7f889",
+          "archived": true
+        }
+      ],
+      "authAndConnectionFileHashesUnchanged": true,
+      "archivedForRecovery": true,
+      "permanentPurge": false
+    },
+    "rehearsalJournalReplayPassed": true,
+    "allPriorMainRowsPreserved": true
+  },
+  "wholeProjectComplete": false,
+  "installation": {
+    "installed": true,
+    "version": "0.4.1",
+    "sourceCommit": "9df881b2a3607ce1999087cef55bbbf7fca33369",
+    "mainSha256": "8e3755c2a2ac14b12fac17f7588564ab4ca4729bd654dc14c54e95ae1d614312",
+    "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "projects": 1,
+    "tasks": 48,
+    "dataUnchangedDuringInstallation": true,
+    "forceQuitUsed": false,
+    "additionalQaAppsInstalled": 0,
+    "appAlreadyClosed": true,
+    "signatureVerified": true,
+    "appLaunched": true,
+    "startupReady": true,
+    "mainProjectPreserved": true,
+    "tasksPreserved": 48,
+    "projectsVisible": 1,
+    "manualAcceptancePreserved": true,
+    "nativeFileReportVerified": true,
+    "latestTaskLinkVerified": true
+  },
+  "release": {
+    "url": "https://github.com/Autumnpoem/seqivo/releases/tag/v0.4.1-r1",
+    "tag": "v0.4.1-r1",
+    "sourceTagCommit": "0a387573340b6b1e94dac8c393a9500f75b70eaf",
+    "privateRepository": true,
+    "published": true,
+    "assets": [
+      {
+        "name": "Seqivo-0.4.1-macos-arm64.zip",
+        "size": 174208530,
+        "digest": "sha256:e73c145c61880c2d0d1635282c03bcbf08d0be7afc70063734d58275c98b8292"
+      },
+      {
+        "name": "Seqivo-New-Computer-Guide-zh-CN.docx",
+        "size": 209734,
+        "digest": "sha256:8718fc510a7a64795d7f8d969aa6d06ef94262c0f111804701df7578d195b4a4"
+      },
+      {
+        "name": "SEQIVO_PROGRESS.md",
+        "size": 4851,
+        "digest": "sha256:04babd8b99da6593cf4bee525a7e292e6dd4690f419353ce712f12497a3000e7"
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "size": 283,
+        "digest": "sha256:8b88a21344277613c781ea3b56e585a46e1a2feeb2d8cbcc6fc67a2b16b6110e"
+      }
+    ]
+  },
+  "boardUpdate": {
+    "taskId": "ad9a9005-8da5-4cee-9a2f-32c202f51778",
+    "nativeFileReportVerified": true,
+    "receivedAt": "2026-10-31T09:49:19.400Z",
+    "testVerification": "passed",
+    "criteriaCovered": 4,
+    "humanAcceptance": "stale",
+    "other47TaskRowsUnchanged": true,
+    "projects": 1,
+    "tasks": 48,
+    "releaseUrl": "https://github.com/Autumnpoem/seqivo/releases/tag/v0.4.1-r1"
+  }
+}

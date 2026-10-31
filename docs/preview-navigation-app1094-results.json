@@ -1,0 +1,140 @@
+{
+  "workId": "M6NAV1094-D",
+  "sourceCommit": "4672c738c670d1da02163b1ae9d87b6e501c1cee",
+  "baseRevision": "533433921bb6eb609eb0c72630d3f3d916cb15c9",
+  "status": {
+    "sourceImplementation": "committed",
+    "focusedTests": "passed for reported scopes",
+    "build1094": "built, signed and promoted as the only candidate; independent content checks passed",
+    "installed": false,
+    "webDeployment": true,
+    "installedMac": "UI1066 unchanged",
+    "macCandidate": "BUILD1094 signed candidate; not installed or launched",
+    "ordinaryAndroidVersionCodeAtLastRecordedInstall": 14,
+    "androidApkRebuilt": false,
+    "nativeApplicationTested": false,
+    "realProvider": false,
+    "m6Overall": "partial",
+    "hubProjectionDeployed": true,
+    "remoteSourceReturnNeedsUpdatedProjectComputer": true
+  },
+  "behavior": {
+    "closeBeforeOpenTask": "View modified task is available only after successful preview closure; on close failure the preview remains open",
+    "confirmedRecordNavigation": "explicitly opens the linked task after refreshing and confirming it belongs to the original project",
+    "sourceReturn": "returns to the source task's latest preview; the original retest history/status remains unchanged",
+    "lineageProjection": {
+      "exposed": [
+        "projectId",
+        "previewId",
+        "sourceTaskId",
+        "sourceContentVersion"
+      ],
+      "privateFieldsOmitted": [
+        "feedbackId",
+        "summary",
+        "pagePath",
+        "reporter",
+        "artifactDigest"
+      ]
+    },
+    "lostConfirmationRecovery": "reads the original feedback ID, opens the original confirmed task, and clears only that feedback's stale unknown notice; other unknown feedback remains locked",
+    "autoAccept": false
+  },
+  "verification": {
+    "rootBrowserFixture": {
+      "fixture": true,
+      "realCore": false,
+      "native": false,
+      "baselineMissingNavigation": "observed in fixture",
+      "postFixPassingFlows": 5,
+      "flows": [
+        "close failure retains preview",
+        "confirmed record opens task",
+        "return to source opens latest preview and preserves prior retest state",
+        "lost confirmation is verified by original ID and opens original task",
+        "successful recovery clears the stale unknown notice"
+      ],
+      "latestRecoverySnapshot": {
+        "unknownNoticeCount": 0,
+        "confirmedCount": 1,
+        "record": ".runtime/app1094/recovery-final-ax.txt"
+      },
+      "mutations": {
+        "drafts": 3,
+        "confirmations": 3,
+        "createdTasks": 3,
+        "createdTasksNotAutoAccepted": true
+      },
+      "record": ".runtime/app1094/browser-result.json",
+      "sha256": "55c4c2d35ac367e5ee27403cc11bd2ec1f4cee12ea5da0f78741d99038a371f3"
+    },
+    "focusedTests": {
+      "result": "10 passed, 0 failed, 0 skipped",
+      "scope": "lineage plus recovery; 3 cases overlap with other reported groups",
+      "log": ".runtime/app1094/tests.log",
+      "sha256": "df00de4a4f0e23c0d4d142170d3059b81103a7ee7c86318bf62640caa28dd8d6"
+    },
+    "additionalReportedSuites": {
+      "backendLineage": "3/3",
+      "hub": "17/17",
+      "uniqueCasesAcrossReportedGroups": 27,
+      "overlap": "The combined 10/10 includes 3 cases counted in the backend/Hub groups; do not sum the raw counts."
+    },
+    "typecheck": {
+      "result": "passed",
+      "exitCode": 0,
+      "retainedLog": false
+    },
+    "vite": {
+      "result": "passed with existing lucide-react module directive warnings",
+      "exitCode": 0,
+      "log": ".runtime/app1094/build.log",
+      "sha256": "e8295e155986b325bc3c49415408e94371870b8cc739ff707f4a66fa455ea40a"
+    },
+    "previewUiE2e": "tests/e2e/preview-ui.mjs was adapted for copy only; the external browser suite was not rerun.",
+    "independentReview": {
+      "sourceDiffResult": "no P1/P2 blocker found",
+      "record": ".runtime/app1094/review.md",
+      "sha256": "a78efb110e0de08d6f40779174d35cd1048c6e3d21c84d9e31ac0467ec05eb19",
+      "note": "The review text predates the latest unknown-notice browser snapshot; keep the latest CUA evidence distinct from that review statement."
+    }
+  },
+  "sourceSha256": {
+    "src/App.tsx": "46c55898116d97eef00ea559cab4248cef9065071c3d0a7e5da3adcfa780ffb2",
+    "src/PreviewPanel.tsx": "7bff3db36fec05a67fbf3398b6695c87f72973e9d613bc4e02e34112f31b4932",
+    "src/types.ts": "63a06ef6669837cc84ca0d391d5b8dff17b92981048ecc83d3e91cf3f28e36dd",
+    "server/hub/projection.mjs": "cb00dad4f8fa567f7d1428ebb1fd14c80c9543a7a1bb02906dc3e159aeb9f468",
+    "tests/preview-feedback-lineage.test.mjs": "65e17d35c5d9d2aa25947b0932680f2d43747862744f5ca43899e3a764771597",
+    "tests/e2e/preview-ui.mjs": "d24f0c26195e4d67650a4fe31f145dbbb98fe0e5e3d2c633b866b330b9c8b28b"
+  },
+  "limitations": [
+    "The browser evidence uses a synthetic fixture, not a real production preview, Core, or provider.",
+    "No native UI, installed package, or deployment was tested; BUILD1094 remains preparation-only.",
+    "The complete external preview-ui browser suite was not rerun after its copy changes."
+  ],
+  "delivery": {
+    "webCommit": "4672c738c670d1da02163b1ae9d87b6e501c1cee",
+    "hubProjectionCommit": "4672c738c670d1da02163b1ae9d87b6e501c1cee",
+    "manifestSha256": "da2216324cdab4120951525abdf382024ac1b91322118f603822cf2a4c7e0921",
+    "manifestFilesVerified": 193,
+    "httpsAssetsVerified": 14,
+    "hubRestartedOnce": true,
+    "commandsAndRecoveryUnchanged": true,
+    "configurationUnchanged": true,
+    "firewallActive": true,
+    "unauthenticatedStateStatus": 401,
+    "record": ".runtime/delivery1094/postcheck.json",
+    "recordSha256": "034d91f9527b6c5ad1511560af42c8c2f03c3db3ba574769c503a8e2daebb086",
+    "macDetails": "docs/client-build1094-results.json",
+    "installed": false,
+    "nativeTested": false
+  },
+  "board": {
+    "task": "P2-02 · 预览意见转为修改任务",
+    "status": "running",
+    "verification": "partial",
+    "revision": 3,
+    "manualAcceptanceUnchanged": true,
+    "otherTasksUnchanged": 66
+  }
+}

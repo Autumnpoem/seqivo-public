@@ -1,0 +1,46 @@
+{
+  "name": "seqivo",
+  "version": "0.4.1",
+  "private": true,
+  "description": "序程 Seqivo：跨 AI 的任务与交付验证看板",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "postinstall": "node scripts/prepare-native-dependencies.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "start": "pnpm build && pnpm desktop:prepare && tauri dev",
+    "server": "node server/index.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "desktop:pack": "pnpm build && pnpm desktop:prepare && tauri build --bundles app",
+    "desktop:dist": "pnpm build && pnpm desktop:prepare && tauri build",
+    "android:build": "node scripts/build-android.mjs",
+    "android:smoke": "node scripts/android-emulator-smoke.mjs",
+    "mcp": "node server/mcp.mjs",
+    "desktop:prepare": "node scripts/prepare-desktop.mjs",
+    "test:e2e": "node tests/e2e/board.mjs",
+    "dev:desktop": "pnpm desktop:prepare && tauri dev"
+  },
+  "dependencies": {
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/xterm": "^6.0.0",
+    "lucide-react": "1.48.0",
+    "node-pty": "^1.1.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "ssh2": "^1.17.0",
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@tauri-apps/cli": "2.11.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "typescript": "7.0.2",
+    "vite": "8.3.1"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "license": "PolyForm-Noncommercial-1.0.0"
+}

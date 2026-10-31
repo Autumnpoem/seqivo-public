@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "revision": "95b263cf6d2f609b9170a9026b1a01b041208b03",
+  "result": "isolated real-Core/Hub browser flow passed; this is not Android-native acceptance or full-project completion",
+  "scope": {
+    "flow": "owner login → choose one of two authorized projects → create ordinary task → inspect receipt and task list",
+    "runtime": "current local dist served by an isolated loopback Hub and a fresh Core with an empty plugin directory",
+    "providerAndExecution": "no AI provider configured; task remains planned; zero active Core or Hub execution leases",
+    "data": "disposable account, projects and Core/Hub databases only"
+  },
+  "verified": [
+    {
+      "behavior": "Task creation uses the selected project scope. The pre-fix project-scope mismatch was reproduced, then the fixed flow created the task only in the intended project.",
+      "evidence": [
+        ".runtime/android1101/scope-before.png",
+        ".runtime/android1101/scope-fixed.png",
+        ".runtime/android1101/final-status.json"
+      ]
+    },
+    {
+      "behavior": "When the controlled fixture expires a pending command, closing and reopening the form restores its draft; the UI warns that the result is unresolved. Explicit retry creates one task, confirms a planned receipt and clears the draft.",
+      "evidence": [
+        ".runtime/android1101/pending-close-draft-lost.png",
+        ".runtime/android1101/pending-close-draft-restored.png",
+        ".runtime/android1101/created-final.png",
+        ".runtime/android1101/final-status.json"
+      ]
+    },
+    {
+      "behavior": "Final isolated fixture counts: one task in the intended project, none in the other; one completed create_task command and three expired injected commands; one completed Core receipt; zero active Core/Hub leases.",
+      "evidence": [
+        ".runtime/android1101/final-status.json",
+        ".runtime/android1101/create-success-status.json",
+        ".runtime/android1101/instance-*/close-result.json"
+      ],
+      "closeReceipts": "Both instance close receipts report Core and Hub closed successfully."
+    }
+  ],
+  "checks": [
+    {
+      "name": "Hub/Core task-creation tests",
+      "result": "5/5 passed; adjacent regression set 48/48 passed, as reported in the implementation execution transcript. Independent backend review reran the packaged-Node focused set: 5/5 passed.",
+      "source": "tests/remote-task-create.test.mjs:32-52,69-88",
+      "rawLog": null,
+      "note": "The execution results were reported in the tool transcript; no raw backend test log file was retained."
+    },
+    {
+      "name": "Task-form draft tests",
+      "result": "11/11 passed, 0 failed.",
+      "source": "tests/task-form-drafts.test.mjs:26-100",
+      "log": ".runtime/android1101/task-form-drafts-final.log",
+      "sha256": "200eaa6dd5c3554c58f20f9239d4a101665d3c8e9fb9d80c5998134e901a33ef"
+    },
+    {
+      "name": "TypeScript check",
+      "result": "exit 0; log is empty.",
+      "log": ".runtime/android1101/typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "Vite production build",
+      "result": "exit 0. Build emitted the dependency's module-level use-client directive warning.",
+      "log": ".runtime/android1101/vite-build.log",
+      "sha256": "cb438eade9631a6437f3499e14d1116ec948f02c11e384c37fee2b4c16089103"
+    }
+  ],
+  "browserEvidence": [
+    {
+      "file": ".runtime/android1101/scope-before.png",
+      "sha256": "dd03a085e2bf65ea82eaa45a27c2137f5ab8b99f5718aea1fd60c8f09ebd418c"
+    },
+    {
+      "file": ".runtime/android1101/scope-fixed.png",
+      "sha256": "cb9834b86d2ebbe0b27b051a598b28457196680000a8ab1c14230b185f2fc509"
+    },
+    {
+      "file": ".runtime/android1101/pending-close-draft-lost.png",
+      "sha256": "79758fe2969c597dc4c6b0aaade1b27502565dde7ac37a52b4383f7f60174056"
+    },
+    {
+      "file": ".runtime/android1101/pending-close-draft-restored.png",
+      "sha256": "5b1f4f51a3a8e256da6d3db9e24ff5f3b1bb7f88d4bef343a56b997cab19a5c6"
+    },
+    {
+      "file": ".runtime/android1101/created-final.png",
+      "sha256": "71a9a8749c31bc01ad06f970ba4dcd57893c7ee6bb7d4143e72c50268368958a"
+    },
+    {
+      "file": ".runtime/android1101/created-task.png",
+      "sha256": "693e430edcf1eb180d2d5f376029179af3ed5df1f4b58f5462d99c12ae722159"
+    }
+  ],
+  "implementationReferences": [
+    {
+      "file": "src/App.tsx",
+      "lines": "499-518, 520-555, 606-630",
+      "sha256": "1a78bd811b3a2aa69004dad752a921df0b52af57ba44ab72a9543a2e8364fa8a"
+    },
+    {
+      "file": "src/task-form-drafts.ts",
+      "lines": "58-100",
+      "sha256": "bbd40887535aeb5846599ca8f31cdd9c11097cb93d7beb1e0fb7f448fbf016db"
+    },
+    {
+      "file": "tests/remote-task-create.test.mjs",
+      "lines": "32-52, 69-88",
+      "sha256": "60e4db121b95e85cfd01911faa6cd15a82341ab823b74ba2ad0d12532d24e9ea"
+    },
+    {
+      "file": "tests/task-form-drafts.test.mjs",
+      "lines": "26-100",
+      "sha256": "5c0089d92feabf86213b7fbff00762135aa739132d932cfade6c566cee6ff2f5"
+    }
+  ],
+  "limits": [
+    "The pending/expiry cases used controlled fixture fault injection; they do not demonstrate a naturally occurring network failure.",
+    "This was a browser flow against a real isolated Core and Hub, not a native Android device or mobile-viewport acceptance run.",
+    "The browser acceptance did not run an actual AI provider, SSH, a physical phone, a native Android UI, or a Mac shutdown/exit flow. Deployment and candidate packaging are recorded separately below."
+  ],
+  "delivery": {
+    "sourceCommit": "95b263cf6d2f609b9170a9026b1a01b041208b03",
+    "codeCompleteForSlice": true,
+    "targetedTestsPassed": true,
+    "mac": {
+      "candidate": "BUILD1101",
+      "signatureVerified": true,
+      "packagedRuntimeFilesVerified": [
+        "server/core.mjs",
+        "server/hub/projection.mjs",
+        "server/hub/store.mjs",
+        "server/remote-client.mjs",
+        "server/store.mjs"
+      ],
+      "runtimeSyntaxChecksPassed": 5,
+      "sourceFilesByteMatched": 9,
+      "distFiles": 14,
+      "resourceFiles": 4228,
+      "mainSha256": "6eb1f95b5f851cc1c070b7072e6ba465302d51ed42306b60f14722e082acaa8e",
+      "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+      "resourceManifestSha256": "a07a2cd2d0702747d11d742eb08028bf9dcc9ba1a5b5c1f1f248c58439e45d75",
+      "installed": false,
+      "installedBuild": "BUILD1097",
+      "launched": false,
+      "reason": "Native desktop tool still reports Mac locked. No installation or force quit attempted."
+    },
+    "hub": {
+      "backendBase": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+      "commandsAndRecoveryUnchanged": true,
+      "configUnchanged": true,
+      "continueLeasesUnchanged": true,
+      "currentDistFilesVerified": 14,
+      "firewallActive": true,
+      "hubProjectionCommit": "95b263cf6d2f609b9170a9026b1a01b041208b03",
+      "hubRestarted": true,
+      "hubStoreCommit": "95b263cf6d2f609b9170a9026b1a01b041208b03",
+      "manifestFileCount": 210,
+      "manifestSha256": "69a74cdbcc0a538035665f4a20fa7057efae94ba5fe6a02be939a1bcd44a2246",
+      "nginxConfigValid": true,
+      "nodeImageUnchanged": true,
+      "publicTlsVerified": true,
+      "quickCheck": "ok",
+      "sourceCommit": "95b263cf6d2f609b9170a9026b1a01b041208b03",
+      "unauthenticatedStateStatus": 401,
+      "webCommit": "95b263cf6d2f609b9170a9026b1a01b041208b03",
+      "workId": "DELIVERY1101"
+    },
+    "android": {
+      "nativeHostUnchanged": true,
+      "newApkRequiredForSharedWebChange": false,
+      "ordinaryVersionCodeAtLastRecordedInstall": 14,
+      "latestTaskCreationNativeTested": false,
+      "latestTaskCreationPhysicalPhoneTested": false
+    },
+    "availability": "Hub/Web is deployed. Ordinary remote task creation requires the project computer to run the new Core and advertise taskCreation; the canonical Mac Core has not yet been upgraded."
+  },
+  "board": {
+    "revision": 65,
+    "status": "running",
+    "verification": "partial",
+    "priorChecksPreserved": 21,
+    "completedBrowserCheckAdded": true,
+    "pendingNativeAndPhysicalCheckAdded": true,
+    "manualAcceptanceAndEvidencePreserved": true,
+    "unrelatedTasksUnchanged": true
+  },
+  "deliveryEvidence": {
+    ".runtime/build1101/result.json": "ed145a8a5611e3a28fd26aec1f8dd56b3af76fbf7252ae51640f26f92187c10e",
+    ".runtime/build1101/package-check.json": "8c2a50d48d48b567f998606be51072fc29f56e106fa578407f06e7315a0d6545",
+    ".runtime/build1101/inputs.json": "dda83f6716580e14574cbcc5974145b8583a0230a0c8482c6a1b2f71268611ff",
+    ".runtime/delivery1101/deploy-stdout.json": "915e19b710b41e0a27f5cb5bad3b42b5a734a967bbe997c440d3226d7f9fa91b",
+    ".runtime/delivery1101/postcheck.json": "5f8a62e417bcf01a04dffe752cb0ace911a09a5d7543c5beb6e567821f66ce62",
+    ".runtime/android1101/board-result.json": "fc5a518ed077f2d2cb3d080f99d2dff3e00e3c787705bfdfb1866e01ba18f501"
+  }
+}

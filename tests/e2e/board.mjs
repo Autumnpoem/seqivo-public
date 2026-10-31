@@ -1,0 +1,41 @@
+import {chromium,webkit} from '@playwright/test';
+import assert from 'node:assert/strict';
+import {mkdtemp,rm,mkdir,writeFile} from 'node:fs/promises';
+import {tmpdir} from 'node:os';
+import {join,resolve} from 'node:path';
+import {createCore} from '../../server/core.mjs';
+import {startHttp} from '../../server/http.mjs';
+const dir=await mkdtemp(join(tmpdir(),'tuijin-e2e-'));
+const engine=process.env.TEST_BROWSER==='webkit'?'webkit':'chromium';
+const qa=process.env.QA_DIR||'design/qa/current';
+await mkdir(qa,{recursive:true});
+const core=await createCore({dataDir:join(dir,'data'),pluginDir:resolve('plugins')});
+const web=await startHttp({core,dataDir:join(dir,'data'),distDir:resolve('dist'),port:0});
+const browser=await (engine==='webkit'?webkit:chromium).launch({headless:true,...(engine==='chromium'&&process.env.CHROME_PATH?{executablePath:process.env.CHROME_PATH}:{})});
+const page=await browser.newPage({viewport:{width:1380,height:920}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.addInitScript(token=>sessionStorage.setItem('taskboard-token',token),web.tokens.owner);
+const url=`http://127.0.0.1:${web.port}`;
+try{
+ await page.goto(url);await page.getByRole('navigation',{name:'主要导航'}).getByRole('button',{name:'任务清单'}).click();await page.getByRole('heading',{name:'从一个真实项目开始'}).waitFor();
+ await page.getByRole('button',{name:'新建项目',exact:true}).click();
+ await page.getByLabel('项目名称',{exact:true}).fill('真实数据验收 · 测试项目');await page.getByLabel('项目目标',{exact:true}).fill('验证从任务汇报、交付偏差到重新验收的完整闭环。');await page.getByLabel('项目目录',{exact:true}).fill(dir);await page.getByRole('button',{name:'保存',exact:true}).click();
+ await page.getByRole('button',{name:'新建任务',exact:true}).click();
+ await page.getByLabel('任务名称',{exact:true}).fill('接入订单接口');await page.getByLabel('期望结果',{exact:true}).fill('创建订单后能够从真实系统读取。');await page.getByLabel('当前进展',{exact:true}).fill('接口和数据持久化已实现，等待场景验收。');await page.getByLabel('使用例子',{exact:true}).fill('新建一笔订单，重新打开页面仍可查到。');await page.getByLabel('实现思路',{exact:true}).fill('前端调用服务端接口，订单写入数据库并返回查询结果。');await page.getByLabel('验收标准（每行一条）',{exact:true}).fill('真实 API 可新建并读取订单\n重新打开页面数据仍保留');await page.getByRole('button',{name:'保存',exact:true}).click();
+ await page.getByRole('button',{name:'提交结果',exact:true}).click();await page.getByRole('button',{name:'人工验收',exact:true}).click();await page.getByLabel('验收说明',{exact:true}).fill('没有证据不应该通过');await page.getByRole('button',{name:'提交结论',exact:true}).click();await page.getByRole('dialog').getByRole('alert').filter({hasText:'缺少当前版本'}).waitFor();await page.getByRole('button',{name:'取消',exact:true}).click();
+ await page.getByRole('button',{name:'添加证据',exact:true}).click();await page.getByLabel('证据说明',{exact:true}).fill('第一版只有离线页面');await page.getByLabel('证据引用',{exact:true}).fill('reports/offline-demo.txt');await page.getByRole('button',{name:'保存',exact:true}).click();
+ await page.getByRole('button',{name:'人工验收',exact:true}).click();await page.getByRole('button',{name:'未通过',exact:true}).click();await page.getByLabel('验收说明',{exact:true}).fill('尚未接入真实系统，需补充接口集成');await page.getByRole('button',{name:'提交结论',exact:true}).click();
+ await page.getByRole('navigation',{name:'主要导航'}).getByText('更多功能').click();await page.getByRole('navigation',{name:'主要导航'}).getByRole('button',{name:'交付偏差'}).click();await page.getByRole('heading',{name:'尚未接入真实系统，需补充接口集成'}).waitFor();await page.getByRole('button',{name:'标记已解决'}).click();
+ await page.getByRole('navigation',{name:'主要导航'}).getByRole('button',{name:'任务清单'}).click();await page.getByRole('button',{name:'提交结果',exact:true}).click();
+ await page.getByRole('button',{name:'添加证据',exact:true}).click();await page.getByLabel('证据说明',{exact:true}).fill('真实接口场景已验证');await page.getByLabel('证据引用',{exact:true}).fill('reports/live-api-run.json');await page.getByRole('button',{name:'保存',exact:true}).click();await page.getByRole('button',{name:'人工验收',exact:true}).click();await page.getByLabel('验收说明',{exact:true}).fill('本测试验证验收状态流转；不是生产订单接口的验收。');await page.getByRole('button',{name:'提交结论',exact:true}).click();
+ await page.waitForFunction(()=>document.querySelector('[role=progressbar]')?.getAttribute('aria-valuenow')==='1');assert.equal(await page.getByRole('progressbar').getAttribute('aria-valuenow'),'1');
+ await page.getByRole('button',{name:'浅色',exact:true}).click();await page.screenshot({path:join(qa,'light.png'),fullPage:true,animations:'disabled'});await page.getByRole('button',{name:'深色',exact:true}).click();await page.waitForFunction(()=>document.documentElement.dataset.theme==='dark');await page.screenshot({path:join(qa,'dark.png'),fullPage:true,animations:'disabled'});await page.reload();await page.waitForFunction(()=>document.documentElement.dataset.theme==='dark');await page.getByRole('navigation',{name:'主要导航'}).getByRole('button',{name:'任务清单'}).click();
+ const stored=core.store.tasks()[0];assert.equal(stored.acceptance,'passed');
+ await mkdir(join(dir,'.taskboard','inbox'),{recursive:true});await writeFile(join(dir,'.taskboard','inbox','update.json'),JSON.stringify({eventId:'e2e-live-file',type:'task.update',taskId:stored.id,expectedRevision:stored.revision,payload:{summary:'文件汇报：接口版本更新，等待重新验收'}}));await page.getByRole('button').filter({hasText:'文件汇报：接口版本更新'}).waitFor();assert.equal(await page.getByRole('progressbar').getAttribute('aria-valuenow'),'0');
+ await page.setViewportSize({width:390,height:844});await page.getByRole('button').filter({hasText:'文件汇报：接口版本更新'}).click();await page.screenshot({path:join(qa,'mobile.png'),fullPage:true,animations:'disabled'});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);await page.getByRole('button',{name:'返回清单'}).click();
+ for(const width of [320,736,1024]){await page.setViewportSize({width,height:844});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,`overflow at ${width}`);}
+ await page.setViewportSize({width:1380,height:920});
+ for(let i=0;i<30;i++)core.store.createTask({projectId:core.store.projects()[0].id,title:`长列表测试 ${i}`,goal:'验证侧栏和详情始终可见',criteria:['列表独立滚动']});
+ await page.getByRole('button').filter({hasText:'长列表测试 29'}).click();const header=await page.getByRole('heading',{name:'真实数据验收 · 测试项目',exact:true}).boundingBox();assert.ok(header.y>=0&&header.y<200);const detail=await page.getByRole('heading',{name:'长列表测试 29',exact:true}).boundingBox();assert.ok(detail.y>0&&detail.y<920);await page.screenshot({path:join(qa,'large-project.png'),animations:'disabled'});
+ await page.goto(url+'/?floating=1');await page.setViewportSize({width:370,height:520});await page.getByRole('button',{name:'收起悬浮窗'}).click();await page.getByRole('button',{name:'展开悬浮窗'}).click();await page.screenshot({path:join(qa,'floating.png'),fullPage:true,animations:'disabled'});assert.deepEqual(errors,[]);
+ await writeFile(join(qa,'e2e-result.json'),JSON.stringify({result:'passed',engine,checks:['UI project/task creation','missing evidence rejection','discrepancy/rework/new evidence','human acceptance','live file update via SSE invalidates acceptance','theme persists after reload','320/390/736/1024 responsive','floating collapse/expand','no pageerror'],actualAI:false,physicalDevice:false},null,2));console.log(`PASS [${engine}]: real API/SQLite UI acceptance, file refresh, themes and responsive views; no AI turns sent`);
+}finally{await browser.close();await web.close();await core.close();await rm(dir,{recursive:true,force:true});}

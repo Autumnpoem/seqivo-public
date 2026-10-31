@@ -1,0 +1,715 @@
+{
+  "date": "2026-10-18",
+  "baseCommit": "cd3ac44cdcfa0a52ab2c6d648ce170bce3bd326b",
+  "scope": "Desktop quit lifecycle source and isolated local tests",
+  "sourceSha256": {
+    "src-tauri/src/main.rs": "e5fc5a77b97d23416cb43103e4cdd5df94ba79685609dcd23223ce786fff54cc",
+    "src-tauri/src/shutdown.rs": "fca65a0a05c225e891cb8837c5708f6fcf1eab31750316b98c732238d1e92b42",
+    "server/sidecar.mjs": "fbdc93f022b840d325fa1bcbfbdfa63ef390d2a9cf93a00e1fcac236081790bb",
+    "tests/sidecar-shutdown.test.mjs": "503c2d180b83a0975068189f2997359b8545619dafeffdb87f1ea0ed4511fd2c"
+  },
+  "changes": [
+    "Begin asynchronous close in ExitRequested before shell-plugin Exit cleanup",
+    "One original shutdown request; no pipe writes or synchronous waits on the UI thread",
+    "Require flushed successful sidecar receipt and actual code-0 termination",
+    "75-second diagnostic notice does not terminate the service or release safety locks",
+    "Unknown outcomes remain protected; UI-only exit requires observed process termination and an explicit user choice",
+    "Late results refresh the notice without an endless dialog loop"
+  ],
+  "checks": {
+    "rustStateAndNoticeTests": {
+      "passed": 11,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "cargoCheckLocked": {
+      "exitCode": 0
+    },
+    "sidecarSubprocessTests": {
+      "passed": 3,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "existingShutdownRegression": {
+      "passed": 4,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "packagedNodeAndSidecar": {
+      "passed": 3,
+      "failed": 0,
+      "exitCode": 0,
+      "fakePlugin": true,
+      "nativeWindow": false
+    }
+  },
+  "independentReview": {
+    "blockingFindingsRemaining": 0,
+    "foundAndFixed": "Notice failed to refresh when exit eligibility changed while an older waiting dialog was open",
+    "testsRunByReviewer": false
+  },
+  "evidenceLimits": [
+    "Historical initial run was blocked by Mac lock. Superseded for native menu and Command-Q by MAC234/MAC238, and parented failure notices by MAC236; tray, Dock/system termination and formal release acceptance remain unverified.",
+    "Historical intermittent 25-second timeout is not fully reproduced or attributed",
+    "No real AI, managed job or tmux was exercised by the new sidecar fixture tests",
+    "Windows and Ubuntu native behavior is unverified",
+    "No production application replacement or cloud CI",
+    "MAC238 native checks did not run with an active AI task or terminal process"
+  ],
+  "package": {
+    "baseCommit": "cd3ac44cdcfa0a52ab2c6d648ce170bce3bd326b",
+    "sourceOverlaySha256": {
+      "src-tauri/src/main.rs": "e5fc5a77b97d23416cb43103e4cdd5df94ba79685609dcd23223ce786fff54cc",
+      "src-tauri/src/shutdown.rs": "fca65a0a05c225e891cb8837c5708f6fcf1eab31750316b98c732238d1e92b42",
+      "server/sidecar.mjs": "fbdc93f022b840d325fa1bcbfbdfa63ef390d2a9cf93a00e1fcac236081790bb"
+    },
+    "platform": "macOS arm64",
+    "buildStepsPassed": 7,
+    "signature": "local-ad-hoc",
+    "notarized": false,
+    "archive": "seqivo-macos-arm64-shutdown196-local.zip",
+    "archiveSha256": "a0bc8904409522b232a462d5a641cb428100a0a5c3d93e4e3ec2cb974cacbf39",
+    "productionAppReplaced": false,
+    "actualArchiveBundleIdentifier": "com.autumnpoem.tuijin",
+    "isolationValidated": false,
+    "inspectionNote": "DESKTOP210 found the old archive contains the ordinary application identity; do not use it as an isolated QA archive. The separately built QA196.app has the intended QA identifier."
+  },
+  "DESKTOP210": {
+    "date": "2026-10-18",
+    "status": "package-corrected-native-checks-pending",
+    "archive": "seqivo-qa196-shutdown-isolated.zip",
+    "archiveSha256": "8190261aa4a2a16eb0c14ceae38b47416e669cea9a3b292c86ff88f58543f36a",
+    "bundleIdentifier": "com.autumnpoem.seqivo.qa196",
+    "baseCommit": "cd3ac44cdcfa0a52ab2c6d648ce170bce3bd326b",
+    "sourceOverlaySha256": {
+      "src-tauri/src/main.rs": "e5fc5a77b97d23416cb43103e4cdd5df94ba79685609dcd23223ce786fff54cc",
+      "src-tauri/src/shutdown.rs": "fca65a0a05c225e891cb8837c5708f6fcf1eab31750316b98c732238d1e92b42",
+      "server/sidecar.mjs": "fbdc93f022b840d325fa1bcbfbdfa63ef390d2a9cf93a00e1fcac236081790bb"
+    },
+    "checks": {
+      "singleApplicationAfterExtract": true,
+      "strictSignatureVerificationExit": 0,
+      "binaryAndNodeAndSidecarHashesMatchOriginalQaApp": true,
+      "shutdownSourceHashesStillMatch": true
+    },
+    "nativeQuitChecks": {
+      "menu": "not-run",
+      "commandQ": "not-run",
+      "tray": "not-run",
+      "reason": "Desktop automation reported the Mac locked before the test application was started"
+    },
+    "applicationStarted": false,
+    "productionAppReplaced": false,
+    "scopeNote": "Repackaged existing QA196.app without resigning. This is a prior-base isolated shutdown test package, not the latest complete product. Old archive and evidence were preserved."
+  },
+  "MAC232": {
+    "date": "2026-10-18",
+    "status": "native-menu-quit-failed",
+    "package": "DESKTOP210 isolated QA196 prior-base package",
+    "productionAppReplaced": false,
+    "currentShutdownSourceHashesMatchPackageRecord": true,
+    "startup": {
+      "ui": "service startup timeout",
+      "sidecarStillAlive": true,
+      "qaDataDirectoryEmpty": true,
+      "oneSecondStackSample": "Node ESM package scope/config synchronous open; pathname not established",
+      "simpleNodeAndDependencyFreeImport": "passed"
+    },
+    "nativeMenuQuit": {
+      "attempts": 1,
+      "uiToolResult": "timeoutReached",
+      "mainProcessObservedGone": true,
+      "sameBirthSidecarObservedAliveReparentedToInit": true,
+      "shutdownReceiptObserved": false,
+      "result": "failed; no complete sidecar shutdown proof"
+    },
+    "sourceFinding": "Tao macOS predefined Quit reaches applicationWillTerminate -> LoopDestroyed -> Tauri Exit, bypassing ExitRequested; Rust-spawned sidecar is not registered in shell plugin JS children cleanup map.",
+    "pending": [
+      "custom application Quit and Command-Q plus tray routed through shared shutdown state machine",
+      "independent review and native menu/keyboard/tray validation of fixed package",
+      "identify exact startup file/module stall",
+      "Dock/system termination coverage separately"
+    ],
+    "userAcceptanceChanged": false,
+    "separateCleanup": {
+      "exactOrphanIdentityRechecked": true,
+      "signal": "SIGTERM once",
+      "sidecarObservedGone": true,
+      "countsAsProductQuitPass": false
+    }
+  },
+  "MAC233": {
+    "date": "2026-10-18",
+    "status": "candidate-reviewed-native-validation-pending",
+    "sourceSha256": {
+      "src-tauri/src/main.rs": "f684c8bbf2fcddd06a0713b423ad68c10503182af5226776018c3bbfc18fc91a"
+    },
+    "changes": [
+      "replace native macOS predefined Quit with custom application menu item and Command-Q through request_shutdown",
+      "route tray Quit through same state machine",
+      "install application menu before spawning sidecar"
+    ],
+    "checks": {
+      "cargoCheckLockedExit": 0,
+      "shutdownStateTests": {
+        "passed": 11,
+        "failed": 0,
+        "exitCode": 0
+      },
+      "independentReview": "candidate diff, local Tauri/Tao/muda code and raw logs reviewed; no established P1/P2 in changed menu path"
+    },
+    "nativeMenuKeyboardTray": "not-yet-tested",
+    "remaining": [
+      "native menu, Command-Q and tray shutdown with receipt and observed sidecar exit",
+      "Dock/system termination path",
+      "existing startup error after sidecar spawn if main window or tray construction fails",
+      "exact startup package-scope file open stall"
+    ],
+    "scopeNote": "Candidate compilation and state tests are not native product acceptance. Production app unchanged."
+  },
+  "MAC234": {
+    "date": "2026-10-18",
+    "status": "native-menu-and-command-q-passed-in-user-applications",
+    "sourceBase": "cd3ac44cdcfa0a52ab2c6d648ce170bce3bd326b",
+    "sourceOverlaySha256": {
+      "src-tauri/src/main.rs": "f684c8bbf2fcddd06a0713b423ad68c10503182af5226776018c3bbfc18fc91a",
+      "src-tauri/src/shutdown.rs": "fca65a0a05c225e891cb8837c5708f6fcf1eab31750316b98c732238d1e92b42",
+      "server/sidecar.mjs": "fbdc93f022b840d325fa1bcbfbdfa63ef390d2a9cf93a00e1fcac236081790bb"
+    },
+    "packageSha256": "195f3b00483cd8f3b431fa62fa1a4cc2b670f1771ba4f9e509de589daeb4f15f",
+    "locationComparison": {
+      "sameSignedMainNodeSidecar": true,
+      "documentsQaDirectory": "startup blocked in Node ESM package-scope synchronous open, exact path unknown",
+      "userApplications": "ready with unchanged signature and source",
+      "permissionsChanged": false,
+      "underlyingFilesystemOrPrivacyCause": "not established"
+    },
+    "checks": {
+      "nativeMenu": "passed; closed stage, all bundled processes gone, test project preserved",
+      "commandQ": "passed; same checks and project visible after reopening",
+      "coreCloseMs": [
+        34,
+        54
+      ],
+      "tray": "not exercised; system tray surface not exposed to automation",
+      "dockSystemTermination": "not exercised"
+    },
+    "failurePath": {
+      "nativeCustomMenuEntersControlledStopping": true,
+      "after75Seconds": "window retained, title indicates unknown result",
+      "unparentedWarning": "main process sample confirms CFUserNotification waiting for response; visibility not established from app window",
+      "followUp": "MAC236 attaches warning to main window"
+    },
+    "cleanupScope": "Documents startup-blocked empty-data QA processes separately identity-checked and terminated; not counted as product shutdown pass",
+    "limits": [
+      "narrow frozen shutdown candidate, not latest complete product",
+      "no active AI shutdown or original historical 25-second failure acceptance",
+      "normal local installation directory result does not prove exact cause of Documents-path stall"
+    ],
+    "productionAppReplaced": false,
+    "bundledNode": "24.19.0"
+  },
+  "MAC236": {
+    "date": "2026-10-18",
+    "status": "parented-native-failure-notice-and-explicit-exit-passed",
+    "sourceBase": "cd3ac44cdcfa0a52ab2c6d648ce170bce3bd326b",
+    "sourceOverlaySha256": {
+      "src-tauri/src/main.rs": "be54e10ca156a0a7d0291cb7b1c1a02a38ff9c0147865955467937ce778eb4d7",
+      "src-tauri/src/shutdown.rs": "fca65a0a05c225e891cb8837c5708f6fcf1eab31750316b98c732238d1e92b42",
+      "server/sidecar.mjs": "fbdc93f022b840d325fa1bcbfbdfa63ef390d2a9cf93a00e1fcac236081790bb"
+    },
+    "bundleIdentifier": "com.autumnpoem.seqivo.qa236",
+    "mainExecutableSha256": "593b92ba184c6421234cd09218b861a465d31c8d85e66d33e5dc6ae668d316e4",
+    "packageScope": "isolated cd3ac44 narrow source with only parented dialog main overlay, not latest complete app",
+    "buildAndSign": {
+      "cargoCheckExit": 0,
+      "shutdownStateTests": {
+        "passed": 11,
+        "exitCode": 0
+      },
+      "bundleBuildExit": 0,
+      "deepStrictCodesignExit": 0,
+      "notarized": false
+    },
+    "independentReview": {
+      "result": "no established P1/P2 in changed parent path",
+      "source": "local Tauri dialog and rfd implementation inspected",
+      "correction": "initial reviewer startup-race concern withdrawn after checking requested=false always remains Running"
+    },
+    "nativeFaultScenario": {
+      "fixture": "isolated ready service, no projects or AI jobs",
+      "injection": "SIGSTOP sidecar, native Command-Q, original 75-second deadline, then SIGKILL only this service",
+      "deadlineSheet": "visible attached alert; continue-waiting button; no exit choice while process remained live",
+      "afterSidecarTermination": "old notice dismissed, new sheet clearly states service not cleanly closed and offers keep-window or exit-interface",
+      "explicitExitChoice": "clicked exit-interface; original main and service/worker processes observed gone",
+      "notCountedAsCleanBackendShutdown": true
+    },
+    "followUp": {
+      "newInstanceObserved": "after click plus accessibility query, a new main/sidecar birth was observed; relaunch trigger not established",
+      "newInstanceNormalCommandQ": "passed; all bundled processes gone; closing stages fulfilled in 33ms",
+      "faultWatchdog": "ended without auto-resume once original service was gone"
+    },
+    "remaining": [
+      "tray menu and Dock/system termination",
+      "final complete product package and actual AI shutdown",
+      "exact cause of Documents-path startup stall",
+      "existing setup failure after child spawn if window/tray construction fails"
+    ],
+    "productionAppReplaced": false,
+    "userAcceptanceChanged": false,
+    "bundledNode": "24.14.1",
+    "runtimeScopeNote": "QA236 prepared resources with the build-host Node 24.14.1, whereas QA234 reused Node 24.19.0. These are separately identified packages, not a single-variable binary comparison. The same-byte installation-location comparison applies only within QA234.",
+    "nodeExecutableSha256": "bf0cfc5a835491ca374a4ef3232f9d52ceb033a9deeb1392b5d00ec3f3318d53",
+    "lateSuccessfulCompletion": {
+      "nativeCommandQOnce": true,
+      "sidecarSuspendedUntilOriginal75SecondWarning": true,
+      "parentedWarningObservedOpen": true,
+      "originalSidecarResumedOnce": true,
+      "warningNotDismissedToForceExit": true,
+      "allBundleProcessesGone": true,
+      "coreCloseMs": 35,
+      "closedStageObserved": true,
+      "watchdogFallbackUsed": false,
+      "result": "passed"
+    }
+  },
+  "MAC238": {
+    "date": "2026-10-18",
+    "status": "full-tracked-head-qa-archive-basic-native-flows-passed",
+    "sourceCommit": "6d1e0444b7954e6f230bae45e8b8dcc0a2a7ed58",
+    "sourceMainSha256": "be54e10ca156a0a7d0291cb7b1c1a02a38ff9c0147865955467937ce778eb4d7",
+    "mainExecutableSha256": "65b26c869f8e4a20332825063d050b339737c21b1b90c201961bf7ea04ce0b0b",
+    "bundledNode": "24.14.1",
+    "signature": "local ad-hoc hardened runtime",
+    "notarized": false,
+    "installationScope": "whole archive built from tracked HEAD 6d1e044 in the normal Applications directory; basic native flows tested, not final distribution acceptance",
+    "nativeChecks": {
+      "projectAndTaskCreation": true,
+      "scrollAndLightDarkTheme": true,
+      "nativeMenuQuit": true,
+      "commandQQuit": true,
+      "reopenAndFindPersistedProjectTask": true,
+      "allOriginalProcessesAbsentAfterQuit": true,
+      "activeAiOrTerminalProcess": false
+    },
+    "dockPath": "not verified; an automation lookup timed out and that instance was subsequently closed with Command-Q",
+    "productionAppReplaced": false,
+    "userAcceptanceChanged": false,
+    "limits": [
+      "no active AI shutdown, managed terminal shutdown or tray/Dock/system termination acceptance",
+      "Documents-directory startup stall remains unexplained",
+      "not notarized and not a final release package",
+      "QA234 bundled Node 24.19.0 and QA236/QA238 bundled Node 24.14.1 are separate scoped packages, not a single-variable comparison"
+    ]
+  },
+  "MAC249": {
+    "date": "2026-10-18",
+    "status": "full-QA238-package-normal-quiet-shell-CmdQ-and-reopen-original-managed-session-limited-pass",
+    "sourceCommit": "6d1e0444b7954e6f230bae45e8b8dcc0a2a7ed58",
+    "package": "existing full QA238 package; no rebuild or production replacement",
+    "firstRun": {
+      "coreHttpStageFulfilled": true,
+      "guiMarkerWriteAndCapture": true,
+      "commandQ": true,
+      "noWindowsAvailableAfterQuit": true,
+      "afterQuitHelperExitCode": 0,
+      "originalAppProcessIdentitiesGone": 6,
+      "originalTmuxServerSessionPaneAndManagedIdentitiesRetained": true,
+      "firstMarkerUnchanged": true
+    },
+    "reopen": {
+      "samePackageReopened": true,
+      "formalOwnerRecoveredOriginalSession": true,
+      "connectedAndInputEnabled": true,
+      "secondDistinctGuiMarkerExact": true,
+      "firstMarkerUnchanged": true,
+      "independentInputAckObserved": false
+    },
+    "limits": [
+      "one quiet-shell printf marker scenario only; no AI, busy foreground command, or large output was tested",
+      "Rust stdout receipt is not independent write acknowledgement evidence",
+      "UI252 focused browser red/green regression passed; this did not update or validate an installed native/Android package",
+      "a later quit attempt after disconnect was not accepted because the automation tool could not operate while the Mac was locked",
+      "tray/Dock/system termination and formal release acceptance remain unverified"
+    ],
+    "productionAppReplaced": false,
+    "userAcceptanceChanged": false
+  },
+  "UI252": {
+    "date": "2026-10-18",
+    "status": "focused-browser-regression-and-broader-terminal-ui-suite-passed; current-IMPL257-Core-PTY-and-updated-native-packages-not-validated",
+    "sourceFile": "src/TerminalPanel.tsx",
+    "testFile": "tests/e2e/terminal-owner-recovery-notice.mjs",
+    "testScope": "Real TerminalPanel and TerminalClient; terminal HTTP/WebSocket transport mocked",
+    "scenario": "After owner recovery selects the surviving original managed session, a late ready event for the dead default does not clear the progress notice; the matching original-session ready event clears it and enables input without changing saved default.",
+    "focusedRegression": {
+      "preFixPanelExpectedFailureObserved": true,
+      "fixedPanelPass": true,
+      "evidence": "Focused red/green logs recorded locally"
+    },
+    "broaderLegacySuite": {
+      "testFile": "tests/e2e/terminal-ui.mjs",
+      "sha256": "9d81fa33102da498216ff0660244d4f03da61f560a8d0a98db7dbc552e81a8e4",
+      "exitCode": 0,
+      "frontend": "cec768a private green-web overlay",
+      "backend": "frozen UI252 Core/HTTP source from c72d9f2",
+      "terminalHttpWebSocket": "mocked",
+      "evidence": "/tmp/seqivo-test261-terminal-ui.log",
+      "scopeNote": "Pass applies to this frontend plus frozen Core/HTTP and mocked terminal HTTP/WS; it does not establish current IMPL257 Core/PTY, Android, or updated native package acceptance."
+    },
+    "nativeOrAndroidPackageUpdated": false,
+    "limits": [
+      "no live Core/Hub terminal transport validation in this focused test",
+      "no new native Mac or Android package installed or exercised",
+      "not full product acceptance"
+    ]
+  },
+  "ACTIVE547": {
+    "date": "2026-10-21",
+    "status": "active-ai-exit-unknown-after-explicit-ui-only-exit",
+    "sourceCommit": "2e9a0a76f9c890ef01ca5dd92a6e7065aa3b871c",
+    "package": "QA540 same-source local candidate",
+    "scenario": {
+      "oneActualAiTurnStarted": true,
+      "foregroundSleepSeconds": 180,
+      "startedMarkerPresentBeforeQuit": true
+    },
+    "close": {
+      "pluginShutdown": "rejected",
+      "pluginRejectedAfterMs": 612,
+      "coreShutdown": "rejected",
+      "coreRejectedAfterMs": 614,
+      "originalJobPhase": "retired",
+      "hostCommandStatus": "running",
+      "finalTurnEvent": false,
+      "stopProof": null,
+      "executorStatus": "retirement_unknown",
+      "retirementReason": "original_final_turn_proof_unavailable",
+      "appUiExitCode": 0,
+      "uiExitCodeMeansNormalCoreClose": false,
+      "hubGracefullyClosedAfterUiExit": true,
+      "operatorSelectedUiOnlyExitAfterWarning": true
+    },
+    "readOnlyFollowup": {
+      "originalChildIdentitiesGone": true,
+      "afterDeadlineMs": 139000,
+      "lateFileCreated": false,
+      "startedMarkerUnchanged": true,
+      "originalAPP541FileUnchanged": true,
+      "unrelatedProductionBirthPreserved": true,
+      "controllerBirthPreserved": true,
+      "recordsRetained": true
+    },
+    "fix": "IMPL550-in-progress-not-validated",
+    "limits": [
+      "does-not-establish-normal-Core-close-or-verified-AI-stop",
+      "APP541-idle-close-and-reopen-pass-is-a-separate-limited-scenario",
+      "active-terminal-and-other-exit-paths-remain-unverified"
+    ],
+    "userAcceptanceChanged": false
+  },
+  "QA545Cleanup": {
+    "date": "2026-10-21",
+    "status": "limited-qa-app-cleanup-verified",
+    "old18TrashQaLaunchServicesRegistrationsAbsent": true,
+    "qa540AppStopped": true,
+    "qa540MovedToTrash": true,
+    "qa540SourceAbsent": true,
+    "qa540Unregistered": true,
+    "unregisterExitCode": 0,
+    "trashEmptied": false,
+    "productionAppModified": false,
+    "productionDataAndUnknownRecordsPreserved": true,
+    "sourceAndBuildCachesPreserved": true,
+    "archiveRemovalClaimed": false,
+    "productionVersion": "0.4.0",
+    "latestFinalProductionVersionVerified": false,
+    "limits": [
+      "Confirms the listed QA cleanup only; does not claim all QA archives or build artifacts were deleted."
+    ]
+  },
+  "IMPL550": {
+    "date": "2026-10-21",
+    "status": "bounded-backend-tests-and-review-passed-app-validation-pending",
+    "sourceRef": "candidate based on 96ecec7; exact tested file SHA-256 values below",
+    "coreShutdownUnknown": {
+      "testsPassed": 4,
+      "skipped": 0,
+      "exitCode": 0,
+      "sourceSha256": {
+        "plugins/codex-autocontinue/host.mjs": "f9e2feea5ef1b8d2d119a2cdd3cf394cede0454ef2a07b411f5be67aee957126",
+        "plugins/codex-autocontinue/job-transport.mjs": "2d9c751583b064317950361f62d0512e1820257751218f021983f7d8cf2ca378",
+        "server/core.mjs": "56a879ad63891bbdc0a06a3559b4db1ab6c054d7566efa4908531eedd840bc1c",
+        "server/execution-leases.mjs": "47834a73e5af933fdf012b0c394d987ffa043abae707bbf10bb8dc998815f9df",
+        "server/plugin-process.mjs": "e7f1f8edba0371d6738fe05a9941a2ddaf6a307eaebc9b5720bc8aa17d6d7a01",
+        "tests/executor-shutdown-unknown-core.test.mjs": "033d97360155547ae52b3274486f9e607117cefd62b85c257bf5d292463c51d5"
+      },
+      "evidence": "tests/executor-shutdown-unknown-core.test.mjs"
+    },
+    "regression": {
+      "testsPassed": 16,
+      "skipped": 0,
+      "exitCode": 0,
+      "sourceSha256": {
+        "tests/execution-startup-leases.test.mjs": "ca7ec4f08b28f39683746723dec642fbf5d38581af6e51bc1b343dcf0cc60430",
+        "tests/executor-startup-rpc.test.mjs": "929fb64b18853d15b5975b7f9b6d452ef059d8b74ccd77344bf0dcd3c8e10aed",
+        "tests/executor-startup-retirement.test.mjs": "32c05562e37c74c5991b2fe9f2d4f639ace65d53c81e99fbf9a3e2f6731c5ee3"
+      },
+      "evidenceFiles": [
+        "tests/execution-startup-leases.test.mjs",
+        "tests/executor-startup-rpc.test.mjs",
+        "tests/executor-startup-retirement.test.mjs"
+      ]
+    },
+    "verifiedScope": [
+      "Persist shutdown intent before acting on process-stop evidence; provider outcome may remain unknown without releasing the active-unknown fence or replaying work.",
+      "Same-boot owner recovery and simulated old-boot recovery across a final-write gap.",
+      "Reject missing or wrong-Core receipts.",
+      "Late-event handling covered by a pure predicate test, not an asynchronous timing test."
+    ],
+    "rootCauseCorrection": "Initial Core red case exposed a production wiring omission for history functions; r2/r4 green runs cover the correction. Other r3 fixture-journal and earlier mock failures were fixture issues, not product failures.",
+    "independentReview": "limited-pass-no-new-confirmed-P1-or-P2",
+    "notCovered": [
+      "actual operating-system restart; old-boot scenario is simulated",
+      "new packaged native UI and real active-AI exit flow",
+      "broader M1, manual acceptance, or product completion",
+      "asynchronous event timing"
+    ],
+    "userAcceptanceChanged": false
+  },
+  "closeDiagnostics20261030": {
+    "id": "CLOSE1027",
+    "baseCommit": "e4cf3e94d850924bd3519ee359b8c929c2191932",
+    "sourceSha256": {
+      "server/plugin-loader.mjs": "17f08fd71c4831bb76462d0f22ffbb2a32db63eba79329d564a144f431390e8f",
+      "server/core.mjs": "3ab2cf29b7b7648dc0f32d6b86bc55317bb408a0cefb5960ac2427476afced73",
+      "server/sidecar.mjs": "069d3d6a1a7c5a6cb607eef98e269fe20b0c7232e135f56220b7af62f49e2ff7",
+      "server/shutdown-diagnostics.mjs": "405ca382592140e8fa586d4c667e5eef74154afe6c90969195e384f0f894c509",
+      "tests/plugin-shutdown-diagnostics.test.mjs": "ffd476b6f35968a7f546fa0f09d61da9eadb0b4ef50bc3683950054e7278c74a"
+    },
+    "scope": "Private shutdown diagnosis and callback failure containment; not a repair attribution for WORKTREE1005",
+    "checks": {
+      "rootStrictUnhandledRejectionRun": {
+        "tests": 13,
+        "passed": 13,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0,
+        "suites": [
+          "plugin-shutdown-diagnostics",
+          "sidecar-shutdown"
+        ],
+        "evidence": ".runtime/close1027/root-repaired-tests.log"
+      }
+    },
+    "behavior": [
+      "Plugin close failures retain a validated plugin ID and whitelisted error category; raw messages, stack traces, paths and stderr are not added to this record",
+      "64 plugin records plus one truncation marker per process; failed plugins recorded first, fixed Core/plugin-group outcomes retained",
+      "Each sidecar process uses one new run ID for its shutdown records",
+      "Rejected diagnostic callbacks cannot change close outcomes; real failures still reject and retain the unsafe Core lock"
+    ],
+    "independentReview": {
+      "status": "passed within bounded diagnostic scope",
+      "initialFindings": 2,
+      "remainingP1P2": 0,
+      "fixed": [
+        "Per-process plugin record cap with explicit truncation marker",
+        "Contain asynchronous Core diagnostic callback rejection"
+      ],
+      "evidence": ".runtime/review1027.md"
+    },
+    "installed": false,
+    "deployed": false,
+    "notCovered": [
+      "Original WORKTREE1005 failing plugin and exact cause remain unproven; original lock and merge fence preserved",
+      "Native Mac menu, Dock and busy UI quit on this source version",
+      "Full product or human acceptance"
+    ],
+    "unifiedCandidate": {
+      "id": "BUILD1031",
+      "sourceCommit": "6125a5c6cdb1b25e0911673ae40759ff65dd2a6b",
+      "diagnosticTestsPassed": 9,
+      "sidecarTestsPassed": 4,
+      "totalTargetedTestsPassed": 59,
+      "installed": false,
+      "deployed": false,
+      "reference": "terminal-plugin-test-results.json#unifiedCandidate20261030"
+    }
+  },
+  "candidateBuild1038_20261030": {
+    "id": "BUILD1038",
+    "sourceCommit": "a74d53b45ff0e1b6ec739bcda5aadf4b3a395ef6",
+    "status": "built_signed_tested_not_installed_not_deployed",
+    "scope": "Fresh Mac/Web/Hub candidate and packaged shutdown/plugin lifecycle checks; targeted suites only",
+    "checks": {
+      "targeted": {
+        "passed": 174,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "packagedSidecarShutdown": {
+        "tests": 4,
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "packagedSidecarStartupBlocked": {
+        "tests": 1,
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "pluginShutdownDiagnostics": {
+        "tests": 9,
+        "passed": 9,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "pluginWorktreeStartupRecovery": {
+        "tests": 7,
+        "passed": 7,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "pluginHost": {
+        "tests": 108,
+        "passed": 108,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      }
+    },
+    "package": {
+      "built": true,
+      "signed": "local-ad-hoc",
+      "strictSignatureVerifiedAfterTests": true,
+      "resourcesUnchanged": true,
+      "notarized": false,
+      "installed": false,
+      "launched": false,
+      "hubArchiveVerified": true,
+      "deployed": false,
+      "macMainSha256": "4571807bc79c90762c398b1d6877986980f10c845ce826b1133483e5b01ae626",
+      "hubArchiveSha256": "76d7b6870d36b70fb14f495d0c800bce781bd3de5e50d915ee8b3704251af7ed",
+      "androidVersionCode": 13,
+      "androidRebuilt": false
+    },
+    "limits": [
+      "No installed Mac GUI, native Android, physical phone, real task pause/return, or full user-flow acceptance is established by these targeted candidate checks.",
+      "The candidate remains uninstalled and the Hub archive remains undeployed; Android v13 was reused unchanged.",
+      "Historical unknown shutdown and worktree outcomes remain unchanged."
+    ],
+    "evidence": [
+      ".runtime/build1038/result.json",
+      ".runtime/build1038/packaged-sidecar-shutdown.log",
+      ".runtime/build1038/plugin-shutdown-diagnostics.test.log",
+      ".runtime/build1038/plugin-worktree-startup-recovery.test.log",
+      ".runtime/build1038/plugin-host.test.log"
+    ]
+  },
+  "worktree1040ShutdownAudit20261030": {
+    "id": "WORKTREE1040-FINAL-AUDIT",
+    "sourceCommit": "a74d53b45ff0e1b6ec739bcda5aadf4b3a395ef6",
+    "status": "passed_within_fresh_fixture_stage_close_scope",
+    "scope": "Independent audit of the BUILD1038 disposable serialized backend workflow; not a reproduction or diagnosis of WORKTREE1005.",
+    "checks": {
+      "auditPassed": true,
+      "auditChecksPassed": 36,
+      "auditChecksFailed": 0,
+      "fixtureFences": 0,
+      "stageCount": 11,
+      "allStageShutdownsFulfilled": true,
+      "pluginCloseFulfilledPerStage": 4,
+      "postCloseNonPsProcesses": 0
+    },
+    "limitations": [
+      "Fresh fixture only; the independent audit performed no Core/provider operation.",
+      "No separate post-close in-memory lease query was possible; lease state was checked empty during run/finalize.",
+      "This does not alter or resolve WORKTREE1005/1029/324 historical records, unknowns, locks or fences."
+    ],
+    "evidence": ".runtime/worktree1040/final-result.json"
+  },
+  "installedMac1046_1047ReadOnly20261030": {
+    "status": "ui_automation_blocked_normal_close_not_attempted",
+    "installedSourceCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "candidate": "BUILD1038",
+    "authenticatedTaskStateReadable": true,
+    "nativeUiAutomation": "repeated timeoutReached; cause not established",
+    "unknownTurnCount": 2,
+    "originalRetiredJobRecordsAndMatchingStoppedReceiptsObserved": true,
+    "normalCloseStaticPathSupportsPreservingUnknownResults": true,
+    "liveCloseVerificationPerformed": false,
+    "recordsCleared": false,
+    "installed": false,
+    "deployed": false,
+    "scope": "Read-only lifecycle/identity review, not an original turn success or successful quit. Fresh same-instance close and installation gates remain required.",
+    "evidence": [
+      ".runtime/mac1046/report.json",
+      ".runtime/mac1047/report.json"
+    ]
+  },
+  "installedMac1055_1060_20261030": {
+    "id": "INSTALL1043 / MAC1055 / NATIVE1057",
+    "sourceCommit": "a74d53b45ff0e1b6ec739bcda5aadf4b3a395ef6",
+    "status": "installed_and_narrow_normal_quit_reopen_passed",
+    "installation": {
+      "installed": true,
+      "launchedByInstaller": false,
+      "dataUnchanged": true,
+      "normalShutdownProven": true,
+      "signing": "local-ad-hoc",
+      "notarized": false,
+      "hubDeployed": false,
+      "evidence": ".runtime/install1043/installed-result.json"
+    },
+    "shutdown": {
+      "ordinaryCommandQ": true,
+      "startupClosed": true,
+      "allStagesFulfilled": 14,
+      "rejectedStages": 0,
+      "pluginCloseCount": 4,
+      "elapsedMs": 53,
+      "canonicalProcessesAbsent": true,
+      "coreLockAbsent": true,
+      "sqliteIntegrityPassed": [
+        "board.sqlite",
+        "preview-records/records.sqlite"
+      ],
+      "evidence": ".runtime/native1057/normal-quit-result.json"
+    },
+    "reopenReadback": {
+      "startupReady": true,
+      "newProcessBirth": true,
+      "candidateMainMatches": true,
+      "projects": 6,
+      "tasks": 66,
+      "projectsTasksAndManualAcceptanceEqualColdBackup": true,
+      "originalUnknownLeasesPreserved": 2,
+      "originalUnknownCommandsPreserved": 2,
+      "coldAndLiveSqliteIntegrityPassed": true,
+      "evidence": [
+        ".runtime/native1057/result.json",
+        ".runtime/native1057/reopen-result.json"
+      ]
+    },
+    "predicateRepair": {
+      "classification": "INSTALL1043 seal-preparation ordering false negative; shutdown stage records were all fulfilled",
+      "purePredicateTestsPassed": 5,
+      "purePredicateTestsTotal": 5,
+      "evidence": [
+        ".runtime/mac1055/report.json",
+        ".runtime/install1043/predicate-test.py"
+      ]
+    },
+    "limits": [
+      "Limited Mac launch/normal-quit/same-data reopen only; not full product acceptance.",
+      "Two prior command outcomes remain unknown and preserved; no replay or manual acceptance change.",
+      "Hub is not yet deployed to BUILD1038; Android v13 emulator evidence is separate."
+    ]
+  }
+}

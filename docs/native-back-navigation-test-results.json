@@ -1,0 +1,25 @@
+{
+  "workId": "APP1080",
+  "sourceCommit": "4a5f9ded617e956cca861634e3d4979a2cae93da",
+  "codeComplete": true,
+  "browserContractPassed": true,
+  "scope": "Local disposable browser event contract only; document bubbling event consumed by active panels before App navigation",
+  "fixedReproductions": [
+    "Hidden preview no longer consumes Back outside task preview",
+    "SSH modal closes without also navigating away from host list"
+  ],
+  "typescriptAndVite": "passed",
+  "independentReview": "no_unresolved_P1_P2",
+  "androidApkRebuilt": true,
+  "nativeBackExecuted": false,
+  "realSshOrManagedHandoffTested": false,
+  "macInstalled": false,
+  "evidence": [
+    ".runtime/app1080/back-review.md",
+    ".runtime/app1080/ssh-back-final-3-after.txt",
+    ".runtime/app1080/hidden-preview-after.txt"
+  ],
+  "androidVersionCode": 14,
+  "installedOnIsolatedEmulator": true,
+  "buildDetails": "docs/client-build1082-results.json"
+}

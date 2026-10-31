@@ -1,0 +1,13 @@
+✔ prepareHub creates a private, exact, self-contained ESM Hub stage (58.093292ms)
+✔ prepareHub refuses overlapping output and leaves every input untouched (2.028958ms)
+✔ CLI accepts explicit source, dist and modules paths without network or service startup (110.050167ms)
+✔ source fixture and key paths fail closed instead of entering a release (2.734333ms)
+✔ dotenv variants and hidden runtime paths cannot enter the deployable tree (6.602667ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 216.147875

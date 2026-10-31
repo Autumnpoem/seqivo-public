@@ -1,0 +1,123 @@
+{
+  "workId": "APP1090",
+  "sourceCommit": "42fb93e75b8d04973697bb3785190a8bf6f48e9b",
+  "status": {
+    "implementation": "complete",
+    "webDeployment": "deployed",
+    "androidPackage": "not_built",
+    "nativeAndroidRetest": "not_run",
+    "realProvider": "not_used"
+  },
+  "behavior": {
+    "draftScope": "account + project + task; new conversations use a distinct empty-task slot",
+    "autoSend": false,
+    "confirmedSend": "clears only the exact submitted draft snapshot and matching scope",
+    "accountExit": "clears only keys belonging to the exact exiting account",
+    "storageRemovalFailure": "keeps the current text visible when persisted draft removal fails"
+  },
+  "verification": {
+    "conversationDraftUnitTests": {
+      "result": "8 passed, 0 failed, 0 skipped",
+      "log": ".runtime/app1090/tests-final.log",
+      "sha256": "838e7896a9fdace468690248c58710fce00e79525fc0de137f48747105f663b2"
+    },
+    "affectedRegressionTests": {
+      "result": "9 passed, 0 failed, 0 skipped",
+      "log": ".runtime/app1090/affected-regression.log",
+      "sha256": "f286446000483b7540c04f52b5806e2361194aef2ac3586a04a83ddbcc040dff"
+    },
+    "typescript": {
+      "result": "passed",
+      "exitCode": 0,
+      "retainedLog": false
+    },
+    "vite": {
+      "result": "passed",
+      "exitCode": 0,
+      "log": ".runtime/app1090/build-final.log",
+      "sha256": "b8d83bb149c59c6b545a80c8bb24e89952bf7f8fd761314aa1a0dab7775c874b"
+    },
+    "independentReview": {
+      "result": "no unresolved P1/P2",
+      "scope": "conversation draft source, component, app clear-on-exit path, and tests",
+      "record": ".runtime/app1090/review.md",
+      "sha256": "7cef62b00f4dd47a56fea750dbc196fda29c4ba443b1d67f0b27bc363e680cf4"
+    },
+    "browserFixture": {
+      "result": "5 browser checks passed per parent-run CUA record",
+      "fixture": true,
+      "realData": false,
+      "mutationRequests": 0,
+      "providerCalls": 0,
+      "record": ".runtime/app1090/browser-checks.json",
+      "recordSha256": "016d56484c814095524436c7857f18b6f6c89a84c2722e42ea4fd34bc5c903f8",
+      "observed": [
+        "Task A draft did not appear in task B; returning to A restored it",
+        "Task detail/evidence roundtrip restored the same draft",
+        "Full page reload restored the draft",
+        "New-conversation title and message remained isolated by project",
+        "Final build reload preserved the original task draft"
+      ],
+      "beforeScreenshot": {
+        "path": ".runtime/app1090/draft-cross-task-before.png",
+        "sha256": "29d40fe533447ddf10e20b205588747320bb4af6c140b0344d6811ea942889f7"
+      },
+      "restoredScreenshot": {
+        "path": ".runtime/app1090/draft-restored-after.png",
+        "sha256": "616d6d0e7593a6cb3b0a2d018389963a1e1100f7ddcf345dbe54cf4c7fbe6e90"
+      },
+      "fixtureMetadataSha256": "b0904fba456d504d66ec62cb698510066b451402400cd829b887cbd001b2783d"
+    }
+  },
+  "regressionHistory": {
+    "storageRemovalFailureBaseline": {
+      "result": "7 passed, 1 failed",
+      "meaning": "reproduced draft disappearance when local storage removal rejected",
+      "log": ".runtime/app1090/clear-baseline.log",
+      "sha256": "c04450be73904288577ad667b48ec7d0125ab7ab0232c89173044bef157249c3"
+    }
+  },
+  "sourceSha256": {
+    "src/conversation-drafts.ts": "63686d70624053ff086b8f02587184e01abc8bb7a256140c1a1feeffcd60a994",
+    "src/lib/use-conversation-draft.ts": "98d3c477e446774245c6b6e6dd654bc339bfad0af6322d092619b95f6869f243",
+    "src/ConversationPanel.tsx": "db53bc40ece879eed03e5fd31908cfc51fc5282f9f42547485d0da1674dc2cdc",
+    "src/App.tsx": "ad2260b5f370a85660214c399452be945346db58c352b04ef646d6a70302cf68",
+    "tests/conversation-drafts.test.mjs": "ed31137245ae852aa9ee0ecbd518e9035ca204264276848fd43bd6196a8cbf4e"
+  },
+  "limitations": [
+    "No Android APK/package was built or installed for this change.",
+    "No native Android or physical-device verification was performed.",
+    "Browser checks used a disposable fixture, not real account data or a real provider.",
+    "Mac remains on its earlier installed version. This change has not been added to a native Mac candidate or natively verified in Android.",
+    "If the conversation component unmounts before a delayed receipt is confirmed, its draft remains for manual review; it is never automatically sent again."
+  ],
+  "deployment": {
+    "workId": "APP1090",
+    "webCommit": "42fb93e75b8d04973697bb3785190a8bf6f48e9b",
+    "backendBase": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "hubProjectionCommit": "d5c8a43a6819e923acfd784758c23a1287c9b9ec",
+    "staticWebDeployed": true,
+    "publicTlsVerified": true,
+    "currentDistFilesVerified": 14,
+    "unauthenticatedStateStatus": 401,
+    "firewallActive": true,
+    "configUnchanged": true,
+    "serviceProcessUnchanged": true,
+    "hubRestarted": false,
+    "commandsAndRecoveryUnchanged": true,
+    "quickCheck": "ok",
+    "manifestFileCount": 178,
+    "manifestSha256": "9f8ca02ae6c3ad46d8f4ffbe2475c02c4ffb7deed99d4f2c53d0b213d5ff324d",
+    "recordSha256": "ba3d75fed3616f6b0c89fe2b3907b5c3a459c6ae9d5e8489bf8dd72fba3f5b95"
+  },
+  "boardUpdate": {
+    "id": "91f0f8a7-c59f-4538-840b-1eceb486f35b",
+    "revision": 57,
+    "status": "running",
+    "verification": "partial",
+    "otherTasksUnchanged": 66,
+    "manualAcceptanceUnchanged": true,
+    "nativeAppRetested": false,
+    "recordSha256": "c0c492ab57a88485323f9d268ae8d74bed27efb529e125e0664b1520335f5cdf"
+  }
+}

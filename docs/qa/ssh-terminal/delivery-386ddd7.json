@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "sourceCommit": "386ddd7c1a812315b42a39d01a0d84bcff191a4e",
+  "status": "delivered_with_scope",
+  "build": {
+    "build615StepsExitCode": 0,
+    "typecheckExitCode": 0,
+    "webBuildExitCode": 0,
+    "macBuildAndStrictSigningExitCode": 0,
+    "distributionOnlyManifestComparison606To615": true,
+    "earlier144eRegressionSuiteRerun": false
+  },
+  "macInstallation": {
+    "install617": true,
+    "applicationSha256": "184b605bcaeb04d974831d94e4cc812072ea60836dfb13635124b623bb2a81f7",
+    "signature": "ad-hoc; not notarized",
+    "backupVerified": true,
+    "firstLaunchOriginalProjectLoaded": true,
+    "projectsAndTaskRowsUnchanged": true,
+    "normalCommandQ": "app exited; Core closed; no lock or process remained",
+    "sameDataReopen": "original project loaded and task rows remained identical"
+  },
+  "hubDeployment": {
+    "deploy616Reviewed": true,
+    "executionAndPostDeployChecksExitCode": 0,
+    "manifestFilesVerified": 142,
+    "databaseIntegrity": "passed",
+    "vaultAndDataPermissions": "preserved",
+    "firewall": "active",
+    "tlsValidationDisabled": false,
+    "anonymousHostStatus": 401,
+    "anonymousSshWebSocketStatus": 403,
+    "existingAccountSessionAndCommandIdentities": "preserved",
+    "oldAndNewVersionRestoreChecks": "passed"
+  },
+  "keyboard613": {
+    "isolatedBrowserFocusFlow": "passed",
+    "remoteTmuxCaptureBeforeAndAfterShortcut": "bytes unchanged; no Enter or terminal mutation observed",
+    "physicalAndroidRetest": "pending; this scoped marker flow does not verify keyboard-focus shortcut acceptance"
+  },
+  "androidV13": {
+    "apk": "ordinary debug v13; Hub source 386ddd7c",
+    "physicalDeviceFlow": "partial_with_scope",
+    "dedicatedSessionA": "clipboard-input marker write confirmed",
+    "dedicatedSessionB": "clipboard-input marker write and append confirmed; read-only line count remained one",
+    "homeBackgroundReturn": "user-assisted foreground return; original B session remained readable",
+    "operatingSystemOfflineOrLock": "not tested",
+    "defaultSessionAndManualReconnect": "not tested",
+    "fullAcceptance": "incomplete",
+    "additionalValidation": "requires the user to resume device access"
+  },
+  "limits": [
+    "The prior 144e059 15-test backend suite was not rerun; manifest comparison found distribution-only changes between the compared build snapshots.",
+    "The Mac application is ad-hoc signed and not notarized.",
+    "The Android physical-device evidence is limited to the documented A/B marker writes and user-assisted foreground return; it is not full device acceptance."
+  ],
+  "wholeProjectComplete": false
+}

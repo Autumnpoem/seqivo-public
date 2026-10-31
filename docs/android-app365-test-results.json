@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-18",
+  "recordId": "APP365-QA361",
+  "status": "passed_within_stated_scope",
+  "ordinaryApk": {
+    "package": "app.seqivo.android",
+    "variant": "debug",
+    "versionCode": 7,
+    "sha256": "280f4ba6a1a80e74e3b620ec0450ced82a09bba1cc2bdc8fd5842fec116cdaa9",
+    "defaultServer": false,
+    "bundledTestCa": false,
+    "releaseSigned": false
+  },
+  "testedService": {
+    "sourceCommit": "36b545c0e0e17e27e9c4bbda2f9b5212ad354017",
+    "webTreeSha256": "c9e45ec4034094e7ac9a39cf139fb9906e3b653defaed3f16648388ececc974c",
+    "nativeApkRebuiltFromThisSource": false,
+    "disposableLocalHttps": true
+  },
+  "environment": {
+    "device": "new isolated Android API 35 emulator",
+    "deviceSerial": "emulator-5594",
+    "tlsTrust": "test CA installed only in this emulator system trust",
+    "sslBypass": false,
+    "cookieInjection": false,
+    "realAiExecution": false,
+    "physicalPhone": false
+  },
+  "passed": {
+    "untrustedCertificateRejectedByOrdinaryApp": true,
+    "trustedDisposableHttpsLoaded": true,
+    "normalUiLoginHttp200": true,
+    "normalHomeAndProcessRestartRestoredLogin": true,
+    "taskProgressSavedAndRefreshed": true,
+    "taskEvidenceSavedAndRefreshed": true,
+    "inboxDecisionASavedAndRefreshed": true,
+    "submittedTaskWithoutCurrentEvidenceReviewRejected": true,
+    "missingEvidenceTaskRemainedUnverified": true,
+    "terminalDeviceRegisteredByNativePointer": true,
+    "terminalOwnerScopedGrantHttp200": true,
+    "terminalSessionsCreated": 2,
+    "terminalNativeInputMarkerFilesExactOnce": 4,
+    "terminalPaneOutputMarkerMatches": 4,
+    "terminalTemporarySwitchKeptDefaultA": true,
+    "terminalReconnectRestoredDefaultA": true,
+    "terminalExplicitDefaultBAndReconnect": true,
+    "terminalFinalSessionCount": 2,
+    "terminalFinalPaneCount": 2,
+    "terminalDisconnected": true
+  },
+  "failedDiagnostic": {
+    "legacyInstrumentationLogin": {
+      "runnerProcessExit": 1,
+      "instrumentationProcessExit": 0,
+      "step": "authorized-project",
+      "accountNotLoggedInDuringThisDiagnostic": true,
+      "laterNormalUiLoginPassed": true,
+      "causeUnconfirmed": true
+    }
+  },
+  "commands": {
+    "taskflowInstrumentationExit": 0,
+    "terminalEnrollmentInstrumentationExit": 0,
+    "terminalOwnerGrantScriptExit": 0,
+    "terminalPreflightScriptExit": 0,
+    "terminalFlowInstrumentationExit": 0,
+    "terminalHostVerificationScriptExit": 0,
+    "ordinaryUiMissingReviewScriptExit": 0
+  },
+  "limits": [
+    "One disposable emulator, not a physical phone or production deployment.",
+    "The ordinary v7 native APK was reused with pinned newer Core/Hub/Web; this is not a same-source APK rebuild.",
+    "Terminal pane identities were verified in the final host snapshot, not continuously for every UI step.",
+    "Cross-device handoff, long offline recovery, and real AI execution were not retested in this QA361 stack.",
+    "A separate legacy instrumentation login helper failed; normal UI login and persistence are independently evidenced."
+  ],
+  "evidence": {
+    "ordinaryTlsRejection": {
+      "path": ".runtime/android/prep361/ordinary-negative.json",
+      "sha256": "4c39cd792d725a1bd2c559f9b1df32d0e0610179b7f0f9fb7488d5a15a35d3cf"
+    },
+    "normalUiLogin": {
+      "path": ".runtime/android/prep361/login-ui-persist-r1.json",
+      "sha256": "b5f47c59afffa3bdc93d0f74898cdb04c56f89294f51b06c08d66ac9d668083e"
+    },
+    "processRestart": {
+      "path": ".runtime/android/prep361/after-process-restart.json",
+      "sha256": "23687838344ed06ebea5a5d69b3f2fb4aa9d6c9d126e28678455007d7c56b6cc"
+    },
+    "legacyLoginHelperFailure": {
+      "path": ".runtime/android/prep361/ui-runs/login-r3/summary.json",
+      "sha256": "df8af928fd350bb3d581a9fe071a20b57416bb787d7b76db5c0618096857d7b4"
+    },
+    "taskFlowRunner": {
+      "path": ".runtime/android/prep361/ui-runs/taskflow-r1/summary.json",
+      "sha256": "db111f102da433b456e9c739f4a49cc84dd7b2c3fc343b6037e68113285572e9"
+    },
+    "taskFlowChecks": {
+      "path": ".runtime/android/prep361/ui-runs/taskflow-r1/instrumentation-result.json",
+      "sha256": "2ae3130aaa925a36e794a3585e5c41341ccc6ad4bde98f0e9d4529dafbdbc5d7"
+    },
+    "taskBackend": {
+      "path": ".runtime/android/prep361/taskflow-host.json",
+      "sha256": "0de4316179fb38e736abb0186aa52d7d5f92bef8ec5d8a3813bde1bf00152f5f"
+    },
+    "missingReviewPrecondition": {
+      "path": ".runtime/android/prep361/missing-submitted.json",
+      "sha256": "720c3bfa16449d129f108f2afffead06ca64c0f3e1a84ed5ab5374e064617b77"
+    },
+    "missingReviewUi": {
+      "path": ".runtime/android/prep361/missing-review-ui-result.json",
+      "sha256": "6c0ba1dde99f2d57a7c1f77f32582a5fcf6541cf6b0edfe3c81ee2d5a2bac24c"
+    },
+    "missingReviewAfter": {
+      "path": ".runtime/android/prep361/missing-after.json",
+      "sha256": "82e38c519e0c9debdb6127480cc38d45cbad74e7d71fbd19ef08829af7f8b88f"
+    },
+    "terminalEnrollment": {
+      "path": ".runtime/android/prep361/ui-runs/terminal-enroll-r1/summary.json",
+      "sha256": "6a95893b00a2382dc9778cd38876c5ab72954c8af97a990d3faf329da2486cf2"
+    },
+    "terminalGrant": {
+      "path": ".runtime/android/prep361/terminal-grant-result.json",
+      "sha256": "fed75d63223111348d35d3d2143f5f2b37577ee0736d557bfb80e97e09d96e85"
+    },
+    "terminalPreflight": {
+      "path": ".runtime/android/prep361/terminal-preflight.json",
+      "sha256": "d5e2d154c193b46d0c2b02acc58976369b36f703947936cddc21c84d8aea34be"
+    },
+    "terminalFlowRunner": {
+      "path": ".runtime/android/prep361/ui-runs/terminal-flow-r1/summary.json",
+      "sha256": "28c53833166f3c5789eeb707af94bd4a5263a4f55ed2e744d0f6a3d729115be4"
+    },
+    "terminalFlowChecks": {
+      "path": ".runtime/android/prep361/ui-runs/terminal-flow-r1/instrumentation-result.json",
+      "sha256": "d56eb218a824e6700a5ae18870d41cab397f3220d2e5c6bd0df386ca14ccc413"
+    },
+    "terminalHost": {
+      "path": ".runtime/android/prep361/terminal-host-after.json",
+      "sha256": "57d40c5a58fb187c3d7776244dd7314810025fb30f622b1f3db12a1ef40dfae1"
+    }
+  }
+}

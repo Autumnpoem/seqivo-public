@@ -1,0 +1,79 @@
+{
+  "schema": "seqivo.deployment-status.v1",
+  "sourceCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+  "build": {
+    "id": "BUILD933",
+    "result": "passed",
+    "hubArchiveMemberCount": 145,
+    "hubManifestFileCount": 144,
+    "macSignature": "local-ad-hoc",
+    "notarized": false
+  },
+  "macInstall": {
+    "id": "INSTALL927",
+    "installed": true,
+    "sourceCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60"
+  },
+  "hubDeployment": {
+    "id": "DELIVERY973",
+    "result": "successful-at-execution",
+    "sourceCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "oldApplicationRetained": true,
+    "coldBackupRetained": true,
+    "publicHttpsAndAnonymousGuardsPassedAtExecution": true
+  },
+  "liveReadOnlyCheck": {
+    "id": "RELEASE980",
+    "checkedAtUtc": "2026-10-26T13:55:51.084791+00:00",
+    "result": "passed",
+    "sourceCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "manifestFilesVerified": 144,
+    "hubAndNginxActive": true,
+    "firewallActive": true,
+    "databaseIntegrity": "ok",
+    "commandCount": 24,
+    "unknownCommandCount": 2,
+    "dataMode": "0o700",
+    "vaultKeyMode": "0o600",
+    "nginxEnabledLinkPreserved": true
+  },
+  "limits": [
+    "Live check is a point-in-time read, not continuous monitoring.",
+    "Public HTTPS/authentication was checked at deployment, not in RELEASE980.",
+    "Earlier Mac and Android user flows were not rerun against this Hub version.",
+    "Unknown command outcomes remain fenced and must not be replayed.",
+    "No full product or human acceptance is implied."
+  ],
+  "staticWebOverlay20261031": {
+    "webCommit": "a455b2a1890240738a8ca93630e2dac48b15126f",
+    "backendCommitUnchanged": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "deployed": true,
+    "backendRestarted": false,
+    "manifestFileCount": 155,
+    "publicHttpsAndStaticHashes": "passed",
+    "unauthenticatedStateStatus": 401,
+    "firewallActive": true,
+    "configurationAndCommandRecordsUnchanged": true,
+    "details": "supervision-dashboard-test-results.json"
+  },
+  "projectionWebOverlay20261031": {
+    "productCommit": "d5c8a43a6819e923acfd784758c23a1287c9b9ec",
+    "backendBase": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "projectionWebDeployed": true,
+    "publicTlsVerified": true,
+    "latestAssetsVerified": 6,
+    "unauthenticatedStateStatus": 401,
+    "firewallActive": true,
+    "configUnchanged": true,
+    "commandsAndRecoveryUnchanged": true,
+    "quickCheck": "ok",
+    "manifestFileCount": 160,
+    "manifestSha256": "56171843194b783beaf791f0b148079cee93a4557ae8168cbe4094a0b40b4199",
+    "servicePid": 1545259,
+    "macCandidateInstalled": false,
+    "macInstalledVersion": "UI1066",
+    "androidApkRebuilt": false,
+    "nativeAndroidFixRetest": false,
+    "note": "Only Hub projection module and Web changed; base backend and auth/config preserved."
+  }
+}

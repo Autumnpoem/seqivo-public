@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-24",
+  "sourceCommit": "e5de02bb15d9c82a3bfe4df49cebfd6ea4097509",
+  "status": "mac_install_deploy_and_bounded_android_offline_restore_passed_with_scope",
+  "build": {
+    "allRecordedBuildStepsExitZero": true,
+    "signed": true,
+    "signing": "local ad-hoc",
+    "notarized": false,
+    "hubArchiveVerified": true,
+    "hubFileCount": 143,
+    "hubManifestSha256": "cb8b322588dc44b82bcb16d84e4d20e4897ac3b617fc8247acd7b90142fb3172",
+    "mainBinarySha256": "e085833965f738b4754046949de2cf593aee910522f736bb0d6b7c10b36bd5d2",
+    "webTreeSha256": "4160d9361364c78fb0d71faa9c59da162a44fabddda4f54465c71fa011a6fb5a"
+  },
+  "macInstallation": {
+    "installed": true,
+    "launched": true,
+    "productionAppReplaced": true,
+    "backupArchiveVerified": true,
+    "dataUnchangedBeforeLaunch": true,
+    "signing": "local ad-hoc",
+    "notarized": false,
+    "firstLaunch": "initial API request timed out; sidecar later became ready; manual retry then loaded the original board with project/task rows unchanged",
+    "normalCommandQ": "passed; Core closed, no app lock or app processes remained",
+    "coreAndProcessExitVerification": "passed",
+    "sameDataReopen": "passed without manual retry; original project and 2 projects/62 task rows unchanged"
+  },
+  "hubCandidate": {
+    "uploadReceipts": 3,
+    "allUploadsConfirmed": true,
+    "deploymentExecuted": true,
+    "postDeployChecks": "passed; 142-file manifest and database/data checks",
+    "currentlyDeployedVersion": "e5de02bb15d9c82a3bfe4df49cebfd6ea4097509"
+  },
+  "android": {
+    "client": "existing ordinary Android v13 APK loading the updated Hub web bundle; no APK rebuild or upgrade in this test",
+    "apkSha256": "60fa04a9f52a8922c0fd8ea794d83cc3a1b2c714506408d41d78afaad71bacb1",
+    "physicalOsOfflineRecovery": "passed_with_scope",
+    "method": "Wi-Fi and mobile data disabled; device had no default network; same page retained with terminal shortcut and session picker disabled; original session retained",
+    "recovery": "user restored Wi-Fi without reloading or making a new connection; client automatically reattached to the original session",
+    "readOnlyVerification": "tmux identity and owned marker line counts checked read-only; original markers each remained one line; no input replay observed",
+    "screenLockRecovery": "passed_with_scope; user locked for about 10 seconds then unlocked same page; no new connection or reload; original session and one-line markers remained",
+    "cleanup": "passed; test-owned A/B sessions, marker files, and temporary directory removed; unrelated sessions preserved; prior null default retained",
+    "sessionListAfterChannelExit": "the already displayed list could be stale until a new connection; no live-refresh claim"
+  },
+  "scopeLimits": [
+    "The previous c7095d6 OS-offline recovery failure remains historical for that version; the bounded e5de02b physical-device restoration and screen-lock scenarios passed.",
+    "The Android test reused the existing v13 APK loading updated Hub web content; no APK rebuild or upgrade was part of this test.",
+    "Only the tested OS-offline restoration and short lock/unlock scenarios are covered; other network errors and platforms remain unverified.",
+    "The initial cold Mac launch required one manual retry; subsequent warm reopen passed without manual retry.",
+    "The package is ad-hoc signed and not notarized; whole-project and user acceptance remain incomplete."
+  ],
+  "wholeProjectComplete": false
+}

@@ -1,0 +1,283 @@
+{
+  "workId": "LINUX1078",
+  "date": "2026-10-31",
+  "baseCommit": "35ffeaa1dd210c8bc25c46c26750b95f68504a16",
+  "wholeProjectComplete": false,
+  "delivery": {
+    "codeCompleteForSlice": true,
+    "targetedTestsPassed": true,
+    "packaged": false,
+    "installed": false,
+    "deployed": false
+  },
+  "scope": "Same-live-Core Linux managed terminal handoff using real OS processes and a controlled fake Codex protocol; no real AI provider, crash recovery or native application acceptance.",
+  "environment": {
+    "ubuntu": "22.04 x86_64",
+    "node": "v24.21.0",
+    "uid": 65534,
+    "python": "3.10",
+    "tmux": "3.2a"
+  },
+  "finalNativeEvidence": [
+    {
+      "phase": "final product batch; one fixture flow error",
+      "exitCode": 1,
+      "tests": 59,
+      "pass": 42,
+      "fail": 1,
+      "skipped": 16,
+      "localLog": ".runtime/linux1078/candidate4/tests.log",
+      "sha256": "0e51b6afa29a98e9a7356a418a0f70efe3e441d0c0cfdca8aee67c6bd804610a"
+    },
+    {
+      "phase": "corrected selection; cleanup-only fixture error",
+      "exitCode": 1,
+      "tests": 1,
+      "pass": 0,
+      "fail": 1,
+      "skipped": 0,
+      "localLog": ".runtime/linux1078/final-composite/tests.log",
+      "sha256": "592a7d17448c609decc19e48be2ba6e5aee9612cf99edbcb81c574969179878f"
+    },
+    {
+      "phase": "corrected selection and cleanup; complete native roundtrip",
+      "exitCode": 0,
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "skipped": 0,
+      "localLog": ".runtime/linux1078/final-composite2/tests.log",
+      "sha256": "f4f5133ed732229b071b821622bac167a58169e349a48931037d5cea28db759d"
+    }
+  ],
+  "nativeProductComparison": {
+    "productFilesIdentical": true,
+    "changedPayloadFiles": [
+      "tests/fixtures/linux-managed-codex-controller.mjs"
+    ],
+    "currentWorkspaceMatchesFinalPayload": true,
+    "allFinalPayloadFileCount": 113,
+    "singleAllGreen59TestRun": false
+  },
+  "macEvidence": [
+    {
+      "phase": "early affected regression",
+      "exitCode": 0,
+      "tests": 40,
+      "pass": 38,
+      "fail": 0,
+      "skipped": 2,
+      "localLog": ".runtime/linux1078/mac-focused-combined.log",
+      "sha256": "c403305830d8457153b7a29a248764da00bb3d28512ca5c99d06bf86f54fa0fa"
+    },
+    {
+      "phase": "isolated snapshot after transient",
+      "exitCode": 0,
+      "tests": 11,
+      "pass": 11,
+      "fail": 0,
+      "skipped": 0,
+      "localLog": ".runtime/linux1078/mac-snapshot-isolated.log",
+      "sha256": "7e993d74c29e70f0e69e022e91c3554397ecfdb6cab7f548bc3f528a6535c5d2"
+    },
+    {
+      "phase": "IPC contract",
+      "exitCode": 0,
+      "tests": 2,
+      "pass": 1,
+      "fail": 0,
+      "skipped": 1,
+      "localLog": ".runtime/linux1078/mac-rpc.log",
+      "sha256": "4f3ee50aa26ca7a7f8129119de864ae83881ba9fcd2f05f4450196ee9ee0c180"
+    },
+    {
+      "phase": "relative-path adjustment",
+      "exitCode": 0,
+      "tests": 8,
+      "pass": 7,
+      "fail": 0,
+      "skipped": 1,
+      "localLog": ".runtime/linux1078/mac-compat-targeted.log",
+      "sha256": "94b9dfc0a53a9166fd3918128600a5c87835fc3ec044552d79bbc8716b9accbc"
+    },
+    {
+      "phase": "later focused batch; baseline tmux exit failure",
+      "exitCode": 1,
+      "tests": 27,
+      "pass": 23,
+      "fail": 1,
+      "skipped": 3,
+      "localLog": ".runtime/linux1078/mac-candidate3-focused.log",
+      "sha256": "296297a8fdab289ef94a8166150528eec9c2a430f15f0427bc13b0cad0721d6c"
+    },
+    {
+      "phase": "relative config discovery reproduction",
+      "exitCode": 1,
+      "tests": 1,
+      "pass": 0,
+      "fail": 1,
+      "skipped": 0,
+      "localLog": ".runtime/linux1078/discovery-base-before.log",
+      "sha256": "d04c15a3001511c610d9f3c22f5c8bcbc4fd6a4c1037ae000fb2de42177ab8f4"
+    },
+    {
+      "phase": "final discovery fix",
+      "exitCode": 0,
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "skipped": 0,
+      "localLog": ".runtime/linux1078/discovery-base-after-local.log",
+      "sha256": "f4756f5b3c7fdcc95ab4a4ce084bcb3c21cd25638e1f715753fdd94235693e6d"
+    },
+    {
+      "phase": "existing bridge path after final discovery change",
+      "exitCode": 0,
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "skipped": 0,
+      "localLog": ".runtime/linux1078/mac-bridge-normal-open.log",
+      "sha256": "73a9e3e280405f20d964d293e19d8653342ea909279c96595b673f7a7a5884a7"
+    }
+  ],
+  "preexistingFailures": [
+    {
+      "test": "tests/plugin-isolation.test.mjs:137",
+      "reason": "Executor startup authority is not available / PERMISSION_DENIED",
+      "baseline": {
+        "phase": "unchanged baseline",
+        "exitCode": 1,
+        "tests": 1,
+        "pass": 0,
+        "fail": 1,
+        "skipped": 0,
+        "localLog": ".runtime/linux1078/mac-isolation-baseline.log",
+        "sha256": "4311e2178e51db9138d94f67ffcb904b8697118076172db76afae66e1a81359d"
+      },
+      "candidate": {
+        "phase": "candidate",
+        "exitCode": 1,
+        "tests": 1,
+        "pass": 0,
+        "fail": 1,
+        "skipped": 0,
+        "localLog": ".runtime/linux1078/mac-isolation-candidate.log",
+        "sha256": "b21fecba847115c34032b90671c6544189df8b94978a29cf5dd98144934390ae"
+      },
+      "resolved": false
+    },
+    {
+      "test": "tests/terminal-managed-tmux.test.mjs:124",
+      "reason": "normal shell exit: managed tmux condition timed out",
+      "baseline": {
+        "phase": "unchanged baseline with actual tmux",
+        "exitCode": 1,
+        "tests": 1,
+        "pass": 0,
+        "fail": 1,
+        "skipped": 0,
+        "localLog": ".runtime/linux1078/mac-tmux-exit-baseline-native.log",
+        "sha256": "9db9bc44972012aac0dcb91d251f945a032b87111f32b906a7d0f712511fce76"
+      },
+      "candidate": {
+        "phase": "candidate with actual tmux",
+        "exitCode": 1,
+        "tests": 1,
+        "pass": 0,
+        "fail": 1,
+        "skipped": 0,
+        "localLog": ".runtime/linux1078/mac-tmux-exit-isolated.log",
+        "sha256": "68351870cb2bd194b26a1080d9891952fde9d8286eaedfa38dfc9e297cab603b"
+      },
+      "resolved": false
+    }
+  ],
+  "initialFindings": [
+    "Frozen baseline rejects Linux executor snapshots; existing managed return proof is macOS-only.",
+    "Native /proc full inventory needs kernel zero process-group/start-tick values retained and strict selected-identity validation separate.",
+    "Linux lsof cwd reads emitted tracefs warnings; managed-shell cwd is now read through /proc between exact identity observations.",
+    "Diagnostic2 proved inherited workspace cwd for the builtin worker and lsof itself; Linux-only launch cwd was moved without adding PID exemptions.",
+    "Moving worker cwd exposed existing relative Python/Codex discovery behavior; relative explicit, environment, config.toml and PATH behavior is preserved using trusted original Core cwd.",
+    "Managed tmux has a direct launch path; its Linux startup cwd is now outside workspace while pane -c still targets the project. Generic tmux adapter is unchanged.",
+    "New fixture omitted explicit select after takeover; corrected to existing API. A subsequent cleanup expected a tmux server that had already normally ended; final fixture verifies remaining sessions before cleanup."
+  ],
+  "knownEvidenceLimit": "An early parallel Mac snapshot failure was observed in tool output (37 pass, 1 fail, 2 skips), but its raw log was not retained. Subsequent full and isolated reruns passed; no product repair was made for that observation.",
+  "independentReview": {
+    "requestedRole": "security_reviewer",
+    "requestedModel": "gpt-6-sol",
+    "requestedEffort": "high",
+    "actualRuntimeModel": "NOT VERIFIED",
+    "result": "no outstanding P1/P2 within reviewed change scope",
+    "localRecord": ".runtime/linux1078/review.md",
+    "sha256": "26243e484f961d0fdfe6e81cd49a95b9be16e292bc384906e25d970802ac0730"
+  },
+  "cleanup": {
+    "finalCompositeDirectoryRemoved": true,
+    "retainedFailureDirectoriesRemoved": true,
+    "associatedProcessesBeforeRemoval": 0,
+    "localReceipts": [
+      ".runtime/linux1078/cwd-probe-cleanup-private.json",
+      ".runtime/linux1078/candidate-cleanup-private.json",
+      ".runtime/linux1078/final-cleanup-private.json"
+    ]
+  },
+  "unchanged": [
+    "saved credentials and provider configuration",
+    "production service and firewall settings",
+    "existing application installations and APK",
+    "human acceptance conclusions"
+  ],
+  "remaining": [
+    "Real Codex/provider handoff and stop acceptance",
+    "Crash/restart executor proof beyond live memory bindings",
+    "Ubuntu desktop UI, packaging, installation, upgrade and sleep recovery",
+    "Windows native application delivery",
+    "The two reproduced preexisting Mac test failures"
+  ],
+  "sourceSha256": {
+    "plugins/codex-autocontinue/bridge.py": "4d83f7fa81954ae4c8b63fa130c2ff65c92571e06d4d074983556a95cec2f4d9",
+    "plugins/codex-autocontinue/host.mjs": "bb46d180da5c829434b29428e82d26e98672886a9bbae7a3607842a98e0c43b4",
+    "plugins/codex-autocontinue/process_snapshot.py": "fce1888db8338407e481be0b707cd99751c60d8f347fb20f324da5524411216e",
+    "server/codex-process-proof.mjs": "8a231a21ce69479f1ecd81e1ead23ba4348a7b23d899096bcd9dc259811f9a6e",
+    "server/core.mjs": "d63e42dce4e3d5a9f3d4a50240de01124f7ee60fad507f849f522a3a647b83dd",
+    "server/executor-process-proof.mjs": "6d77201995e69086cd1810143f1f61c169add186a9043466b8a43220bb5d4079",
+    "server/plugin-loader.mjs": "1f0c2fe637f933c865821fc4ef0dc8221ec7fe6779e7b37d7b6b090e0753fed6",
+    "server/plugin-process.mjs": "7153ee8652eec7dd132209bb348a058dd04194849b061b2116550d8c0553ac58",
+    "server/plugin-worker.mjs": "51edfa9935dba09936bd869a7dd1fc4b3b313c629ef5ee4bfc24fbbe7b12d17a",
+    "server/terminal/control.mjs": "b9bcba31b6fba40160ce8b8b618f9cb701462b43e353fc34aeeb1c482c2c173b",
+    "server/terminal/managed-pane-registry.mjs": "61c114641c2625bbb15bf4939438fcd99c493a177268c1c7251a382dd30d1cd2",
+    "server/terminal/managed-pane.mjs": "661c07cf83487d008e14182950e90d759138032ce0c0f7c0ecc52b21425868e0",
+    "server/terminal/manager.mjs": "be0ea81aa6cb185b0e3fb237b5b2aaa8d935bebb1419b5737e9a59940d021bc0",
+    "server/terminal/process-inspection.mjs": "ec8422590df85561be5b1e3f4d183b85e249e87e6698f8abc97b4c0edf8901a4",
+    "tests/executor-process-proof.test.mjs": "1259cc37640820d1ebb5e76bf79abcfb79a367606a227d45d61cf8f2223f5786",
+    "tests/fixtures/linux-executor-tree.mjs": "af72148ffa4e5ebc49b41fc3b7e63f65be3f53356df132b3e5857b57e6f45eec",
+    "tests/fixtures/linux-managed-codex-controller.mjs": "a6e5b3732a8280017a28c9afe1ebdf2388421b9fa83aabb4387951311b9acbca",
+    "tests/fixtures/linux-process-snapshot-contract.py": "47182ce872ab0085888186e8dcb01896f347198c77e3ffc5e6dfc52e520856a6",
+    "tests/linux-process-snapshot.test.mjs": "ee48453feb77eac127ce4017be079e3a03b27fa84aff81ef26001b1f4f12341b",
+    "tests/macos-process-snapshot.test.mjs": "2789330db64585d446db57bb9ebf5d16915882ce5298940f184b40b16cbf63f5",
+    "tests/plugin-executable-base.test.mjs": "bf3bfdc4eda286467de87818b61214d4f1029128914e62e3920a0562d5c954d2",
+    "tests/plugin-linux-authority.test.mjs": "030c5c4fab77e8638e39142e1278c7093c976f34b83fc7adbe3c68830ed0e897",
+    "tests/terminal-managed-integration.test.mjs": "a196ecd0ab5b81793fc439af1944c6fd6fa7f9c565f0677e2dd9f23f696a0408"
+  },
+  "finalStaticChecks": {
+    "syntaxFiles": 23,
+    "exitCode": 0,
+    "sourceHashesStillMatch": true,
+    "diffCheck": true
+  },
+  "boardUpdate": {
+    "taskId": "59509a5a-590c-47c5-b059-e2c9204474bf",
+    "revision": 9,
+    "verification": "partial",
+    "controlledProtocolCheckCompleted": true,
+    "pending": [
+      "linux-session-app-integration",
+      "linux-ai-stop-proof",
+      "ubuntu-windows-native-app"
+    ],
+    "manualAcceptanceUnchanged": true,
+    "otherTasksUnchanged": 66,
+    "initialAttempt": "Summary patch succeeded; verification update rejected an empty checklist criterion mapping. Resumed at the new revision with the existing criterion ID; no product change or acceptance promotion."
+  }
+}

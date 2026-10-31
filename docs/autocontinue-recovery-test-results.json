@@ -1,0 +1,1219 @@
+{
+  "schemaVersion": 1,
+  "id": "M5-827-828",
+  "status": "BUILD933/INSTALL927 remain the current Mac build/install evidence; NATIVE958 passed a bounded real busy-command application-menu quit, cold-gap, and same-data reopen scenario. The command business outcome remains unknown and fenced; Hub deployment, other quit routes, full project acceptance, and full M5 remain incomplete.",
+  "baselineCommit": "a3530fd",
+  "verifiedScope": "Authorized goal/next-step snapshots, explicit restart behavior, verified automatic quota-failure counting, and the bounded UI states listed below.",
+  "stageStatus": {
+    "codeCompleteInScope": true,
+    "testPassedInScope": true,
+    "testPassedInScopeNote": "BUILD933: 23 steps, seven gate sets, 199/199, zero skips; resource-integrity, final signature, and Hub archive verification passed. INSTALL927 subsequently installed the candidate; the Hub remains on its prior version. Earlier BUILD929 and other failed attempts remain historical; Windows runtime behavior remains untested.",
+    "built": true,
+    "installed": true,
+    "deployed": false,
+    "pendingFollowUp": "Keep the NATIVE958 command unknown and fenced without replay. Separately deploy the matching Hub version, verify other native quit routes and product combinations, and complete the remaining M5 requirements and user acceptance."
+  },
+  "sourceSnapshot": {
+    "algorithm": "sha256",
+    "files": {
+      "plugins/codex-autocontinue/host.mjs": "2ad177f30a7289045dc0ac370277d8dc20f76551f1d4524e88de5069abc7a54b",
+      "plugins/codex-autocontinue/auto-policy.mjs": "32bb797715b68ffc698e696e1015594cd77ef7a50d0515c4fb02acf605daac32",
+      "src/AutoContinuePolicies.tsx": "b9f0c0523a370c0466d444f8c9ed07d7667be517c9b567032c48eb083bc263ec",
+      "src/autocontinue-policy.css": "89d8cfbfc44f9c829d6a4a08505946ad47ca4087b53ad935db6a5d34e687f3e6",
+      "src/types.ts": "ec7ba9bdb4adc56a509c92d332b1e50132452d3c0101fbd7037a05d4dd60ccb7",
+      "tests/plugin-host.test.mjs": "d9eff025f379b6ff421d2d6225885e12d21cab8b30d98eb072b733188e29c0f6",
+      "tests/m5-autocontinue-intent.test.mjs": "941ee76cb1ab0906cbfcdab96bf00dabfb4eea97da1fc02df34fa951953218bc",
+      "tests/autocontinue-intent-ui.test.mjs": "53b1b84561f23d8bc649c7989ad61556e881704b3648ded953dc4e64c2ad50a9",
+      "server/inbox.mjs": "5b34332887350138dc42542e5d04a88d7b841fb9194b3c31b5227ed62d5c98d5",
+      "tests/inbox.test.mjs": "e8f07d2136de799feadeb044284069a5cff741260f873e1792415e25d66fa29f"
+    }
+  },
+  "runs": [
+    {
+      "name": "plugin-host-regressions",
+      "passed": 98,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "m5-827-plugin-host-r2",
+      "testedBeforeFinalQuotaWaitGuard": true,
+      "testedHostSha256": "7a3a2c857ef9d42ec006bee93681b32b2625a475256580d01820fd29bc18aa4c",
+      "testedIntentTestSha256": "40294bc01796ce4d61c4c86f6cf545459089a2fa0db8760314d47fb3cbdc3ef5"
+    },
+    {
+      "name": "plugin-host-regressions-BUILD830",
+      "passed": 97,
+      "failed": 1,
+      "skipped": 0,
+      "exitCode": 1,
+      "evidence": "BUILD830",
+      "testedSourceHead": "253c02d344873e494f97edf89d8b73247abac9af",
+      "sourceTreeDigest": "a9c01359ffb6c846f6b002e8813fffbee1615871e13ad743d8a782686a28563b",
+      "testedHostSha256": "2ad177f30a7289045dc0ac370277d8dc20f76551f1d4524e88de5069abc7a54b",
+      "failedCase": "hung quota RPC is bounded and sends nothing",
+      "failureSummary": "The full suite run was 97/98. The failing legacy timeout fixture cleanup could not assign process ancestry after executor retirement. A later separate M5-835 full host rerun passed after a reviewed test-only contract correction.",
+      "isolatedRerun": {
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0,
+        "evidence": "BUILD830-targeted-diagnostic",
+        "disposition": "diagnostic only; not a replacement for the original full-suite failure"
+      }
+    },
+    {
+      "name": "plugin-host-regressions-after-test-contract-correction",
+      "passed": 98,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "M5-835-plugin-host-final",
+      "productSourceHead": "253c02d344873e494f97edf89d8b73247abac9af",
+      "productHostSha256": "2ad177f30a7289045dc0ac370277d8dc20f76551f1d4524e88de5069abc7a54b",
+      "testFileSha256": "f2b3a4e4ac4948032db5de8cb0000a4a31d9aa0d4c220bd8c7f0c2a600143304",
+      "testOnlyChange": "The legacy timeout fixture now asserts no command and no turn/start, and uses the fixture retirement fence only in its cleanup; the separate production-job test still requires exact durable retirement and process-identity disappearance.",
+      "review": "M5-835 test-contract review found no confirmed P1/P2 in this bounded test-only change.",
+      "doesNotEraseEarlierBuildFailure": true,
+      "runContext": "Separate full host rerun after the test-only cleanup-contract correction; not part of BUILD830."
+    },
+    {
+      "name": "automatic-continuation-policy",
+      "passed": 42,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "m5-825-quota-wait-policy-final",
+      "testedHostSha256": "2ad177f30a7289045dc0ac370277d8dc20f76551f1d4524e88de5069abc7a54b",
+      "testedIntentTestSha256": "941ee76cb1ab0906cbfcdab96bf00dabfb4eea97da1fc02df34fa951953218bc"
+    },
+    {
+      "name": "automatic-continuation-ui-renderer",
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "autocontinue-intent-ui-suite"
+    },
+    {
+      "name": "inbox-and-ui-stop-reason-regressions",
+      "passed": 24,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "breakdown": {
+        "inbox": 19,
+        "ui": 5
+      },
+      "evidence": "m5-832-inbox-ui-r2"
+    },
+    {
+      "name": "typescript-check",
+      "exitCode": 0,
+      "evidence": "m5-ui-typescript-check"
+    },
+    {
+      "name": "CUA-UI-mock-harness",
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "backendConnected": false,
+      "providerInvoked": false,
+      "checks": [
+        "continue existing plan without a restart flag",
+        "enable when only a goal is supplied and save the authorized intent",
+        "changed task requires an explicit restart flag",
+        "legacy plan requires an explicit restart",
+        "390px light and dark layouts retain the tested width"
+      ],
+      "evidence": "m5-828-cua-result"
+    },
+    {
+      "name": "plugin-host-regressions-BUILD836",
+      "passed": 96,
+      "failed": 2,
+      "skipped": 0,
+      "exitCode": 1,
+      "evidence": "BUILD836",
+      "testedSourceHead": "c747e0ac6008d0bcece6556bc1ba190288501a13",
+      "sourceTreeDigest": "47ff7412bbdd2a4689fac7b2d104ebd6c3777cb7e142c190a11b265b3652f5d7",
+      "productHostSha256": "2ad177f30a7289045dc0ac370277d8dc20f76551f1d4524e88de5069abc7a54b",
+      "testFileSha256": "f2b3a4e4ac4948032db5de8cb0000a4a31d9aa0d4c220bd8c7f0c2a600143304",
+      "failedCases": [
+        "changed handoff generation at final validation stops provider send",
+        "Codex workspace write belongs only to an explicitly created session and yields to evidence-only"
+      ],
+      "failureSummary": "Both failures occurred during legacy fixture cleanup when process ancestry could not be assigned after executor retirement. The strict production missing-turn case failed in an earlier focused run, then passed in the complete M5-841 suite.",
+      "packageState": "Mac bundle compiled and locally signed with sidecar included; packaged-sidecar checks were not run and the Hub archive was not built.",
+      "installed": false,
+      "deployed": false
+    }
+  ],
+  "review": {
+    "id": "M5-827",
+    "result": "no confirmed P1/P2 in the bounded quota-wait guard change",
+    "coversFinalQuotaWaitGuard": true,
+    "coversInboxAndUiStopCopy": true,
+    "limit": "the authorization intent snapshots goal and next step; criteria and approach are not separately bound."
+  },
+  "finalQuotaWaitGuardReview": "passed; no confirmed P1/P2",
+  "finalFullHostRerun": {
+    "scheduled": true,
+    "attempted": true,
+    "evidence": "M5-841",
+    "passed": 99,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "testedHostSha256": "2ad177f30a7289045dc0ac370277d8dc20f76551f1d4524e88de5069abc7a54b",
+    "testFileSha256": "d9eff025f379b6ff421d2d6225885e12d21cab8b30d98eb072b733188e29c0f6",
+    "head": "c747e0ac6008d0bcece6556bc1ba190288501a13",
+    "sourceScope": "Exact HEAD archive plus only the reviewed test overlay; unchanged dependency cache.",
+    "durationMs": 103164,
+    "priorUnknownPreserved": true,
+    "status": "Full plugin-host suite passed 99/99 with no skips. This does not clear the prior unknown record or establish its cause."
+  },
+  "buildAttempt": {
+    "id": "BUILD830",
+    "sourceHead": "253c02d344873e494f97edf89d8b73247abac9af",
+    "sourceTreeDigest": "a9c01359ffb6c846f6b002e8813fffbee1615871e13ad743d8a782686a28563b",
+    "sourceFileCount": 711,
+    "macBundleCompiled": true,
+    "macBundleSigned": true,
+    "signing": "local-ad-hoc",
+    "macExecutableSha256": "e377b216218e082f81a18bcde81d1daef0723b0b118fffc2c2e6cf6b6a4b5e3f",
+    "packagedNodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "webDistTreeDigest": "f822622917a018937fbf6a9165c118b5fc9f8fa68840adb855efcd85bbffc210",
+    "webIndexSha256": "b2b951f44ba2b37fbb21d784b94d2c32ff37d8c01c4898bfaecbd96f6ad8defb",
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 97,
+      "failed": 1,
+      "skipped": 0,
+      "exitCode": 1
+    },
+    "hostSuiteAfterTestCorrection": {
+      "passed": 98,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "testFileSha256": "f2b3a4e4ac4948032db5de8cb0000a4a31d9aa0d4c220bd8c7f0c2a600143304"
+    },
+    "installed": false,
+    "deployed": false,
+    "productionAppReplaced": false,
+    "investigation": "the original BUILD830 suite failure remains recorded; a reviewed test-only contract correction was followed by a passing full-suite rerun without product-code changes",
+    "sidecarPackaged": true,
+    "packagedSidecarChecksCompleted": false,
+    "hubArchiveCompleted": false,
+    "sidecarNote": "Sidecar was packaged in the bundle; packaged-sidecar checks were not run, and the Hub archive was not built."
+  },
+  "inboxAndUiStopCopyReview": "passed; no confirmed P1/P2 in the fixed-copy and remote-projection follow-up",
+  "covered": [
+    "Plan intent is rechecked while quota remains unavailable and before dispatch.",
+    "Changed goal/next step or legacy plan without intent cannot dispatch until explicit restart.",
+    "Verified automatic quota failures are counted once per command and plan; the second stops the plan, while manual failures do not count.",
+    "A successful automatic turn is submitted for human review and disables the plan rather than automatically continuing again."
+  ],
+  "notCovered": [
+    "BUILD898 full host gate failed case 4 teardown ancestry verification (100/101, zero skips). BUILD891 case 86 (100/101) and BUILD884 case 48 (100/101) remain distinct historical failures.",
+    "BUILD898 stopped before packaged-sidecar checks, final signature verification and Hub archive. It was not installed or deployed; earlier NATIVE880 checks do not change this result.",
+    "The prior unknown execution record remains preserved; passing targeted tests do not clear it or establish its cause.",
+    "Real provider quota restoration, broader no-progress handling, notification deduplication, criteria/approach authorization snapshots, and multi-worktree execution/merge acceptance remain uncovered."
+  ],
+  "testHarnessLimit": "The closeWithRetirementFence helper is test-fixture cleanup for deliberate unknown states. It is not evidence that product code clears an unknown state or proves executor retirement.",
+  "inboxStopReasonProjection": {
+    "shareableReasons": [
+      "plan_intent_missing",
+      "plan_intent_changed",
+      "repeated_quota_failure"
+    ],
+    "usesFixedCopy": true,
+    "rawDiagnosticIncludedInInboxProjection": false
+  },
+  "build898HistoricalAttempt": {
+    "id": "BUILD898",
+    "sourceHead": "d13e252444f8132f735bf44d0f965843845bf5a6",
+    "sourceTreeDigest": "aa0f9372bd3929edc5c2f253c0379ddf80148e475c5fe1a14736fefafa22646e",
+    "testOverlaySourceTreeDigest": "56a451f38dddc7209424b6ddedd446846ac7f684039687e553feb249bac97b4c",
+    "testOverlaySha256": "73062ba8d5b5c416ae033b05399b21e486d6b778e33bcc426de77798bde6f6fd",
+    "bundleSource": "reused existing BUILD857 bundle; no newly built or accepted release bundle",
+    "macExecutableSha256": "3246cb819d0a0ed4414c7b3eaf1960f6d224145d3b85643ae27506b44e8b39ea",
+    "packagedNodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "webDistTreeDigest": "f822622917a018937fbf6a9165c118b5fc9f8fa68840adb855efcd85bbffc210",
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "packagedPythonBytecodeTests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 100,
+      "failed": 1,
+      "skipped": 0,
+      "total": 101,
+      "exitCode": 1,
+      "failedCase": "case 4: task-owned executors route A and B separately and quiescing A leaves B running; teardown reported process ancestry unassigned after executor retirement"
+    },
+    "failureInterpretation": "The original TAP does not independently establish whether the test body or a preceding quiesce completed before teardown failed. DIAG901 passed one single-case diagnostic run with timing changed; it did not reproduce or fix the BUILD898 failure.",
+    "builtThisRun": false,
+    "packagedSidecarChecks": "not run",
+    "finalSignatureAndHubInstallDeploymentGates": "not completed",
+    "installed": false,
+    "deployed": false,
+    "errorCode": "plugin-host-tests_FAILED",
+    "evidence": "BUILD898 receipt and raw TAP retained privately; 100/101, one failure, zero skips",
+    "testOverlayValidationCommit": "7cbea58e5cbd2a7cdfcdee8c28845a6a0a032028"
+  },
+  "build909HistoricalAttempt": {
+    "id": "BUILD909",
+    "sourceHead": "d13e252444f8132f735bf44d0f965843845bf5a6",
+    "sourceTreeDigest": "aa0f9372bd3929edc5c2f253c0379ddf80148e475c5fe1a14736fefafa22646e",
+    "testOverlaySourceTreeDigest": "98d65a7f04c7cbe0ad43eff6f7a438775efbccbece5c305cc59f6905c547f153",
+    "testOverlaySha256": "70eec95f95d5a9720601fd9ea86c92052b0cbd94450fd67c00383f72fcb64e26",
+    "validationCommit": "ad8d4d4fc2843ef327bed0a26f159cab81669615",
+    "bundleSource": "reused existing BUILD857 bundle; no newly built or accepted release bundle",
+    "macExecutableSha256": "3246cb819d0a0ed4414c7b3eaf1960f6d224145d3b85643ae27506b44e8b39ea",
+    "packagedNodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "webDistTreeDigest": "f822622917a018937fbf6a9165c118b5fc9f8fa68840adb855efcd85bbffc210",
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "packagedPythonBytecodeTests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 104,
+      "failed": 1,
+      "skipped": 0,
+      "total": 105,
+      "exitCode": 1,
+      "failedCase": "case 25: unknown send remains blocked after restart",
+      "failureDetails": "The aggregate reported that the body, cleanup, and final proof must independently pass; the nested cause is not confirmed."
+    },
+    "builtThisRun": false,
+    "packagedSidecarChecks": "not run",
+    "finalSignatureAndHubInstallDeploymentGates": "not completed",
+    "installed": false,
+    "deployed": false,
+    "errorCode": "plugin-host-tests_FAILED",
+    "evidence": "BUILD909 result and TAP; source/test manifest hashes are recorded above"
+  },
+  "build916HistoricalAttempt": {
+    "id": "BUILD916",
+    "sourceHead": "d13e252444f8132f735bf44d0f965843845bf5a6",
+    "sourceTreeDigest": "aa0f9372bd3929edc5c2f253c0379ddf80148e475c5fe1a14736fefafa22646e",
+    "testOverlaySourceTreeDigest": "2133a9c2576b4ac4179536802c95721446f12343732c0c7d55964d13d8fb676e",
+    "testOverlaySha256": "f0907a9095732d663ae826e34975a6520e8bbcabd00013d548ba70b5f3432fd5",
+    "validationCommit": "8febed09f9143d962d646bf5126ddad74aa8dfbf",
+    "bundleSource": "reused existing BUILD857 bundle; no newly built or accepted release bundle",
+    "macExecutableSha256": "3246cb819d0a0ed4414c7b3eaf1960f6d224145d3b85643ae27506b44e8b39ea",
+    "packagedNodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "webDistTreeDigest": "f822622917a018937fbf6a9165c118b5fc9f8fa68840adb855efcd85bbffc210",
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "packagedPythonBytecodeTests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 107,
+      "failed": 1,
+      "skipped": 0,
+      "total": 108,
+      "exitCode": 1,
+      "failedCase": "case 32: production task job bounds a hung quota without a send and retires the original cohort",
+      "observed": "The diagnostic candidate had a retired durable job record, but the executor marker remained retirement_unknown with identity_set_changed. DIAG917 correlates a candidate quotaHang fixture by scenario and failure-time window only; the BUILD916 TAP did not bind a fixture ID.",
+      "cause": "not confirmed"
+    },
+    "builtThisRun": false,
+    "packagedSidecarChecks": "not run",
+    "finalSignatureAndHubInstallDeploymentGates": "not completed",
+    "installed": false,
+    "deployed": false,
+    "errorCode": "plugin-host-tests_FAILED",
+    "evidence": "BUILD916 result and TAP; private diagnostics retained outside the repository"
+  },
+  "implementation921Candidate": {
+    "status": "BUILD933 gates passed and INSTALL927 installed the candidate; Hub deployment and final NATIVE937 busy-quit verification remain pending.",
+    "changeScope": "Typed complete process-snapshot resampling under a shared deadline.",
+    "runtimeSha256": "a99a2f99a7d656fde2339027118163c104ddd991d3d1798b9481e9ce9c2ae9bb",
+    "testSha256": "622194521221eba9286371a0dc890771d44ffc5d6bfeac44a382b25ba32c4206",
+    "scopedChecks": {
+      "nativeSnapshotBaseline": {
+        "passed": 10,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0,
+        "run": "BUILD929"
+      },
+      "isolatedHungQuotaScenario": {
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "firstDocumentsHandshake": {
+        "passed": 0,
+        "failed": 1,
+        "skipped": 0,
+        "exitCode": 1,
+        "observation": "identity null; preserved as a separate failure"
+      }
+    },
+    "fix930": {
+      "nativeSnapshotTests": {
+        "passed": 11,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "nativeExecutorProcessProofTests": {
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "negativeStrictExecutorCaseChanged": false,
+      "review": "REVIEW934 passed; no confirmed P1/P2 in the scoped change.",
+      "sourceFileSha256": {
+        "server/codex-process-proof.mjs": "33e4b2fbaaa0463bfc619b83d986f31dae4773e7deb870d21b2c9636a80daa27",
+        "server/executor-process-proof.mjs": "016e6204255ef307756f80a2571ef42c197c0ad5762cad18f8b73841ab101b6c",
+        "tests/macos-process-snapshot.test.mjs": "737f864b6eb55db73d23ff0f9d812a4632d5814bdd9f8c302177a6625d5f623a"
+      }
+    },
+    "windowsStubTests": {
+      "count": 5,
+      "disposition": "Five POSIX stub tests ran on macOS and are configured to skip on Windows; Windows runtime behavior remains untested."
+    },
+    "independentReview": "REVIEW923 passed; no confirmed P1/P2 in the scoped candidate review.",
+    "diagnosticLimit": "DIAG917 matched a candidate quotaHang fixture by scenario and time window; it is not cryptographically bound to BUILD916 case 32 and does not establish causality.",
+    "freshFullBuild": {
+      "id": "BUILD933",
+      "status": "passed",
+      "steps": 23,
+      "passed": 199,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "sourceCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+      "sourceTreeDigest": "7f75160358c119f7ed11a79fd32943acd6e1122f5a3a7fb18554161515cf76a0",
+      "resultSha256": "6de8c270a4dd18d4859d5921018bca5e9a44d419ad5f534638606d9d65a2b5b9",
+      "manifestSha256": "7a953dc6954ad88083e92e14e092124ae9b023e45924cec748f352ca7aa93616",
+      "resourcesUnchanged": true,
+      "finalSignatureValid": true,
+      "hubArchiveVerified": true,
+      "installed": false,
+      "deployed": false
+    },
+    "installed": true,
+    "deployed": false,
+    "hashScope": "The top-level runtimeSha256/testSha256 fields below identify the historical IMPL921 candidate only; FIX930 file hashes are listed by path in fix930.sourceFileSha256."
+  },
+  "testOnlyFollowUp": {
+    "testFile": "tests/plugin-host.test.mjs",
+    "sha256": "d9eff025f379b6ff421d2d6225885e12d21cab8b30d98eb072b733188e29c0f6",
+    "focusedBehaviorRun": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "M5-837-behavior-r2"
+    },
+    "firstCombinedRun": {
+      "passed": 4,
+      "failed": 2,
+      "skipped": 0,
+      "exitCode": 1,
+      "evidence": "M5-837-target-r1",
+      "note": "One helper assertion mistake was corrected; the strict production missing-turn retirement failure remains separate."
+    },
+    "independentReview": {
+      "evidence": "M5-838",
+      "result": "no confirmed P1/P2 in bounded test-only helper change"
+    },
+    "fullHostRerunWithThisHash": true,
+    "productionCodeChanged": false,
+    "strictProductionGateLatest": {
+      "status": "Passed as part of full M5-841 host suite; this does not clear the prior unknown record or prove its cause.",
+      "run": "M5-841",
+      "aggregate": "99/99, zero skipped, exit 0"
+    },
+    "fullHostRun": {
+      "passed": 99,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "M5-841",
+      "durationMs": 103164,
+      "head": "c747e0ac6008d0bcece6556bc1ba190288501a13",
+      "priorUnknownPreserved": true
+    }
+  },
+  "build842": {
+    "sourceHead": "8694264425e10f7a71942b33cde3eabcf2c13638",
+    "sourceTreeDigest": "e63186ee7dbf1ef2b43aa3dda4eec2d2700927f0de978867081e8d9787ac906e",
+    "sourceFileCount": 711,
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 99,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "packagedSidecarShutdown": {
+      "exitCode": 0
+    },
+    "packagedSidecarStartupBlocked": {
+      "exitCode": 0
+    },
+    "bundle": {
+      "compiled": true,
+      "signedInitially": true,
+      "finalSealVerificationExitCode": 1,
+      "installed": false,
+      "deployed": false,
+      "hubArchiveCompleted": false
+    },
+    "failure": "Final strict macOS verification reported a sealed resource invalid after Python stdlib bytecode files appeared in the packaged resource tree. Do not accept or reuse this bundle.",
+    "evidence": "BUILD842",
+    "previousUnknownPreserved": true,
+    "macExecutableSha256": "e377b216218e082f81a18bcde81d1daef0723b0b118fffc2c2e6cf6b6a4b5e3f",
+    "packagedNodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "webDistTreeDigest": "f822622917a018937fbf6a9165c118b5fc9f8fa68840adb855efcd85bbffc210",
+    "webIndexSha256": "b2b951f44ba2b37fbb21d784b94d2c32ff37d8c01c4898bfaecbd96f6ad8defb"
+  },
+  "pythonBytecodeInvestigation": {
+    "evidence": "PYC846",
+    "status": "Mechanism reproduced on a disposable copy; BUILD842 candidate was not modified.",
+    "observation": "The packaged launcher starts Python with -B, but a child launched via bare sys.executable does not inherit that flag and can write stdlib .pyc files.",
+    "build842Observation": "29 stdlib .pyc files appeared after initial strict signing success and before failed final verification; exact attribution of each file to a specific test invocation is unknown.",
+    "pendingFix": "PYC848 .py-child -B handling and its copied-resource regression passed 4/4 with independent review. HOST864 test separation passed its reviewed targeted scope (22/22 plus native 3/3). BUILD866 reused the BUILD857 bundle and failed its full host suite at 98/100; packaged sidecar checks, final signature verification, and Hub archive remain unrun.",
+    "causeConfidence": "Reproduced mechanism explains the observed class of mutation; per-file attribution in BUILD842 remains unknown.",
+    "candidateFix": {
+      "files": {
+        "plugins/codex-autocontinue/bridge.py": "cf4eff23296d8938bfbf8626a5c67bb8da5af8eee269bc26a33536a1e117c8c3",
+        "tests/plugin-fake-codex.py": "0cace49eb91c19592f3548deca226897edd7b46d0a17b7f8b4982fd66a02f7f8",
+        "tests/python-bytecode-isolation.test.mjs": "156b47493887a7053978084929f97c16c95ca4ca2e25f401ea10cbb97d022bb5"
+      },
+      "providerScope": "Pass -B only to .py provider children; binary provider argv is unchanged.",
+      "redRun": {
+        "evidence": "PYC848-red-r1",
+        "exitCode": 1,
+        "beforeFiles": 3349,
+        "afterFiles": 3378,
+        "newPycFiles": 29
+      },
+      "greenRun": {
+        "evidence": "PYC848-green-full-r3",
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0,
+        "durationMs": 2636
+      },
+      "independentReview": {
+        "evidence": "PYC848 review",
+        "result": "No confirmed P1/P2 in the bounded source fix or BUILD849 packaged-runtime gate; the gate recipe is fail-closed and has not been executed."
+      },
+      "fullFreshBuildGate": "BUILD849 attempted; packaged Python regression passed 4/4, but host suite failed 98/99, so sidecar checks and final signature verification did not run.",
+      "build849": {
+        "head": "ec1049ddaf5211fb38a3ad7790577d02d14027e3",
+        "policy": "66/66",
+        "pluginHost": "98/99, exit 1",
+        "packagedPythonBytecode": "4/4, zero skipped",
+        "independentReview": "PYC848: no confirmed P1/P2",
+        "remaining": "Investigate fixture cleanup ancestry failure; rerun full gate."
+      }
+    }
+  },
+  "build849": {
+    "sourceHead": "ec1049ddaf5211fb38a3ad7790577d02d14027e3",
+    "sourceTreeDigest": "5489e47e60a7ddda6af8154c25d45c310b7709f29f065d530bbf7691c3c97cd4",
+    "sourceFileCount": 711,
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 98,
+      "failed": 1,
+      "skipped": 0,
+      "exitCode": 1,
+      "failure": "One legacy quota fixture cleanup ancestry failure after executor retirement."
+    },
+    "packagedPythonBytecodeTests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "cancelled": 0,
+      "todo": 0,
+      "exitCode": 0
+    },
+    "packagedSidecarChecks": "not run",
+    "finalSignatureVerification": "not run; build stopped after host test failure",
+    "hubArchiveCompleted": false,
+    "installed": false,
+    "deployed": false,
+    "privateOriginPush": "succeeded; ref 8694264..ec1049d (push receipt verified)",
+    "evidence": "BUILD849"
+  },
+  "host856TestOnlyFollowUp": {
+    "testFile": "tests/plugin-host.test.mjs",
+    "sha256": "e1027035cd559b36ee17feae3358988bbed98763ce7bfeecd851e55f18401b56",
+    "targetedRun": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "HOST856-targeted-r1",
+      "logSha256": "4da444e732c5111078ef1cef3af211ec3faecf354f1251824df3972eda8470f6"
+    },
+    "independentReview": {
+      "evidence": "HOST856-review",
+      "result": "Narrow test-only adjustment acceptable for the named no-send legacy fixture; strict production assertions unchanged."
+    },
+    "productionHashesUnchanged": {
+      "plugins/codex-autocontinue/host.mjs": "2ad177f30a7289045dc0ac370277d8dc20f76551f1d4524e88de5069abc7a54b",
+      "plugins/codex-autocontinue/job-transport.mjs": "0efbc4614fc266d528b8c94e960b9f2912c7ede64d52f667eae6b6000dd28243",
+      "server/macos-executor-job.mjs": "270acf1aaee6b9d2ffb320efef305e49e61dba3b35526a4c383e165b9e3a035b"
+    },
+    "scope": "Targeted 4-case result only; later full-suite failures remain recorded under BUILD849, BUILD857, and HOST859. No retirement proof is created and no unknown marker is cleared.",
+    "freshFullBuild": "BUILD857 failed 98/99; HOST859 r1/r2 each failed 98/99; BUILD866 failed 98/100; latest BUILD874 failed 100/101 on case 8."
+  },
+  "build857": {
+    "sourceHead": "d13e252444f8132f735bf44d0f965843845bf5a6",
+    "sourceTreeDigest": "aa0f9372bd3929edc5c2f253c0379ddf80148e475c5fe1a14736fefafa22646e",
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "packagedPythonBytecodeTests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 98,
+      "failed": 1,
+      "skipped": 0,
+      "exitCode": 1,
+      "failure": "New-provider-turn-after-exit fixture cleanup failed to assign process ancestry after executor retirement."
+    },
+    "packagedSidecarChecks": "not run",
+    "finalSignatureVerification": "not run",
+    "hubArchiveCompleted": false,
+    "installed": false,
+    "deployed": false,
+    "evidence": "BUILD857"
+  },
+  "host859Rerun": {
+    "status": "failed; both full reruns were 98/99, zero skips",
+    "runs": [
+      {
+        "name": "HOST859-r1",
+        "passed": 98,
+        "failed": 1,
+        "skipped": 0,
+        "exitCode": 1
+      },
+      {
+        "name": "HOST859-r2",
+        "passed": 98,
+        "failed": 1,
+        "skipped": 0,
+        "exitCode": 1
+      }
+    ],
+    "disposition": "Retain both failures; no aggregate pass.",
+    "evidence": "HOST859-r1 and HOST859-r2"
+  },
+  "host860Diagnostics": {
+    "status": "diagnostic only",
+    "scope": "Inspected the close-error cause; this did not constitute a passing full suite or product behavior fix.",
+    "evidence": "HOST860"
+  },
+  "host862Case77": {
+    "status": "not reproduced",
+    "runs": [
+      {
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      {
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      }
+    ],
+    "scope": "Targeted case 77 only; two runs do not replace the full-suite failures.",
+    "evidence": "HOST862 case 77, two targeted runs"
+  },
+  "host863TestSeparationAnalysis": {
+    "status": "analysis completed",
+    "disposition": "Test-layer separation was analyzed; no pass is claimed for the resulting change.",
+    "evidence": "HOST863"
+  },
+  "host864TestSeparation": {
+    "status": "implemented, independently reviewed; bounded tests passed",
+    "targetedChecks": {
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "nativeChecks": {
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "scope": "These targeted checks do not replace the failing BUILD866 full host suite.",
+    "evidence": "HOST864"
+  },
+  "build866": {
+    "sourceHead": "d13e252444f8132f735bf44d0f965843845bf5a6",
+    "testOverlay": "03f19ce",
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "packagedPythonBytecodeTests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 98,
+      "failed": 2,
+      "skipped": 0,
+      "total": 100,
+      "exitCode": 1
+    },
+    "failureSummaries": [
+      "Legacy short-command fixture did not confirm final close.",
+      "Worktree-close fixture could not verify process ancestry."
+    ],
+    "packagedSidecarChecks": "not run",
+    "finalSignatureVerification": "not run",
+    "hubArchiveCompleted": false,
+    "installed": false,
+    "deployed": false,
+    "evidence": "BUILD866; private result and test logs retained outside tracked docs"
+  },
+  "native880PackagedChecks": {
+    "sourceBundle": "BUILD874 reused package from source d13e252",
+    "macosProcessSnapshot": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "executorProcessProof": {
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "resources": {
+      "count": 4221,
+      "byteIdenticalBeforeAfter": true
+    },
+    "strictSignature": {
+      "before": true,
+      "after": true
+    },
+    "releaseAccepted": false,
+    "scope": "Independent native packaged checks only; not full build/release acceptance.",
+    "evidence": "NATIVE880"
+  },
+  "host872Host873ScopedChecks": {
+    "status": "reviewed targeted scope passed",
+    "checks": {
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "scope": "Targeted checks only; does not replace full host suite.",
+    "evidence": "HOST872/HOST873"
+  },
+  "host881OverlapCleanupReview": {
+    "status": "targeted checks passed; independent review passed",
+    "targetedChecks": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "testSha256": "dbe04298a19338de8190d20e679bc1666c08e92f8f40943f7c9b2c8237c72eac",
+    "review": "HOST882 passed; no confirmed P1/P2",
+    "scope": "Four overlapping cleanup fixtures only; does not replace BUILD874 full host suite.",
+    "evidence": "HOST881/HOST882"
+  },
+  "build874Attempt": {
+    "id": "BUILD874",
+    "sourceHead": "d13e252444f8132f735bf44d0f965843845bf5a6",
+    "sourceTreeDigest": "aa0f9372bd3929edc5c2f253c0379ddf80148e475c5fe1a14736fefafa22646e",
+    "testOverlayCommit": "d9c8873cb8ae19ae4f977be85baa38b845e298fb",
+    "testOverlaySha256": "eee85ca01ebc47dda2646dc1eb88d2dcfcce5e966cc965f846a3d30268feac70",
+    "bundleSource": "reused existing BUILD857 bundle; no newly built or accepted release bundle",
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "packagedPythonBytecodeTests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 100,
+      "failed": 1,
+      "skipped": 0,
+      "total": 101,
+      "exitCode": 1,
+      "failedCase": "case 8: alias-workspace global-ancestry check"
+    },
+    "builtThisRun": false,
+    "packagedSidecarChecks": "not run",
+    "finalSignatureAndHubInstallDeploymentGates": "not completed",
+    "installed": false,
+    "deployed": false,
+    "errorCode": "plugin-host-tests_FAILED",
+    "evidence": "BUILD874; summarized from result and raw plugin-host TAP log"
+  },
+  "build884Attempt": {
+    "id": "BUILD884",
+    "sourceHead": "d13e252444f8132f735bf44d0f965843845bf5a6",
+    "sourceTreeDigest": "aa0f9372bd3929edc5c2f253c0379ddf80148e475c5fe1a14736fefafa22646e",
+    "testOverlayCommit": "8e9037e005f26c9bf922e52c62489f488ac86e81",
+    "testOverlaySha256": "dbe04298a19338de8190d20e679bc1666c08e92f8f40943f7c9b2c8237c72eac",
+    "bundleSource": "reused existing BUILD857 bundle; no newly built or accepted release bundle",
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "packagedPythonBytecodeTests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 100,
+      "failed": 1,
+      "skipped": 0,
+      "total": 101,
+      "exitCode": 1,
+      "failedCase": "case 48: uncertain interrupt fixture cleanup reported unassigned ancestry"
+    },
+    "builtThisRun": false,
+    "packagedSidecarChecks": "not run",
+    "finalSignatureAndHubInstallDeploymentGates": "not completed",
+    "installed": false,
+    "deployed": false,
+    "errorCode": "plugin-host-tests_FAILED",
+    "evidence": "BUILD884; result and raw TAP retained privately; 100/101, one failure, zero skips"
+  },
+  "build891Attempt": {
+    "id": "BUILD891",
+    "sourceHead": "d13e252444f8132f735bf44d0f965843845bf5a6",
+    "sourceTreeDigest": "aa0f9372bd3929edc5c2f253c0379ddf80148e475c5fe1a14736fefafa22646e",
+    "testOverlaySourceTreeDigest": "46df072bf90940df52df69ec8e862b6f3ffeee7d06b1aad4a3bd9c60ee09e0e3",
+    "testOverlaySha256": "bd8936d5da1afb7af3a9dfac54b707a36694cbf14570b7395f6809d86cc043ce",
+    "bundleSource": "reused existing BUILD857 bundle; no newly built or accepted release bundle",
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "packagedPythonBytecodeTests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 100,
+      "failed": 1,
+      "skipped": 0,
+      "total": 101,
+      "exitCode": 1,
+      "failedCase": "case 86: reconcile refuses an active conversation and preserves the lock; ancestry unassigned after executor retirement"
+    },
+    "builtThisRun": false,
+    "packagedSidecarChecks": "not run",
+    "finalSignatureAndHubInstallDeploymentGates": "not completed",
+    "installed": false,
+    "deployed": false,
+    "evidence": "BUILD891 receipt and raw TAP retained privately; historical failed attempt"
+  },
+  "host896CleanupFollowUp": {
+    "id": "HOST896/HOST897",
+    "targetedChecks": {
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "testSha256": "73062ba8d5b5c416ae033b05399b21e486d6b778e33bcc426de77798bde6f6fd",
+    "independentReview": "passed; no confirmed P1/P2 in the scoped test-only cleanup patch",
+    "scope": "Targeted tail-fixture cleanup only; does not replace or establish a passing BUILD898 full suite.",
+    "evidence": "HOST896 targeted result; HOST897 review"
+  },
+  "diag901Case4": {
+    "id": "DIAG901",
+    "targetedChecks": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "scope": "Single A/B retirement diagnostic with additional native observations that changed timing; it did not reproduce the BUILD898 teardown failure and does not prove a fix.",
+    "architectureFollowUp": "ARCH903 exposed an invalid assertion reading nonexistent nativeProcessTable.coalition. Its diagnostic rerun repeated that assertion and was not evidence of an observer mismatch. After switching to the actual executor_job.py observer and making two pre-existing empty-cohort assertions non-vacuous, RECHECK906 passed 19/19 with zero skips on frozen source digest f0d40423a6caa00406bd71ddc13a3f0ebed908c4e70f680609ed98011b878d9a. ARCH907 independently reviewed the added A/B app-server PID assertions with no confirmed P1/P2; BUILD909 included them in its full run.",
+    "evidence": "DIAG901 summary; raw private diagnostics retained privately"
+  },
+  "arch903Recheck906": {
+    "attempts": [
+      {
+        "id": "ARCH903-targeted-r1",
+        "passed": 14,
+        "failed": 1,
+        "skipped": 0,
+        "exitCode": 1,
+        "failedAssertion": "The test read nativeProcessTable.coalition, a field that does not exist."
+      },
+      {
+        "id": "ARCH903-diagnostic-r2",
+        "disposition": "Repeated the same invalid assertion; not evidence of an observer mismatch."
+      }
+    ],
+    "correctedTargetedRun": {
+      "id": "RECHECK906",
+      "passed": 19,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "frozenSourceDigest": "f0d40423a6caa00406bd71ddc13a3f0ebed908c4e70f680609ed98011b878d9a",
+      "observer": "executor_job.py",
+      "scope": "Strict native-observer targeted checks. This does not replace the failed BUILD898 full host gate.",
+      "evidence": "RECHECK906 targeted result; raw private log retained privately"
+    },
+    "assertionCorrections": "The observer now reads actual executor_job.py output. Two pre-existing empty-cohort assertions in requireProductionJobRetirement and the short-command helper were made non-vacuous; earlier empty-cohort claims from those helpers are not independent proof. Durable job and native-PID evidence remains separately recorded.",
+    "pendingAfterTargetedRun": "ARCH907 independently reviewed the A/B app-server PID assertions, which were included in later full runs. BUILD929 is the latest candidate bundle attempt; its native executor process-proof subgate failed separately from the host suite."
+  },
+  "build929HistoricalAttempt": {
+    "id": "BUILD929",
+    "sourceHead": "50c4406d5c3e1bbcf7724721168be7a29c8d6a3a",
+    "sourceTreeDigest": "5ecc0b1c23d67512bb984a4763fd29e2bc97abc6fc240fed2b874df09fe615e2",
+    "bundleSource": "fresh candidate bundle built from BUILD929 source",
+    "macExecutableSha256": "3246cb819d0a0ed4414c7b3eaf1960f6d224145d3b85643ae27506b44e8b39ea",
+    "packagedNodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "webDistTreeDigest": "f822622917a018937fbf6a9165c118b5fc9f8fa68840adb855efcd85bbffc210",
+    "m5PolicyTests": {
+      "passed": 66,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "packagedPythonBytecodeTests": {
+      "passed": 4,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "pluginHostTests": {
+      "passed": 108,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "nativeSnapshotTests": {
+      "passed": 10,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "nativeExecutorProcessProofTests": {
+      "passed": 4,
+      "failed": 1,
+      "skipped": 0,
+      "total": 5,
+      "exitCode": 1,
+      "failedCase": "prelaunch baseline retries only incomplete changing lists, with a strict three-read limit",
+      "observation": "The outer retry loop made 2 attempts where the test expected 3; the first sequence itself performed 3 reads.",
+      "codeDerivedPotential": "A nested retry may permit up to 6 low-level reads; this is inferred from code structure and was not observed in this run."
+    },
+    "builtThisRun": true,
+    "signed": true,
+    "accepted": false,
+    "packagedSidecarChecks": "not run",
+    "installed": false,
+    "deployed": false,
+    "notarized": false,
+    "evidence": "BUILD929 receipt and scoped logs; private filesystem paths omitted",
+    "historical": true
+  },
+  "latestBuildAttempt": {
+    "id": "BUILD933",
+    "sourceCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "sourceTreeDigest": "7f75160358c119f7ed11a79fd32943acd6e1122f5a3a7fb18554161515cf76a0",
+    "steps": 23,
+    "gateSets": {
+      "packagedPythonBytecode": {
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "m5Policy": {
+        "passed": 66,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "pluginHost": {
+        "passed": 108,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "nativeSnapshot": {
+        "passed": 11,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "nativeExecutorProcessProof": {
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "packagedSidecar": {
+        "passed": 4,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "blockedStartup": {
+        "passed": 1,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      }
+    },
+    "total": {
+      "passed": 199,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "resourcesUnchanged": true,
+    "finalSignatureValid": true,
+    "hubArchiveVerified": true,
+    "built": true,
+    "signed": true,
+    "installed": false,
+    "deployed": false,
+    "notarized": false,
+    "resultSha256": "6de8c270a4dd18d4859d5921018bca5e9a44d419ad5f534638606d9d65a2b5b9",
+    "manifestSha256": "7a953dc6954ad88083e92e14e092124ae9b023e45924cec748f352ca7aa93616",
+    "evidence": "BUILD933 result and manifest; raw test logs retained privately",
+    "scopeLimit": "Successful build and release-integrity gates do not establish installation, deployment, full M5 acceptance, or Windows runtime behavior."
+  },
+  "currentInstallation": {
+    "id": "INSTALL927",
+    "sourceCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "installed": true,
+    "singleCanonicalApp": true,
+    "dataUnchanged": true,
+    "rollbackBackupCreated": true,
+    "signing": "local-ad-hoc",
+    "notarized": false,
+    "normalIdleShutdownProven": true,
+    "newVersionLaunchedDuringInstallReceipt": false,
+    "mainSha256": "acdcf627f317fa0c657c126648a66783a59bf32d4f9328d42772ff3db5a5cc3d",
+    "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "normalQuitReceiptSha256": "80dd9a4c51b0bed5b4ad283d5d4c1477fdacc724c91e80574a7c7f5a146b2926",
+    "evidence": ".runtime/install927/installed-result.json; local absolute paths omitted"
+  },
+  "native937Provisional": {
+    "status": "limited observation completed; full lifecycle acceptance not established",
+    "sourceCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "warmReopenedEvidenceSha256": "4585fe8f597c2e19bfb8e35612a8c2569b0f68ed8b6aa132ea8fbb46eca620df",
+    "originalJobPhase": "retired",
+    "retirementReceiptBound": true,
+    "originalRecordIdentityPreserved": true,
+    "originalAppWorkerAndCohortBirthsGone": true,
+    "originalResourceCoalitionEmpty": true,
+    "coreShutdownFulfilled": true,
+    "coreCloseElapsedMs": 558,
+    "originalLateWriteAbsentAfterSeconds": 93,
+    "additionalCommands": 0,
+    "originalCommandStatus": "unknown",
+    "originalStopProof": "unverified",
+    "marker": "stopped_unknown",
+    "unknownActiveLeaseCount": 1,
+    "unknownOutcomeFencePreserved": true,
+    "boardAndManualAcceptancePreserved": true,
+    "pluginRestoredDisabled": true,
+    "allPoliciesDisabled": true,
+    "startupGenerationPrequitCaptured": false,
+    "coldGapObserved": false,
+    "fullLifecycleAcceptance": false,
+    "limitation": "The pre-quit startup generation was not captured, and the UI tool appears to have reopened a Core before the cold-gap probe; therefore these receipts do not prove a complete native shutdown/restart lifecycle. Treat this as an evidence limitation, not a product regression or full pass.",
+    "evidence": ".runtime/native937/warm-reopened.json and restored.json; private paths omitted",
+    "stopProof": "unverified"
+  },
+  "sourceAndHubSnapshotAtInstall927": {
+    "hubVersion": "41bcc810",
+    "hubWasUpdatedByBUILD933": false,
+    "privateRemoteHeadAtSnapshot": "50c4406",
+    "sourceCommit76fe78aePushPendingAtSnapshot": true,
+    "scope": "Point-in-time installation snapshot; not a claim about later remote-head state."
+  },
+  "native958": {
+    "status": "bounded real Mac application-menu quit, cold-gap, and same-data reopen passed; command outcome remains unknown",
+    "installedSourceCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "scenario": "one command in a fresh writable project, bound to the original startup generation, lease, and process cohort",
+    "observations": {
+      "commandRunningBeforeQuit": true,
+      "commandStatusAfterQuit": "unknown",
+      "applicationMenuQuit": true,
+      "originalProcessCohortGone": true,
+      "originalCohortMemberCount": 8,
+      "coreLockAbsent": true,
+      "coreShutdownFulfilled": true,
+      "coreCloseElapsedMs": 602,
+      "sqliteIntegrityPassed": true,
+      "preexistingProjectsPreserved": 5,
+      "preexistingTasksPreserved": 65,
+      "manualAcceptancePreserved": true,
+      "lateWriteAbsent": true,
+      "commandReplayed": false,
+      "oldAndNewUnknownFencesPreserved": true,
+      "unknownActiveLeaseCount": 1,
+      "reopenedSameData": true
+    },
+    "oldRetiredRecord": {
+      "generationOnlyChangeProven": true,
+      "fromGeneration": 6,
+      "toGeneration": 7,
+      "contentHashMatchesBaseline": true,
+      "byteIdentical": false
+    },
+    "observerAmendment": {
+      "initialRunningObservationFailed": true,
+      "reason": "initial observer accepted reserved only; actual lease was running",
+      "correctedObserverUsedBeforeQuit": true,
+      "initialRetiredRecordWholeObjectDigestCheckFailed": true,
+      "independentReview": "REVIEW967 passed this bounded scope"
+    },
+    "scopeLimit": "Does not establish full project acceptance, other quit routes, same-version Hub deployment, all M5 requirements, or manual user acceptance.",
+    "evidence": "NATIVE958 baseline, running, after-exit, deadline, reopened and old-record-drift receipts; REVIEW967"
+  },
+  "native950Attempt": {
+    "status": "no product evidence; not a product pass or failure",
+    "reason": "read-only isolated environment; no 90-second wait and no quit performed"
+  },
+  "native1057Install1060": {
+    "status": "narrow normal-quit-and-same-data-reopen pass; unknown outcomes preserved",
+    "installedSourceCommit": "a74d53b45ff0e1b6ec739bcda5aadf4b3a395ef6",
+    "normalQuit": {
+      "ordinaryCommandQ": true,
+      "fulfilledStages": 14,
+      "rejectedStages": 0,
+      "pluginsClosed": 4,
+      "canonicalProcessesAbsent": true,
+      "coreLockAbsent": true,
+      "coldSqliteIntegrityPassed": true
+    },
+    "reopen": {
+      "sameData": true,
+      "projects": 6,
+      "tasks": 66,
+      "manualAcceptancePreserved": true,
+      "originalUnknownLeaseCount": 2,
+      "originalUnknownCommandCount": 2,
+      "unknownsPreserved": true
+    },
+    "notCovered": [
+      "No claim that either old provider command completed; neither was resent.",
+      "Not full M5/AutoContinue acceptance; no new Android run.",
+      "Hub deployment remains pending."
+    ],
+    "evidence": [
+      ".runtime/native1057/normal-quit-result.json",
+      ".runtime/native1057/result.json",
+      ".runtime/native1057/reopen-result.json"
+    ]
+  },
+  "auto1050TwoStageRun20261030": {
+    "approvalStage": {
+      "status": "passed",
+      "fakeTurnStarts": 1,
+      "approvalStatePreservedAfterCloseAndReload": true,
+      "reloadStartedNoSecondTurn": true,
+      "evidence": ".runtime/auto1050/approval-result.json"
+    },
+    "seededUnknownStage": {
+      "status": "failed_harness_assertion",
+      "fakeTurnStarts": 0,
+      "originalAndReloadCloseFulfilled": true,
+      "assertion": "expected policy enabled=false; observed true",
+      "interpretation": "The synthetic seed had an unknown command and enabled unknown policy without a durable automatic-command identity. Unknown status remained and dispatch/restart guards prevented a turn; this does not prove normalization of a real automatic unknown.",
+      "evidence": [
+        ".runtime/auto1050/seeded-unknown-result.json",
+        ".runtime/auto1056/report.md"
+      ]
+    },
+    "replay": "forbidden; preserve original failed result and fixture",
+    "next": "A new test needs a source-contract-reviewed representable seed and explicit assertions for no new command/turn, unknown preservation, and the enabled-state inconsistency."
+  }
+}

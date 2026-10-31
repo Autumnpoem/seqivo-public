@@ -1,0 +1,45 @@
+{
+  "workId": "BUILD1097",
+  "date": "2026-10-31",
+  "sourceCommit": "7e58019931031ea5031c918728b04ea78770e9d3",
+  "mac": {
+    "candidateMainSha256": "5ad155b931c1b25bf320871066222f3e0aa7f58fcc42e0bb3d4e434f51b396e6",
+    "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "signature": "verified local ad hoc signature; not notarized",
+    "installedInCanonicalApplication": true,
+    "launched": true,
+    "startupReady": true,
+    "hubDeployedByThisRun": false,
+    "preservation": {
+      "projects": 6,
+      "tasks": 67,
+      "backupFilesExpected": 17,
+      "backupFilesVerified": 17,
+      "projectAndTaskIdsPreserved": true,
+      "recordsPreservedAfterStartupDiagnostics": true,
+      "manualAcceptanceFieldsPreserved": true,
+      "executionContentAndUnknownStatePreserved": true,
+      "installationPhaseUserDataUnchanged": true
+    },
+    "limitations": [
+      "Local ad hoc signing is not notarization or public release signing.",
+      "This install/startup and data-preservation check is not full application acceptance.",
+      "No Hub deployment was performed in this work."
+    ],
+    "evidence": {
+      "installReceipt": ".runtime/app1097/install-result.json",
+      "installReceiptSha256": "0972cf57f22a3b3c37caf72e6b4932c20256c91028a10822ba087aa7dbaac209",
+      "postInstallCheck": ".runtime/app1097/after-check.json",
+      "postInstallCheckSha256": "359aa1ee5a2a21da9a7381b8e9b36a36abab05a65c69c4067a4dfd901d564047",
+      "independentReview": ".runtime/build1097/review.md",
+      "reviewSha256": "1e24d4ebf5d0b90e41a59faaed641e4fdf60e5034f1e7155934d009715d75fac"
+    },
+    "nativeUiChecks": [
+      "dashboard statistics visible",
+      "not-started filter returns two tasks",
+      "conversation grouping visible",
+      "all-task project view restored"
+    ]
+  },
+  "wholeProjectComplete": false
+}

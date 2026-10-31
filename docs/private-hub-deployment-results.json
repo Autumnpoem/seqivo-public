@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-26",
+  "applicationVersion": "0.2.3",
+  "runtimeSourceRevision": "5552d5ca5b08fbf6f6f9008f7db27ae1f977f3a2",
+  "scope": "Private user-owned Hub on a public server; no public hosted service or native phone app released.",
+  "environment": {
+    "server": "Ubuntu 22.04.5 LTS x86_64",
+    "node": "24.21.0",
+    "nginx": "1.18.0-6ubuntu14.21",
+    "certbot": "5.8.0",
+    "client": "macOS arm64; Chrome and Playwright WebKit at 390x844"
+  },
+  "checks": {
+    "frontendBuild": "passed",
+    "hubAndBackupUnitTests": {
+      "passed": 16,
+      "failed": 0
+    },
+    "publicIpTrustedHttps": "passed",
+    "httpToHttpsRedirect": 308,
+    "unauthenticatedApiStatus": 401,
+    "certificateRenewalDryRunAndNginxDeployHook": "passed",
+    "systemdUnitValidation": "passed",
+    "serviceEnabledAtBoot": true,
+    "hubServiceRestart": {
+      "projectsPreserved": 1,
+      "tasksPreserved": 24,
+      "desktopReconnect": "passed"
+    },
+    "desktopPersonalDefaultAddressPersisted": true,
+    "publicBrowser": {
+      "engines": [
+        "chromium",
+        "webkit"
+      ],
+      "roles": [
+        "viewer",
+        "controller"
+      ],
+      "oneUsePairing": "passed",
+      "mobileLightAndDarkLayouts": "passed",
+      "sessionReload": "passed",
+      "readonlyWriteDenied": 403,
+      "revokedAccessDenied": 401,
+      "realDesktopUpdateAndReceipt": "passed (Chromium UI through public Hub)",
+      "subsequentSnapshotMatchesDesktop": "passed",
+      "pageScriptErrors": 0
+    },
+    "dailyBackup": {
+      "timerEnabled": true,
+      "realServiceRun": "passed",
+      "filePermissions": "0600; directory 0700",
+      "coldClosedWalUnderSystemd": "passed after fixing data-directory mount access",
+      "isolatedRestoreTaskCount": 24,
+      "ownerAuthNodeGrantsAndRevocationsPreserved": true,
+      "anotherTenantCannotReadRestoredProjects": true,
+      "oneProtectedLocalCopy": true
+    }
+  },
+  "resolvedFinding": {
+    "trigger": "Backup immediately after Hub service restart",
+    "symptom": "SQLite ERR_SQLITE_ERROR 14 while WAL/SHM coordination files were absent",
+    "fix": "Allow the unprivileged backup service to create SQLite coordination files in its existing data directory; keep the database connection readOnly:true.",
+    "regression": "Cold, closed WAL fixture backed up under the actual systemd sandbox; real Hub backup and isolated restore passed."
+  },
+  "notVerifiedOrNotImplemented": [
+    "Physical phone over cellular network (awaiting user check)",
+    "Real AI continue/pause from a physical phone over the public Hub",
+    "Full VM reboot (service enablement and Hub service restart were verified)",
+    "Unattended certificate renewal over an actual expiry cycle (dry-run passed)",
+    "Automatic off-host backup upload and backup retention cleanup",
+    "Native phone app"
+  ],
+  "rawEvidence": "Local-only: design/qa/private-hub-deployment/ and .runtime/deployment/; excluded from Git to protect private data."
+}

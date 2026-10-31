@@ -1,0 +1,1 @@
+{"identifier":"main-windows","description":"本地看板窗口的受限事件接口","windows":["main","floating"],"permissions":["core:event:default"]}

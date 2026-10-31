@@ -1,0 +1,9 @@
+{
+  "id": "local-terminal",
+  "name": "Local Terminal",
+  "version": "1",
+  "apiVersion": 1,
+  "coreOwned": true,
+  "contract": "terminal.local.v1",
+  "capabilities": ["terminal.local.v1"]
+}

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "DIAG491-495",
+  "status": "bounded-local-diagnostics-verified; broader-startup-and-app-scenarios-unverified",
+  "baseline": "649774c",
+  "sourcePins": {
+    "server/core.mjs": "4835723afc9e33e5feb0e5bfa20626c5c9d14d86f6d16c3a9871e85f888ad0b0",
+    "server/macos-executor-job.mjs": "abb07178c66f610c9ab255c98500fabb1cbcac537a921205c23fb02c836e3bc2",
+    "server/executor-startup-diagnostics.mjs": "890ee89eb6f8ff0cdf0802c815cd0fd71adb0a7121040fe73c55519f98af2baf",
+    "plugins/codex-autocontinue/host.mjs": "1a01f4f6e75bbb1379c13d872f0b08d848bc6d4553ec8a977155f337d148aeaf",
+    "pythonExecutableSha256": "8506f337a83611246ffcff62d6e96c6d2269e5db48508ca3ac2553d56c962aee",
+    "codexExecutableSha256": "0d5ac7aae20c4eda6242428d5e218c55ba96d8763fda2a271088ff37104b9d28",
+    "algorithm": "sha256",
+    "tests/executor-startup-cohort.test.mjs": "ebcee8b459a6ff46f1ef439174a6c0603b06b8bd6b7c743b5949f677d6361e32",
+    "tests/executor-startup-diagnostics.test.mjs": "a9e116229924ae0b34a69647dfecd4221de0fa7e91956c94fba02438b0dbe85d",
+    "tests/executor-startup-diagnostics-native.test.mjs": "ebc3f4aba7e030045a0076bd7e5e88e726f8cba4bbd78bf2b98efa999900c74c"
+  },
+  "runs": [
+    {
+      "name": "pure-diagnostics-tests",
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "evidence": "diag491-pure-r1"
+    },
+    {
+      "name": "macos-core-worker-launchd-fake-protocol-session",
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "sessionStatus": "created",
+      "threadStarts": 1,
+      "modelTurnsRequested": 0,
+      "evidence": "diag493-native-r1"
+    },
+    {
+      "name": "real-codex-session-startup-diagnostics",
+      "sessionStatus": "created",
+      "sessionCount": 1,
+      "modelTurnsRequested": 0,
+      "diagnosticPhasesVerified": [
+        "confirm.first",
+        "confirm.second",
+        "revalidate.first",
+        "revalidate.second"
+      ],
+      "cleanupErrors": 0,
+      "evidence": "diag495-real-session-r1"
+    }
+  ],
+  "retirementCheck": {
+    "type": "separate-read-only-process-check",
+    "durableJobPhase": "retired",
+    "originalExecutorGone": true,
+    "regularAppStillPresent": true,
+    "evidence": "diag495-retirement-proof"
+  },
+  "diagnosticStorage": {
+    "exposure": "local-private-only; absent from task state, plugin RPC, and remote APIs",
+    "fixedEnums": true,
+    "recordId": "truncated-sha256",
+    "directoryMode": "0700",
+    "fileMode": "0600",
+    "maxBytesPerFile": 65536,
+    "retainedFiles": 2,
+    "writeFailureChangesAdmission": false
+  },
+  "reviews": [
+    {
+      "id": "REVIEW492",
+      "result": "no confirmed P1/P2 in bounded diagnostics change"
+    },
+    {
+      "id": "REVIEW494",
+      "result": "no confirmed P1/P2 after native fixture cleanup correction"
+    }
+  ],
+  "limits": [
+    "The real-Codex run created a session only and did not request a model turn.",
+    "These results do not explain or retroactively resolve the earlier Android startup failure.",
+    "No Android app flow, busy-task pause, GUI exit, or real model turn was tested.",
+    "Startup failures that occur before the observer are outside the recorded phases.",
+    "Diagnostics are private local troubleshooting records, not a product capability or remote status API."
+  ]
+}

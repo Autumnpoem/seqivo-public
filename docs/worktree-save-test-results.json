@@ -1,0 +1,346 @@
+{
+  "date": "2026-10-18",
+  "id": "WORKTREE336",
+  "status": "save-backend-and-browser-limited-pass; WORKTREE324 real-workflow attempt incomplete; full-collaboration-acceptance-pending",
+  "probe": {
+    "scriptSha256": "2810479ef153423da88efe1694c55601e341341da04931808eb69ac2dd1f4e1b",
+    "codexCliVersion": "0.162.0-alpha.17.2",
+    "method": "command/exec",
+    "noModelTurn": true,
+    "sandbox": {
+      "type": "workspaceWrite",
+      "networkAccess": false,
+      "writableRoot": "linked-worktree"
+    },
+    "steps": [
+      {
+        "name": "positive-cwd-write",
+        "exitCode": 0,
+        "result": "ordinary-file-created-in-linked-worktree"
+      },
+      {
+        "name": "linked-git-add",
+        "exitCode": 128,
+        "result": "denied-creating-repository-index-lock-outside-writable-root"
+      }
+    ],
+    "git": {
+      "baselineHead": "31712a62993d4c30dfc9e3c07fb830a70042f77d",
+      "headAfter": "31712a62993d4c30dfc9e3c07fb830a70042f77d",
+      "stagedNames": [],
+      "probeFileUntrackedBeforeCleanup": true
+    },
+    "cleanup": {
+      "ownAppServerExited": true,
+      "temporaryRepositoryRemoved": true,
+      "commandResultUnknown": false
+    }
+  },
+  "productSaveContract": {
+    "status": "WORKTREE346 backend and IMPL341 r5 browser flows passed within scope; WORKTREE324 real workflow attempt did not complete successfully",
+    "backend": "IMPL342",
+    "ui": "IMPL341",
+    "acceptance": "limited save implementation/browser evidence passed; successful AI collaboration and full user acceptance pending",
+    "receipt": "sourceHead identifies the new review-version commit; previousHead identifies its prior HEAD",
+    "doesNotMean": [
+      "task acceptance",
+      "automatic review",
+      "main-branch update or merge",
+      "successful real AI workflow",
+      "two-task collaboration",
+      "native packaged-client acceptance",
+      "full user acceptance"
+    ]
+  },
+  "limitations": [
+    "The command/exec probe does not establish that model turn/start has identical sandbox enforcement.",
+    "WORKTREE346 and IMPL341 save-flow evidence used a fake provider; neither establishes a successful real AI turn.",
+    "WORKTREE324 separately attempted two real starts but did not complete: one server_overloaded error and one interrupted worker with retirement_unknown; no save/review/merge began. IMPL356 later passed bounded fake-provider diagnostic regressions, without establishing or fixing this real attempt’s cause.",
+    "WORKTREE346 independent review leaves asynchronous preparatory Git child close proof unawaited; no late-CAS path was observed.",
+    "If no conclusive negative receipt becomes available, not_found may leave the original save locked for manual recovery; no new request is sent automatically.",
+    "A denied probe is not authorization to downgrade sandbox policy or use another write path."
+  ],
+  "WORKTREE346": {
+    "status": "limited-local-backend-pass; UI checks were not part of this run",
+    "baseCommit": "bedf06b2fb7961cad80478b5a4ba20514254a20f",
+    "scope": {
+      "realCore": true,
+      "realGit": true,
+      "fakeProvider": true,
+      "realAi": false,
+      "browser": false,
+      "nativePackagedApp": false
+    },
+    "r1": {
+      "passed": 52,
+      "failed": 2,
+      "exitCode": 1,
+      "failuresRetained": [
+        "staleTaskVersion fixture",
+        "test Python executable path"
+      ]
+    },
+    "environmentFollowup": {
+      "passed": 1,
+      "failed": 0,
+      "exitCode": 0,
+      "productChanges": false
+    },
+    "r2": {
+      "passed": 56,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "durationMs": 20116,
+      "workspaceHashesMatched": true,
+      "files": [
+        {
+          "name": "core.mjs",
+          "sha256": "21178e7eabcfbe6b56c82ee3326504c80e0d20d0996989171ec1b7a6fcbc6e4b"
+        },
+        {
+          "name": "worktrees.mjs",
+          "sha256": "0649dffcfa25db47c04bfd5bacbbab3f035cfac86cfd88ad8b4c17e8a80e4d6b"
+        },
+        {
+          "name": "worktree-save.mjs",
+          "sha256": "d20a956092e0028a6ca55d21d4bae6aae21d90b18021aef4b6e9263993eb3a55"
+        },
+        {
+          "name": "control.mjs",
+          "sha256": "1b9745fcfd1552ed645bce8704d27f67cef4cf930dd6f43e3a361ded1f877b32"
+        },
+        {
+          "name": "manager.mjs",
+          "sha256": "5e1f50b26d0acd124c3c0c12d8b05f53c75865dca9ee272d5e2e62f47dd5c041"
+        },
+        {
+          "name": "worktree-save.test.mjs",
+          "sha256": "eb6b86bb2a34302ccd0eaacd3b30ad8ee51a580b578b2246da4e9145337c6ab8"
+        },
+        {
+          "name": "worktree-save-core.test.mjs",
+          "sha256": "6cc2ab084b4ed8b4209f595571469f2f2b80f1b1add3fc9174fc970ab55ed0cd"
+        },
+        {
+          "name": "worktrees.test.mjs",
+          "sha256": "84f80f71918ea13866459296d8c064c2bbbe58d623422fa8cdbb638ad388b18b"
+        },
+        {
+          "name": "workflow-worktrees.test.mjs",
+          "sha256": "adde9bc741525af78a8af609914c9cfe24db40bcb524c9ceaabdc7ffc04b2c64"
+        },
+        {
+          "name": "terminal-control.test.mjs",
+          "sha256": "22691861a44d912766a21b0949c97ed72e769dc45022d5e9dd683209d412ae8f"
+        },
+        {
+          "name": "execution-startup-leases.test.mjs",
+          "sha256": "38098be8478ec9040dc6a4eb6fd1b976fea454bd5ab202fd16e97c6370fa93ca"
+        }
+      ]
+    },
+    "covered": [
+      "owner-only Core routes and real Git worktree operations",
+      "request idempotency and restart recovery",
+      "UTF-8 file create, modify, delete and untracked changes",
+      "task and review state remain unchanged",
+      "path-alias fencing in both directions",
+      "staged, binary, symlink, submodule, configuration-filter and path-limit refusals",
+      "not_saved when CAS was not attempted",
+      "historical ready result after task edit",
+      "CAS unknown retains fence and does not resend",
+      "HEAD switch rejection",
+      "different-project concurrency allowed while overlapping work is blocked"
+    ],
+    "saveReceipt": "sourceHead is the new worktree commit; previousHead is the old HEAD",
+    "independentReview": {
+      "review": "REVIEW343",
+      "confirmedP1P2": 0,
+      "limitation": "asynchronous preparatory Git child close is not awaited; no late-CAS path observed"
+    },
+    "ui": {
+      "typecheck": "not run in WORKTREE346; see WORKTREE341.r5",
+      "build": "not run in WORKTREE346; see WORKTREE341.r5",
+      "browserMock": "not run in WORKTREE346; see WORKTREE341.r5",
+      "liveIntegration": "not run in WORKTREE346; see WORKTREE341.r5"
+    },
+    "doesNotProve": [
+      "real AI turn",
+      "browser or complete product flow",
+      "native packaged App",
+      "task acceptance, auto-review or merge"
+    ]
+  },
+  "WORKTREE341": {
+    "status": "r5-mock-and-real-core-git-browser-pass-review349-r2-limited-review-clear",
+    "baseCommit": "bedf06b2fb7961cad80478b5a4ba20514254a20f",
+    "sourceSha256": {
+      "WorktreePanel.tsx": "43230e5981ba6c01b2f218ea0e4e0432f3c7e5d806822198c15c12047ddfe55d",
+      "worktree.css": "45555442efaec7e4b1a815a1f1776645e9160e18c1a0c44afca095991e8c68be",
+      "worktrees.mjs": "0649dffcfa25db47c04bfd5bacbbab3f035cfac86cfd88ad8b4c17e8a80e4d6b",
+      "worktree-save-ui.mjs": "04f61a81a46ee13cbb0287d8f276ab5c476208f6535eccd6d5408229e5f4b109",
+      "worktree-save-live.mjs": "23d726e1a1f7b6d54bebb835eccf6d8c61ea231e7e6aeaac55e5602d3a5e5926"
+    },
+    "checks": {
+      "frozen TypeScript": 0,
+      "frozen private Vite build": 0,
+      "mock browser": 0,
+      "real Core+Git browser": 0
+    },
+    "liveBrowser": {
+      "passed": true,
+      "realCore": true,
+      "realGit": true,
+      "realBrowser": true,
+      "realAi": false,
+      "cleanShutdown": true
+    },
+    "assertions": [
+      "UI preview displayed complete tracked and untracked text changes before explicit save",
+      "real Git source commit changed and became clean while target SHA remained unchanged",
+      "task status, acceptance, content version and human-review table remained unchanged"
+    ],
+    "testCorrections": [
+      "r4 fixed-HEAD, live-locator and patch-format oracle corrections were test expectation changes, not product fixes; r5 reran the mock and real Core/Git browser flows after REVIEW349 fixes."
+    ],
+    "independentUiReview": "REVIEW349-R2: initial two P2 findings closed; no confirmed remaining P1/P2 in limited review",
+    "doesNotProve": [
+      "real AI turn",
+      "two real AI tasks",
+      "human acceptance",
+      "automatic review",
+      "merge",
+      "packaged-client or native acceptance"
+    ],
+    "r4History": {
+      "checks": {
+        "frozen TypeScript": 0,
+        "frozen private Vite build": 0,
+        "mock browser": 0,
+        "real Core+Git browser": 0
+      },
+      "liveBrowser": {
+        "passed": true,
+        "realCore": true,
+        "realGit": true,
+        "realBrowser": true,
+        "realAi": false,
+        "cleanShutdown": true
+      },
+      "assertions": [
+        "worktree gained a new review-version commit and is clean",
+        "target HEAD unchanged",
+        "task status, acceptance, content version and human review records unchanged"
+      ],
+      "testCorrections": [
+        "fixed-HEAD mock expectation corrected to the save contract",
+        "live locator and patch-format oracle corrected; these were test expectation fixes, not product fixes"
+      ]
+    },
+    "r5": {
+      "sourceSha256": {
+        "WorktreePanel.tsx": "43230e5981ba6c01b2f218ea0e4e0432f3c7e5d806822198c15c12047ddfe55d",
+        "worktree.css": "45555442efaec7e4b1a815a1f1776645e9160e18c1a0c44afca095991e8c68be",
+        "worktrees.mjs": "0649dffcfa25db47c04bfd5bacbbab3f035cfac86cfd88ad8b4c17e8a80e4d6b",
+        "worktree-save-ui.mjs": "04f61a81a46ee13cbb0287d8f276ab5c476208f6535eccd6d5408229e5f4b109",
+        "worktree-save-live.mjs": "23d726e1a1f7b6d54bebb835eccf6d8c61ea231e7e6aeaac55e5602d3a5e5926"
+      },
+      "webSha256": {
+        "index.html": "5920b479ea73d2910836d4191bff5c82372da7ef33a8728234ffb138e55fd6b9",
+        "App-BEwQWAz8.js": "da27f78e95fe0cfd533d94f30a7d0b9dd0472021b5ee8a5dfa085c7250ccfbf5"
+      },
+      "checks": {
+        "frozen TypeScript": 0,
+        "frozen private Vite build": 0,
+        "mock browser": 0,
+        "real Core+Git browser": 0
+      },
+      "liveBrowser": {
+        "passed": true,
+        "realCore": true,
+        "realGit": true,
+        "realBrowser": true,
+        "realAi": false,
+        "cleanShutdown": true
+      },
+      "assertions": [
+        "UI preview displayed complete tracked and untracked text changes before explicit save",
+        "real Git source commit changed and became clean while target SHA remained unchanged",
+        "task status, acceptance, content version and human-review table remained unchanged",
+        "historical ready receipt remains verifiable by original request identity after current HEAD changes"
+      ]
+    },
+    "review349": {
+      "initialFindings": [
+        "ready receipt did not bind exact worktreeId and previousHead",
+        "not_found incorrectly cleared the original save lock"
+      ],
+      "fixed": [
+        "ready receipt now verifies worktreeId, previousHead, source OID, request identity, digest and changed-file count",
+        "not_found refresh retains the original request lock",
+        "historical ready receipts are verified against the original save request and do not require the current HEAD to remain unchanged"
+      ],
+      "verification": "REVIEW349-R2 static review plus IMPL341 r5 mock and real Core/Git browser flows passed; no confirmed remaining P1/P2 in this limited scope",
+      "recoveryLimit": "A not_found refresh retains the original request lock. If no durable, conclusive negative receipt becomes available, the request may remain locked and require explicit manual recovery; no new request is created automatically."
+    },
+    "limitations": [
+      "WORKTREE346 independent review leaves asynchronous preparatory Git child close proof unawaited; no late-CAS path was observed.",
+      "IMPL341 r5 is not a real AI turn, two-task collaboration, human acceptance, automatic review, merge, native packaged App or full user acceptance.",
+      "If a conclusive negative receipt never becomes available, the original save may remain locked for manual recovery; automatic retry is prohibited."
+    ]
+  },
+  "WORKTREE324": {
+    "status": "real-workflow-attempt-incomplete-no-collaboration-pass",
+    "sourceCommit": "1881473d5b812788097c4e7136c72b5b804b1578",
+    "provider": "codex-autocontinue",
+    "runtimeModelMetadata": {
+      "workerA": "gpt-6-astra",
+      "workerB": "gpt-6-astra",
+      "userModelSelectionChanged": false
+    },
+    "execution": {
+      "realStarts": 2,
+      "resends": 0,
+      "maxStarts": 3,
+      "workerA": {
+        "publicErrorCode": "server_overloaded",
+        "publicMessage": "模型繁忙",
+        "turnSuccessConfirmed": false
+      },
+      "workerB": {
+        "stateBeforeClose": "running",
+        "closeResult": "unconfirmed-error",
+        "retirementStatus": "retirement_unknown",
+        "publicEvent": "interrupted"
+      }
+    },
+    "worktreeState": {
+      "twoIndependentWorktrees": true,
+      "filesChanged": false,
+      "saveStarted": false,
+      "reviewStarted": false,
+      "mergeStarted": false
+    },
+    "readOnlyFollowup": {
+      "queries": 2,
+      "originalLabelsAbsent": 2,
+      "originalResourceCohortsEmpty": 2,
+      "currentWorktreeWriters": 0,
+      "workerBRecordedIdentitiesChecked": 5,
+      "workerBRecordedIdentitiesStillAlive": 0,
+      "originalUnknownRecordsPreserved": true,
+      "establishesTurnSuccess": false,
+      "clearsUnknownRecord": false
+    },
+    "evidenceDigests": {
+      "attemptResultSha256": "69d2b59282fb27e43b657f6d6d77ac390dcb075d24ce110f28d4a3a9eb288e04",
+      "workerLogSha256": "1eb75ab22e4936a406d3819b57a57a22696bb89ebfd1c1f923345bda9c9378b3"
+    },
+    "followup": "IMPL356 bounded diagnostics implemented; fake regressions passed; REVIEW360 found no new confirmed P1/P2 in scope; WORKTREE324 root cause and real-workflow success remain unconfirmed; see provider-completion-diagnostics-test-results.json",
+    "limitations": [
+      "Read-only absence checks do not prove turn success or clear the preserved unknown record.",
+      "No worktree files changed and no save, review or merge started."
+    ]
+  }
+}

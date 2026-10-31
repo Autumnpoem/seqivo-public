@@ -1,0 +1,45 @@
+✖ real SSH seals old input before create and a delayed tmux selection, then accepts only new generations (559.609208ms)
+ℹ SSH fixture cleanup: 1 clients, 1 children
+✖ Hub requires account auth, isolates hosts and tickets, and revokes an open SSH connection on logout (3427.18225ms)
+ℹ SSH fixture cleanup: 0 clients, 0 children
+ℹ tests 2
+ℹ suites 0
+ℹ pass 0
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4083.021917
+
+✖ failing tests:
+
+test at tests/ssh-terminal.test.mjs:187:1
+✖ real SSH seals old input before create and a delayed tmux selection, then accepts only new generations (559.609208ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file://[isolated-fixture])
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: { code: 'SSH_INPUT_STALE' },
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests/ssh-terminal.test.mjs:241:1
+✖ Hub requires account auth, isolates hosts and tickets, and revokes an open SSH connection on logout (3427.18225ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+  true !== false
+
+      at TestContext.<anonymous> (file://[isolated-fixture])
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: true,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

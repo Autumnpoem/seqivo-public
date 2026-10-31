@@ -1,0 +1,127 @@
+{
+  "workId": "LINUX1092",
+  "sourceCommit": "ae45a65a548dce74de996ec06340506e2b1a65eb",
+  "status": {
+    "sourceFix": "implemented; independent review found no P1/P2 blocker",
+    "targetedValidation": "focused candidate, Core, RPC, Host-negative, and non-Linux checks recorded; broad regression run remains 3/4",
+    "linuxPackaged": false,
+    "installed": false,
+    "deployed": false
+  },
+  "scope": {
+    "failure": "Linux same-worker createSession initializeError",
+    "fixSummary": "Record the session as creating before initialize. If initialization fails before createThread is called, persist not_started; clear the marker only after Core verifies retirement of the original job. Once createThread has been invoked, a failure remains unknown.",
+    "authorityBoundary": "Only job-retirement evidence may have a null appServer PID; Core authority is unchanged."
+  },
+  "sourceSha256": {
+    "plugins/codex-autocontinue/host.mjs": "54e3e8dc2e337aaff3fafe82dfd21fdd454d12f1699e069174236a3431245d57",
+    "server/plugin-process.mjs": "34b44402541f89df9f9c34c81caffaef2e477e2d8235a6bdda826e34679ebe0a",
+    "tests/linux-host-admission.test.mjs": "8d13d1f63f1b330f56c1f6a8118937e62feff267869191d0eec508c81229804f",
+    "tests/linux-session-abort.test.mjs": "15b648f9f09ce09cf8269cca878fc2269f45cde0244e40e86bf9befa3b59b30d",
+    "tests/plugin-linux-authority.test.mjs": "9a6a9dbafebb9d2ffaec77ca67e2dbb99e45032465596c7cdb276923eb7ab122",
+    "tests/fixtures/linux-session-abort-controller.mjs": "3eea3e2a0fdd184e1075b61abf174ecc69a8f51ae7d5290273e7518acdf68d05"
+  },
+  "validation": {
+    "baseline": {
+      "result": "1 test reproduced the initialization-failure defect",
+      "record": ".runtime/linux1092/baseline/result.json",
+      "resultSha256": "13bd8044326ba1637b5e050c4f69196a9aaf561bcda1b19dec22c40c23608546",
+      "log": ".runtime/linux1092/baseline/tests.log",
+      "logSha256": "f052fd7c052e531b5f1d6edabc627a02df0cb29c8ea50f8f8cfb49aee9837b2f"
+    },
+    "initialCandidateHostSuite": {
+      "result": "6 passed, 0 failed",
+      "record": ".runtime/linux1092/candidate/result.json",
+      "resultSha256": "b7be2521c7c392495c146e8a2ec68885719d91804d9161efa58dd27183f58dbc",
+      "log": ".runtime/linux1092/candidate/tests.log",
+      "logSha256": "a4d57c11bdd09d475b193b377d4d13fd0ff928d12c59e7329ffeec093913946b"
+    },
+    "coreInitial": {
+      "result": "3 fixture failures because the scenario definition was missing; not product failures",
+      "record": ".runtime/linux1092/core/result.json",
+      "resultSha256": "13bd8044326ba1637b5e050c4f69196a9aaf561bcda1b19dec22c40c23608546",
+      "log": ".runtime/linux1092/core/tests.log",
+      "logSha256": "b10dfe23b2b1644f871d6955bf0611a24f83de577e29f745e8d458f22506bfd7"
+    },
+    "coreFixed": {
+      "result": "3 passed, 0 failed",
+      "record": ".runtime/linux1092/core-fixed/result.json",
+      "resultSha256": "b7be2521c7c392495c146e8a2ec68885719d91804d9161efa58dd27183f58dbc",
+      "log": ".runtime/linux1092/core-fixed/tests.log",
+      "logSha256": "98197ccd2016384c0d58e60259307b3f59e280447f1d88411d39545979d800df"
+    },
+    "rpc": {
+      "result": "4 passed, 0 failed",
+      "record": ".runtime/linux1092/rpc/result.json",
+      "resultSha256": "b7be2521c7c392495c146e8a2ec68885719d91804d9161efa58dd27183f58dbc",
+      "log": ".runtime/linux1092/rpc/tests.log",
+      "logSha256": "d9c51173f418092f27feeb4270c874a1c6a309ff50d93b80015971f1e183edae"
+    },
+    "finalHostSuite": {
+      "result": "7 passed, 0 failed; includes the added negative case and is the full Host suite, not seven additional cases; no unexpected children, cleanup signals, or remaining children",
+      "record": ".runtime/linux1092/candidate-negative/result.json",
+      "resultSha256": "b7be2521c7c392495c146e8a2ec68885719d91804d9161efa58dd27183f58dbc",
+      "log": ".runtime/linux1092/candidate-negative/tests.log",
+      "logSha256": "4a49e97aa4c3fa38b4652be35ed2960f5c32a16c880c4e83788a70db8cb4706c"
+    },
+    "regression": {
+      "result": "3 passed, 1 failed; no-turn-ID case failed during fixture handoff scan before its restart assertion",
+      "cleanup": "2 outer cleanup signals; 0 remaining children and temporary directory removed",
+      "record": ".runtime/linux1092/regression/result.json",
+      "resultSha256": "7ca799e8c7c0f4591ea862f8537f561aaba6d4457b5c1c0e9b4a0950ba5e2dc5",
+      "log": ".runtime/linux1092/regression/tests.log",
+      "logSha256": "396a440537ed6b53afdda10691220b61dcb2fc5371426b78f8978104e5072dca",
+      "followUp": {
+        "baselineCase": "1 passed, 0 cleanup signals, 0 remaining children",
+        "baselineRecord": ".runtime/linux1092/regression-baseline-target/result.json",
+        "baselineResultSha256": "a8a788280c489809839e5f90f4570d72d974720145abca2d9073f30d129fcdbe",
+        "baselineLog": ".runtime/linux1092/regression-baseline-target/tests.log",
+        "baselineLogSha256": "12408e6af11a8411c9ec04d25d339e901f753b4658b698aad37fac1ede2eba12",
+        "candidateCase": "1 passed, 0 cleanup signals, 0 remaining children",
+        "candidateRecord": ".runtime/linux1092/regression-target/result.json",
+        "candidateResultSha256": "a8a788280c489809839e5f90f4570d72d974720145abca2d9073f30d129fcdbe",
+        "candidateLog": ".runtime/linux1092/regression-target/tests.log",
+        "candidateLogSha256": "8fb52e747f8d713a4bd61e4f0a4ab5de7dc36a20f2ce5cad60e3943e14cc2b6f",
+        "interpretation": "The no-turn-ID fixture scan failure from the broad run did not reproduce in the isolated baseline or candidate cases; its cause remains unknown and the full 4-case run is not all green."
+      }
+    },
+    "nonLinuxLegacySession": {
+      "result": "4 passed, 0 failed; macOS background scripted session, not native Mac app",
+      "record": ".runtime/linux1092/nonlinux-session-result.json",
+      "resultSha256": "62617a0768835b68e57de548d3bc6af1b2fa3aedd05acf64d195bf3811def565",
+      "log": ".runtime/linux1092/nonlinux-session.log",
+      "logSha256": "b65101fc49e4815a59ff16d6c905b73844252fc37d6b021cefd970a4313f3a24"
+    },
+    "independentReview": {
+      "result": "no P1/P2 blocker found",
+      "record": ".runtime/linux1092/review.md",
+      "sha256": "73b6ac58098520eef14fb1b0440c53609c9e598c331f466877c71402f9113b6c"
+    }
+  },
+  "integrationAndDelivery": {
+    "BUILD1091IncludesThisFix": false,
+    "installedMacUI": "UI1066; does not include this fix",
+    "deployedHubIncludesThisFix": false,
+    "sourceNotIncludedInAndroidV14": true,
+    "ordinaryAndroidVersionCode": 14,
+    "wholeGoalComplete": false
+  },
+  "boardReceipt": {
+    "record": ".runtime/linux1092/board-result.json",
+    "sha256": "db88ec7fa0d61245bd6a6448f4ce1e661e8be7830a9edf904ad678b0bf200fc9",
+    "id": "59509a5a-590c-47c5-b059-e2c9204474bf",
+    "revision": 19,
+    "status": "running",
+    "verification": "partial",
+    "completedCheck": "linux-initialize-before-send",
+    "otherTasksUnchanged": 66,
+    "manualAcceptanceUnchanged": true,
+    "packaged": false,
+    "installed": false,
+    "deployed": false
+  },
+  "remaining": [
+    "Linux packaging/installation, native UI, pre-bridge failures without an identity, worker replacement, real-provider handoff, Ubuntu, and Windows validation remain separate pending scopes.",
+    "The broader worktree failure/recovery path remains a separate pending validation scope."
+  ]
+}

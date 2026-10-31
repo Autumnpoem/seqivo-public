@@ -1,0 +1,143 @@
+{
+  "workId": "LINUX1088",
+  "date": "2026-10-31",
+  "baseCommit": "8041b649d9694ca5dce6bfd3454744db8c35d07a",
+  "codeCompleteForSlice": true,
+  "change": "Skip only the redundant Host whole-tree capture during durable Linux-job admission. Keep Core private-record/live identity-chain checks, prelaunch baseline, legacy bridge capture and live stop proofs.",
+  "regression": {
+    "before": {
+      "runnerExit": 0,
+      "uid": 65534,
+      "exitCode": 1,
+      "timeout": null,
+      "subreaper": true,
+      "unexpectedChildren": 0,
+      "cleanupSignals": 0,
+      "remainingChildren": 0,
+      "temporaryDirectoryRemoved": true,
+      "reapedOrphansDuringTest": 0,
+      "run": ".runtime/linux1088/baseline",
+      "passCount": 0,
+      "failCount": 1,
+      "skipped": 0,
+      "testsLogSha256": "c5dec5446ca4fd7b53a7bc238c35f30d2429b05b453e28e757b9f44de869f574",
+      "sourceManifestSha256": "25e408810fafa48da202e7e4fe53931bc287e9d2d68678bf526e2b91ebd92b5a",
+      "pass": 0
+    },
+    "after": {
+      "runnerExit": 0,
+      "uid": 65534,
+      "exitCode": 0,
+      "timeout": null,
+      "subreaper": true,
+      "unexpectedChildren": 0,
+      "cleanupSignals": 0,
+      "remainingChildren": 0,
+      "temporaryDirectoryRemoved": true,
+      "reapedOrphansDuringTest": 0,
+      "run": ".runtime/linux1088/candidate-fixed",
+      "passCount": 1,
+      "failCount": 0,
+      "skipped": 0,
+      "testsLogSha256": "df19f5eb520cab53f9c96cf1b49ad4334fc2fedeb9d64c131903b227aa7de3bb",
+      "sourceManifestSha256": "6a32639c8c79b38a2af2a0f0dea972fa04e915473cff53a34ab651959dfb8b31",
+      "pass": 1
+    },
+    "mockScope": "Host regression uses a real Linux job and fake Codex protocol, a fixture prelaunch baseline and Core callback doubles. It does not validate Core authorization."
+  },
+  "integration": {
+    "runnerExit": 0,
+    "uid": 65534,
+    "exitCode": 0,
+    "timeout": null,
+    "subreaper": true,
+    "unexpectedChildren": 0,
+    "cleanupSignals": 0,
+    "remainingChildren": 0,
+    "temporaryDirectoryRemoved": true,
+    "reapedOrphansDuringTest": 21,
+    "run": ".runtime/linux1088/integration",
+    "passCount": 4,
+    "failCount": 0,
+    "skipped": 0,
+    "testsLogSha256": "ce0f4a4a0e5bc29f94260f39e084ff52e17b6650bbe6cee7d95b58d6cdd59e8f",
+    "sourceManifestSha256": "1729ae507e5b2b9f1789e498606f06b91f28b9b646edf173a0e7662a82a90f62"
+  },
+  "integrationScope": [
+    "fresh Core reattaches and stops original admitted job without replay",
+    "interrupted outcome does not become final proof",
+    "missing turn ID refuses takeover",
+    "same live Core stops AI then resumes original managed shell; Core close succeeds"
+  ],
+  "fixtureFailure": {
+    "runnerExit": 0,
+    "uid": 65534,
+    "exitCode": 1,
+    "timeout": null,
+    "subreaper": true,
+    "unexpectedChildren": 0,
+    "cleanupSignals": 0,
+    "remainingChildren": 0,
+    "temporaryDirectoryRemoved": true,
+    "reapedOrphansDuringTest": 0,
+    "run": ".runtime/linux1088/candidate",
+    "passCount": 0,
+    "failCount": 1,
+    "skipped": 0,
+    "testsLogSha256": "68c02c8c8bc362dbbdce17081c86b191ddb7e56e0f9e77557ee6b403232dc020",
+    "sourceManifestSha256": "ce4cbac43409d2ac928668d7e1ff11779c94ef7f6935da98c73a957b903f97ea",
+    "reason": "Session assertions passed; fixture incorrectly expected nativeSelectedIdentities to return an empty map for exited PIDs. Replaced with bounded observation of exact fixture /proc entries; no production change for this failure."
+  },
+  "sourceFiles": {
+    "plugins/codex-autocontinue/host.mjs": "c9d098cee5a343258936b3bd6c20a60060170802c10a625b443fab54842eb140",
+    "server/linux-executor-authority.mjs": "0a34de614aa6c71632f60a21ee8a3438ed5355ce9950f994938b94d98b890dea",
+    "tests/linux-host-admission.test.mjs": "583d55aedbd15ae76c0527bedc899fa6d30e7f9233b32d9881390260dd299380",
+    "tests/fixtures/linux-managed-codex-controller.mjs": "49666a2374f7c9bc65a9be9f96de00461e5da83ee75c06cf904d4e6615fddc71",
+    "tests/fixtures/linux-job-core-recovery-controller.mjs": "0d84fd4a3ac69f09755da049282125124f4ad422ee41f66ac5b6c038c49d2e87"
+  },
+  "independentReview": {
+    "result": "No concrete P1/P2 in final scoped diff",
+    "path": ".runtime/linux1088/final-review.md",
+    "sha256": "dbde15879143605ef3507dfa5c8420e7eea086f149afacd5de5b31020f7288ea"
+  },
+  "pending": [
+    "Core pre-dispatch rejection cleanup with no durable admission remains unimplemented and unverified",
+    "Prelaunch and live-stop process snapshots can still conservatively refuse incomplete observations",
+    "Real AI provider, native Ubuntu/Windows applications and packaging remain pending"
+  ],
+  "packaged": false,
+  "installed": false,
+  "deployed": false,
+  "wholeProjectComplete": false,
+  "boardSummary": "LINUX1088：创建会话重复扫描误判已修复，确定性回归修复前失败、修复后 1 项通过；真实 Linux 进程的 3 项异常恢复和 1 项正常接管共 4 项通过，无跳过或遗留进程。其他启动核验被拒绝后的收尾仍待处理；未打包、安装或部署。",
+  "boardUpdate": {
+    "taskId": "59509a5a-590c-47c5-b059-e2c9204474bf",
+    "revision": 15,
+    "status": "running",
+    "verification": "partial",
+    "completedChecks": [
+      "linux-live-managed-return-script",
+      "linux-session-core-integration",
+      "linux-ai-stop-proof",
+      "linux-job-recovery-primitive",
+      "ubuntu-deb-dependencies",
+      "linux-job-admission-snapshot"
+    ],
+    "pending": [
+      "linux-session-app-integration",
+      "ubuntu-windows-native-app",
+      "linux-real-provider-return",
+      "linux-startup-admission-stability"
+    ],
+    "manualAcceptanceUnchanged": true,
+    "otherTasksUnchanged": 66,
+    "receiptSha256": "150ffb027d32c45fd4357dfcfbfd3d7f847935270e078572a9937c34c155b2de"
+  },
+  "followup": {
+    "workId": "LINUX1089",
+    "details": "docs/linux-session-abort-test-results.json",
+    "sameWorkerPreDispatchRejectionCleanupPassed": true,
+    "historicalResultsUnchanged": true,
+    "allStartupFailurePathsValidated": false
+  }
+}

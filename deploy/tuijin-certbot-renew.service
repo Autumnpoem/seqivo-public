@@ -1,0 +1,12 @@
+[Unit]
+Description=Renew Seqivo public IP HTTPS certificate
+Wants=network-online.target
+After=network-online.target nginx.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/certbot/bin/certbot renew --quiet
+UMask=0077
+PrivateTmp=true
+
+# Install the deploy hook from the deployment guide to reload nginx after renewal.

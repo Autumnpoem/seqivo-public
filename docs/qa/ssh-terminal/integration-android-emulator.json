@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "testedAt": "2026-10-23T14:04:21.483663+00:00",
+  "sourceCommit": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+  "platform": "Android emulator, ordinary WebView APK versionCode 12",
+  "target": "disposable local SSH server with real tmux via disposable HTTPS Hub",
+  "result": "partial",
+  "passed": [
+    "Account login through native APK UI",
+    "Host creation with saved synthetic password and explicitly confirmed independently checked fingerprint",
+    "Connection while QA Mac app was closed",
+    "Real main and review tmux session list",
+    "Set main as default and attach main",
+    "Execute touch androidmain.txt via actual terminal UI; absent before, empty file exists after",
+    "Saved host and trust persist after leaving/reentering terminal route"
+  ],
+  "commandProof": {
+    "createdFileBytes": 0,
+    "createdFileSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "persistedDefaultSession": "main"
+  },
+  "toolLimitations": [
+    "Mirror pointer returned noWindowsAvailable; keyboard navigation remained usable",
+    "Mirror paste/typeText dropped special characters; incomplete input canceled before command execution"
+  ],
+  "notVerified": [
+    "Temporary tmux switch and default reconnect from Android UI",
+    "Physical Android phone",
+    "Final BUILD589 UI change in emulator",
+    "Account-authorized SSH on deployed Hub"
+  ],
+  "newApk": {
+    "versionCode": 13,
+    "installReplacementSucceeded": true,
+    "launchedOrFlowAccepted": false,
+    "signing": "existing debug key"
+  },
+  "humanAcceptance": "unverified"
+}

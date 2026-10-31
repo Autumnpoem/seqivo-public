@@ -1,0 +1,50 @@
+{
+  "version": "0.2.2",
+  "date": "2026-09-26",
+  "scope": "Structured verification todos and unavailable-plugin UI fallback",
+  "result": "passed",
+  "automatedTests": {
+    "passed": 130,
+    "failed": 0,
+    "command": "pnpm test",
+    "finalTargetedRegression": "Verification and Hub suites were rerun after the remote checklist ID correction."
+  },
+  "browserChecks": {
+    "engines": ["chromium", "webkit"],
+    "suites": ["verification", "features", "remote"],
+    "passedRuns": 6,
+    "physicalDevice": false,
+    "realAITurns": false,
+    "coverage": [
+      "Structured steps, pass conditions, and prerequisites",
+      "Plan-only records, missing legacy plans, and stale versions",
+      "Human acceptance remains independent",
+      "Light/dark appearance and 320–1024px layout",
+      "Unavailable plugin does not break board refresh",
+      "Real local Core/Hub pairing, permissions, receipts, revocation, and offline behavior"
+    ]
+  },
+  "desktop": {
+    "platform": "macOS arm64",
+    "build": "passed",
+    "nativeUI": "Expanded real task checklists display procedures, pass conditions, and prerequisites.",
+    "restart": "passed",
+    "preservedTasks": 23,
+    "preservedAcceptedTasks": 11,
+    "tasksWithPlans": 12,
+    "pendingChecks": 32,
+    "originalGoalsAndCriteriaPreserved": true,
+    "detailsSharedRemotely": 0,
+    "upgradeRecovery": "An old unclean-shutdown lock was archived only after confirming the old core and plugin processes had exited. The new build then quit cleanly and restarted normally."
+  },
+  "independentReview": "Completed; blocking findings resolved before delivery.",
+  "notValidatedByThisChange": [
+    "Windows and Ubuntu native operation",
+    "Physical phones and public HTTPS deployment",
+    "Real Claude/Cursor execution",
+    "A real five-hour quota recovery cycle",
+    "Pending implementation and product decisions listed in verification-backlog.json"
+  ],
+  "cloudCI": "Not run; remains disabled by user choice.",
+  "evidence": "Raw logs, browser captures, app backups, and restart checks are retained locally in ignored design/qa/verification-backlog/. Private task records and credentials are not committed."
+}

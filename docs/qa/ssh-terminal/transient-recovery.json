@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-23",
+  "sourceCommit": "144e059",
+  "status": "passed_with_scope",
+  "automatedRegression": {
+    "suite": "ssh-recovery / ssh-terminal / ssh-shutdown",
+    "tests": 15,
+    "passed": 15,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "typecheckExitCode": 0,
+    "webBuildExitCode": 0
+  },
+  "independentReview": {
+    "id": "REVIEW607",
+    "result": "no confirmed P1/P2"
+  },
+  "transientResumeContract": {
+    "resumeOnlyWhenSameSessionId": true,
+    "resumeOnlyWhenSameTmuxServer": true,
+    "resumeOnlyWhenHostRevisionMatches": true,
+    "missingOrMismatchedIdentity": "no automatic fallback; require an explicit user choice",
+    "manualNewConnection": "uses configured host default",
+    "manualDisconnect": "stays disconnected",
+    "inputReplay": "never"
+  },
+  "realSshSessionInteraction": {
+    "environment": "isolated real SSH/tmux target",
+    "mainSessionWrite": "MAIN_ONCE exactly once",
+    "reviewSessionWrite": "REVIEW_ONCE exactly once",
+    "backgroundRecoveryUi": "not established; the IAB view remained visible",
+    "networkFaultInjection": {
+      "environment": "isolated local SSH/tmux; only the active WebSocket was abruptly closed",
+      "selectedReviewSessionRemainedSelected": true,
+      "reattachHelperObserved": "attach-session invoked twice",
+      "reviewFileMarker": "B_ONCE written exactly once",
+      "manualDisconnectThenNewConnection": "opened host default main",
+      "notEquivalentTo": "operating-system offline or background-app recovery"
+    }
+  },
+  "androidV13": {
+    "apkSha256": "60fa04a9f52a8922c0fd8ea794d83cc3a1b2c714506408d41d78afaad71bacb1",
+    "physicalAndroidDeviceFlow": "partial_with_scope",
+    "accountLogin": "confirmed",
+    "userAddedHost": "confirmed",
+    "sshSessionList": "confirmed",
+    "namedTmuxSessionCreation": "confirmed",
+    "terminalCommandInput": "not passed; rate guard and malformed typed input prevented a successful command",
+    "successfulCommandOrFileWrite": "not established",
+    "physicalDeviceAcceptance": "incomplete",
+    "physicalDeviceFlow": "partial_with_scope"
+  },
+  "deliveryBoundary": {
+    "macAndHub144e059": "installed/deployed with scoped evidence above",
+    "sameDataReopenAfter144e059Quit": "pending",
+    "androidCommandInputAndSessionSwitching": "pending",
+    "ssh613PackageBuildInstall": "pending",
+    "crossRestartPluginOwnershipRecovery": "still pending",
+    "wholeProjectAcceptance": false
+  },
+  "macInstallAndHubDeploy": {
+    "sourceCommit": "144e059",
+    "macInstalled": true,
+    "firstLaunchOriginalProjectLoaded": true,
+    "projectsAndTasks": "two projects and 62 task rows unchanged against cold backup",
+    "normalQuitCoreClosed": true,
+    "sameDataReopenAfterQuit": "pending",
+    "hubDeployed": true,
+    "deploymentExitCode": 0,
+    "manifestFilesVerified": 142,
+    "databaseIntegrity": "passed",
+    "vaultAndDataPermissions": "preserved",
+    "tlsValidationDisabled": false,
+    "anonymousHostStatus": 401,
+    "anonymousSshWebSocketStatus": 403,
+    "existingAccountData": "preserved",
+    "coldBackupRestore": "two-version restore checks passed",
+    "previousAppAndBackup": "retained",
+    "normalQuitNativeExitCodeCaptured": false
+  },
+  "keyboard613": {
+    "sourceReview": "passed; REVIEW614 found no confirmed issue in reviewed scope",
+    "typecheckExitCode": 0,
+    "webBuildExitCode": 0,
+    "isolatedBrowserKeyboardFlow": "Ctrl+Shift+M focuses the session bar; Enter opens the drawer and focuses the first main item; closing returns focus to the session bar",
+    "packageBuildAndInstall": "pending",
+    "AndroidValidation": "pending"
+  }
+}

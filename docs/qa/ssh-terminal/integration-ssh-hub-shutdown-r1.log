@@ -1,0 +1,64 @@
+✔ Hub pairs a node and controller, syncs a redacted snapshot, and executes a fixed callback route (77.069125ms)
+✔ Hub roundtrip preserves a pending verification plan and rejects forged checklist commands (23.023833ms)
+✔ pairing is one-use and expiring, grants and snapshots stay within each tenant (22.985125ms)
+✔ continue lease, idempotence, queued pause, and revision checks are transactional (27.122709ms)
+✔ offline continuation requires explicit short queue, then expiry releases lease (21.073833ms)
+✔ revoke and epoch change prevent claim and phone access; validation rejects revoked controller (43.189375ms)
+✔ unknown local callback is never resent across sync and node restart (57.663667ms)
+✔ local revision mismatch is a confirmed non-send and releases the continue lease (40.112459ms)
+✔ remote review uses authenticated controller actor and strips turn identity from receipts (40.576625ms)
+✔ restart after persisted sending marker reports unknown without a local resend (35.455459ms)
+✔ same project and command IDs in two tenants remain isolated through revocation (30.022416ms)
+✔ owner can audit-reconcile an unknown lease only after the old node is revoked (30.342042ms)
+✔ online disconnect revokes old node token and re-pairing does not retain old authority (29.902208ms)
+✔ offline disconnect retains the old credential and reports that owner revocation is needed (14.508833ms)
+✔ remote client bounds streamed Hub responses before JSON parsing (4.5395ms)
+✔ desktop shutdown closes active SSH and pending trust, preserves remote tmux and reconnects without replay (222.715375ms)
+ℹ SSH fixture cleanup: 1 clients, 1 children
+✔ hub shutdown closes active SSH and pending trust, preserves remote tmux and reconnects without replay (382.886958ms)
+ℹ SSH fixture cleanup: 1 clients, 1 children
+✔ host library encrypts opt-in credentials, scopes owners and preserves default only for unchanged target (4.935208ms)
+✔ Hub network policy rejects local and metadata addresses; local desktop may reach LAN (2.790458ms)
+✔ SSH verifies first and changed host keys before password authentication; no silent trust (49.720417ms)
+ℹ SSH fixture cleanup: 1 clients, 0 children
+✔ private-key with passphrase and jump host authenticate over real SSH transports (471.230833ms)
+ℹ SSH fixture cleanup: 1 clients, 0 children
+ℹ SSH fixture cleanup: 0 clients, 0 children
+✖ ordinary SSH remains usable when tmux is absent or the target has a non-POSIX login shell (0.47625ms)
+✔ wrong password fails without automatic retries or opening a command channel (24.806542ms)
+ℹ SSH fixture cleanup: 1 clients, 0 children
+✔ real SSH and real tmux preserve A/B, default selection, file input and reject old channel input (198.298333ms)
+ℹ SSH fixture cleanup: 1 clients, 0 children
+✔ real SSH seals old input before create and a delayed tmux selection, then accepts only new generations (661.050125ms)
+ℹ SSH fixture cleanup: 1 clients, 1 children
+✖ Hub requires account auth, isolates hosts and tickets, and revokes an open SSH connection on logout (12450.965375ms)
+ℹ SSH fixture cleanup: 0 clients, 0 children
+✔ local desktop SSH API is owner-only and the websocket coexists with the managed terminal route (63.544042ms)
+ℹ SSH fixture cleanup: 0 clients, 0 children
+ℹ tests 27
+ℹ suites 0
+ℹ pass 25
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15245.203292
+
+✖ failing tests:
+
+test at tests/ssh-terminal.test.mjs:103:1
+✖ ordinary SSH remains usable when tmux is absent or the target has a non-POSIX login shell (0.47625ms)
+  Error: Cannot parse privateKey: Malformed OpenSSH private key
+      at new Server ([checkout])
+      at sshServer (file://[checkout])
+      at TestContext.<anonymous> (file://[checkout])
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests/ssh-terminal.test.mjs:239:1
+✖ Hub requires account auth, isolates hosts and tickets, and revokes an open SSH connection on logout (12450.965375ms)
+  Error: Timed out: SSH shell ready
+      at until (file://[checkout])
+      at async TestContext.<anonymous> (file://[checkout])
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

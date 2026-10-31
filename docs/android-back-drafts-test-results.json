@@ -1,0 +1,67 @@
+{
+  "workId": "ANDROID1105",
+  "date": "2026-10-31",
+  "baseCommit": "f8006820406bb4cde298264e1a9017430d193499",
+  "codeComplete": true,
+  "behavior": "Android system Back preserves task create/edit/evidence/review drafts. Explicit cancel still discards. If draft storage fails, the dialog stays open.",
+  "validation": {
+    "productionHandlerAndDraftTests": {
+      "passed": 15,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "typescript": "passed",
+    "vite": "passed_with_existing_lucide_use_client_warning",
+    "independentReview": "no_blocking_findings",
+    "nativeAndroidRetested": false,
+    "physicalDeviceRetested": false
+  },
+  "delivery": {
+    "webDeployed": true,
+    "apkRebuilt": false,
+    "macIncludedInBuild1104": false,
+    "deployment": "WEB1107",
+    "deployedWebCommit": "34170bddc85a12a613faac7881289998d426f0e4",
+    "macIncludedInBuild1107": true,
+    "macCandidateInstalled": false
+  },
+  "wholeProjectComplete": false,
+  "evidence": {
+    "src/App.tsx": "a1124db00e517427df29c671a18e43d1b3d70f75b93a7ffdbc92c63e9130ca26",
+    "tests/native-back-drafts.test.mjs": "3a2068224db81a577b55d9295d648f5a459f3776c5c27f33d73e4b8096fa440e",
+    ".runtime/android1105/final-targeted.log": "36c52bea496ffbc0cd9b1dd0ac25d425a4bafb4a5bb6b117f0c31d6b9feee0de",
+    ".runtime/android1105/independent-review.md": "a5e047f621e5ced3f5e9ebe2e6ce5bd94867f30720328bd8bde2e04e2b4e9ef5",
+    ".runtime/android1105/typecheck-final.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    ".runtime/android1105/build.log": "f4bc2d5dbd42f0da01565af37a2e5d5e09a7985ee6ea1168deebcb3e649be436",
+    ".runtime/android1105/board-result.json": "1a21c39fa36d9e21afb0af06a3a2d8f9a7ee0d7a79054ddee2aa495495b725f1",
+    ".runtime/delivery1107/postcheck.json": "cc0dea0d162ee2a4fbc0a09c4aa078491d22fbeb3b49746bb0590fe30115ef8a",
+    ".runtime/ui1107/build-board-result.json": "6289e8baa24166d10a1850ff40d4291c3a72484924b5d80b29be60856ab2fbcd"
+  },
+  "sourceCommit": "0ecb223",
+  "board": {
+    "taskId": "91f0f8a7-c59f-4538-840b-1eceb486f35b",
+    "revision": 75,
+    "status": "running",
+    "verification": "partial",
+    "checks": 28,
+    "completionFlagsUnchanged": true,
+    "manualAcceptanceAndEvidencePreserved": true,
+    "otherTasksUnchanged": 66,
+    "androidFixDeployed": false,
+    "macInstalled": false,
+    "scope": "Historical ANDROID1105 board update; see latestBoardUpdate for WEB1107."
+  },
+  "latestBoardUpdate": {
+    "taskId": "91f0f8a7-c59f-4538-840b-1eceb486f35b",
+    "revision": 78,
+    "status": "running",
+    "verification": "partial",
+    "pendingCheckCount": 30,
+    "allCheckFlagsPreserved": true,
+    "manualAcceptanceAndEvidencePreserved": true,
+    "otherTasksUnchanged": 66,
+    "webDeployed": true,
+    "macCandidateBuilt": true,
+    "macInstalled": false
+  }
+}

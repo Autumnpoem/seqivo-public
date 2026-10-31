@@ -1,0 +1,765 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-18",
+  "recordId": "APP205-APP204",
+  "status": "partial",
+  "sourceBase": "44f49aa024f82fc06a6d036b1c9314cb34e94329",
+  "sourceOverlay": [
+    "src/App.tsx",
+    "src/InboxPanel.tsx",
+    "src/styles.css"
+  ],
+  "environment": {
+    "androidApi": 35,
+    "deviceKind": "isolated-emulator",
+    "apkKind": "ordinary-debug",
+    "versionCode": 7,
+    "apkSha256": "280f4ba6a1a80e74e3b620ec0450ced82a09bba1cc2bdc8fd5842fec116cdaa9",
+    "hub": "disposable-local-https",
+    "webEntrySha256": "1d7876530c68ece96f1b3f6ee64727b039ef4437778898291f512e4831c70f6f",
+    "apkChanged": false,
+    "coreAndHubRestarted": false,
+    "productionDeployed": false
+  },
+  "passed": {
+    "staticNativeInputComparisons": 3,
+    "nativeEnrollment": 1,
+    "projectScopedOwnerAuthorization": 1,
+    "browserConnectionNoticeLayoutRegression": true,
+    "typecheck": true,
+    "frontendBuild": true,
+    "independentFrontendAndTestReview": true,
+    "nativePointerMovementBeforePxApprox": 53.6,
+    "nativePointerMovementAfterPx": 0,
+    "nativePointerDiagnosticSubmissionCount": 0,
+    "idleProjectTakeover": true,
+    "tmuxSessionACreatedAndDefaultChecked": true,
+    "readonlyObserverR2": {
+      "events": 9,
+      "errors": 0,
+      "stoppedNormally": true,
+      "originalSessionObserved": "A",
+      "scopeNote": "Does not establish that other sessions were removed or lost"
+    }
+  },
+  "inputProbe": {
+    "isTerminalAcceptance": false,
+    "asciiWholeStringMatched": false,
+    "asciiCharacterByCharacterMatched": true,
+    "specialWholeStringMatched": true,
+    "specialCharacterByCharacterMatched": true
+  },
+  "incompleteRuns": [
+    {
+      "id": "APP204-flow-r1",
+      "result": "failed",
+      "observation": "First terminal command input incomplete; no marker file created",
+      "originalSessionPreserved": true,
+      "commandReplayed": false
+    },
+    {
+      "id": "APP204-flow-resume-r1",
+      "result": "runner-assertion-mismatch",
+      "observation": "Ctrl+C cleared the draft; runner expected a literal control-character display",
+      "newCommandSent": false
+    },
+    {
+      "id": "APP204-flow-resume-r2",
+      "result": "failed",
+      "observation": "Character-by-character terminal input still failed; marker-file count remained zero"
+    },
+    {
+      "id": "APP204-input-trace-r2",
+      "result": "stopped-on-process-proof-error",
+      "observedSendPrefix": "abc",
+      "writtenAckCharacters": "ab",
+      "failedCharacter": "c",
+      "errorCode": "PROCESS_PROOF_UNAVAILABLE",
+      "enterSent": false,
+      "cause": "not-established",
+      "distinctFromTraceR1": "Trace r1 observed a duplicated Y; trace r2 stopped on process-proof error"
+    }
+  ],
+  "noEnterInputTrace": {
+    "sample": "abcXYZ09",
+    "enterSent": false,
+    "terminalObserved": "abcXYY",
+    "allSentFramesHaveWrittenAck": true,
+    "domObservedYEvents": 1,
+    "cause": "not-established",
+    "isCommandExecutionEvidence": false
+  },
+  "notVerified": [
+    "complete_terminal_input_and_real_file_writes",
+    "A_B_switching_and_default_reconnect",
+    "all_original_session_and_process_identity_checks",
+    "cross_device_default_and_control_transfer",
+    "physical_phone_touch_and_soft_keyboard",
+    "production_deployment",
+    "real_ai_stop_and_handoff"
+  ],
+  "privacy": "No private endpoint, credential, username, raw test output, local QA path, process identifier, or user data is included.",
+  "userAcceptanceChanged": false,
+  "APP209": {
+    "status": "partial",
+    "sourceBase": "44f49aa024f82fc06a6d036b1c9314cb34e94329",
+    "sourceOverlaySha256": {
+      "src/App.tsx": "93fc13e677d785ee2ffd23d5380c1323a17c9ee4d3a793d0b349ec09256c8ab2",
+      "src/InboxPanel.tsx": "1d8cd84db475030cae4a119d987df275b0594fa79c7251f04fb237d55462516b",
+      "src/styles.css": "cfe75ca67ae8f251a1c59ea2dad85fe9d9af56784f4f489d4708c8620acbc59c",
+      "src/TerminalPanel.tsx": "31477fa831bc4540532e17837fd9b1a41ed0ee25dd681aa69a1f9eadec181dce",
+      "src/terminal.css": "75ec30316f28894250735e0e9e5290c78fa2ded31311880298efe2d4fab7bafd",
+      "src/terminal-client.ts": "aa0ed588976ba4ea30a843c9f4765c4e27d718173ee8e139033adc35263ee08b",
+      "tests/e2e/connection-notice-layout.mjs": "59dd838809bca0216cb2a748d16ccf96c7069be16ff8a97dbba785a1ece949ad",
+      "tests/e2e/terminal-mobile-viewport.mjs": "acd14bf201e08ec46626d6a9a34a162da6044b38a6fe88a75dcd177489e769e6",
+      "tests/terminal-client-flow.test.mjs": "a9f86b8bd5bddc3b93bc27fd96501f88d97e709fbe4e6e997ac9e2e4e8d789c6"
+    },
+    "webTreeSha256": "a1a209d4c8b1dbc7632c0b452adf2b0849a974b5db7b79dbf064944ec3062350",
+    "entrySha256": "d34142a957a1891339945bd6988594df4dce8e606e6ba877cd5fb51bb630f022",
+    "historicalAPP205WebEntrySha256Preserved": "1d7876530c68ece96f1b3f6ee64727b039ef4437778898291f512e4831c70f6f",
+    "environment": {
+      "androidApi": 35,
+      "deviceKind": "isolated-emulator",
+      "apkKind": "ordinary-debug",
+      "apkChanged": false,
+      "coreAndHubRestarted": false,
+      "localDisposableOnly": true,
+      "productionDeployed": false
+    },
+    "passed": {
+      "APP206": {
+        "keyboardViewportAndBottomBarDrawerFix": true,
+        "autoReadyPreservesManualViewing": true,
+        "independentReviewP2Closed": 2
+      },
+      "APP207": {
+        "inputFreezesWhenProcessProofRejected": true,
+        "oldInputReplayed": false,
+        "lateFramesRejected": true,
+        "pureClientCases": "12/12",
+        "actualDiffReviewed": true
+      },
+      "APP208": {
+        "independentUmdXtermSamples": 4,
+        "allTextMatched": true,
+        "singleCrEnter": true,
+        "scopeNote": "Does not validate production bundle, real PTY, or physical soft keyboard; earlier duplicated-Y observation was not reproduced"
+      },
+      "APP209": {
+        "browserViewportAndFullTerminalUi": true,
+        "typecheck": true,
+        "build": true,
+        "actualAndroidImeViewport": true,
+        "imeVisibleAndRestoredControlsVisible": true,
+        "checks": [
+          "authorized_project_and_task_rendered",
+          "native_page_has_no_manifest_or_active_worker",
+          "expected_account_rendered",
+          "terminal_navigation_rendered_only",
+          "actual_android_ime_keeps_terminal_and_session_controls_visible",
+          "native_container_user_agent_marker_present"
+        ]
+      }
+    },
+    "notVerified": [
+      "complete_native_terminal_input_and_real_file_writes",
+      "A_B_switching_and_default_reconnect",
+      "production_deployment",
+      "physical_phone_and_physical_soft_keyboard",
+      "real_ai_handoff",
+      "user_acceptance"
+    ],
+    "userAcceptanceChanged": false
+  },
+  "APP210": {
+    "status": "failed-input-attempt-root-cause-unknown",
+    "environment": {
+      "ordinaryApkUnchanged": true,
+      "coreAndHubRestarted": false,
+      "localDisposableOnly": true,
+      "productionDeployed": false
+    },
+    "observation": {
+      "textareaFocused": true,
+      "connected": true,
+      "clientErrorObserved": false,
+      "terminalInputMatched": false,
+      "filesCreated": 0,
+      "domTrustedKeyEvents": 1,
+      "domObservedCharacter": "P",
+      "websocketFrames": [
+        {
+          "character": "P",
+          "sequence": 21,
+          "writtenAck": true
+        },
+        {
+          "character": "P",
+          "sequence": 22,
+          "writtenAck": true
+        }
+      ],
+      "conclusion": "The duplicate P in this attempt is attributed to keypress and IME composition-commit paths both sending a frame; this does not prove terminal receipt or fix the complete input failure",
+      "duplicatePPathForThisAttempt": "sequence 21 from xterm._keyPress; sequence 22 from asynchronous CompositionHelper._finalizeComposition(true) callback",
+      "domCompositionState": {
+        "isComposing": true,
+        "trustedKeyEvents": 1
+      },
+      "enterSent": false,
+      "cleanupCompleted": true
+    },
+    "processProofReadOnlyCheck": {
+      "rounds": 20,
+      "historicalIntermittentFailureReproduced": false,
+      "scopeNote": "Does not rule out other timing or session conditions"
+    },
+    "userAcceptanceChanged": false
+  },
+  "APP211": {
+    "status": "isolated-probe-passed-not-terminal-acceptance",
+    "probe": "independent-umd-xterm",
+    "samples": 4,
+    "allMatched": true,
+    "includes": [
+      "ASCII whole and character-by-character",
+      "special characters whole and character-by-character",
+      "59-character target sample whole and character-by-character"
+    ],
+    "pty": false,
+    "websocket": false,
+    "echo": false,
+    "scopeNote": "Does not validate production bundle, real terminal or file writes, or soft-keyboard input",
+    "userAcceptanceChanged": false,
+    "followUpCallPathTrace": {
+      "traceCompleted": true,
+      "enterSent": false,
+      "cleanupCompleted": true,
+      "firstPSequence": 21,
+      "firstPPath": "xterm._keyPress",
+      "duplicatePSequence": 22,
+      "duplicatePPath": "asynchronous CompositionHelper._finalizeComposition(true) callback",
+      "isComposing": true,
+      "trustedDomKeyEvents": 1,
+      "oldBundleTargetedTestReproducedDuplicate": true,
+      "fixPassed": false,
+      "scopeNote": "Explains this duplicate-P path only; does not resolve the earlier duplicated-Y observation or complete native terminal input"
+    }
+  },
+  "APP212": {
+    "status": "candidate-limited-browser-checks-passed-not-deployed",
+    "sourceBase": "44f49aa024f82fc06a6d036b1c9314cb34e94329",
+    "sourceOverlaySha256": {
+      "src/TerminalPanel.tsx": "5940e5f2fe08cd02b8a4e4cfaf9916a85c186626d72be9bc9ae364bab6aa58d3",
+      "tests/e2e/terminal-ime-composition.mjs": "6ec95e00624c28b8cdd5b304711659f6b6c736df0934ae09dbcb6b9e294d7d29"
+    },
+    "passed": {
+      "browserRealXtermRegressionGroups": "7/7",
+      "typecheck": true,
+      "build": true,
+      "oldRealXtermRedCaseReproduced": true
+    },
+    "assessment": {
+      "recommendedNext": "isolated APK no-Enter observation",
+      "unreproducedTestGaps": [
+        "late old non-composed input event racing the next keydown after compositionend",
+        "Enter while composition is active"
+      ],
+      "newDefectEstablishedForGaps": false,
+      "inputOnlySuffixLossProven": false,
+      "scopeNote": "IME timer may read the suffix; do not infer loss from input-only event observations"
+    },
+    "environment": {
+      "candidateDeployed": false,
+      "currentIsolatedHubVersion": "APP209",
+      "ordinaryApkInputRetest": false,
+      "completeTerminalCommandPassed": false,
+      "productionDeployed": false
+    },
+    "notVerified": [
+      "ordinary_apk_native_input",
+      "complete_terminal_input_and_real_file_writes",
+      "A_B_switching_and_default_reconnect",
+      "production_deployment",
+      "user_acceptance"
+    ],
+    "userAcceptanceChanged": false
+  },
+  "APP213": {
+    "status": "partial",
+    "sourceBase": "44f49aa024f82fc06a6d036b1c9314cb34e94329",
+    "sourceHashes": {
+      "src/TerminalPanel.tsx": "5940e5f2fe08cd02b8a4e4cfaf9916a85c186626d72be9bc9ae364bab6aa58d3",
+      "tests/e2e/terminal-ime-composition.mjs": "f53cef10406dfe6104d3eb4c61d45612d83098590e8ec7dc829f74b1b4e95b10"
+    },
+    "environment": {
+      "deviceKind": "isolated-emulator",
+      "androidApi": 35,
+      "apkKind": "ordinary-debug",
+      "versionCode": 7,
+      "apkSha256": "280f4ba6a1a80e74e3b620ec0450ced82a09bba1cc2bdc8fd5842fec116cdaa9",
+      "hub": "disposable-local-https",
+      "webEntrySha256": "1999b99ef5b5833431526576110a474320287a49ff83547a2948e5baf7584356",
+      "apkChanged": false,
+      "productionDeployed": false
+    },
+    "browserRealXtermRegressionCasesPassed": 10,
+    "nativeNoEnterTrace": {
+      "expectedCharacters": 17,
+      "actualCharacters": 17,
+      "exactMatch": true,
+      "inputFrames": 17,
+      "matchedWrittenAcknowledgements": 17,
+      "enterSent": false,
+      "traceCleanupCompleted": true
+    },
+    "draftDiscard": {
+      "nativeControlCClickAndWrittenAckCheck": "passed"
+    },
+    "notVerified": [
+      "complete command execution",
+      "actual A/B file writes",
+      "default reconnect",
+      "all IME timing cases",
+      "physical device terminal flow",
+      "final application acceptance"
+    ],
+    "note": "A write acknowledgement is not command success. This was a no-Enter observation, not a completed terminal command.",
+    "userAcceptanceChanged": false
+  },
+  "APP214": {
+    "status": "diagnostic-only",
+    "environment": "same ordinary APK and disposable local Hub as APP213",
+    "connectionAndDrawerProbe": "passed",
+    "drawerVisible": true,
+    "listRequests": 1,
+    "priorFullFlow": "stopped at session drawer before sending a command",
+    "hypothesis": "IME appearance may race native test target sampling; not established as a product defect.",
+    "completeCommandAndABFlowPassed": false,
+    "userAcceptanceChanged": false
+  },
+  "APP216": {
+    "status": "partial",
+    "environment": "same ordinary versionCode 7 APK, isolated API 35 emulator and local HTTPS Hub as APP213",
+    "sourceWebEntrySha256": "1999b99ef5b5833431526576110a474320287a49ff83547a2948e5baf7584356",
+    "nativeFirstCommand": {
+      "completeInputMatched": true,
+      "inputFrames": 60,
+      "enterSentOnce": true,
+      "inputErrors": 0,
+      "actualFileBytes": 11,
+      "actualFileNewlines": 1,
+      "expectedFileSha256": "a2e59d0af7cbe2da74cd35be555816315949fdf3fb8bcabf059fc4afbd818e80",
+      "actualFileVerified": true,
+      "commandReplayed": false
+    },
+    "firstRunnerResult": "failed waiting for a pane number from TMUX_PANE; managed Shell is a separately supervised PTY and this environment variable is not its authoritative pane identity",
+    "harnessCorrection": "Use fixed line markers; independently verify exact tmux and managed process identities plus the actual files. Wait for target and viewport geometry to settle before one native gesture.",
+    "continuation": {
+      "result": "stopped before B creation or new input",
+      "controlPhase": "unknown",
+      "reasonCategory": "pid_info_incomplete",
+      "inputGateKeptClosed": true,
+      "originalAAndFilePreserved": true,
+      "completeABFlowPassed": false
+    },
+    "readOnlyObserver": {
+      "polls": 157,
+      "failureCode": null,
+      "originalPaneIdentityUnchanged": true,
+      "originalFileUnchanged": true,
+      "newSessionObserved": false,
+      "allMarkersAndPaneIdentitiesVerified": false
+    },
+    "notVerified": [
+      "B1/A2/B2 writes and default reconnect",
+      "recovery from current unknown control state",
+      "all input and process-snapshot timing cases",
+      "physical device terminal flow"
+    ],
+    "userAcceptanceChanged": false
+  },
+  "APP226": {
+    "status": "partial",
+    "recordedAt": "2026-10-18T04:46:45.389570+00:00",
+    "environment": "ordinary versionCode 7 APK, existing isolated API 35 emulator and retained local HTTPS Core/Hub data",
+    "sourceBase": "44f49aa024f82fc06a6d036b1c9314cb34e94329",
+    "sourceDigest": "877f8fd5d1978dc20b769536804099e73a0ae8a2698df157976a7b0042ba90ec",
+    "sourceWebEntrySha256": "aaa6c3177eef7703136ac00ce4462480fc4c5f84315ac96297f695da2dc7cf2a",
+    "ordinaryApkChanged": false,
+    "candidateChecks": {
+      "processSnapshotIndependent": {
+        "tests": 6,
+        "failures": 0
+      },
+      "recoveryClientManagerHub": {
+        "tests": 34,
+        "failures": 0
+      },
+      "remoteManagerControl": {
+        "tests": 1,
+        "failures": 0,
+        "scope": "real isolated manager/control/tmux; executor quiesce and workspace snapshot are controlled test doubles"
+      },
+      "typeCheck": true,
+      "webBuild": true
+    },
+    "retainedCoreRestart": {
+      "normalSignalRequested": true,
+      "oldProcessExitObserved": true,
+      "oldProcessExitCodeObserved": false,
+      "originalProcessBirthsPreserved": true,
+      "detachedSupervisorReparentedToInit": true,
+      "dataBackedUp": true,
+      "accountsGrantsTasksPreserved": true
+    },
+    "nativeRecovery": {
+      "sameAuthorizedDevice": true,
+      "inputDisabledBeforeReconcile": true,
+      "explicitReconcileThenOriginalSelection": true,
+      "originalAReattached": true,
+      "originalA1NotReplayed": true,
+      "newBSessionCreated": true
+    },
+    "continuation": {
+      "result": "failed safely during B1 input",
+      "reasonCategory": "identity_set_changed",
+      "inputFramesSent": 11,
+      "enterSent": false,
+      "b1Executed": false,
+      "b1FilePresent": false,
+      "followingKeysStopped": true,
+      "completeABFlowPassed": false,
+      "retainedControlPhase": "human",
+      "retainedControlGeneration": 21
+    },
+    "readOnlyObserver": {
+      "polls": 76,
+      "failureCode": null,
+      "originalAAndFilePreserved": true,
+      "newBExactIdentityObserved": true,
+      "markersComplete": {
+        "A1": true,
+        "A2": false,
+        "B1": false,
+        "B2": false
+      },
+      "allMarkersAndPaneIdentitiesVerified": false
+    },
+    "notVerified": [
+      "B1/A2/B2 execution and default reconnect",
+      "unrelated process churn during per-key workspace proof",
+      "full Android task-to-AI-handoff flow",
+      "physical-device terminal flow"
+    ],
+    "userAcceptanceChanged": false
+  },
+  "APP232": {
+    "date": "2026-10-18",
+    "status": "local-ab-default-flow-passed-other-client-work-pending",
+    "environment": "ordinary Android debug v7, isolated API 35 emulator, loopback HTTPS Hub, macOS execution node",
+    "sourceBase": "44f49aa024f82fc06a6d036b1c9314cb34e94329",
+    "sourceDigest": "374d1e035d50fbb5976bd49d270152097594d370ea39f9afbb3b8aa8c1a66ea3",
+    "webSameAs": "APP226",
+    "ordinaryApkUnchanged": true,
+    "apkSha256": "280f4ba6a1a80e74e3b620ec0450ced82a09bba1cc2bdc8fd5842fec116cdaa9",
+    "checks": {
+      "processObservationIndependentReview": "no new P1/P2 found in reviewed change; stop/park/return retain original stable API",
+      "rootSnapshotTests": {
+        "passed": 11,
+        "failed": 0,
+        "exitCode": 0
+      },
+      "isolatedRealTmuxInput": {
+        "passed": 1,
+        "exitCode": 0,
+        "realFileWritten": true,
+        "unrelatedProcessLifetimeOverlapsInput": true,
+        "exactBetweenSnapshotChurnNotProved": true
+      },
+      "testHarnessBuildExit": 0,
+      "oldCoreObservedExitCode": 0,
+      "originalABPreservedAcrossCoreRestart": true,
+      "originalBVisibleDraftMatchedAcknowledgedPrefix": true,
+      "nativeRecoveryAndSingleInterrupt": true,
+      "hostConfirmedIdleFreshBPrompt": true,
+      "nativeB1A2B2": {
+        "B1": {
+          "inputFrames": 47,
+          "eachFrameWrittenAck": true,
+          "enterCount": 1,
+          "errors": 0,
+          "fileHasExactlyOneExpectedLine": true
+        },
+        "A2": {
+          "inputFrames": 47,
+          "eachFrameWrittenAck": true,
+          "enterCount": 1,
+          "errors": 0,
+          "fileHasExactlyOneExpectedLine": true
+        },
+        "B2": {
+          "inputFrames": 47,
+          "eachFrameWrittenAck": true,
+          "enterCount": 1,
+          "errors": 0,
+          "fileHasExactlyOneExpectedLine": true
+        }
+      },
+      "temporaryBThenActiveReconnectA": true,
+      "explicitDefaultBThenActiveReconnectB": true,
+      "nativeFinalDisconnect": true,
+      "observerPolls": 126,
+      "allMarkerFilesAndPaneIdentitiesVerified": true,
+      "originalA1BytesAndMtimeUnchanged": true
+    },
+    "testCorrections": [
+      "Pre-stop draft check originally compared all sent bytes; last rejected frame was not in current pane. Corrected to matched written-ACK prefix and inspected visible draft before any stop.",
+      "Closed WAL database readonly open failed after normal Core exit; used immutable read only after observed exit and absence of WAL/SHM, then backed up; did not send another stop.",
+      "First new observer incorrectly required B to be absent; it exited before sampling. Replacement explicitly pinned already-existing B before B1, then observed all three writes. Native flow was never restarted."
+    ],
+    "remaining": [
+      "latest native Chinese/IME and physical touch combinations",
+      "cross-device preference and transfer on this complete version",
+      "offline/background/revocation/unknown outcome combinations on final client",
+      "real AI pause/human edit/return and second AI round",
+      "complete account pairing, conversation, acceptance and business-data upgrade",
+      "production signing and other platforms"
+    ],
+    "productionChanged": false,
+    "userAcceptanceChanged": false
+  },
+  "APP238R3": {
+    "date": "2026-10-18",
+    "status": "same-activity-background-return-and-explicit-default-reconnect-passed-network-outage-unproven",
+    "environment": {
+      "ordinaryApkVersionCode": 7,
+      "sourceCommit": "6d1e0444b7954e6f230bae45e8b8dcc0a2a7ed58",
+      "testHarnessApkSha256": "7917adaa614da74244ed4f60c8e57e030f3f71c434637e70baad27b23fd7b1b3",
+      "buildJavaSha256": "35d31a78e535a7716d78478c3e3c5378cf27004562c9066ffc5c2a664d0ae740",
+      "retainedCoreAndWeb": "APP232 frozen Core and Hub/web; no service restart or web replacement",
+      "webEntrySha256": "aaa6c3177eef7703136ac00ce4462480fc4c5f84315ac96297f695da2dc7cf2a",
+      "isolatedEmulator": true,
+      "physicalDevice": false
+    },
+    "passed": {
+      "sameActivityBackgroundReturn": true,
+      "automaticRecoveryExactOriginalA": true,
+      "originalSocketClosedAndNewExactAConnection": true,
+      "explicitDisconnectThenNewConnectionSelectsDefaultB": true,
+      "manualContinuationSameRunAndMarkerOnce": true,
+      "instrumentationRestarted": false,
+      "finalActiveConnections": 0,
+      "hostObservation": {
+        "polls": 348,
+        "durationSeconds": 290.51,
+        "originalABIdentityRetained": true,
+        "markerFileCount": 4,
+        "allMarkerHashesAndMtimesUnchanged": true
+      },
+      "protocolProbe": {
+        "frames": 20,
+        "acknowledgements": 20,
+        "unknownInputs": 0,
+        "typedCommands": 0,
+        "matchingReplies": {
+          "DA1_XTERM": 4,
+          "DA2_XTERM": 4,
+          "DECRQM_2026_RESET": 4,
+          "OSC10_FIXED_FOREGROUND": 4,
+          "OSC11_FIXED_BACKGROUND": 4
+        }
+      }
+    },
+    "networkAttempt": {
+      "attemptedDurationMs": 100050,
+      "pageOfflineEvents": 0,
+      "pageOnlineEvents": 0,
+      "provenNetworkOutage": false,
+      "classification": "network-cycle-attempt-did-not-prove-continuous-outage-or-endpoint-unreachability",
+      "continuousNoNetworkProven": false,
+      "endpointUnreachableProven": false,
+      "restoredNetworkType": "cellular"
+    },
+    "preparatoryRuns": [
+      {
+        "id": "r36",
+        "result": "harness-preparation-failed",
+        "classification": "overly-strict-initial-preconditions; not a product regression"
+      },
+      {
+        "id": "r37",
+        "result": "harness-preparation-failed",
+        "classification": "incomplete-protocol-classification; not a product regression"
+      }
+    ],
+    "notVerified": [
+      "a proven roughly 100-second network outage and recovery",
+      "physical-device behavior",
+      "terminal command or file writes during this run",
+      "cross-device transfer and full business flow",
+      "production deployment and user acceptance"
+    ],
+    "productionDeployed": false,
+    "userAcceptanceChanged": false
+  },
+  "APP238R4": {
+    "date": "2026-10-18",
+    "status": "ordinary-apk-isolated-emulator-same-activity-100-second-proven-network-loss-recovery-limited-pass",
+    "environment": {
+      "ordinaryApkVersionCode": 7,
+      "basis": "APP232 frozen Core/Hub web baseline; no production deployment",
+      "isolatedEmulator": true,
+      "physicalDevice": false
+    },
+    "passed": {
+      "sameActivity": true,
+      "provenOfflineDurationMs": 100120,
+      "systemDefaultNetworkAbsentDuringOfflineInterval": true,
+      "appUidTestEndpointUnreachableDuringOfflineInterval": true,
+      "offlineIntervalAndEndSamples": 21,
+      "automaticRecoveryToExactOriginalAOverNewSocketAndConnection": true,
+      "explicitDisconnectThenNewConnectionSelectsDefaultB": true,
+      "classifiedProtocolProbeFrames": 20,
+      "protocolProbeAcknowledgements": 20,
+      "unknownInputs": 0,
+      "typedCommands": 0,
+      "observer": {
+        "polls": 181,
+        "durationSeconds": 150.97,
+        "originalABIdentitiesRetained": true,
+        "markerFiles": 4,
+        "allMarkerHashesAndMtimesUnchanged": true
+      },
+      "finalActiveConnections": 0,
+      "shellsIdle": true
+    },
+    "notVerified": [
+      "physical-device behavior",
+      "terminal command input or file writes during this run",
+      "cross-device transfer",
+      "complete Android business flow and user acceptance",
+      "production deployment"
+    ],
+    "productionDeployed": false,
+    "userAcceptanceChanged": false
+  },
+  "APP272": {
+    "date": "2026-10-18",
+    "status": "isolated-webview-shell-tls-negative-and-positive-check-limited-pass",
+    "environment": {
+      "client": "Android WebView Shell disposable emulator",
+      "webViewVersion": "124.0.6367.219",
+      "productionDeployment": false
+    },
+    "checks": {
+      "untrustedCertificateRejected": true,
+      "negativePageBodyRendered": false,
+      "trustedCertificatePageRendered": true,
+      "postLoadTlsErrors": 0,
+      "sslIgnoreOverrideUsed": false,
+      "originalTmuxServerAndPaneBirthsUnchanged": true,
+      "cleanupListenerExited": true,
+      "testForwardRemoved": true
+    },
+    "notVerified": [
+      "WebView Shell login or device registration",
+      "terminal transfer or terminal input",
+      "negative refusal rendered as an in-page error; refusal evidence came from the TLS trust failure",
+      "physical-device behavior or ordinary application package acceptance"
+    ],
+    "userAcceptanceChanged": false
+  },
+  "APP275": {
+    "date": "2026-10-18",
+    "status": "isolated-webview-shell-login-ui-passed; device-enrollment-and-terminal-transfer-not-reached",
+    "environment": {
+      "client": "isolated Android WebView Shell",
+      "physicalDevice": false
+    },
+    "checks": {
+      "normalLoginUiPassed": true,
+      "deviceEnrollmentCompleted": false,
+      "enrollmentAttemptRejectedAsNotFreshUnregisteredDevice": true,
+      "finalConnectionState": "computer offline",
+      "targetSelected": false,
+      "terminalSessionSelected": false,
+      "humanOwned": false,
+      "canInput": false,
+      "terminalTransferCompleted": false
+    },
+    "limits": [
+      "The enrollment rejection was observed; its underlying cause is not established. Login UI success does not prove device registration, control transfer, or terminal access.",
+      "No production deployment or user acceptance."
+    ],
+    "userAcceptanceChanged": false
+  },
+  "APP312": {
+    "date": "2026-10-18",
+    "status": "isolated-android-enrollment-and-owner-approval-passed; terminal-transfer-stopped-target-unavailable",
+    "environment": {
+      "client": "isolated Android app and Shell on one emulator, using two Activities",
+      "physicalDevice": false,
+      "independentSecondAvdBooted": false,
+      "productionDeployment": false
+    },
+    "checks": {
+      "freshPreflightPassed": true,
+      "normalUiEnrollmentPassed": true,
+      "ownerApprovalPassed": true,
+      "approvedScopes": ["view", "input", "takeover"],
+      "oldGrantsPreserved": true,
+      "androidDefaultSessionBHumanOwnedAndInputReadyBeforeTransfer": true,
+      "previouslyAuthenticatedShellTargetListedInAppControlTargets": false,
+      "transferStoppedBeforeApproval": true,
+      "transferCount": 0,
+      "appDisconnectSucceeded": true,
+      "shellFinalConnectionState": "connection error",
+      "ownerFinalActiveConnections": 0,
+      "originalABSessionIdentitiesRetained": true,
+      "defaultBRetained": true,
+      "markerFiles": 4,
+      "allMarkerHashesAndMtimesUnchanged": true
+    },
+    "limits": [
+      "The target was unavailable to the App when the transfer offer was attempted; the cause is unknown. Retest with an independent device before attributing this to a product defect or environment interaction.",
+      "This did not complete App-to-Shell transfer or establish bidirectional control.",
+      "A second AVD was only statically prepared and was not booted; physical-device, production, and user acceptance remain unverified."
+    ],
+    "userAcceptanceChanged": false
+  },
+  "APP318": {
+    "date": "2026-10-18",
+    "status": "isolated-ordinary-v7-app-to-separate-android-webview-shell-bidirectional-transfer-and-write-limited-pass",
+    "environment": {
+      "ordinaryClient": "Android ordinary v7 APK on isolated emulator",
+      "secondClient": "Android WebView Shell in a separate isolated emulator",
+      "twoOrdinaryApks": false,
+      "physicalDevice": false,
+      "aiExecution": false,
+      "productionDeployment": false
+    },
+    "checks": {
+      "normalUiLoginAndDeviceRegistrationPassed": true,
+      "ownerApprovedNewDeviceScopes": ["view", "input", "takeover"],
+      "defaultAndCreateScopesGranted": false,
+      "previousGrantsPreserved": true,
+      "shellTemporarilySelectedAWhileDefaultRemainedB": true,
+      "shellToAppTransferPassed": true,
+      "appAcceptedAndSelectedOriginalA": true,
+      "bothClientsWroteOneNewFileEach": true,
+      "eachNewFileHasExactlyOneLineAndNoDuplicate": true,
+      "appReconnectSelectedDefaultB": true,
+      "originalABSessionIdentitiesUnchanged": true,
+      "defaultBUnchanged": true,
+      "fourOriginalMarkerHashesAndMtimesUnchanged": true,
+      "temporaryForwardAndSecondEmulatorCleanedUp": true
+    },
+    "limits": [
+      "This was one ordinary v7 APK and one Android WebView Shell on separate isolated emulators, not two ordinary APKs or a physical phone.",
+      "No AI execution was invoked; this does not establish complete Android task-to-AI handoff or user acceptance.",
+      "APP312's earlier target-unavailable failure remains historical; APP318 does not prove that the same cause was fixed in the same-emulator two-Activity setup.",
+      "Production deployment and broader transfer failure/permission combinations remain unverified."
+    ],
+    "userAcceptanceChanged": false
+  }
+}

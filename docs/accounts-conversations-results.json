@@ -1,0 +1,59 @@
+{
+  "version": "0.3.0",
+  "checkedAt": "2026-09-26T12:39:57.322Z",
+  "automated": {
+    "passed": 167,
+    "failed": 0,
+    "skipped": 0
+  },
+  "mobileBrowser": {
+    "chromium": "passed",
+    "webkit": "passed",
+    "provider": "protocol fixture"
+  },
+  "realCodex": {
+    "startedAt": "2026-09-26T12:17:41.298Z",
+    "test": "mobile browser -> Hub -> desktop Core -> real Codex edits scratch file -> phone output",
+    "realAI": true,
+    "physicalPhone": false,
+    "checks": [
+      "phone created actual task/session and real Codex changed only test file to 2; output returned; acceptance remains unverified",
+      "phone followup resumed same session and edited file to 3 without duplicate task"
+    ],
+    "passed": true,
+    "cleanShutdown": true,
+    "finishedAt": "2026-09-26T12:21:06.505Z"
+  },
+  "production": {
+    "checkedAt": "2026-09-26T12:18:47.133Z",
+    "passed": true,
+    "checks": [
+      "public HTTPS registration creates isolated space; secure HttpOnly SameSite cookie; original tasks inaccessible",
+      "public HTTPS password change invalidates sessions; old password denied; new login and logout verified",
+      "upgraded native desktop reconnects and preserves 25 tasks / 11 human acceptances"
+    ],
+    "physicalPhone": false,
+    "qaAccountCleanup": "completed"
+  },
+  "native": {
+    "platform": "macOS arm64",
+    "build": "passed",
+    "dataPreserved": true,
+    "finalRestart": "passed",
+    "cleanQuit": "passed",
+    "shutdownRegression": "passed",
+    "processesRemainingAfterQuit": 0
+  },
+  "securityReview": {
+    "blockingFindings": 0,
+    "independentTargetedChecks": 83,
+    "actualModelMetadata": "NOT VERIFIED"
+  },
+  "pending": [
+    "physical iPhone/Android",
+    "native Windows/Ubuntu/macOS Intel",
+    "real Claude/Cursor",
+    "five-hour quota recovery",
+    "public-server real AI flow from physical phone"
+  ]
+}

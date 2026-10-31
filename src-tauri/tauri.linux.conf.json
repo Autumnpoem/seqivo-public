@@ -1,0 +1,10 @@
+{
+  "productName": "seqivo",
+  "bundle": {
+    "linux": {
+      "deb": {
+        "desktopTemplate": "linux/seqivo.desktop"
+      }
+    }
+  }
+}

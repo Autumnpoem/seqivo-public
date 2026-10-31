@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-18",
+  "status": "passed_within_stated_scope",
+  "sourceBase": "91bc7f06334e88af6145ed53ee7a2b470ba9a5e2",
+  "productionSourceSha256": {
+    "src/browser-shell.ts": "471f950c66162c2fa9da0702d847a29657df237a6868b31a20fa9e3f4070d926",
+    "src/main.tsx": "83cf99bc239e356792f8506a9cdef8d2087b74da8c8d4ad442fe0978ab30351a",
+    "android/app/src/main/java/app/seqivo/android/MainActivity.java": "8ee69a02f1e98140898a414117c596168a57766c0bf735ae598be9a6970ce590"
+  },
+  "hubSourceSha256": "9707e9bcfbe447f01f150c6458dc7f943e5106864123ac475b017f3ec8996f05",
+  "webAssetsSha256": "d4d91a7bd092509134cc9d86cacf758892c74a3e2f613cbf77dd41f1fe41a7a7",
+  "webEntrySha256": "1fa5a67fe1dbbf57f1b9cddba46d840f32f66bd655f1686dc17a63a1eb79607b",
+  "ordinaryApk": {
+    "versionCode": 7,
+    "package": "app.seqivo.android",
+    "variant": "debug",
+    "sha256": "280f4ba6a1a80e74e3b620ec0450ced82a09bba1cc2bdc8fd5842fec116cdaa9",
+    "signature": "existing local debug certificate",
+    "defaultServer": false,
+    "bundledTestCa": false,
+    "releaseSigned": false
+  },
+  "environment": {
+    "androidApi": 35,
+    "webView": "124.0.6367.219",
+    "device": "isolated AOSP emulator",
+    "hub": "disposable local HTTPS",
+    "tlsBypass": false,
+    "cookieInjection": false,
+    "instrumentation": "separate test APK with origin-checked form scripts"
+  },
+  "workerDiagnosis": {
+    "originalFullHub": "native crash",
+    "withWorkerSrcNone": "passed",
+    "restrictionRemoved": "native crash",
+    "conclusion": "worker startup path implicated; native Chromium callsite not established"
+  },
+  "checks": [
+    {
+      "phase": "probe",
+      "label": "fixed-v5-probe",
+      "version": "versionCode=5 minSdk=26 targetSdk=35",
+      "time": "2026-10-18T01:17:33.703348+00:00",
+      "adbExit": 0,
+      "result": "passed",
+      "processCrashed": false,
+      "fatalCount": 0
+    },
+    {
+      "phase": "login",
+      "label": "ordinary-v5-login",
+      "version": "versionCode=5 minSdk=26 targetSdk=35",
+      "time": "2026-10-18T01:17:40.688101+00:00",
+      "adbExit": 0,
+      "result": "passed",
+      "processCrashed": false,
+      "fatalCount": 0
+    },
+    {
+      "phase": "restore",
+      "label": "ordinary-v5-restart",
+      "version": "versionCode=5 minSdk=26 targetSdk=35",
+      "time": "2026-10-18T01:18:09.397130+00:00",
+      "adbExit": 0,
+      "result": "passed",
+      "processCrashed": false,
+      "fatalCount": 0
+    },
+    {
+      "phase": "restore",
+      "label": "ordinary-v7-upgrade",
+      "version": "versionCode=7 minSdk=26 targetSdk=35",
+      "time": "2026-10-18T01:18:16.752763+00:00",
+      "adbExit": 0,
+      "result": "passed",
+      "processCrashed": false,
+      "fatalCount": 0
+    },
+    {
+      "phase": "logout",
+      "label": "ordinary-v7-logout",
+      "version": "versionCode=7 minSdk=26 targetSdk=35",
+      "time": "2026-10-18T01:18:37.453089+00:00",
+      "adbExit": 0,
+      "result": "passed",
+      "processCrashed": false,
+      "fatalCount": 0
+    },
+    {
+      "phase": "login",
+      "label": "ordinary-v7-relogin",
+      "version": "versionCode=7 minSdk=26 targetSdk=35",
+      "time": "2026-10-18T01:19:19.989942+00:00",
+      "adbExit": 0,
+      "result": "passed",
+      "processCrashed": false,
+      "fatalCount": 0
+    },
+    {
+      "phase": "taskflow",
+      "label": "taskflow-r1",
+      "version": "versionCode=7 minSdk=26 targetSdk=35",
+      "time": "2026-10-18T01:26:46.001176+00:00",
+      "adbExit": 0,
+      "result": "failed",
+      "processCrashed": false,
+      "fatalCount": 0
+    },
+    {
+      "phase": "taskrestore",
+      "label": "taskrestore-r1",
+      "version": "versionCode=7 minSdk=26 targetSdk=35",
+      "time": "2026-10-18T01:29:30.594201+00:00",
+      "adbExit": 0,
+      "result": "passed",
+      "processCrashed": false,
+      "fatalCount": 0
+    }
+  ],
+  "sessionAssertions": {
+    "phoneCreatedSessions": 1,
+    "upgradeCreatedSessions": 0,
+    "logoutRevokedPhoneSessionOnly": true
+  },
+  "taskFlow": {
+    "taskRevisionBefore": 2,
+    "taskRevisionAfter": 4,
+    "summaryPersistedExactlyOnce": true,
+    "evidenceBefore": 1,
+    "evidenceAfter": 2,
+    "matchingEvidenceCount": 1,
+    "decisionBefore": "open",
+    "decisionAfter": "resolved",
+    "matchingDecisionCount": 1,
+    "writesReplayed": false,
+    "reloadAndLinkedTaskReadback": "passed",
+    "firstRunnerFailure": "expected answer text in history card; corrected to resolved card then linked task, read-only recovery passed",
+    "hubReceiptSemantics": "update/evidence: running with persisted result; inbox_action: completed"
+  },
+  "validation": {
+    "browserShellLifecycleAndRaceChecks": "passed",
+    "typescript": "passed",
+    "webBuild": "passed",
+    "androidUnitTests": "2 passed",
+    "ordinaryDebugAndUnsignedReleaseBuilds": "passed",
+    "separateInstrumentationBuild": "passed",
+    "independentProductionReview": "no remaining blocking findings",
+    "instrumentationReview": "no P0/P1; requires unique disposable task titles"
+  },
+  "notVerified": [
+    "production deployment",
+    "physical Android device",
+    "signed release APK",
+    "all Android WebView versions",
+    "ordinary v7 terminal input or tmux switching",
+    "ordinary v7 AI takeover and return",
+    "complete account pairing and manual acceptance journey",
+    "full business-history upgrade"
+  ],
+  "privacy": "No private endpoint, credentials, cookie contents, raw database or personal task content in this record."
+}

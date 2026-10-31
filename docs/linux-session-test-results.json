@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-30T17:25:24+00:00",
+  "workId": "LINUX1073",
+  "baseCommit": "1cbe4ba0352b690f7f799806ca615ed4f49ffa0c",
+  "status": "partial-platform-implementation",
+  "delivery": {
+    "codeCompleteForSlice": true,
+    "targetedTestsPassed": true,
+    "installed": false,
+    "deployed": false,
+    "wholeProjectComplete": false
+  },
+  "files": {
+    "plugins/codex-autocontinue/process_identities.py": "0beb77b5554b1357988e88537b3d969b3740b052ca8a32ebf9409b290432b4fc",
+    "server/terminal/process-identities.mjs": "1c6885df46b0b0bc5c2fb928052402722cdf3cacd7d997f01cbce6ca4bbed14b",
+    "server/terminal/managed-pane-record.mjs": "f02d986690160339219ce95464fac79471e011117d53bf0c3943449d290beab6",
+    "server/terminal/tmux.mjs": "9df4e56c3830b7747008bdb4fc2b0876784f8474d3b9819dec8a56b3b1170328",
+    "tests/managed-pane-linux-identities.test.mjs": "4373ba648d2a646f64532fbb5d8755e20e93aebcb159ecc259b0481c5bbfae19",
+    "tests/terminal-managed-record.test.mjs": "7289fe969f2cd70a0a07558501f8f02c98d8999dac2619bd42b91f6d5a52a538",
+    "tests/fixtures/managed-record-controller.mjs": "24f9ebe26894a20619a3b353aa96a1b6d8160385ac05e25dcb830d1ae8ae68cf",
+    "tests/terminal-tmux-locale.test.mjs": "20aec02020f5b1b49f0f2304a08401b0583cc55da561b65688b41207a6d84a43"
+  },
+  "scope": [
+    "Linux selected live PID identities: boot UUID, original uint64 start ticks, UID, parent and process group",
+    "Private Linux v2 managed tmux record prepare/start/reconnect/verify; macOS v1 remains compatible",
+    "Separate controller process recovers original shell and tmux pane, resumes input and writes exactly one marker",
+    "C-locale tmux metadata preserves field separators and Unicode paths"
+  ],
+  "baseline": {
+    "selectedIdentity": "Original helper returns unsupported_platform on Linux; observed in isolated native baseline",
+    "initialUbuntu": {
+      "passed": 8,
+      "failed": 2,
+      "skipped": 3,
+      "localRawLog": ".runtime/linux1073/native/tests.log",
+      "cause": "tmux metadata queries under LC_ALL=C sanitized tab delimiters; both real record starts remained unknown"
+    },
+    "localeRegression": {
+      "beforeExitCode": 1,
+      "beforeEvidence": ".runtime/linux1073/tmux-locale-before-transcribed.txt",
+      "beforeEvidenceType": "execution-output transcription, not raw log",
+      "afterExitCode": 0,
+      "afterLocalRawLog": ".runtime/linux1073/tmux-locale-after-raw.log"
+    },
+    "testFixtureCorrection": "Cross-controller fixture sends input through the verified tmux relay, not forbidden direct pane input. Unknown startup fixtures are retained; cleanup no longer signals stored PIDs alone."
+  },
+  "targetedMac": {
+    "node": "v24.19.0",
+    "command": "TMUX_TEST_EXECUTABLE=<isolated-tmux> node --test --test-concurrency=1 tests/managed-pane-identities.test.mjs tests/managed-pane-linux-identities.test.mjs tests/terminal-managed-record.test.mjs tests/terminal-tmux-locale.test.mjs tests/terminal-tmux.test.mjs",
+    "exitCode": 0,
+    "passed": 14,
+    "failed": 0,
+    "skipped": 3,
+    "skipReason": "Two Linux identity/JS cases and Linux cross-controller record case",
+    "localRawLog": ".runtime/linux1073/mac-tests-final.log"
+  },
+  "targetedUbuntu": {
+    "host": "Ubuntu 22.04 x86_64",
+    "node": "v24.21.0",
+    "python": "3.10.12",
+    "tmux": "3.2a",
+    "uid": 65534,
+    "locale": "C",
+    "command": "node --test --test-concurrency=1 --test-reporter=tap tests/managed-pane-identities.test.mjs tests/managed-pane-linux-identities.test.mjs tests/terminal-managed-record.test.mjs tests/terminal-tmux-locale.test.mjs tests/terminal-tmux.test.mjs",
+    "exitCode": 0,
+    "passed": 13,
+    "failed": 0,
+    "skipped": 4,
+    "skipReason": "Three macOS identity tests and existing macOS A/B attach test",
+    "localRawLog": ".runtime/linux1073/final/tests.log",
+    "dependencyBuild": "node-pty 1.1.0 built only inside the disposable fixture; Node 24.21.0 headers verified against official SHA-256 manifest",
+    "temporaryDirectoryRemoved": true
+  },
+  "cleanup": {
+    "initialAndFinalTemporaryDirectoriesRemoved": true,
+    "failedFixtureCleanup": "Exact test-only script/UID/parentage and stable observed birth, then pidfd-bound signals; six fixture processes confirmed exited",
+    "localReceipt": ".runtime/linux1073/initial-cleanup.json",
+    "servicesOrFirewallChanged": false
+  },
+  "remaining": [
+    "Linux registry and Core/UI integration",
+    "Linux full process inventory, descendants and AI stop proof",
+    "Ubuntu native desktop installation, tray, suspend/resume and update",
+    "Windows native Shell and WSL tmux validation",
+    "No new installed Mac, Android, physical-phone or full project acceptance"
+  ],
+  "review": {
+    "independent": true,
+    "confirmedBlockingFindings": 0,
+    "scope": "Four product files, four changed test/fixture files, first failure and final Mac/Ubuntu raw evidence; final native hashes match local files",
+    "localRecord": ".runtime/linux1073/review.md"
+  }
+}

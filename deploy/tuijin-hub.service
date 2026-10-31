@@ -1,0 +1,23 @@
+[Unit]
+Description=Tuijin task dashboard Hub
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=tuijin
+Group=tuijin
+WorkingDirectory=/opt/tuijin
+EnvironmentFile=/etc/tuijin/hub.env
+ExecStart=/usr/bin/node /opt/tuijin/server/hub/index.mjs serve --data-dir /var/lib/tuijin-hub --dist-dir /opt/tuijin/dist --host 127.0.0.1 --port 4318 --public-origin ${TUIJIN_PUBLIC_ORIGIN} --trusted-proxy
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/tuijin-hub
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,102 @@
+{
+  "workId": "BUILD1082",
+  "date": "2026-10-31",
+  "sourceCommit": "e526c974bd654f223bafd4edc9b8418b0ffd2031",
+  "wholeProjectComplete": false,
+  "mac": {
+    "candidate": "Candidate/序程.bundle",
+    "sourceCommit": "e526c974bd654f223bafd4edc9b8418b0ffd2031",
+    "built": true,
+    "signed": true,
+    "signature": "local_ad_hoc_not_notarized",
+    "mainSha256": "79e11914642de5f1b0593159395eefddb73bd1991b978f77347bc5c8a2be640c",
+    "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "resourceFilesVerified": 4223,
+    "packageTests": {
+      "tests": 15,
+      "pass": 14,
+      "fail": 0,
+      "skipped": 1,
+      "cancelled": 0,
+      "exitCode": 0,
+      "usesCandidateNodeAndResourceModules": true,
+      "usesBundledTmux": true,
+      "python": "system /usr/bin/python3",
+      "signatureVerifiedAfterTests": true,
+      "appLaunched": false,
+      "providerCalls": 0,
+      "logSha256": "2bcfc92fcbe37518df0c810e3b4ce3c13e41b9caa1553c015132f6333ceabd15"
+    },
+    "installed": false,
+    "launched": false,
+    "canonicalRemains": "UI1066",
+    "previousCandidateArchived": true,
+    "newQaAppCreated": false,
+    "pending": "Install in place and check the native dashboard; current Mac UI was locked."
+  },
+  "android": {
+    "workId": "BUILD1082",
+    "apkVersionCode": 14,
+    "apkSha256": "dd8386c814ba2b7ff9985887c89baf46133fd2e26e25ff9739c4f9e15d99661e",
+    "ordinaryPackage": true,
+    "sameSigningCertificate": true,
+    "installedOnIsolatedEmulator": true,
+    "launchedByThisRun": false,
+    "dataFilesCompared": 4,
+    "dataFilesChanged": [],
+    "nativeBackExecuted": false,
+    "physicalPhoneInstalled": false,
+    "variant": "ordinary_debug_apk",
+    "sha256": "dd8386c814ba2b7ff9985887c89baf46133fd2e26e25ff9739c4f9e15d99661e",
+    "unitTests": {
+      "tests": 2,
+      "failures": 0,
+      "skipped": 0,
+      "scope": "OriginPolicy HTTPS origin/navigation rules; not native Back"
+    },
+    "releaseAssembled": true,
+    "releaseSigned": false,
+    "testCaIncluded": false,
+    "defaultServerConfigured": false,
+    "existingSigningKeyUnchanged": true,
+    "pending": "Native Back and current task/terminal navigation in the ordinary App; no physical-device validation this run."
+  },
+  "web": {
+    "unchangedThisRun": true,
+    "deployedUiCommit": "95d22d9f609940d97730632a4894c0de48f7adea",
+    "details": "docs/supervision-ui1081-results.json"
+  },
+  "validationLimit": "Package resources and emulator upgrade are verified; app launch, logged-in runtime state, native Back and end-to-end takeover are not implied by unchanged data hashes.",
+  "evidence": {
+    ".runtime/build1080/result.json": "c37d78ad13b9aeb71b2850c4ec5e6d8007134b590df7a74416681876519d3a0d",
+    ".runtime/build1080/pins.json": "9f1f6b8c4d78de601cf800ef9fdb92dea148987f3764896b5438317f56a4fde9",
+    ".runtime/build1080/build.py": "818b1edb9aa4d3738fd343333ed04479b1a823886f953082997443462aa4e0b4",
+    ".runtime/delivery1082/package-check-result.json": "075d9abf92e3f31abe1492c62e75524730b27da8e18b6c923ed675bf20f82d74",
+    ".runtime/delivery1082/package-tests-final.log": "2bcfc92fcbe37518df0c810e3b4ce3c13e41b9caa1553c015132f6333ceabd15",
+    ".runtime/delivery1082/android-build.log": "e456c854477b75223db80cf11bff23888b0ca286067f69f676bbcbbdf43f8532",
+    ".runtime/delivery1082/android-upgrade-result.json": "e5f1f3a3aee37d515eb1e7a01e2b56134fd6ff4aae184cdf8d7dbe438e75b63c",
+    ".runtime/delivery1082/android-install.log": "781a31c82430c97897af612ece5e0ca2205e301cb5ff121ce2660541ea5182c7",
+    ".runtime/delivery1082/promotion-result.json": "79514dbabb9beb6df60a5bae75c07e2c613bbc7819f330b8e8f648ef3cec3b55",
+    ".runtime/delivery1082/package-review.md": "23046441a9a335f528c46030c76c508ea61118aeeba7a638a0c59e64597f2de1",
+    ".runtime/delivery1082/board-result.json": "c7d444000eb3a5f0bdd8f88c6e1ad873f54a9185444fadd5a374dcc963d1ec26"
+  },
+  "independentReview": "no_unresolved_P1_P2_after_document_hash_correction",
+  "board": {
+    "updated": [
+      {
+        "id": "c17167c9-4e21-4e51-84ad-1fa231b4a370",
+        "revision": 15,
+        "verification": "partial"
+      },
+      {
+        "id": "91f0f8a7-c59f-4538-840b-1eceb486f35b",
+        "revision": 55,
+        "verification": "partial"
+      }
+    ],
+    "otherTasksUnchanged": 65,
+    "manualAcceptanceUnchanged": true,
+    "macInstalled": false,
+    "nativeBackExecuted": false
+  }
+}

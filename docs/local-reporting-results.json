@@ -1,0 +1,250 @@
+{
+  "date": "2026-10-31",
+  "scope": "ONB1110 + ONB1111 local project onboarding, safe instruction upgrades and optional project reporting rules",
+  "baseCommit": "84eb0ee",
+  "wholeProjectComplete": false,
+  "delivery": {
+    "codeComplete": true,
+    "targetedTestsPassed": true,
+    "webBuildPassed": true,
+    "installed": true,
+    "deployed": false,
+    "pushedToGitHub": true,
+    "releasePublished": true,
+    "nativeBuildPassed": true,
+    "deploymentScope": "Local Mac update only; existing Hub and Android unchanged"
+  },
+  "localTests": {
+    "command": "node --test tests/core.test.mjs tests/file-bridge-worker.test.mjs tests/file-reporting.test.mjs tests/file-reporting-core.test.mjs",
+    "passed": 30,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "logSha256": "fe60e47dac2536a9234bd74897a22a85dec0d68caa10fcb2424ab3c1bc13a0be"
+  },
+  "browserChecks": [
+    "new project opens project onboarding automatically",
+    "no fake task is created by setup",
+    "ready directory waits for first actual file report",
+    "copy prompt succeeds",
+    "real event updates receipt UI without refresh",
+    "stale revision rejection is visible with corrective next step",
+    "invalid directory error remains visible across status polling",
+    "valid directory rebind clears previous receipt and changes prompt path",
+    "actual report received from new directory",
+    "light and dark desktop browser layouts checked",
+    "project name derives from folder and project goal can be empty",
+    "explicit Codex rule click preserves pre-existing AGENTS.md content; CLAUDE.md not created",
+    "copy prompt and jump from genuine report to correct task",
+    "invalid path shows actionable guidance",
+    "320px light and dark layouts inspected"
+  ],
+  "remoteReview": {
+    "taskId": "rc-47ebdb79f9f540ba8c4676ca78c335d6",
+    "snapshotHead": "b4c48f4a04c508411d4d511c258b3a2634f284ca",
+    "status": "COMPLETE",
+    "readOnly": true,
+    "changedFiles": [],
+    "modelsFromProviderMetadata": [
+      "claude-opus-5-5"
+    ],
+    "effort": "NOT VERIFIED",
+    "syntaxCommand": "node --check server/files.mjs",
+    "syntaxExitCode": 0,
+    "behavioralTestsRunRemotely": false,
+    "report": "docs/reviews/local-reporting-claude.en.md"
+  },
+  "fixesWithFailingReproduction": [
+    "preserve user additions to generated instructions",
+    "retain directory binding error across polling",
+    "skip temporary inbox files during sorting",
+    "avoid repeated snapshot writes for customized instructions"
+  ],
+  "independentReview": "Local reviewer inspected final filesystem changes and targeted reproductions; no remaining blockers found in this scope. Remote-reported JSON disappearance branch has code review only.",
+  "notVerified": [
+    "Windows and Ubuntu native onboarding; Intel Mac package",
+    "Physical phone layouts for this new page; 320px browser layouts checked",
+    "Real AI providers consistently following the prompt across multiple conversations",
+    "Full JSON deletion race branch has code review only",
+    "Fresh installation on a second computer; this Mac was upgraded in place"
+  ],
+  "productionDataChanged": true,
+  "nativeAppsCreated": 0,
+  "sourceHashes": {
+    "server/core.mjs": "6cb1589cd8ccff5f6b5a3408f6fef753fa20778df7943de09b9b997993f23355",
+    "server/files.mjs": "35b39fb5a8844797325c19f60c096b42925c8fb55aec2416433632362fe92240",
+    "server/file-bridge-worker.mjs": "4a26c79ff825afc33e3fc5ebb7cc769b1cf422fc85f3c328761e36d4a4b7ee59",
+    "server/file-reporting.mjs": "c333a9576e238249591469e8e2b962bfd1c376fe86925185d9bf3821fb8c5f83",
+    "src/App.tsx": "8361522336608937d0477f076e8048febe50d2382213fa7a8f9475b155693579",
+    "src/ProjectConnection.tsx": "2ebcdd5e57ef11f7b4ac71be3ba5a480ebffae13ba7154b21866acf1e908155b",
+    "src/project-connection.css": "b52bfbdd48c891e5ac8aa46fabb6bde5b9bd70c1348ae4151c1ac8aae1fd86ef",
+    "tests/file-reporting.test.mjs": "97382aec061680a6442f882345f62c612269984f26f9c9268f189a44022761cb",
+    "tests/file-reporting-core.test.mjs": "823041c8c0e605976237918b5f2390139fa64fb32e61ec4e10067fd9e2769a05",
+    "server/store.mjs": "65043649548874faa9005c2ce19a22ee547653780c5ae94f45cb6ef25805393d",
+    "src-tauri/src/main.rs": "e36ff69108beff826dde3dce1b00ba63b2a5c13e8c25a5d23dd7d1de579fcfe7"
+  },
+  "projectDefinitionUpdated": true,
+  "installedBoardModified": true,
+  "guide": {
+    "path": "release/onboarding-guide/序程新电脑接入指南.docx",
+    "pages": 9,
+    "visuallyChecked": true,
+    "sha256": "8718fc510a7a64795d7f8d969aa6d06ef94262c0f111804701df7578d195b4a4"
+  },
+  "sourceCommit": "9df881b2a3607ce1999087cef55bbbf7fca33369",
+  "releaseVersion": "0.4.1",
+  "independentFollowupReview": {
+    "status": "passed",
+    "targetedTests": 11,
+    "forgedReceiptRegression": "reproduced before fix; private database receipt now authoritative",
+    "timestampRegression": "altering public receipt mtime to year2099 does not change private received timestamp after restart",
+    "scope": "owner access, stale binding, rule file preservation, symlinks and receipt authenticity"
+  },
+  "limitations": [
+    "No new Windows, Ubuntu or Intel Mac package in this release",
+    "Claude real-provider execution remains unverified",
+    "Legacy receipts without trusted timestamp do not acquire a fabricated time",
+    "Optional project rules are reminders, not guaranteed compliance by every AI",
+    "No Hub deployment needed or performed for local onboarding"
+  ],
+  "nativeInstallation": {
+    "installed": true,
+    "version": "0.4.1",
+    "sourceCommit": "9df881b2a3607ce1999087cef55bbbf7fca33369",
+    "mainSha256": "8e3755c2a2ac14b12fac17f7588564ab4ca4729bd654dc14c54e95ae1d614312",
+    "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "projects": 1,
+    "tasks": 48,
+    "dataUnchangedDuringInstallation": true,
+    "forceQuitUsed": false,
+    "additionalQaAppsInstalled": 0,
+    "appAlreadyClosed": true,
+    "signatureVerified": true,
+    "appLaunched": true,
+    "startupReady": true,
+    "mainProjectPreserved": true,
+    "tasksPreserved": 48,
+    "projectsVisible": 1,
+    "manualAcceptancePreserved": true,
+    "nativeFileReportVerified": true,
+    "latestTaskLinkVerified": true,
+    "fileReportingAfterInstallVerified": true,
+    "additionalQuitTestCycles": 0
+  },
+  "packageChecks": {
+    "version": "0.4.1",
+    "signatureVerified": true,
+    "sourceFilesCompared": {
+      "server": 79,
+      "plugins": 27,
+      "dist": 14
+    },
+    "privateServerScanPassed": true,
+    "sourceCommit": "9df881b2a3607ce1999087cef55bbbf7fca33369",
+    "nativeBuildPassed": true
+  },
+  "productionDataChangeScope": "The scoped delivery task was updated through the project file inbox and owner verification API. Five requested historical test projects were removed with a verified cold backup; all 48 main-project tasks were preserved during cleanup, and the other 47 task rows remained unchanged after updating delivery evidence. Authentication and connection configuration stayed unchanged.",
+  "boardUpdate": {
+    "taskId": "ad9a9005-8da5-4cee-9a2f-32c202f51778",
+    "nativeFileReportVerified": true,
+    "receivedAt": "2026-10-31T09:49:19.400Z",
+    "testVerification": "passed",
+    "criteriaCovered": 4,
+    "humanAcceptance": "stale",
+    "other47TaskRowsUnchanged": true,
+    "projects": 1,
+    "tasks": 48,
+    "releaseUrl": "https://github.com/Autumnpoem/seqivo/releases/tag/v0.4.1-r1"
+  },
+  "release": {
+    "url": "https://github.com/Autumnpoem/seqivo/releases/tag/v0.4.1-r1",
+    "tag": "v0.4.1-r1",
+    "sourceTagCommit": "0a387573340b6b1e94dac8c393a9500f75b70eaf",
+    "privateRepository": true,
+    "published": true,
+    "assets": [
+      {
+        "name": "Seqivo-0.4.1-macos-arm64.zip",
+        "size": 174208530,
+        "digest": "sha256:e73c145c61880c2d0d1635282c03bcbf08d0be7afc70063734d58275c98b8292"
+      },
+      {
+        "name": "Seqivo-New-Computer-Guide-zh-CN.docx",
+        "size": 209734,
+        "digest": "sha256:8718fc510a7a64795d7f8d969aa6d06ef94262c0f111804701df7578d195b4a4"
+      },
+      {
+        "name": "SEQIVO_PROGRESS.md",
+        "size": 4851,
+        "digest": "sha256:04babd8b99da6593cf4bee525a7e292e6dd4690f419353ce712f12497a3000e7"
+      },
+      {
+        "name": "SHA256SUMS.txt",
+        "size": 283,
+        "digest": "sha256:8b88a21344277613c781ea3b56e585a46e1a2feeb2d8cbcc6fc67a2b16b6110e"
+      }
+    ]
+  },
+  "privacyRevision": {
+    "tag": "v0.4.1-r1",
+    "record": "docs/privacy-cleanup-results.json",
+    "status": "installed_and_published",
+    "url": "https://github.com/Autumnpoem/seqivo/releases/tag/v0.4.1-r1"
+  },
+  "localTestCleanup": {
+    "mode": "apply",
+    "status": "passed",
+    "applied": true,
+    "projectsAfter": 1,
+    "tasksAfter": 48,
+    "deleted": {
+      "projects": 5,
+      "tasks": 20,
+      "events": 174,
+      "inboxItems": 59,
+      "inboxReceipts": 18,
+      "leases": 10,
+      "metadataRows": 20
+    },
+    "preserved": {
+      "project": true,
+      "tasks": 48,
+      "events": 525,
+      "receipts": 49,
+      "settings": true,
+      "unrelatedMetadata": true,
+      "mainInboxItems": 491,
+      "preview": true
+    },
+    "foreignKeysValid": true,
+    "journalReplay": "not-run",
+    "backupHashMatched": true
+  },
+  "initialNativeInstallation": {
+    "installed": true,
+    "version": "0.4.1",
+    "commit": "9df881b2a3607ce1999087cef55bbbf7fca33369",
+    "mainSha256": "ca8eeaf96420f0ca09a56f269f041865c91842725411b8acf9e520b4d56555d3",
+    "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "normalQuitVerified": true,
+    "dataBackupVerified": true,
+    "dataUnchanged": true,
+    "projects": 6,
+    "tasks": 67,
+    "launched": false,
+    "forceQuitUsed": false,
+    "appLaunched": true,
+    "startupReady": true,
+    "dataPreserved": true,
+    "projectsPreserved": 6,
+    "tasksPreserved": 67,
+    "manualAcceptancePreserved": true,
+    "nativeFolderPickerOpenedAndCancelled": true,
+    "nativeFileReportVerified": true,
+    "latestTaskLinkVerified": true,
+    "nativeFolderPickerTitleVerified": true,
+    "allOriginalTaskRecordsUnchanged": true,
+    "newDeliveryTasks": 1,
+    "totalTasksAfterDelivery": 68
+  }
+}

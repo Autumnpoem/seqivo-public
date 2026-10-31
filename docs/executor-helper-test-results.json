@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "71ab8de",
+  "app531": {
+    "builds": {
+      "sameSourceMacLocalAdHoc": "passed",
+      "ordinaryAndroidV9": "passed",
+      "v8ToV9InstallRWithoutDataClear": "passed"
+    },
+    "ordinaryAppAttempt": {
+      "sessionCreated": false,
+      "macQaWindowSessionCreated": true,
+      "androidUiOperation": false,
+      "failedStage": "verify.first",
+      "priorConfirmStableChecks": 2,
+      "priorRevalidateStableChecks": 2,
+      "modelTurnSent": false,
+      "commandSent": false,
+      "fileWritten": false,
+      "revalidation": "blocked",
+      "reason": "coalition_count_changed",
+      "samples": 1,
+      "elapsedMs": 51,
+      "finalReplyVerified": false
+    },
+    "macMenuQuit": {
+      "uiExitCode": 0,
+      "corePluginShutdown": "rejected",
+      "pluginRejectionAfterMs": 33,
+      "coreRejectionAfterMs": 37,
+      "userFacingOutcome": "unknown",
+      "hubClosed": true,
+      "observedProcessesGone": true,
+      "readOnlyCohortCount": 0,
+      "stopIntentPreserved": true,
+      "hostMarkerPreserved": true,
+      "originalAppDataReopenVerified": false,
+      "normalCoreClose": false
+    }
+  },
+  "impl537": {
+    "retryableScanChurnReasons": [
+      "coalition_count_changed",
+      "native_identity_set_changed",
+      "native_list_changed_during_scan"
+    ],
+    "maximumSamples": 4,
+    "deadlineMs": 2000,
+    "preservesSeenProcessIdentityAcrossInvalidSamples": true,
+    "otherFailuresFailClosed": true,
+    "rootNativeHostRegression": {
+      "passed": 17,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "includesRealBinCatAndVerifiedRetirement": true
+    },
+    "review538": "no-new-confirmed-P1-or-P2"
+  },
+  "notVerified": [
+    "ordinary-v9-app-retest-after-IMPL537",
+    "actual-model-turn-and-final-reply",
+    "normal-Core-close-through-Mac-menu",
+    "full-real-AI-handoff"
+  ],
+  "status": "bounded-helper-regression-passed-app-and-native-retest-pending"
+}

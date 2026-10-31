@@ -1,0 +1,55 @@
+{
+  "workId": "APP1098",
+  "date": "2026-10-31",
+  "ordinaryAndroidVersionCode": 14,
+  "apkSha256": "dd8386c814ba2b7ff9985887c89baf46133fd2e26e25ff9739c4f9e15d99661e",
+  "environment": "isolated Android emulator, ordinary debug APK, real disposable Core/Hub from BUILD1097",
+  "serviceSourceCommit": "7e58019931031ea5031c918728b04ea78770e9d3",
+  "serviceDistTreeSha256": "27152239601dbccc5fba18e6657a0ef112b6039de90a8b92b8850da3c8c506c4",
+  "launched": true,
+  "nativeBackExecuted": true,
+  "passedFlows": [
+    "ordinary login to disposable Hub",
+    "project statistics and mobile task-card layout",
+    "separate source-conversation groups with task counts 2/1/1",
+    "select one source to show its two tasks across two projects",
+    "open a task detail from the supervision list",
+    "Android system Back closes task detail, next Back returns to supervision",
+    "Android system Back closes SSH add-host modal while retaining the host-list view"
+  ],
+  "inputMethod": "CUA keyboard through native scrcpy mirror; documented Alt+B generated Android Back. Escape alone did not trigger native Back.",
+  "limitations": [
+    "Emulator only; physical Android remains on last recorded v13.",
+    "No task form or decision was submitted, no real SSH connection or AI execution occurred in this run.",
+    "Draft persistence, background/restart and task-terminal-AI-preview-evidence chain remain pending on v14.",
+    "Hub mode currently disables manual new-task creation; that restriction is independent of device connectivity.",
+    "These read-only native flows do not complete application or project acceptance."
+  ],
+  "screenshots": {
+    ".runtime/app1098/android-home.png": "aabefa0d63ae2354846ff20e28c7135120f9d2dbc3f5a179ecb083521bc88740",
+    ".runtime/app1098/source-filter.png": "34bc9061f25b9691869a55d1702e32779659917b9e4a816ec438540835ad1d4c",
+    ".runtime/app1098/task-detail.png": "eba788cf1a0254718f6043608e9c14720ea53549baa59499b066b49cf44f63ae",
+    ".runtime/app1098/native-back-list.png": "4f1cc92c5c8447148fb61ea6ede6478d58810f8185f7174531e19b80142715e5",
+    ".runtime/app1098/native-back-home.png": "c45ad25905cc2d06338260bd1ee11c64a51b625c45c066a7bb189d73340d7f39",
+    ".runtime/app1098/ssh-modal-before-back.png": "73994e42633e871503cf0fdd0e39b82ae91a6da8c27cd6d508db8f166bbd07a2",
+    ".runtime/app1098/ssh-modal-after-back.png": "73999334ec0181e5be6a8db53af4f3b522a9fcfc952e2f871a70d972052c180d"
+  },
+  "wholeProjectComplete": false,
+  "backendCheck": {
+    "tasksUnchanged": true,
+    "inboxUnchanged": true,
+    "commands": 0,
+    "sshHosts": 0,
+    "terminalDevices": 0,
+    "terminalTickets": 0,
+    "receipt": ".runtime/app1098/backend-final-check.json",
+    "sha256": "747211c88b0b501cc647fbb0de5aba7662fcd0933339eb1a71f2dc2204a3da95"
+  },
+  "board": {
+    "revision": 63,
+    "verification": "partial",
+    "otherChecksPreserved": 20,
+    "manualAcceptanceUnchanged": true,
+    "receipt": ".runtime/app1098/board-result.json"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "feature": "bounded-completed-conversation-cache",
+  "implementation": {
+    "capturePoint": "final-idle-thread-before-original-executor-retirement",
+    "readRequires": [
+      "exact-task-thread-turn-binding",
+      "verified-original-stop-proof"
+    ],
+    "cacheWriteFailure": "restore-previous-cache-and-continue-retirement",
+    "offlineHistoryStartsNewJob": false,
+    "limits": {
+      "maxBytesPerItem": 700000,
+      "maxItems": 16,
+      "maxTotalBytes": 4194304,
+      "trimPolicy": "remove-older-messages-preserve-newest",
+      "globalEvictionPolicy": "oldest-snapshots-with-verified-original-stop-proof-only"
+    }
+  },
+  "verification": {
+    "coverageFile": "tests/completed-conversation-snapshot.test.mjs",
+    "independentRootHostSuite": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "processProof": "mocked"
+    },
+    "independentRootPureSuite": {
+      "passed": 6,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "independentReview": {
+      "id": "REVIEW533",
+      "result": "prior-cache-capacity-finding-closed-no-new-confirmed-P1-P2",
+      "scope": "static-review-not-runtime-verification"
+    }
+  },
+  "APP541": {
+    "sourceCommit": "2e9a0a76f9c890ef01ca5dd92a6e7065aa3b871c",
+    "packagedCandidate": {
+      "sourceTreeDigest": "d920f2aef9a884b23528e0115e9bafa055496cbefe894039d0742407be0635c6",
+      "ordinaryAndroidVersionCode": 10,
+      "androidApkSha256": "22b31c04d7345f23138a06aa39aaca955a855cc18ca6b8b3497dcf3e7fce0749",
+      "sameSourceMacQaBuild": true,
+      "productionDeployed": false
+    },
+    "firstTurn": {
+      "androidNormalUiLoginAndConversationCreation": true,
+      "sendAttempts": 1,
+      "automaticReplay": false,
+      "status": "completed",
+      "turnCompleteEvent": true,
+      "stopProof": "verified",
+      "exactFileVerified": true,
+      "fileBytes": 15,
+      "finalReplyVisibleInAndroidUi": true,
+      "finalReplyVisibleInMacQaWindow": true,
+      "cacheEntryStored": true,
+      "taskStatus": "pending acceptance",
+      "humanAcceptance": "unverified"
+    },
+    "idleCloseAndRestart": {
+      "normalCoreShutdown": true,
+      "coreShutdownMs": 56,
+      "startupClosed": true,
+      "qaProcessIdentitiesCapturedBeforeQuit": 8,
+      "sevenRecordedQaAppProcessesGone": true,
+      "originalSevenQaAppAndCoreBirthsComparedBeforeAndAfter": true,
+      "hubIntentionallyLeftLive": true,
+      "macSameDataReopen": {
+        "completedReplyVisible": true,
+        "additionalCommands": 0,
+        "fileUnchanged": true,
+        "cacheUnchanged": true
+      },
+      "androidForceStopColdRestart": {
+        "loginPreserved": true,
+        "originalConversationOpened": true,
+        "completedReplyVisible": true,
+        "newCommands": 0,
+        "fileUnchanged": true,
+        "cacheUnchanged": true
+      },
+      "productionAppBirthComparisonCaveat": "production-app-baseline-captured-after-quit; exact-birth-continuity-not-verified",
+      "checkerExitCodeUsedAsProof": false
+    },
+    "notVerified": [
+      "active-AI-or-busy-terminal-native-close-and-reopen",
+      "second-turn-handoff",
+      "complete-app-flow",
+      "production-or-physical-device-acceptance"
+    ],
+    "historicalAPP531FailurePreserved": true
+  },
+  "notVerified": [
+    "second-real-provider-turn-and-full-handoff",
+    "active-AI-or-busy-terminal-native-close-and-reopen",
+    "complete-app-flow"
+  ],
+  "status": "app541-first-turn-idle-restart-passed-limited-active-exit-and-flow-pending"
+}

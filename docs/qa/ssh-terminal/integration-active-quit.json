@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-23",
+  "scope": "one disposable macOS QA553 native run; AI command active at CmdQ",
+  "sourceCommit": "9c5b6b754d40c92b4fd20a248bb73d871be6d072",
+  "testedPackage": {
+    "mainSha256": "5f19c6c0aa07d0b19ce24f757594cda814d18a52540a69ff599e7ea05925dd24",
+    "nodeSha256": "208d16c7ac1840870c6a8ac829d4591801692a563ee0b327e378785a8e86187a",
+    "installedAsProduction": false
+  },
+  "build589Relationship": {
+    "sourceCommit": "f357c82a350f02715bab3e6386f87a5512ca7191",
+    "changedSourceFiles": ["src/App.tsx"],
+    "backendPluginAndNativeSourceHashesMatchTestedPackage": true,
+    "packagedNodeBinarySha256Matches": true,
+    "packagedMainBinarySha256Matches": false,
+    "build589NativeRunPerformed": false
+  },
+  "preQuit": {
+    "newTaskBoundByUniqueTitleProjectAndExactPrompt": true,
+    "olderFixtureTaskExcluded": true,
+    "commandRunning": true,
+    "turnCompleteEvent": false,
+    "coreLeaseStatus": "running",
+    "originalNativeBirthCount": 14,
+    "startedMarkerExact": true,
+    "lateMarkerAbsent": true
+  },
+  "postQuit": {
+    "nativeExitCode": 0,
+    "nativeExitSignal": null,
+    "startupStage": "closed",
+    "freshCoreShutdownStages": ["started", "fulfilled"],
+    "freshHttpShutdownStages": ["started", "fulfilled"],
+    "sidecarShutdownReceipt": "inferred from normal native exit and fresh fulfilled stages; raw receipt not independently captured",
+    "originalNativeBirthsAliveInTwoCompleteSamples": 0,
+    "fixtureControllerBirthPreserved": true,
+    "originalJobRecordPhase": "retired",
+    "originalJobRecordIoFault": false,
+    "commandStatus": "unknown",
+    "turnCompleteEvent": false,
+    "stopProofStatus": "unverified",
+    "executorStatus": "stopped_unknown",
+    "coreLeaseStatus": "unknown",
+    "durableShutdownStoppedReceiptPresent": true,
+    "coreLeaseStillFenced": true
+  },
+  "afterOriginalSixtySecondDeadline": {
+    "deadlinePassed": true,
+    "startedMarkerUnchanged": true,
+    "lateMarkerAbsent": true,
+    "originalNativeBirthsAliveInTwoCompleteSamples": 0,
+    "fixtureControllerBirthPreserved": true
+  },
+  "assessment": {
+    "activeAiNativeShutdownAndNoLateMarker": "passed for this single disposable run",
+    "providerTurnOutcome": "unknown",
+    "taskCompletionOrHumanAcceptance": "not established",
+    "uiOnlyExitCountedAsSuccess": false,
+    "legacyActive547UnknownEvidencePreserved": true
+  },
+  "privateEvidence": [
+    ".runtime/android/app571/active-exit/before.json",
+    ".runtime/android/app571/active-exit/after-quit.json",
+    ".runtime/android/app571/active-exit/after-deadline.json"
+  ],
+  "limits": [
+    "This does not establish a completed provider turn, verified stop proof, cleared lease, or permission to replay the command.",
+    "BUILD589 has matching backend/plugin/native source and packaged Node bytes, but a different main binary and web source; this test did not run BUILD589.",
+    "No production application, physical device, alternate exit entry point, or external SSH server was exercised by this test."
+  ]
+}

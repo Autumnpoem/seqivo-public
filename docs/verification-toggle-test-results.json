@@ -1,0 +1,43 @@
+{
+  "version": "0.2.3",
+  "date": "2026-09-26",
+  "scope": "Reversible manual completion of verification checklist items",
+  "result": "passed",
+  "automatedTests": { "passed": 134, "failed": 0, "command": "pnpm test" },
+  "browserChecks": {
+    "engines": ["chromium", "webkit"],
+    "command": "node tests/e2e/verification.mjs",
+    "passedRuns": 2,
+    "physicalDevice": false,
+    "checks": [
+      "Click empty circle to complete, click again to reopen",
+      "Keyboard Space toggles the focused circle",
+      "Circle interaction preserves expanded details",
+      "Saved completion survives page reload",
+      "A real viewer-token HTTP 403 keeps the saved state unchanged and shows an error",
+      "Parent verification, coverage, timestamp and human acceptance remain unchanged",
+      "Stale plans remain read-only and other tasks are unaffected",
+      "Light/dark appearance, 320–1024px layout and no browser errors"
+    ]
+  },
+  "nativeDesktop": {
+    "platform": "macOS arm64",
+    "build": "passed",
+    "bundledVersion": "0.2.3",
+    "actualClicks": "Empty to filled; quit and reopen; filled state persisted; second click restored empty.",
+    "preservedTasks": 23,
+    "preservedHumanAcceptances": 11,
+    "preservedChecklistItems": 32,
+    "allChecklistStatesRestoredAfterTest": true,
+    "originalTestRecordsUnchanged": true
+  },
+  "independentReview": "No blocking findings in backend or final UI.",
+  "limitations": [
+    "Windows and Ubuntu native operation were not tested in this change",
+    "Hub devices display completion read-only",
+    "Manual checklist completion does not certify tests or accept the parent task"
+  ],
+  "actualAITurns": false,
+  "cloudCI": "Not run; remains disabled by user choice.",
+  "evidence": "Local ignored design/qa/verification-toggle/ contains unit logs, browser summaries and captures, native build and restart checks, and pre-upgrade backups. Private task data and credentials are not committed."
+}

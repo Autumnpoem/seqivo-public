@@ -1,0 +1,268 @@
+{
+  "schemaVersion": 1,
+  "status": "e22946ad installed; idle first launch, normal quit and same-data reopen passed; Hub e229 deployed with post-deploy checks; APP782 first turn and human handoff passed, but its single second request ended unknown after command_approval with no final reply and unverified stop proof; do not resend; M3 incomplete",
+  "sourceCommit": "e22946ad13d2da63fb78bf52e4fd524092b3abee",
+  "currentProductionBaseline": "e22946ad",
+  "contract": {
+    "coreObservation": "read-only project/task gate with Core boot ID, observation time, task revision and content version",
+    "hubAdmission": "requires current grant and fresh compatible snapshot; rejects unknown/blocked/missing/stale/mismatched gates; execution writes cannot be queued offline",
+    "uiBehavior": "fails closed; checks fresh state before Hub POST; definite rejection retains draft; uncertain POST reconciles original command ID without automatic resend",
+    "olderHub": "missing gate DTO is unavailable and must not enable a new write"
+  },
+  "checks": [
+    {
+      "name": "bridge-diagnostic-lifecycle",
+      "passed": 4,
+      "exitCode": 0,
+      "scope": "host bridge read-timeout/stop/close diagnostics; not execution-gate tests",
+      "evidenceScope": "IMPL511 scoped diagnostics/regression; not a test of the current e229 package."
+    },
+    {
+      "name": "provider-host-diagnostic-categories",
+      "passed": 3,
+      "exitCode": 0,
+      "scope": "fixed provider-request categories and bounded private diagnostic logging",
+      "evidenceScope": "IMPL511 scoped diagnostics/regression; not a test of the current e229 package."
+    },
+    {
+      "name": "existing-approval-regression",
+      "passed": 1,
+      "exitCode": 0,
+      "scope": "approval compatibility",
+      "evidenceScope": "IMPL511 scoped diagnostics/regression; not a test of the current e229 package."
+    },
+    {
+      "name": "core-hub-gate-regression",
+      "passed": 85,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "historical": true,
+      "sourceScope": "Earlier candidate evidence; not a fresh verification of the current e229 package.",
+      "candidateSourceCommit": "d656fe5d1a1f64d6ea02ea67e66e2b4a86be1475"
+    },
+    {
+      "name": "ui-gate-helper",
+      "passed": 5,
+      "exitCode": 0,
+      "scope": "pure helper only; not React/network behavior",
+      "historical": true,
+      "sourceScope": "Earlier candidate evidence; not a fresh verification of the current e229 package.",
+      "candidateSourceCommit": "d656fe5d1a1f64d6ea02ea67e66e2b4a86be1475"
+    },
+    {
+      "name": "ui727-react-mock-api",
+      "passedChecks": 10,
+      "unexpectedPosts": 0,
+      "providerDispatches": 0,
+      "scope": "built React UI with synthetic local API; not Core/Hub integration or Android native",
+      "historical": true,
+      "sourceScope": "Earlier candidate evidence; not a fresh verification of the current e229 package.",
+      "candidateSourceCommit": "d656fe5d1a1f64d6ea02ea67e66e2b4a86be1475"
+    },
+    {
+      "name": "typecheck-and-vite-build",
+      "exitCode": 0,
+      "historical": true,
+      "sourceScope": "Earlier candidate evidence; not a fresh verification of the current e229 package.",
+      "candidateSourceCommit": "d656fe5d1a1f64d6ea02ea67e66e2b4a86be1475"
+    },
+    {
+      "name": "independent-reviews",
+      "status": "no remaining confirmed P1/P2 in bounded review scope",
+      "scope": "Earlier bounded candidate reviews; not an independent review of the e229 installed delivery."
+    },
+    {
+      "name": "diag723-headless-two-turn",
+      "status": "two turns completed with verified stop and zero active leases; no approval case reproduced; separate mixed JS/backend diagnostic, not APP682 or UI integration",
+      "scope": "Separate mixed JS/backend diagnostic; no approval case reproduced; not APP682, APP782 or a fresh current UI integration."
+    },
+    {
+      "name": "source-package-boundary-hardening",
+      "passed": 2,
+      "exitCode": 0,
+      "sourceCommit": "6000bf3",
+      "scope": "source-only; does not establish the native launch root cause or validate a rebuilt package",
+      "historical": true,
+      "sourceScope": "Earlier candidate evidence; not a fresh verification of the current e229 package.",
+      "candidateSourceCommit": "6000bf30daa2f586d4623d020b613f44c34fc169"
+    },
+    {
+      "name": "ui759-account-and-project-switch",
+      "passedRaceChecks": 2,
+      "scope": "same BUILD729 built React UI with synthetic localhost API and fixed 2-second state-read delay; not Core/Hub/provider/native integration",
+      "projectSwitch": "late response preserved selected project B and unsent same-account draft; zero command POST",
+      "accountSwitch": "logout A/login B completed before old A responses returned; B showed only project B and did not inherit A draft; zero command POST",
+      "positiveControl": "one explicit B message produced exactly one fixed pre-insert 409; draft retained; no automatic retry",
+      "firstAttempt": "manual state hold timed out; kept as inconclusive for the late-response race, not counted as passed",
+      "providerDispatches": 0,
+      "cleanup": "two browser tabs and isolated fixture servers closed; listeners absent",
+      "historical": true,
+      "sourceScope": "Earlier candidate evidence; not a fresh verification of the current e229 package.",
+      "candidateSourceCommit": "d656fe5d1a1f64d6ea02ea67e66e2b4a86be1475"
+    },
+    {
+      "name": "worker-isolation-source-tests",
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "scope": "BUILD771 source worker-isolation suite"
+    },
+    {
+      "name": "worker-isolation-packaged-tests",
+      "passed": 5,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "scope": "actual packaged worker suite in BUILD771; not GUI or production"
+    },
+    {
+      "name": "BUILD771",
+      "passedSteps": 16,
+      "failedSteps": 0,
+      "exitCode": 0,
+      "scope": "e22946ad ad-hoc candidate and Hub archive preparation"
+    }
+  ],
+  "package": {
+    "macOS": {
+      "built": true,
+      "signed": "local ad-hoc",
+      "notarized": false,
+      "previousInstalledCandidate": {
+        "sourceCommit": "d656fe5d1a1f64d6ea02ea67e66e2b4a86be1475",
+        "installationDataUnchanged": true,
+        "mainSha256": "abeba4a390ec6b9d9533eb32a7403311e009a1a0de07472ac18240db6a7bf488",
+        "firstLaunch": "blocked before Core startup during Node package-scope file-open wait; no returned error or confirmed path; no Core startup or lock created",
+        "postBlockNormalQuit": "unknown after 75 seconds; not a successful shutdown proof",
+        "notarized": false,
+        "installedPreviously": true,
+        "installedNow": false,
+        "supersededBy": "PACKAGE751 at the same canonical app location",
+        "historical": true,
+        "currentCandidateInstalled": false
+      },
+      "currentCandidate": {
+        "sourceCommit": "e22946ad",
+        "builtAndSigned": true,
+        "buildStepsPassed": 16,
+        "workerSourceTests": "5/5, zero skipped",
+        "workerPackagedTests": "5/5, zero skipped",
+        "installed": true,
+        "launched": true,
+        "notarized": false,
+        "installationDataUnchanged": true,
+        "firstLaunch": "ready; original board loaded; 2 projects and 62 task rows match the prior board ignoring ephemeral gate fields; 62 fresh gates observed",
+        "normalQuit": "passed; app quit, all 6 observed processes gone, lock absent; Core and file bridge fulfilled in 33 ms; no force-kill",
+        "sameDataReopen": "passed after a new boot; original board readback matched",
+        "pythonCacheHygiene": "Four generated bytecode cache files from the first empty fixture were quarantined and the full manifest/signature restored; a later isolated test disabled bytecode writes",
+        "installationSource": "DELIVERY780",
+        "nativeValidation": "NATIVE785 idle first-launch, normal quit and new-boot same-data reopen passed",
+        "current": true
+      },
+      "supersededPackage751": {
+        "sourceCommit": "6000bf30daa2f586d4623d020b613f44c34fc169",
+        "installed": true,
+        "launched": true,
+        "installationDataUnchanged": true,
+        "firstLaunch": "ready; original board loaded with 2 projects and 62 task rows; fresh v1 execution gate present",
+        "normalQuit": "failed; file bridge remained busy for about 5 seconds and Core close was rejected; OS filesystem worker was observed waiting on scandir; exact path and cause unconfirmed",
+        "recovery776": "historical interrupted recovery after verified backup; data unchanged and lock retained; not a successful normal quit; later superseded by e22946ad",
+        "sameDataReopen": "not verified",
+        "supersededBy": "e22946ad current candidate",
+        "historical": true,
+        "current": false
+      }
+    },
+    "hub": {
+      "archivePrepared": true,
+      "deployed": true,
+      "manifestFileCount": 144,
+      "currentProductionBaseline": "e22946ad",
+      "candidateUploadOrDeploymentRun": true,
+      "candidateSourceCommit": "e22946ad",
+      "uploaded": true,
+      "executeExitCode": 0,
+      "postdeployExitCode": 0,
+      "runtimeFilesVerified": 144,
+      "deploymentEvidence": "DELIVERY784; existing identities preserved"
+    },
+    "android": {
+      "wrapper": "existing v13 reused; not rebuilt in this run",
+      "sha256": "60fa04a9f52a8922c0fd8ea794d83cc3a1b2c714506408d41d78afaad71bacb1",
+      "candidateUiVerified": true,
+      "currentAttempt": "APP782: first real request and human handoff verified; the one submitted second request ended unknown after command_approval, with no final reply and unverified stop proof",
+      "startup": "APP782 reached the current flow; do not infer broader Android acceptance",
+      "mirrorTooling": "moved to a dedicated Application Support location; TCC settings were not changed",
+      "separateEmptySessionCheck": "APP737 closed normally with process exit 0 and no AI turn; this does not validate startup or handoff",
+      "app782": "human append/review/explicit return passed; second request ended unknown after command_approval, no final event/stop proof, one lease remains unknown; original OS job retirement receipt persisted; no resend"
+    },
+    "buildSteps": {
+      "passed": 16,
+      "failed": 0,
+      "exitCode": 0,
+      "evidence": "BUILD771 e22946ad"
+    },
+    "historicalD656BuildSteps": {
+      "passed": 15,
+      "failed": 0,
+      "exitCode": 0,
+      "evidence": "BUILD729; historical only"
+    },
+    "buildDigestsSource": "initial d656fe5 candidate only; see historicalEvidence.initialGateCandidate.buildDigests"
+  },
+  "notCovered": [
+    "busy AI/terminal shutdown and live handoff on the e22946ad Mac package",
+    "exact cause/path behind the earlier PACKAGE751 file-bridge/scandir timeout; the later e22946ad idle quit pass does not establish that cause",
+    "APP782 second-turn business result/final reply and command stop proof; one lease remains unknown despite original OS job retirement receipt; preserve/no resend",
+    "APP682 historical unknown request: do not replay; its outcome remains unknown",
+    "user acceptance, complete M3 or project completion"
+  ],
+  "currentSourceCommit": "e22946ad13d2da63fb78bf52e4fd524092b3abee",
+  "historicalEvidence": {
+    "recovery742": "An idle quit and same-data reopen passed on the older 3ce4686 build; this is historical, separate from the d656fe5 launch attempt, and preserved the unknown fence.",
+    "october24InterruptedClose": "Cause remains unknown; not resolved by the source-only package-boundary checks.",
+    "recovery776": "Interrupted recovery after backup; observed data unchanged and lock retained. Not a successful normal quit; e22946ad later idle quit/reopen is separate.",
+    "hubBaselineBeforeDELIVERY784": "3ce4686 was the previous Hub baseline; DELIVERY784 later deployed e22946ad with 144 runtime files verified.",
+    "initialGateCandidate": {
+      "sourceCommit": "d656fe5d1a1f64d6ea02ea67e66e2b4a86be1475",
+      "coreHubRegression": "85/85, zero skipped; initial gate candidate scope",
+      "uiGateHelper": "5/5; pure helper only",
+      "ui727ReactMock": "10 synthetic API checks; no provider dispatch",
+      "ui759AccountProjectSwitch": "two fixed-delay synthetic API race checks",
+      "build729Steps": {
+        "passed": 15,
+        "failed": 0,
+        "exitCode": 0
+      },
+      "buildDigests": {
+        "sourceTreeSha256": "e6c45aeb0c736794d45feb3e4f4b045caf840bcee4b27963104c3f09854b759d",
+        "lockfileSha256": "00bb348293ad37958d10f97caec18cd2ae9863292196b0b4b68bd04a306b2236",
+        "distTreeSha256": "da5e9f2f1f3932739edb170e626fd754fff3b7daf069cd4570bc33481281427a"
+      },
+      "buildDigestsSource": "d656fe5 initial gate candidate; not the e22946ad BUILD771 digest.",
+      "hubBeforeDelivery784": "3ce4686 was the previous Hub baseline."
+    }
+  },
+  "deliveryEvidence": {
+    "macInstall": "DELIVERY780: e22946ad installed at canonical app location with data unchanged; later NATIVE785 launch/quit/reopen passed",
+    "androidAttempt": "APP782: first request, human takeover, one file append, review, and explicit return verified; the second request ended unknown after command_approval, with no final event/verified stop proof and one unknown lease. The original OS job was retired with receipt persisted; preserve the business unknown and do not resend. Core later closed normally.",
+    "priorBuildScope": "BUILD729: d656fe5 package build and signing only; its initial installed=false field predates DELIVERY732",
+    "olderIdleReopen": "RECOVERY742: limited idle quit/reopen on 3ce4686; historical and separate from the d656fe5 candidate",
+    "latestRepack": "Historical PACKAGE751 (6000bf3): first launch/readback passed; normal Cmd-Q/Core close failed; later superseded by e22946ad",
+    "sourceBoundaryTests": "2/2 source-only checks; do not establish the native launch stall cause",
+    "workerIsolation": "BUILD771 e22946ad source and packaged worker suites each 5/5, zero skips; current candidate installed; this record does not include an independent code-review result",
+    "sourcePush": "e22946ad pushed and verified by Root",
+    "latestBuild": "BUILD771: e22946ad ad-hoc candidate and Hub archive prepared; 16 steps exit 0; worker source and packaged suites each 5/5 with zero skips.",
+    "delivery780": "e22946ad installed; NATIVE785 idle launch/normal quit/new-boot reopen passed",
+    "hubDeploy": "DELIVERY784: e22946ad deployed; execute and post-deploy checks exited 0; 144 runtime files verified; existing record identities preserved.",
+    "mirrorTooling": "moved to dedicated Application Support location; TCC settings unchanged",
+    "macInstallation": "DELIVERY780 installed e22946ad at the canonical app location; installation data unchanged",
+    "macNativeIdleCycle": "NATIVE785: first launch ready, original board readback 2 projects/62 task rows (ephemeral gate fields ignored); normal Cmd-Q/Core close passed with all six observed processes gone, lock absent, no force-kill; new-boot same-data reopen passed",
+    "recovery776": "older interrupted cleanup: data unchanged, lock retained; not counted as normal quit",
+    "pythonCacheHygiene": "four generated bytecode files quarantined; candidate manifest/signature restored; later isolated test set PYTHONDONTWRITEBYTECODE=1"
+  },
+  "initialCandidateSourceCommit": "d656fe5d1a1f64d6ea02ea67e66e2b4a86be1475",
+  "checkCollectionScope": "Mixed-version evidence history. Only entries explicitly pinned to BUILD771/currentCandidate belong to e22946ad; earlier checks retain their own candidate/version scope."
+}

@@ -1,0 +1,8 @@
+<resources>
+    <style name="AppTheme" parent="@android:style/Theme.Material.Light">
+        <item name="android:colorAccent">#2563EB</item>
+    </style>
+    <color name="native_background">#F6F8FC</color>
+    <color name="native_surface">#FFFFFF</color>
+    <color name="native_text">#1E2D42</color>
+</resources>

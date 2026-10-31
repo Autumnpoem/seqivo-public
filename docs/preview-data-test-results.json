@@ -1,0 +1,251 @@
+{
+  "date": "2026-10-24",
+  "status": "M6 records-v1 local save/recovery and scoped grant-revocation boundaries have test evidence. TEST697 covers revocation after durable Hub dispatch before Core record processing; M6-943 covers revocation after Core commit before Hub result delivery. M6-943 targeted 1/1 and full test file 2/2 passed with zero skips; REVIEW947 found no confirmed P1/P2. Current GUI logout, different Core/node replacement, Core restart, broader permissions/capacity matrix, and final application integration remain unverified.",
+  "scope": "disposable records-v1 real SQLite target; not arbitrary backend or production service",
+  "sourceSha256": {
+    "server/preview/records.mjs": "83ceb28b6c4bf3712b0d9ab4ee3cf9d4b8fa2fff562f86e589339fd1e0bcdf96",
+    "server/hub/preview.mjs": "0a34530451fa27a28dda5b4e08a188231ad541e4c99f3da2f4820fa8319f0f97",
+    "server/preview/local.mjs": "6de88301a5b29930f48e36c0b71b89c86029774af74179903765a62a41d42ca3",
+    "server/preview/node-link.mjs": "60b53921adddfadd88cbe27e14235c0a3ec021cd70a81900f7643338a787a0f3",
+    "server/preview/registry.mjs": "baddeebb2aae5a6024826220635c89aff9f96f1182d24ae4eab40c343f257896",
+    "server/core.mjs": "5099d77cb380e3cf24a36bb18e4196289287c51153583c2f7baa2e9b1bb23cf9",
+    "server/http.mjs": "77b4532e656d84d3daa4bc026bfa33367421cce694455629dbd406f7f0f6a98d",
+    "server/hub/http.mjs": "c2e5ebb8b38d536806cf227338e91630fa2445715e39447663b4a5ec2c3b6383",
+    "src/PreviewPanel.tsx": "1e919e7e107cb410031875d8e7652131ecdd122a9d8f38bdc290d3ac15588c4b",
+    "src/preview-records-client.ts": "2e4d0ae6046cc549b997fac4b4ec840db0258aeecd5c041b1c25693883b2195d",
+    "tests/preview-records-live.test.mjs": "96d0ea813362dff88669dcb670ce4c7ea8c6ad26812fea0a0ef7d6e83bff38a3",
+    "tests/e2e/preview-records-live.mjs": "2a6b090c23ddf50b87b4a5d47c67bebbaca6aefb455b1006fe99d97350c0f091"
+  },
+  "checks": {
+    "relatedPreviewTests": {
+      "passed": 36,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "realChromeWithCoreAndHub": {
+      "saveAndReload": true,
+      "realWriteResponseLostThenOriginalKeyRecovery": true,
+      "duplicateRecordCreated": false,
+      "exitCode": 0
+    },
+    "closeWithAdmittedWrite": {
+      "closeBlocksNewAdmission": true,
+      "alreadyAdmittedWriteMayCommit": true,
+      "oldCapCannotReturnBytes": true,
+      "sameAccountCanReconcileOriginalKey": true
+    },
+    "hubRestartHistoryRead": true,
+    "sqliteGlobalAdmissionLimit": {
+      "oldCodeRedAcceptedAt100000": true,
+      "fixedCodeRejectsNewAt100000": true,
+      "httpStatus": 429,
+      "code": "PREVIEW_RECORD_OPERATION_LIMIT",
+      "confirmedRetryAndReadAndReconcileStillWork": true,
+      "historyNotPruned": true,
+      "independentReview": "capacity P2 closed; error code inconsistency corrected",
+      "finalTargetedTests": {
+        "passed": 1,
+        "exitCode": 0
+      }
+    }
+  },
+  "remaining": [
+    "project-grant revocation after Core commit and other uncovered await boundaries",
+    "replacement by a different real Core/node",
+    "local boot and full capacity combinations",
+    "final Mac and Android app integration",
+    "build provenance and change-linked reacceptance flow"
+  ],
+  "productionChanged": false,
+  "userAcceptanceChanged": false,
+  "TEST235": {
+    "date": "2026-10-18",
+    "status": "three-permission-combinations-passed",
+    "testFile": "tests/preview-records-permissions.test.mjs",
+    "testSha256": "5e169396906b75d88ab3dba94959421dc7b764b4a4e619604861cc5da8b81a69",
+    "commands": [
+      "node --test tests/preview-records-permissions.test.mjs"
+    ],
+    "implementationRun": {
+      "passed": 3,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "independentRootRerun": {
+      "passed": 3,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "checks": [
+      "real Core/Hub/SQLite and built Vite fixture first save one record",
+      "logout revokes old record capability; old session and other account cannot read original operation",
+      "node project grant revocation denies new preview reads/writes, same-account confirmed operation remains inspectable",
+      "same-node grant epoch rotation fences old preview; no extra operation admitted"
+    ],
+    "correction": "initial fixture omitted script entry and failed PREVIEW_BASE; fixed fixture and precise response assertions; no product source changed",
+    "remaining": [
+      "permissions changing during an in-flight request",
+      "replacement by a physically different Core/node",
+      "final App and version provenance/reacceptance flow"
+    ],
+    "sourceSha256": {
+      "server/preview/records.mjs": "7a7eace640ed613828589c958cdcbf83dc0ea8b2a7aa5fa4a3c942b82757a59c",
+      "server/hub/preview.mjs": "0a34530451fa27a28dda5b4e08a188231ad541e4c99f3da2f4820fa8319f0f97",
+      "server/preview/local.mjs": "6de88301a5b29930f48e36c0b71b89c86029774af74179903765a62a41d42ca3",
+      "server/preview/node-link.mjs": "60b53921adddfadd88cbe27e14235c0a3ec021cd70a81900f7643338a787a0f3",
+      "server/preview/registry.mjs": "baddeebb2aae5a6024826220635c89aff9f96f1182d24ae4eab40c343f257896",
+      "server/core.mjs": "5099d77cb380e3cf24a36bb18e4196289287c51153583c2f7baa2e9b1bb23cf9",
+      "server/http.mjs": "77b4532e656d84d3daa4bc026bfa33367421cce694455629dbd406f7f0f6a98d",
+      "server/hub/http.mjs": "c2e5ebb8b38d536806cf227338e91630fa2445715e39447663b4a5ec2c3b6383"
+    }
+  },
+  "sourceSha256Scope": "Recorded before checkpoint b3b5182; that checkpoint removed one trailing space from records.mjs. Functional tests retain their original source identities.",
+  "QA248": {
+    "date": "2026-10-18",
+    "status": "frozen-baseline-inflight-account-logout-oracle-passed-current-IMPL246-code-not-verified",
+    "sourceBaseline": "6d1e044",
+    "testFile": "tests/preview-records-inflight-live.test.mjs",
+    "testFileSha256": "c1ca027b1a1781655b537c3d6c34419ae042ae50bd01b84ff2958205e5a65eb4",
+    "scope": "isolated real Chrome/Core/Hub; test-only gate pauses the already-dispatched Core registry lookup; preview HTTP/WS response is not mocked",
+    "checks": {
+      "logoutWhileWriteDispatched": true,
+      "browserReceivedSuccessfulWriteReply": false,
+      "browserReplyHttpStatus": null,
+      "oldCapabilityReadStatus": 403,
+      "oldCapabilityWriteStatus": 403,
+      "oldCookieOperationRecoveryStatus": 401,
+      "differentAccountOperationRecoveryStatus": 403,
+      "sameAccountReloginOriginalKeyRecoveryStatus": 200,
+      "recoveredOriginalOperationState": "confirmed",
+      "hubOperationCount": 1,
+      "coreOperationCount": 1,
+      "coreRecordCount": 1,
+      "hubAndCoreOperationIdsMatch": true,
+      "operationAndRecordIdentityMatch": true,
+      "resubmittedOrReplayed": false
+    },
+    "limits": [
+      "result belongs to frozen source baseline 6d1e044, not the current IMPL246-modified Core implementation",
+      "project grant revocation during an in-flight request remains unverified",
+      "replacement by a different real Core/node remains unverified",
+      "final Android/Mac application integration remains unverified"
+    ],
+    "currentImplementationPassed": false,
+    "productionChanged": false,
+    "userAcceptanceChanged": false
+  },
+  "TEST697": {
+    "date": "2026-10-24",
+    "status": "scoped-inflight-project-grant-revocation-passed",
+    "productBaseline": "122f7599108d334683ac15f5e0ebc27b479f416a",
+    "productBytesLabel": "3ce4686633d9c81d887576e9ddb0fe53262baaf6",
+    "testFile": "tests/preview-records-inflight-grant.test.mjs",
+    "testFileSha256": "aa0fc87a832cd18842362d8c62bcc903ac40b9d70be66353e2808e4e71d5be9e",
+    "evidence": [
+      ".runtime/test697/inflight-r2.log",
+      ".runtime/test697/root-rerun.log"
+    ],
+    "scope": "local real Core/Hub/SQLite; project grant revoked after durable Hub dispatch while Core registry gate is held",
+    "implementationRun": {
+      "passed": 1,
+      "failed": 0,
+      "exitCode": 0,
+      "skipped": 0
+    },
+    "independentRootRerun": {
+      "passed": 1,
+      "failed": 0,
+      "exitCode": 0,
+      "skipped": 0
+    },
+    "review": {
+      "id": "REVIEW698",
+      "status": "passed-no-confirmed-P1-or-P2",
+      "testsExecutedByReviewer": false
+    },
+    "observed": {
+      "originalRequestHttpStatus": 503,
+      "oldCapabilityReadStatus": 503,
+      "oldCapabilityWriteStatus": 503,
+      "otherAccountStatus": 403,
+      "hubOriginalOperationCount": 1,
+      "coreOperationCount": 0,
+      "coreRecordCount": 0,
+      "sameOwnerHistoryState": "unknown",
+      "replayedOrResubmitted": false
+    },
+    "limits": [
+      "covers a node project grant revoked after durable Hub dispatch while the Core registry lookup is held, before Core record processing",
+      "does not cover revocation after Core commit; an admitted write may commit and an unknown result is not proof of non-application",
+      "does not cover account logout through the current GUI, replacement by another Core/node, Core restart, full capacity combinations, or final Mac/Android application integration",
+      "no product code, user configuration, deployment, or user acceptance changed"
+    ],
+    "baselinePermissionsRun": {
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "testFile": "tests/preview-records-permissions.test.mjs"
+    },
+    "sourceSha256": {
+      "server/core.mjs": "f4f61bf026c7eaacfccda23244e3f2a08ab0db7ea1e62d929f17b3c78fc9097e",
+      "server/hub/preview.mjs": "8c6cbef1523cae0be878c3572afd9bcc9681d6a28b6808180ccc7c8e31f97424",
+      "server/hub/store.mjs": "6b305b3e2bd63b71318cfe7807117892dfd05a7618eb67a2a5afa0ebc4295c65",
+      "server/preview/node-link.mjs": "19ee1b47fa01a868b6c810cbf20bfe6f62a260f54be42b8a77894cafb74f5d04",
+      "server/preview/records.mjs": "7a7eace640ed613828589c958cdcbf83dc0ea8b2a7aa5fa4a3c942b82757a59c"
+    }
+  },
+  "M6-943": {
+    "date": "2026-10-25",
+    "status": "scoped-post-Core-commit-project-grant-revocation-passed",
+    "productBaseline": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "testOverlaySha256": "497aa8861edb4a0e7c14d7cb065f715779558ba7cf25cf546924f7a0a4627ef9",
+    "testFile": "tests/preview-records-inflight-grant.test.mjs",
+    "evidence": [
+      ".runtime/m6-943/target-r1.log",
+      ".runtime/m6-943/full-r1.log",
+      ".runtime/review947.md"
+    ],
+    "scope": "Local real Core/Hub/SQLite test. A project grant is revoked after Core has committed the record and operation but before the Hub delivers the original result.",
+    "targetedRun": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "completeTestFileRun": {
+      "passed": 2,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "includes": "M6-943 plus the earlier pre-Core-commit grant-revocation case"
+    },
+    "independentReview": {
+      "id": "REVIEW947",
+      "status": "passed-no-confirmed-P1-or-P2",
+      "testsExecutedByReviewer": false
+    },
+    "observed": {
+      "admittedAndCoreCommittedBeforeRevoke": true,
+      "originalResponseContainsRecordBytes": false,
+      "oldCapabilityReadAndSameOrNewKeyWritesDenied": true,
+      "hubOperationCount": 1,
+      "coreOperationCount": 1,
+      "coreRecordCount": 1,
+      "ownerHistory": "unknown or confirmed, tied to the same operation/record identity",
+      "otherAccountRecoveryDenied": true,
+      "originalResponseStatusAssertedOneOf": [
+        403,
+        503
+      ],
+      "exactResponseBranchLogged": false,
+      "duplicateMutationAdmitted": false,
+      "negativeSameKeyRetryRejected": true
+    },
+    "limits": [
+      "Does not cover logout through the current GUI, replacement by another real Core/node, Core restart, full capacity combinations, or final Mac/Android application integration.",
+      "This is a local test of a real Core/Hub/SQLite path, not a deployed Hub, UI, physical-device, or user-acceptance result.",
+      "The admitted write is committed before revocation; the test verifies result-byte fencing and no duplicate admission, not rollback of committed state."
+    ]
+  }
+}

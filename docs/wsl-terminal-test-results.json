@@ -1,0 +1,116 @@
+{
+  "workId": "WSL1095",
+  "title": "Independent Windows WSL tmux terminal",
+  "baseRevision": "6c76859",
+  "sourceCommit": "0929164c026ffd2c2c2f93a1cd5435c0e5bb4b14",
+  "sourceStatus": "committed; not packaged, installed, or deployed",
+  "implementation": {
+    "status": "implemented in source",
+    "capabilities": [
+      "Windows native Shell remains independent when WSL is unavailable",
+      "List installed WSL distributions and configure a selected distribution",
+      "Validate Linux absolute working directory and bind default Linux username plus UID",
+      "List, create, select, set default, attach, and reconnect to WSL tmux sessions",
+      "Reject changing the WSL target under an existing profile ID"
+    ],
+    "boundaries": [
+      "Independent WSL profile cannot bind to a managed project",
+      "No AI takeover, return, or host-process proof for WSL",
+      "Hub profile projection includes only runtime=wsl, not WSL username, UID, or cwd",
+      "Not a sandbox"
+    ]
+  },
+  "verification": {
+    "regression": {
+      "result": "passed",
+      "passed": 50,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "New WSL adapter plus existing POSIX tmux, terminal manager, and Hub regressions",
+      "evidence": ".runtime/wsl1095/regression.log",
+      "sha256": "437003120ba6ca86e33e60ae51d0dffae4314ce435a0fd8579a37c68b579f8df"
+    },
+    "managerIntegration": {
+      "result": "passed",
+      "passed": 3,
+      "failed": 0,
+      "skipped": 0,
+      "scope": "Fake WSL adapter and real local Mac PTY fixture",
+      "evidence": ".runtime/wsl1095/manager-test-final.log",
+      "sha256": "0d7a3c2474ed8201debbde8770e6f6c139a3adc897894a96299f158fce71c80f"
+    },
+    "distinctPassedCases": 53,
+    "adapterIntermediateSummary": {
+      "passed": 10,
+      "failed": 0,
+      "skipped": 1,
+      "note": "Overlapping/intermediate backend run; not added to the 53 distinct final regression and manager-integration cases."
+    },
+    "historicalFailure": {
+      "note": "An earlier UID recheck failure was reproduced and retained as history; it is not the final result.",
+      "evidence": ".runtime/wsl1095/inspect-before.log",
+      "sha256": "2be0e480fa7bc7e378de9751959079a6aeb901e312d272f44724486f5dc725fa"
+    },
+    "independentReview": {
+      "result": "no P1/P2 findings",
+      "evidence": ".runtime/wsl1095/review.md",
+      "sha256": "2b4caeead32309aa4951be63c989d616d47a57f5dff2edf2c4be26bbf343c157"
+    },
+    "frontendBuild": {
+      "result": "passed",
+      "evidence": ".runtime/wsl1095/build-final.log",
+      "sha256": "c19cf8993fab6e792b634a6c706a162caf88de2d8b1f32cae8b20e416d488c1c",
+      "note": "Build emitted an existing lucide-react module-level use-client warning."
+    },
+    "browserFixture": {
+      "result": "passed",
+      "scope": "Synthetic Windows-owner UI: native profile independent without WSL; distro selection; Windows path rejection and Linux path-with-spaces acceptance; no project binding; fixed runtime/distro on edit with cwd retained; no WSL Shell toggle or AI takeover; dark 390px layout without horizontal overflow.",
+      "profileWrites": 3,
+      "evidence": ".runtime/wsl1095/browser-result.json",
+      "evidenceSha256": "f48129974f56d1f446f55b7898c4e78c5c922d5e5b7f4f3a780926f483741831",
+      "limits": "Synthetic owner UI only; not a real Windows account, WSL distribution, or physical phone."
+    }
+  },
+  "sourceSha256": {
+    "server/terminal/wsl.mjs": "aca884dbbde9e426445d2b780c16e107b209ac54e1e4cd6bf053807c40546851",
+    "server/terminal/manager.mjs": "e666a3c5e09db80d048cf035cb9cd4f087faa439c2d56321cf1fd511cb492fb1",
+    "server/terminal/tmux.mjs": "ab15cb58ff8f74c000b542cdb47720d5f71d1a844239242c63fa2e415fa202c9",
+    "src/TerminalPanel.tsx": "791f552a8234afca2c99b4fa80177e8930a55b9b4ef04ef2649295b892d6ea7a",
+    "src/terminal-types.ts": "84cc9f380d5545e8f2bbebcea539a51432f17dcd36a55a57286e6b546022b14e",
+    "src/terminal.css": "a31b916dbc2d7e82fa1a01e5c898dd760f6cd045264be28a948661fdfe450b58",
+    "tests/terminal-wsl.test.mjs": "0128ea6f1539934295b7d5ced3855020dd7097df7906194f7f00bdd572794616",
+    "tests/terminal-wsl-manager.test.mjs": "0c32f7b823088f256dcc38c13f7694a2f1b226fe87f4136ab33ae5e9ccf7df0d"
+  },
+  "delivery": {
+    "windowsNativeMachineTested": false,
+    "realWslDistributionTested": false,
+    "packaged": false,
+    "installed": false,
+    "deployed": false,
+    "currentlyInstalledMacUi": "UI1066; does not include this WSL implementation",
+    "candidateBuild": "BUILD1094 and Android v14 do not include this implementation",
+    "overallMilestone": "M7 partial; platform-native validation and packaging remain open"
+  },
+  "limitations": [
+    "No real Windows account, WSL distribution, tmux, or node-pty native acceptance was performed.",
+    "The passing tests use mocked WSL commands and local POSIX tmux/PTY fixtures.",
+    "Browser-fixture acceptance used a synthetic Windows-owner UI and does not substitute for native Windows/WSL/phone testing.",
+    "This report records evidence; it does not claim the full product or M7 is complete."
+  ],
+  "board": {
+    "id": "59509a5a-590c-47c5-b059-e2c9204474bf",
+    "revision": 21,
+    "status": "running",
+    "verification": "partial",
+    "otherTasksUnchanged": 66,
+    "manualAcceptanceUnchanged": true,
+    "existingChecksPreserved": 12,
+    "newCompletedChecks": 1,
+    "newPendingChecks": 1,
+    "windowsNativeTested": false,
+    "packaged": false,
+    "installed": false,
+    "deployed": false,
+    "receiptSha256": "7b27bae0a1651156bdbcd395788a1b383e61f30a5d9fb7a2b569ef2311a70e58"
+  }
+}

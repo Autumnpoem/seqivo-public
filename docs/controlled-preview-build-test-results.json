@@ -1,0 +1,515 @@
+{
+  "date": "2026-10-19",
+  "status": "bounded-retest-browser-android-emulator-and-isolated-macos-native-preview-slices-passed; formal-signing-physical-phone-real-ai-and-full-acceptance-pending",
+  "scope": "isolated preview staging tree; not end-to-end product acceptance",
+  "toolchain": {
+    "schema": "seqivo.preview-toolchain.v1",
+    "viteVersion": "8.3.1",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "toolDigest": "615b88278d487acab47cfb67bfface49c6739ef158fd25298294189b3ec8b477",
+    "packagedPackageCount": 15,
+    "boundSourceCount": 3
+  },
+  "unitRegression": {
+    "testFile": "tests/preview-controlled-build.test.mjs",
+    "passed": 6,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "scope": [
+      "typed workspace lease and generic reconciliation fence",
+      "external worktree save fence",
+      "restricted profile view and import/resource rejection",
+      "managed registry provenance separation",
+      "worker acknowledgement only after normal zero exit",
+      "output-ready recovery rejects changed artifact or publication target"
+    ]
+  },
+  "nativeIntegration": {
+    "testFile": "tests/preview-controlled-build-native.test.mjs",
+    "passed": 4,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "realFixedViteWorker": true,
+    "realMacJob": true,
+    "workerRetiredBeforePublication": true,
+    "scope": [
+      "abandon before spawn preserves the never-started retirement record",
+      "recovered prepared handle cannot claim original-owner never-started authority",
+      "fixed Vite worker builds an original Git source and its MacJob retires before publication",
+      "task edit after preparation abandons an unstarted record without spawning"
+    ],
+    "evidence": "IMPL367 native r4 result; isolated staging tree"
+  },
+  "pythonRuntimeRelocation": {
+    "fileCount": 3351,
+    "runtimeDigest": "d0ceb14cdc45903ddf1075a2a56ca58bd7995ca41ece57a8f00454a7e19f76d6",
+    "launcherSha256": "a19899d45d49530fcc72909b101b45ceb6064b9947459c66436d13352814167d",
+    "relocatedResourceDigestMatched": true,
+    "macJobSocketProbe": true,
+    "echoMatched": true,
+    "helperIdentityVerified": true,
+    "jobRetired": true,
+    "fixtureCleanupVerified": true,
+    "evidence": "DIAG384 relocated-resource probe"
+  },
+  "earlierFailureStillUnresolved": {
+    "documentsOriginPythonJobStartupAck": "unknown",
+    "relocatedResourceProbePassed": true,
+    "rootCauseEstablished": false,
+    "note": "Relocation improved the bounded probe but does not establish the cause of the earlier startup-identity unknown."
+  },
+  "FIX396": {
+    "change": "Prevents a previously retired job record from blocking Core.close in the covered historical-record path.",
+    "historicalPure": {"passed": 7, "failed": 0, "skipped": 0, "exitCode": 0},
+    "originalRecordNative": {"passed": 18, "failed": 0, "skipped": 0, "exitCode": 0},
+    "controlledBuildNative": {"passed": 6, "failed": 0, "skipped": 0, "exitCode": 0},
+    "controlledBuildLive": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "protocolVersion": "registration-query/sourceTaskRevision/beforeSend candidate",
+      "testFile": "tests/preview-controlled-build-live.test.mjs",
+      "testSha256": "7f2949d214871525e91d4ea1f2c1f0d943b6711d7c4ccdb5dcd3a0bbd2395374",
+      "isolatedStageCopySha256Matches": true,
+      "checks": {
+        "hubRegistrationCommittedBeforeLocalReceiptWriteFailure": true,
+        "taskRevisionOnlyEditedAfterHubCommit": true,
+        "registrationQueryFoundOriginalPreview": true,
+        "samePreviewMarkedRegisteredAfterReconcile": true,
+        "hubServedOriginalHtmlAndJs": true
+      },
+      "actualNetworkResponseLossInjected": false
+    },
+    "independentReview": {"id": "REVIEW397", "unresolvedP1": 0, "unresolvedP2": 0},
+    "bootScope": "The old-boot retired-record case was simulated; it was not a real Core/process restart. readJobRecord, recover, and signal identity checks remain strict to the current boot."
+  },
+  "UI395": {
+    "typecheckExitCode": 0,
+    "buildExitCode": 0,
+    "mockBrowser": {"passed": 13, "failed": 0, "exitCode": 0},
+    "liveBrowser": {
+      "exitCode": 0,
+      "realCore": true,
+      "realHub": true,
+      "realWorker": true,
+      "viewportWidth": 390,
+      "ownerBuildReadyAndExactPreviewOpened": true,
+      "HubUiDraftAndExplicitConfirmCreatedExactlyOneTask": true,
+      "acceptanceStateChanged": false,
+      "cleanShutdown": true,
+      "physicalPhone": false
+    },
+    "sourcePinPrefixes": {
+      "previewPanel": "7f7c8ca2",
+      "app": "25763d6a",
+      "webIndex": "8d233a2e",
+      "webChunk": "1b58a86b",
+      "recordBackend": "9ce1a5cb",
+      "controlledBuildBackend": "42d786f2"
+    },
+    "sourcePinNote": "Prefixes only; retained as provided with the scoped run evidence, not full standalone source hashes."
+  },
+  "UI398": {
+    "status": "bounded-stability-observation-passed",
+    "exitCode": 0,
+    "realCore": true,
+    "realHub": true,
+    "realWorker": true,
+    "durationMs": 5500,
+    "sampleCount": 11,
+    "iframeElementSrcAndIntentUnchanged": true,
+    "pageResponseRetained": true,
+    "previousFullPageScreenshotDifferenceReproduced": false,
+    "doesNotClaimScreenshotIssueFixed": true,
+    "physicalPhone": false,
+    "cleanShutdown": true
+  },
+  "taskAdmissionAndRegistrationProtocol": {
+    "status": "current-protocol-live-query-recovery-bounded-pass",
+    "requiredContract": {
+      "managedManifestCarriesSourceTaskRevision": true,
+      "nodeLinkChecksTaskNodeAndAuthorizationImmediatelyBeforeSend": true,
+      "hubFirstRegistrationChecksSnapshotRevisionAndContentVersion": true,
+      "sentRequestCancellationGuaranteed": false,
+      "lostAckRecovery": "query original previewId with full manifest; if not confirmed, preserve unknown and do not create a second build",
+      "laterTaskEdit": "retain build-time revision and content version as historical provenance; do not imply current acceptance"
+    },
+    "currentProtocolCoreHubHttpLive": {
+      "passed": 1,
+      "failed": 0,
+      "exitCode": 0,
+      "testFileSha256": "7f2949d214871525e91d4ea1f2c1f0d943b6711d7c4ccdb5dcd3a0bbd2395374",
+      "note": "This test used the current registration-query/sourceTaskRevision/beforeSend implementation. Its local receipt-write failure is not a network-level response-loss test."
+    }
+  },
+  "REVIEW400": {
+    "status": "static-integration-review-no-new-confirmed-p1-p2",
+    "scope": "fixed Python package, launcher, loader, sidecar, and toolchain static integration",
+    "packagedNativeUi": "not yet exercised"
+  },
+  "PACKAGE401": {
+    "status": "isolated-ad-hoc-app-backend-and-resource-probes-passed-native-window-pending",
+    "sourceMethod": "git archive of fixed HEAD plus 30 explicit overlays",
+    "isolatedFreshTarget": true,
+    "adHocSignature": true,
+    "formalDeveloperIdSignature": false,
+    "notarized": false,
+    "productionAppReplaced": false,
+    "packagedResources": ["Node 24.19.0", "Python 3.12.15", "fixed Vite", "tmux"],
+    "steps": {
+      "typescript": {"exitCode": 0},
+      "viteToolchain": {"exitCode": 0},
+      "prepareResources": {"exitCode": 0},
+      "tauriBundle": {"exitCode": 0},
+      "adHocSign": {"exitCode": 0},
+      "pythonRuntimeProbe": {"checks": 7, "passed": true, "exitCode": 0},
+      "terminalProbe": {"checks": 5, "passed": true, "exitCode": 0}
+    },
+    "packagedControlledBuildLive": {
+      "passed": 1,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "realPackagedCoreHubPythonAndVite": true,
+      "buildAndRead": true,
+      "markRegisteredFailureAndOriginalQueryRecovery": true,
+      "networkResponseLossInjected": false,
+      "realPtyUnicodeWrite": true,
+      "tmuxDetachPreservedSession": true,
+      "nativeWindowOrMenuExercised": false,
+      "physicalPhone": false
+    },
+    "initialPreparationFailure": "QA-only external node_modules symlink was rejected by the source boundary; successful retry copied the complete locked install tree, with no product bypass."
+  },
+  "PACKAGE418": {
+    "status": "isolated-ad-hoc-packaged-transport-and-controlled-preview-passed-native-gui-pending",
+    "sourceMethod": "fixed HEAD plus explicit candidate overlay",
+    "mainSha256": "36c6b4d6bf5e135d9478de7e4684f75884b7b32f0ba57a6d33d64f5ce3fad89c",
+    "overlaySha256": {
+      "server/core.mjs": "356b1004550b7a83cd93c521e308b956e2bbd500c2b3acd712f6fea4680ffd3f",
+      "server/http.mjs": "3049123c86bbf7f706f3570bf465bbb8d9f77ad0ba72380b7aed7ed4b9f4b592",
+      "server/preview/local.mjs": "eea01293a7ed866bc7afdfe6a157552986d4f966bf1518b630c81e6f44a948db",
+      "src-tauri/tauri.conf.json": "8a75229cdd562a5ac460344129fb123686995dbadd6e7ab48d0f48fe420ab263",
+      "src/PreviewPanel.tsx": "ceec38df22a61313dceddd0f787ed141de3c182d97a1c84879bb3a851d6711c5",
+      "src/preview-transport.ts": "e9da9bf97331f4d576a4c0b8413a11aacc7b165a720dd3149ae6230b0a7179ce",
+      "tests/e2e/preview-controlled-build-ui.mjs": "cba647d5f0101a1721f19ffe739dfe0cd2debd7ae8235dd5303c31b926f75b2c",
+      "tests/e2e/preview-desktop-ui.mjs": "5cd61cc1d390176e517d9e5f7b3f2d521b9b8de92d9b83929149b59453f83b8a",
+      "tests/preview-desktop-transport.test.mjs": "0b4f5a72feb6cb312331c21bea95c25dd2d80d0240c8ec4624487590a28ae89e"
+    },
+    "packagedSteps": {
+      "typescript": {"exitCode": 0},
+      "vite": {"exitCode": 0},
+      "prepare": {"exitCode": 0},
+      "tauriBundle": {"exitCode": 0},
+      "adHocSign": {"exitCode": 0, "formalSignature": false, "notarized": false},
+      "pythonProbe": {"checks": 7, "exitCode": 0},
+      "terminalProbe": {"checks": 5, "exitCode": 0},
+      "packagedControlledBuildLive": {"passed": 1, "failed": 0, "skipped": 0, "exitCode": 0},
+      "packagedDesktopTransport": {"passed": 2, "failed": 0, "skipped": 0, "exitCode": 0}
+    },
+    "sourceRegressionResults": {
+      "previewAccessRegression": {"passed": 7, "failed": 0, "skipped": 0, "exitCode": 0},
+      "httpAuthorizationRegression": {"passed": 1, "failed": 0, "skipped": 0, "exitCode": 0},
+      "ui417MocksAndControlledBuildChecks": {"exitCode": 0}
+    },
+    "desktopTransportBehavior": {
+      "nativeBridgeUsesConfirmedCurrentLoopbackPort": true,
+      "webRoutePathChanged": false,
+      "iframeSandboxRemainsOpaque": true,
+      "portGetterFailureBlocksIssuance": true
+    },
+    "nativeGuiExercised": false,
+    "productionAppReplaced": false,
+    "deployed": false,
+    "physicalPhone": false,
+    "realAi": false,
+    "limitations": [
+      "Two CUA attempts could not operate the native GUI because the Mac was locked; no native window/menu pass is claimed.",
+      "Ad-hoc signed isolated app only; no Developer ID signature or notarization.",
+      "No physical-phone, real-AI, production deployment, or user acceptance claim."
+    ]
+  },
+  "APP403": {
+    "status": "bounded-ordinary-android-preview-and-feedback-flow-passed-with-generic-job-result-flag-retained",
+    "environment": {
+      "ordinaryApk": "debug-v7, byte-identical to APP402",
+      "androidApi": 35,
+      "webView": "ordinary Android WebView with real user-input events",
+      "backend": "isolated HTTPS Hub and Core using PACKAGE401 packaged resources",
+      "physicalPhone": false,
+      "realAi": false,
+      "latestNativeMacApp": false
+    },
+    "documentsAttempt": {
+      "buildResult": "failed_no_publish / BUILD_EXECUTOR_UNKNOWN",
+      "requestPostedOnce": true,
+      "retried": false,
+      "jobPhase": "retired",
+      "resultUnknown": true,
+      "workerStillLive": false,
+      "causeEstablished": false
+    },
+    "isolatedAlternateRootAttempt": {
+      "buildReceipt": "ready",
+      "buildLatencyMs": 1070,
+      "androidLogin": true,
+      "previewOpened": true,
+      "feedbackDraftSaved": true,
+      "explicitConfirmationSentOnce": true,
+      "linkedTaskCreatedExactlyOnce": true,
+      "originalTaskAcceptance": "unverified",
+      "underlyingJobPhase": "retired",
+      "underlyingJobResultUnknown": true,
+      "restoredOriginalAppOrigin": true
+    },
+    "scopeLimitations": [
+      "The successful user-visible ready receipt and completed preview/feedback flow coexist with the generic job-layer resultUnknown=true field, retained verbatim. That field does not mean retirement or process identity is unknown, and by itself does not negate the independent controlled-build receipt.",
+      "Does not establish the cause of the failed Documents-root attempt, which returned failed_no_publish / BUILD_EXECUTOR_UNKNOWN.",
+      "No physical-phone, real-AI, production-server, manual-acceptance, or latest native Mac-window/menu validation.",
+      "FIX410 and UI411 remain unaccepted and are not covered as passing here."
+    ]
+  },
+  "RETEST436": {
+    "status": "bounded-live-retest-flow-passed",
+    "sourceBase": "41215fd98b55b46a9dd543a82d02820d4b380a20",
+    "testOverlayManifestSha256": "3257562f17c5ef76e7fcc247072f54f64d322b6dc73401788bcebae2b2251635",
+    "receiptSha256": "a918420521163d27f8a81e4c5ac12ac4e8fb7ff4288dbbb85a4921626a241395",
+    "environment": {
+      "realCore": true,
+      "realHub": true,
+      "realControlledBuilds": true,
+      "localOwnerView": true,
+      "mobileSizedBrowser": true,
+      "androidApp": false,
+      "nativeApp": false,
+      "physicalPhone": false
+    },
+    "checks": {
+      "twoBuildsReadyWithDistinctSourceDigestsAndImmutableRegistrations": true,
+      "mappingSavedAndReadBack": true,
+      "comparisonRecomputedOneAffectedCriterionAndOneUnknown": true,
+      "mobileSizedBrowserReadSameComparisonWithoutMappingEditor": true,
+      "removingMappingRestoredUnknownLocallyAndRemotely": true,
+      "taskEvidenceAndAcceptanceUnchanged": true,
+      "iframeReloaded": false,
+      "cleanShutdown": true
+    },
+    "sourceScope": "Explicit file mappings for the controlled vanilla-source profile; it does not analyze arbitrary project configuration or dependency semantics.",
+    "longSourceReadIsolation": {
+      "status": "bounded-unavailable-response-passed-scoped-review",
+      "coreRegression": {"passed": 8, "failed": 0},
+      "hubRegression": {"passed": 8, "failed": 0},
+      "independentReview": "REVIEW444 closed the scoped throttling P2",
+      "underlyingIoCancelled": false,
+      "assetsRemainAvailable": true
+    },
+    "relatedEvidence": {
+      "coreRegression": {"passed": 8, "failed": 0},
+      "hubRegression": {"passed": 8, "failed": 0},
+      "mockUi": {"passed": 16, "additionalChecks": 4},
+      "independentReview": "REVIEW444 closed the scoped throttling P2"
+    },
+    "limitations": [
+      "Mobile-sized browser evidence is not Android-app or physical-phone acceptance, and does not cover a remote iframe button.",
+      "The bounded response for long source reads does not cancel the underlying I/O; affected assets remained available in the scoped test.",
+      "No final native package, production deployment, or manual user acceptance is claimed."
+    ],
+    "date": "2026-10-19",
+    "sourceOverlaySha256": {
+      "server/core.mjs": "f69b30c722fe1d3282353a39ad7c9010dbc6dc2ae8dceec94db8601eb3a21e9d",
+      "server/hub/preview.mjs": "8c6cbef1523cae0be878c3572afd9bcc9681d6a28b6808180ccc7c8e31f97424",
+      "server/preview/controlled-build.mjs": "a3ee564fe9955061832f1aa2048e62b06f34a6958f08274e9af16a185c3adcbf",
+      "server/preview/local.mjs": "957349d50b7719cf67ec09bfbc566d468842fb085dd6ddca9056b50c453e7ae6",
+      "server/preview/node-link.mjs": "19ee1b47fa01a868b6c810cbf20bfe6f62a260f54be42b8a77894cafb74f5d04",
+      "server/preview/retest.mjs": "b40e98a79310afb737c0efa215cff5fb5ee398de45e2704c44ff30ed89c74562",
+      "server/preview/retest-contract.mjs": "e40de988681a1224c2345ccd139c52350138774a06936cd8df0ee65ed105fe30",
+      "src/PreviewPanel.tsx": "13005b8b41371fdc77add68d821509b20b1c7c5839a5b3bd0e3fc0f42c0d2297",
+      "src/PreviewRetestSection.tsx": "248f6e5e4d384c1384a90c5a9706b5b99b08f0c25ade0cd5095ff2d542ddbcd9",
+      "src/preview-retest.css": "cd23e0ceaaad1a164da402101743292ec13ceafc94c87ea57a66d58d22e6d37a",
+      "tests/preview-contract.test.mjs": "df8d47bfec03d459971ee7c8de1c28830199c4baa0af209eb9a777dc2eef7759",
+      "tests/preview-retest.test.mjs": "15dd5edad022baffaaf3cf5a570ef7dc91e602c21947ee43658dd1ce758779cf",
+      "tests/preview-retest-hub.test.mjs": "de02d46bd661992bf34392d09c587adfa5a929e8abba6e23592dbc7cd8a70fd5",
+      "tests/e2e/preview-retest-ui.mjs": "c161b76a4e71c1a74a4b6c99e7f49e4983a19d542511beda3e6ff36e214f97b2",
+      "tests/e2e/preview-retest-live.mjs": "f5d8f05865b229ec88898180e1c8c960c57dfe4fdb9753dc1d89033c82b84f9d"
+    }
+  },
+  "APP445": {
+    "date": "2026-10-19",
+    "status": "limited-ordinary-apk-emulator-flow-passed",
+    "sourceBase": "41215fd98b55b46a9dd543a82d02820d4b380a20",
+    "sourceSha256": {
+      "server/core.mjs": "f69b30c722fe1d3282353a39ad7c9010dbc6dc2ae8dceec94db8601eb3a21e9d",
+      "server/hub/preview.mjs": "8c6cbef1523cae0be878c3572afd9bcc9681d6a28b6808180ccc7c8e31f97424",
+      "src/PreviewRetestSection.tsx": "248f6e5e4d384c1384a90c5a9706b5b99b08f0c25ade0cd5095ff2d542ddbcd9"
+    },
+    "ordinaryApk": {
+      "versionCode": 7,
+      "sha256": "280f4ba6a1a80e74e3b620ec0450ced82a09bba1cc2bdc8fd5842fec116cdaa9",
+      "rebuiltFromSourceBase": false
+    },
+    "environment": {
+      "androidApi": 35,
+      "emulator": true,
+      "physicalPhone": false,
+      "realAi": false,
+      "production": false,
+      "frozenCoreHubWeb": true
+    },
+    "checks": {
+      "normalUiLoginNoCookieInjection": true,
+      "twoControlledBuildsReadyWithDistinctDigests": true,
+      "oneCriterionMappedOneUnmapped": true,
+      "phoneReadNeedsRetestAndUnknownWithReasons": true,
+      "phoneReadOnlyRefreshHttp200Twice": true,
+      "previewOpenedAfterLogin": true,
+      "realWebViewTapProducedExpectedButtonResponse": true,
+      "remoteMappingEditorOrBuildControlPresent": false,
+      "ownerReadbackOriginalTaskAndAcceptanceUnchanged": true,
+      "feedbackOrAcceptanceWriteOccurred": false,
+      "oldPreviewIframeRetained": true,
+      "appTestOriginRestoredAndVerified": true
+    },
+    "ownerReadback": {
+      "taskCount": 1,
+      "taskSnapshotMatchesBaseline": true,
+      "acceptance": "unverified",
+      "source": "verified",
+      "criterionStatuses": ["needs_retest", "unknown"]
+    },
+    "underlyingManagedJobs": {"retired": true, "resultUnknown": true},
+    "resultUnknownSemantics": "The generic job layer retains resultUnknown=true and does not assert the command business outcome; each controlled-build ready receipt is recorded separately.",
+    "evidenceSha256": {
+      "androidUiResult": "5e50277804be7face8f3e2c7c15ed6db13958408b444a36e6d66b212f86bc511",
+      "finalOwnerCheck": "adbf12ded3f49fb5251450b370fa573b36d88367e9529fd89b911937e18fa69f"
+    },
+    "limitations": [
+      "The APK was not rebuilt from RETEST436 source; this is a limited API 35 emulator scenario, not full app or physical-phone acceptance.",
+      "The generic job-layer resultUnknown=true field does not assert the command business outcome; the independent ready receipts are recorded separately.",
+      "No real AI or production deployment was used; the earlier Documents-root BUILD_EXECUTOR_UNKNOWN cause remains unresolved."
+    ]
+  },
+  "PACKAGE448": {
+    "status": "isolated-macos-package-built-and-ad-hoc-signed",
+    "sourceBase": "41215fd98b55b46a9dd543a82d02820d4b380a20",
+    "sourceTreeDigest": "3a6d3072db455690331015de30dba8d1dbaafc7c2f5c257e1cea60a76441eb00",
+    "appSha256": "ff8527c13fdc4e809f8f4ef39deffd490f5a17a819b80413a62e5b0e335494f6",
+    "resourcesSha256": "f9c5497c22286bb9bff9c08e69a69e0c3a20f6b2bd101fdd3058141616ee4ce7",
+    "steps": {"vite": 0, "prepare": 0, "tauriBundle": 0, "adHocSign": 0, "frozenTypecheck": 0},
+    "runtimeProbeRun": false,
+    "nativeGuiRunBeforeNATIVE449": false,
+    "productionAppReplaced": false,
+    "notarized": false
+  },
+  "NATIVE449": {
+    "status": "historical-native-preview-build-failure-fixed-and-revalidated-in-NATIVE453",
+    "sourceBase": "41215fd98b55b46a9dd543a82d02820d4b380a20",
+    "appWindowLoadedAndIsolatedTaskDisplayed": true,
+    "previewBuild": {
+      "result": "failed_no_publish / BUILD_SOURCE_INVALID",
+      "observedCause": "FilesBridge-generated root .taskboard/CONTEXT.md and tasks.json entered the source snapshot; the fixed profile rejected the markdown file.",
+      "fix": "FIX451 source-snapshot regressions passed; NATIVE453 then passed the bounded native package flow. The original BUILD_SOURCE_INVALID failure remains recorded as the defect discovery."
+    },
+    "nativeMenuQuit": {
+      "actionObservedSuccessful": true,
+      "appExitCode": 0,
+      "signal": null,
+      "startupClosed": true,
+      "shutdownStages": "fulfilled",
+      "shutdownDurationMs": 38,
+      "processAbsenceChecked": false,
+      "processAbsenceCheckPending": true
+    },
+    "reopened": false,
+    "activeAiOrBusyCommandTested": false,
+    "productionAppReplaced": false
+  },
+  "notVerified": [
+    "native exit while AI or a terminal command is active or busy",
+    "formal signing and notarization, production deployment, and final release-artifact validation",
+    "same-source ordinary Android package integration and physical-phone validation",
+    "wire-level lost registration response and recovery",
+    "build failure and unknown recovery across service restart",
+    "project authorization revocation during build",
+    "different Core or node replacement",
+    "complete source provenance acceptance",
+    "the cause of the earlier Documents-root BUILD_EXECUTOR_UNKNOWN result",
+    "remaining failure/restart combinations"
+  ],
+  "productionChanged": false,
+  "userAcceptanceChanged": false,
+  "FIX451": {
+    "status": "source-snapshot-rejection-fixed-and-scoped-regressions-passed",
+    "sourceBase": "41215fd98b55b46a9dd543a82d02820d4b380a20",
+    "sourceSha256": "d35d8a8eabd5c84e4a1b903dfe864126f986edfe3ce6be1f06ac96bfe138c974",
+    "testSha256": "2ce37875f1b08818be2419f3a0329ffdb2121e863439385d631b695fc34ef2ba",
+    "checks": {
+      "sourceAndRetestRegression": {"passed": 18, "failed": 0},
+      "targetedMetadataRegression": {"passed": 1, "failed": 0},
+      "legacyVerification": "passed",
+      "independentReview": {"id": "REVIEW452", "confirmedP1": 0, "confirmedP2": 0}
+    },
+    "scope": "Prevents generated task metadata from invalidating the fixed source profile in the covered paths; does not establish a general project builder."
+  },
+  "PACKAGE454": {
+    "status": "isolated-macos-ad-hoc-package-built",
+    "sourceBase": "41215fd98b55b46a9dd543a82d02820d4b380a20",
+    "sourceTreeDigest": "f7b1f95e61245f5cd9a0aa92f456d0e321e461aeb4186a48f27ff50a5362a42b",
+    "fix451SourceSha256": "d35d8a8eabd5c84e4a1b903dfe864126f986edfe3ce6be1f06ac96bfe138c974",
+    "fix451TestSha256": "2ce37875f1b08818be2419f3a0329ffdb2121e863439385d631b695fc34ef2ba",
+    "appSha256": "4d45bd4e9c4983f8f6837426d1c90750915c9e382ff4cd884b684bf76cf20353",
+    "mainSha256": "91342a1a7b12ba3ad7d24d839f60cb7490f4e9a3ed1185c8b7a2200016ae3bb9",
+    "previewToolDigest": "615b88278d487acab47cfb67bfface49c6739ef158fd25298294189b3ec8b477",
+    "previewPythonDigest": "d0ceb14cdc45903ddf1075a2a56ca58bd7995ca41ece57a8f00454a7e19f76d6",
+    "steps": {"vite": 0, "prepare": 0, "tauriBundle": 0, "adHocSign": 0, "frozenTypecheck": 0},
+    "signed": true,
+    "productionAppReplaced": false,
+    "notarized": false,
+    "nativeGuiAcceptance": {"evidence": "NATIVE453", "passed": true},
+    "overlayScope": "Frozen source already containing the documented RETEST436/QA448 retest overlays, followed by only the two FIX451 source-snapshot implementation and test overlays; no broader current-source rebuild is claimed.",
+    "adHocSigned": true
+  },
+  "NATIVE453": {
+    "status": "bounded-isolated-native-preview-flow-passed",
+    "package": "PACKAGE454",
+    "sourceBase": "41215fd98b55b46a9dd543a82d02820d4b380a20",
+    "sourceSnapshotSha256": "d35d8a8eabd5c84e4a1b903dfe864126f986edfe3ce6be1f06ac96bfe138c974",
+    "appSha256": "4d45bd4e9c4983f8f6837426d1c90750915c9e382ff4cd884b684bf76cf20353",
+    "mainSha256": "91342a1a7b12ba3ad7d24d839f60cb7490f4e9a3ed1185c8b7a2200016ae3bb9",
+    "environment": {
+      "nativeMacApp": true,
+      "isolatedQaPackage": true,
+      "physicalPhone": false,
+      "realAi": false,
+      "formalSigning": false,
+      "production": false
+    },
+    "checks": {
+      "twoPackagedManagedBuildsReady": true,
+      "generatedTaskMetadataDidNotPreventBuild": true,
+      "previewButtonResponded": true,
+      "opaquePreviewChildHadNoDesktopBridge": true,
+      "mappingSavedAndReadBack": true,
+      "oneCriterionNeedsRetestAndOneUnknown": true,
+      "saveKeptPreviewPageStateWithoutReload": true,
+      "nativeMenuQuitExitCode": 0,
+      "sameAppDataAndTaskReopenedUnchanged": true,
+      "reopenedPreviewButtonResponded": true,
+      "taskEvidenceAndAcceptanceUnchanged": true,
+      "secondCommandQExitCode": 0,
+      "bothAppProcessesAbsent": true,
+      "corePortClosed": true,
+      "hubClosed": true,
+      "harnessExitCode": 0
+    },
+    "limitations": [
+      "Isolated ad-hoc QA package; production app was not replaced and package is not notarized.",
+      "No active AI or busy terminal during the exit tests.",
+      "Does not resolve the earlier Documents-root BUILD_EXECUTOR_UNKNOWN failure.",
+      "Not physical-phone, real-AI, production, or complete cross-platform acceptance."
+    ]
+  }
+}

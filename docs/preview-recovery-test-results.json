@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-18",
+  "scope": "Local preview access and feedback recovery integration",
+  "baseCommit": "f3b957426c12daf64bb2282603b8bc3a1e1197ab",
+  "sourceSha256": {
+    "server/core.mjs": "7a7fe63b49d6ba2d56454c694aee9ff2f7c630e98cf0241b050805cead3db443",
+    "server/store.mjs": "1c9a1b78370feceb63292a918e21c0bf7d5dc75d00d228e9531d391a0b8ec6d0",
+    "server/hub/preview.mjs": "4f4dad7263ad147105c7e50688340a7663cc4cfd636df00d5285c18b00fabdd9",
+    "server/preview/local.mjs": "986071049aa0fc90cdb9c0762e92db3c79cfcb31741718c27c6b4081bfe8d76d",
+    "server/preview/node-link.mjs": "e375504bf778fe08893f87406c4dabd6f7336d776b76defde90dd829a4d97408",
+    "server/preview/access-intents.mjs": "38c09febad4c39de5dc52b02a8326ce422498779f08da81462c1e8669d4cedb0",
+    "src/App.tsx": "ad5e76685deb1199c022b2b39f205372f7d340550527cc974087d5913ab3cd6b",
+    "src/PreviewPanel.tsx": "bf60745663709c38cce4c3692fa43738642adaee754aac55525f271fea334569",
+    "src/api.ts": "69e2b41d610b745089142e92dbe1245d081c7f4d1c02adef414f4cc85572d0b2",
+    "src/preview.css": "6937a341d04a6bbbc8fc5eda8f8d25af01faefc21bf50aca4bc33a5ffe2094a1",
+    "src/preview-feedback-recovery.ts": "d8892efec07a64536cf8048e9b7d7dfc7bc4eb6828343e220d3d90ea5d91fa73",
+    "tests/e2e/preview-access-live.mjs": "744e0b55ea2152742e2ce5347c0b21543e116f3508775a9c0c180d7c84da2141",
+    "tests/e2e/preview-ui.mjs": "a7d2cd37a66efa2adb704940afefd1deb03a84702e8d21f68f7db07c6c75b076",
+    "tests/preview-integration.test.mjs": "a7d7f6071fe921036527e7de1c4adc2522376a0a73e3cac645c7e9781727a7af",
+    "tests/preview-feedback-recovery.test.mjs": "1a3a1dfc49951f09016964ad385e3ef961f1ee748d2e46371ba48e7ebf2abdc3",
+    "tests/preview-access-intents.test.mjs": "b0265b30155faab57fdae3186b82be62ab2ff971bb5b2a090702d5ccc5bf5f4d"
+  },
+  "checks": {
+    "previewNodeTests": {
+      "passed": 22,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    },
+    "browserMock": {
+      "exitCode": 0,
+      "physicalPhone": false
+    },
+    "realBrowser": {
+      "realCore": true,
+      "realHub": true,
+      "exitCode": 0,
+      "apiResponsesMocked": false,
+      "networkFaultsInjected": true,
+      "passed": [
+        "access revoked after explicit close and return",
+        "lost and late link responses do not reissue or reopen",
+        "lost draft response recovered after remount",
+        "lost confirmation recovered after reload",
+        "same-operation old tab response cannot replace a confirmed result",
+        "one draft POST and one confirmation POST create one linked task",
+        "404 stays unknown until explicit reconciliation",
+        "late original request rejected after durable fence"
+      ]
+    },
+    "typeCheck": {
+      "exitCode": 0
+    },
+    "webBuild": {
+      "exitCode": 0
+    }
+  },
+  "review": {
+    "independentSourceReview": true,
+    "blockingFindingsRemaining": 0,
+    "executionByReviewer": false
+  },
+  "limits": [
+    "Not a final Android or macOS installer acceptance",
+    "No physical phone was used for this preview test",
+    "No production deployment or cloud CI",
+    "Static interactive preview only; no real business API integration",
+    "Existing human acceptance remains unchanged"
+  ]
+}

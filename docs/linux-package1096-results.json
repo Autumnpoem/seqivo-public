@@ -1,0 +1,67 @@
+{
+  "workId": "BUILD1096",
+  "date": "2026-10-31",
+  "sourceBaseCommit": "7e58019931031ea5031c918728b04ea78770e9d3",
+  "sourceArchiveSha256": "7f065891a9766081a73fa9f35b86ff9a4d1d36198294ce5993ad93e81206e54e",
+  "platform": {
+    "os": "Ubuntu 22.04.5 LTS",
+    "architecture": "arm64",
+    "environment": "isolated VM"
+  },
+  "initialFailedBuild": {
+    "artifactSha256": "b16a875a9c60402032a635d34d69a32184e0076a4883b914c0502ccfb3cb7803",
+    "installed": false,
+    "failure": "dpkg-deb rejected the Chinese Debian package identifier. This failed artifact and its evidence are retained as history."
+  },
+  "correctedPackage": {
+    "status": "built and installed; command-line checks passed",
+    "package": "seqivo",
+    "displayName": "序程",
+    "version": "0.4.0",
+    "architecture": "arm64",
+    "artifact": "seqivo_0.4.0_arm64.deb",
+    "bytes": 66040454,
+    "sha256": "ad5cc57d9ce1c5cbb33e63c102d708580c5780dbafb78638e2cb2f60627ee9c5",
+    "dependencies": [
+      "python3",
+      "tmux",
+      "libayatana-appindicator3-1",
+      "libwebkit2gtk-4.1-0",
+      "libgtk-3-0"
+    ],
+    "guestValidation": {
+      "buildExitCode": 0,
+      "packageInspectionExitCode": 0,
+      "installSimulationExitCode": 0,
+      "installExitCode": 0,
+      "installedPackageIdentityVerified": true,
+      "installedNodeRuntimeVersion": "24.19.0",
+      "nodePtyNativeModuleLoaded": true,
+      "mainAndNodeMissingLibraries": 0
+    }
+  },
+  "linuxOnlyOverlaySha256": {
+    "src-tauri/tauri.linux.conf.json": "198e0b200a0e08d4d4d1e775e20f8ac5634fbf94d88ead63ff7da952b01e5e90",
+    "src-tauri/linux/seqivo.desktop": "d7fd3a656f7ee6f8ae965aea4e1ce0f1c99f2b0b2cee7651a010383bbe46931e"
+  },
+  "independentReview": {
+    "result": "no blocking findings",
+    "evidence": ".runtime/linux-build1096/review.md",
+    "sha256": "812f58179c19adcd152302c9a5799817f213ac19c87fb3326e19cb73f882bb90"
+  },
+  "limitations": [
+    "Ubuntu arm64 only; x86_64 was not built or tested.",
+    "No GUI window, real terminal session, provider execution, or user data workflow was tested.",
+    "desktop-file-validate was unavailable in the guest; desktop entry content was inspected directly.",
+    "The package was installed only in the isolated VM; no host or production installation occurred.",
+    "This package result does not complete project acceptance."
+  ],
+  "evidence": {
+    "correctedResult": ".runtime/linux-build1096/fixed-result.json",
+    "correctedResultSha256": "68812e434251fd1e0be6b0b0dc49c58f6a3ab7fd854ed21badf44d694ee24bf7",
+    "initialResult": ".runtime/linux-build1096/result.json",
+    "initialResultSha256": "1159225fa04e57bb015109aef4fb01d535784a34643aeaa81fa90a4827432817"
+  },
+  "wholeProjectComplete": false,
+  "packagingFixCommit": "f2d18bb3fe7622d6f4bc84ac5e1cfbdb0768b8f5"
+}

@@ -1,0 +1,207 @@
+{
+  "scope": "UI1066 task/project/conversation supervision presentation",
+  "date": "2026-10-30",
+  "reference": "Three user-provided dashboard screenshots; no daily supervision view",
+  "implementation": "complete",
+  "validation": {
+    "typescriptAndViteBuild": "passed",
+    "independentReview": "passed_after_count_scope_and_snapshot_completeness_fixes",
+    "browser": "passed_limited_disposable_fixture",
+    "observed": [
+      "Status cards and acceptance-only project completion rate",
+      "Project and conversation row filtering with matching top-level counts",
+      "Provider-qualified conversation grouping",
+      "Project-to-task detail navigation",
+      "Search and missing criteria displayed as unset",
+      "Desktop light and dark layouts",
+      "390px mobile cards and scrolling",
+      "320px search and task detail opening",
+      "Mobile more menu closes with Escape and returns focus"
+    ],
+    "existingE2eNavigationFilesUpdated": 14,
+    "existingE2eSyntaxChecks": "14_passed",
+    "fullE2eRerun": false,
+    "repeatedQuitStressTests": false,
+    "realAICalls": 0
+  },
+  "mac": {
+    "built": true,
+    "signatureVerified": true,
+    "signing": "local_ad_hoc_not_notarized",
+    "installedAtExistingApplicationLocation": true,
+    "nativeWindowShowsSupervisionDashboard": true,
+    "runtimeResourcesUnchangedExceptWebDist": true,
+    "previousProjectsPreserved": 6,
+    "previousTaskRecordsPreserved": 66,
+    "previousManualAcceptancePreserved": true
+  },
+  "hub": {
+    "deployedThisUI": true,
+    "backendReplaced": false,
+    "projectionModuleUpdated": true,
+    "webCommit": "d5c8a43a6819e923acfd784758c23a1287c9b9ec",
+    "backendBaseCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60"
+  },
+  "android": {
+    "apkRebuilt": false,
+    "versionCode": 13,
+    "physicalDeviceRetested": false,
+    "simulator": {
+      "run": "APP1069",
+      "ordinaryApk": true,
+      "apiLevel": 35,
+      "webCommit": "a455b2a1890240738a8ca93630e2dac48b15126f",
+      "coreHubCommit": "a74d53b45ff0e1b6ec739bcda5aadf4b3a395ef6",
+      "service": "isolated HTTPS with existing emulator-only CA",
+      "observed": [
+        "Login opens task supervision directly after one-line fix",
+        "Two-project summary rows and selected-project status totals match fixture",
+        "Selecting available conversation bucket updates task total from 2 to 3",
+        "Vertical scrolling reaches task cards",
+        "Task details opens the selected task"
+      ],
+      "productionAccountUsed": false,
+      "progressMutationTested": false,
+      "sourceGroupingGap": "Hub removes raw source conversation fields; source-based grouping on mobile is not complete",
+      "detailNavigationGap": "Task details inherits the previous vertical scroll position"
+    }
+  },
+  "iphone": {
+    "physicalDeviceRetested": false
+  },
+  "windowsUbuntu": {
+    "nativeValidation": false
+  },
+  "remaining": [
+    "Install signed and package-tested DELIVERY1074 Mac candidate after system unlock, then verify source-group synchronization",
+    "Verify the two fixes in the ordinary Android App; current mobile-size browser check is not native App acceptance",
+    "User acceptance of the new layout with actual daily project data"
+  ],
+  "wholeProjectComplete": false,
+  "webDelivery": {
+    "date": "2026-10-31",
+    "webCommit": "a455b2a1890240738a8ca93630e2dac48b15126f",
+    "backendCommit": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+    "deployed": true,
+    "restartRequired": false,
+    "oldAssetsRetained": true,
+    "manifestFilesVerified": 155,
+    "publicTlsVerified": true,
+    "publicNewAssetsAndIndexMatched": 6,
+    "unauthenticatedStateStatus": 401,
+    "firewallActive": true,
+    "backendProcessUnchanged": true,
+    "configurationUnchanged": true,
+    "commandsAndRecoveryUnchanged": true,
+    "databaseQuickCheck": "ok",
+    "manifestSha256": "9fff20b52d3094c8f343e02b18dced4764b40b836a07a13775e9e5d7af4c96d8"
+  },
+  "loginLandingFix": {
+    "reproducedOnOrdinaryAndroid": true,
+    "before": "Login selected inbox despite supervision default",
+    "after": "Login selects supervision",
+    "build": "passed",
+    "nativeLoginRetest": "passed",
+    "macReinstalledForWebOnlyLoginFix": false
+  },
+  "evidence": {
+    ".runtime/app1069/android-dashboard.png": "56a4e54f407d0e5bca7e183eb3a680fadb66223a53c91d09e74653cd74597711",
+    ".runtime/app1069/android-task-detail.png": "6debab6d20f7838df4b3139e4186a53560a78274f3b139006f4b51cc7df18dcf",
+    ".runtime/delivery1069/postcheck.json": "57a7724b2f74b1641afee1e49a75ef15bd24c77d0e5098655542bf7be6324890",
+    ".runtime/browser1070/results.json": "7ae47618b1bf308e7851e08648111e6493c2a931e01f3ba79b1693d77d929dd3",
+    ".runtime/browser1070/mobile-groups.png": "00c9f0c3394be42d5cf43e944bcf05f54b847a9d7d0080e098ff5a7ba168b848",
+    ".runtime/browser1070/mobile-detail-top.png": "2288e09fa5dee60f039712ed98403ffd1dfaaa7c890da3ebc83c54c6b4baf0c6",
+    ".runtime/delivery1070/postcheck.json": "7ae1ffe86bc8953d8f4d1712a3236667d3b47deeeb270569f8a51fad7107860a",
+    ".runtime/source1070/test-result.txt": "6c1484598444a8d89d62b3b01661c8bd4ba81e10f4d43ac5b2a2735be9ae5fae"
+  },
+  "followup1070": {
+    "date": "2026-10-31",
+    "sourceCommit": "d5c8a43a6819e923acfd784758c23a1287c9b9ec",
+    "codeComplete": true,
+    "targetedTests": {
+      "command": "node --test tests/remote-hub.test.mjs tests/remote-inbox.test.mjs",
+      "passed": 25,
+      "failed": 0,
+      "skipped": 0,
+      "record": "Execution result transcription, not a retained raw log"
+    },
+    "build": "passed",
+    "independentReview": "no_P1_P2_in_frozen_scope",
+    "browser": {
+      "sourceCommit": "d5c8a43a6819e923acfd784758c23a1287c9b9ec",
+      "surface": "CUA in-app browser, 390x844 viewport",
+      "data": "actual isolated APP1070 authenticated Hub projection; read-only presentation wrapper, no mutation/auth UI test",
+      "checks": {
+        "sameSourceAcrossTwoProjects": 2,
+        "otherSource": 1,
+        "unassociated": 1,
+        "selectedGroupAfterRefresh": 2,
+        "sourceOnlyExecutionButtonAbsent": true,
+        "windowScrollBeforeOpen": 758.5,
+        "windowScrollAfterOpen": 0,
+        "mainScrollAfterOpen": 0,
+        "detailTitle": "库存来源核对",
+        "detailTitleTop": 550.09375,
+        "pageWidth": 390,
+        "pageScrollWidth": 390
+      },
+      "screenshots": [
+        "mobile-groups.png",
+        "mobile-detail-top.png"
+      ],
+      "nativeAndroidCurrentFix": "not_verified: mirror controls delayed then Mac lock reported; prior APP1069 result retained"
+    },
+    "mac": {
+      "candidateBuilt": true,
+      "signatureVerified": true,
+      "installed": false,
+      "reason": "Mac locked; normal quit/install blocked by system",
+      "currentInstalled": "UI1066",
+      "duplicateQaAppsCreated": false
+    },
+    "hub": {
+      "productCommit": "d5c8a43a6819e923acfd784758c23a1287c9b9ec",
+      "backendBase": "76fe78ae70ad9cca37bafe763940fc903d108a60",
+      "projectionWebDeployed": true,
+      "publicTlsVerified": true,
+      "latestAssetsVerified": 6,
+      "unauthenticatedStateStatus": 401,
+      "firewallActive": true,
+      "configUnchanged": true,
+      "commandsAndRecoveryUnchanged": true,
+      "quickCheck": "ok",
+      "manifestFileCount": 160,
+      "manifestSha256": "56171843194b783beaf791f0b148079cee93a4557ae8168cbe4094a0b40b4199",
+      "servicePid": 1545259
+    },
+    "nativeAndroidRetest": false,
+    "physicalPhoneRetest": false
+  },
+  "delivery1074": {
+    "date": "2026-10-31",
+    "candidate": "DELIVERY1074",
+    "currentInstalledMac": "UI1066",
+    "sourceCommit": "05a6b63b544d600cec57046ab6e413e2345a7d52",
+    "signed": true,
+    "packageTests": {
+      "passed": 14,
+      "failed": 0,
+      "skippedLinuxOnly": 1
+    },
+    "macInstalled": false,
+    "nativeAndroidRetested": false,
+    "liveHubRechecked": true,
+    "hubRestarted": false,
+    "details": "docs/current-delivery-status.json"
+  },
+  "latestRefinement": {
+    "workId": "UI1081",
+    "sourceCommit": "95d22d9f609940d97730632a4894c0de48f7adea",
+    "codeComplete": true,
+    "browserChecksPassed": true,
+    "webDeployed": true,
+    "macInstalled": false,
+    "nativeAndroidRetested": false,
+    "details": "docs/supervision-ui1081-results.json"
+  }
+}

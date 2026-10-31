@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-18",
+  "status": "source-snapshot-primitive-focused-tests-passed; product-build-provenance-not-integrated",
+  "source": {
+    "module": "server/preview/source-snapshot.mjs",
+    "sha256": "1d11f5ff1e9bafc42f9cbe43f72885903a5d153180f364e724385566ce2d94b6",
+    "test": "tests/preview-source-snapshot.test.mjs",
+    "testSha256": "777783c4fbf6c0f7e896f6a738fe917db0a3e1f668a0537cb4039bf26920606c"
+  },
+  "execution": {
+    "command": "node --test --test-concurrency=1 tests/preview-source-snapshot.test.mjs",
+    "tests": 9,
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0,
+    "exitCode": 0,
+    "durationMs": 19690
+  },
+  "checks": {
+    "dirtyTrackedAndNonignoredUntrackedBytesCaptured": true,
+    "ignoredGeneratedAndPrivateFixtureFilesExcluded": true,
+    "trackedDeletionRecordedWithoutResurrection": true,
+    "symlinkAndOverLimitInputRejectedBeforePublication": true,
+    "sourceByteFileSetAndIdentityChangesDuringCaptureRejected": true,
+    "metadataLimitRejectedBeforeSnapshotVisibility": true,
+    "privateSnapshotTamperAddedFilesAndWrongExpectedDigestRejectedOnRecheck": true
+  },
+  "notIntegratedOrVerified": [
+    "Core entry point",
+    "controlled builder and build provenance",
+    "Hub or UI",
+    "real product build or end-to-end provenance acceptance"
+  ],
+  "scope": "The 9/9 tests ran against this workspace module, whose hash was recorded before execution and independently matched afterward. No immutable source copy was frozen. Tests do not establish a product feature or prove that an installed artifact was built from this source snapshot."
+}

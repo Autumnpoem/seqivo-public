@@ -1,0 +1,346 @@
+{
+  "date": "2026-10-18",
+  "id": "WORKTREE324",
+  "status": "real-workflow-attempt-incomplete-no-collaboration-pass",
+  "sourceCommit": "1881473d5b812788097c4e7136c72b5b804b1578",
+  "provider": "codex-autocontinue",
+  "runtimeModelMetadata": {
+    "workerA": "gpt-6-astra",
+    "workerB": "gpt-6-astra",
+    "userModelSelectionChanged": false
+  },
+  "execution": {
+    "realStarts": 2,
+    "resends": 0,
+    "maxStarts": 3,
+    "workerA": {
+      "publicErrorCode": "server_overloaded",
+      "publicMessage": "模型繁忙",
+      "turnSuccessConfirmed": false
+    },
+    "workerB": {
+      "stateBeforeClose": "running",
+      "closeResult": "unconfirmed-error",
+      "retirementStatus": "retirement_unknown",
+      "publicEvent": "interrupted"
+    },
+    "finalThreadVerificationPredicate": "unknown",
+    "coreClose": "failed-unconfirmed-executor-result"
+  },
+  "worktreeState": {
+    "twoIndependentWorktrees": true,
+    "filesChanged": false,
+    "saveStarted": false,
+    "reviewStarted": false,
+    "mergeStarted": false
+  },
+  "readOnlyFollowup": {
+    "queries": 2,
+    "originalLabelsAbsent": 2,
+    "originalResourceCohortsEmpty": 2,
+    "currentWorktreeWriters": 0,
+    "workerBRecordedIdentitiesChecked": 5,
+    "workerBRecordedIdentitiesStillAlive": 0,
+    "originalUnknownRecordsPreserved": true,
+    "establishesTurnSuccess": false,
+    "clearsUnknownRecord": false
+  },
+  "conclusion": "Two real model starts were attempted without resend, but one returned server_overloaded and the other was interrupted while running with retirement_unknown. The final thread verification predicate remains unknown. No worktree files changed and save/review/merge did not start; this is not a successful real collaboration workflow.",
+  "followup": {
+    "IMPL356": "bounded diagnostic implementation completed; fake-provider regressions passed; this does not establish or fix the WORKTREE324 real-workflow cause",
+    "diagnosticResults": "provider-completion-diagnostics-test-results.json",
+    "REVIEW360": "final independent review found no new confirmed P1/P2 within the bounded diagnostic scope"
+  },
+  "laterAttempts": {
+    "WORKTREE1005": {
+      "date": "2026-10-28",
+      "status": "real-two-worker-output-and-a-save-confirmed-merge-staged-core-close-failed",
+      "testedSourceCommit": "719d67c7413418b8290cd9d0da2ad2f9a13a3330",
+      "testedArtifact": "retained BUILD1000 packaged Core and Codex plugin",
+      "scope": "disposable backend/API workflow in two separate Git worktrees; no installed UI or production project",
+      "runtimeModelMetadata": {
+        "workerA": "gpt-6.1-sol",
+        "workerB": "gpt-6.1-sol",
+        "effort": "not verified"
+      },
+      "execution": {
+        "realStarts": 2,
+        "startsPerWorker": 1,
+        "resends": 0,
+        "providerCompletionAndTaskSubmissionConfirmedForBoth": true,
+        "verifiedStopProofsForBothTurns": true,
+        "separateOneFileDraftsConfirmed": true
+      },
+      "worktreeState": {
+        "aSavePreviewAndExplicitApproval": true,
+        "aSavedSourceHead": "85068af1ad2b6b79063590164043cc407fa791fb",
+        "aSourceReviewAndFixtureReviewApiRecorded": true,
+        "userHumanAcceptanceOrIndependentModelReview": false,
+        "aMergePhase": "merging",
+        "aStagedIndexTree": "1d01bd18e22ff0407c7b76ec9fc115fa4681830f",
+        "aStagedPatchSha256": "ec684de8c07c4132908d028a888576d618de1ca6592b7e37c2ff8030f0dbf317",
+        "targetHeadStillBase": true,
+        "indexReviewAndFinalizeCompleted": false,
+        "bDirtyWorktreeRetainedUnmerged": true,
+        "mergeFencePreserved": true
+      },
+      "shutdown": {
+        "mergeStageExitCode": 1,
+        "error": "plugin shutdown could not be confirmed; specific plugin and nested cause not recorded",
+        "coreLockUncleanShutdown": true,
+        "originalStageState": "merge_attempted"
+      },
+      "evidence": [
+        ".runtime/worktree1005/active.json",
+        ".runtime/worktree1005/run-a-execution.log",
+        ".runtime/worktree1005/run-b-execution.log",
+        ".runtime/worktree1005/save-a-execution.log",
+        ".runtime/worktree1005/merge-a-execution.log",
+        ".runtime/worktree1005/diagnosis1019.md"
+      ],
+      "conclusion": "The two real worker turns and A's saved source are confirmed in a disposable packaged-Core backend attempt. A's merge was staged but not finalized because Core close failed; the original lock and merge fence remain preserved. This is not a complete packaged end-to-end or user acceptance pass."
+    },
+    "WORKTREE1020": {
+      "date": "2026-10-29",
+      "status": "three-fresh-provider-free-core-closes-passed-original-failure-unreproduced",
+      "testedSourceCommit": "719d67c7413418b8290cd9d0da2ad2f9a13a3330",
+      "cycles": [
+        "two local worktrees",
+        "local A save",
+        "local A merge staged with B dirty"
+      ],
+      "freshCoreCloseResults": [
+        "fulfilled",
+        "fulfilled",
+        "fulfilled"
+      ],
+      "providerEnabledOrModelTurns": false,
+      "originalWORKTREE1005LockOrFenceCleared": false,
+      "evidence": [
+        ".runtime/worktree1020/cycle-1-result.json",
+        ".runtime/worktree1020/cycle-2-result.json",
+        ".runtime/worktree1020/cycle-3-result.json",
+        ".runtime/worktree1020/report.md"
+      ],
+      "conclusion": "Fresh provider-free closes passed but do not identify or resolve the original WORKTREE1005 plugin-close failure."
+    },
+    "currentSourceComparison": {
+      "currentCommitAtDocumentation": "e4cf3e94d850924bd3519ee359b8c929c2191932",
+      "testedCommit": "719d67c7413418b8290cd9d0da2ad2f9a13a3330",
+      "unchangedBetweenCommits": [
+        "server/worktrees.mjs",
+        "server/worktree-save.mjs",
+        "server/workflow.mjs",
+        "server/core.mjs",
+        "plugins/codex-autocontinue/host.mjs"
+      ],
+      "scope": "git diff --quiet for the listed files only; no full-current-commit end-to-end validation"
+    },
+    "overallM5Acceptance": "not established",
+    "WORKTREE1029": {
+      "date": "2026-10-30",
+      "testedSourceCommit": "6125a5c6cdb1b25e0911673ae40759ff65dd2a6b",
+      "testedArtifact": "BUILD1031 signed packaged Core and plugins",
+      "scope": "fresh disposable two-worktree backend acceptance; first worker session start failed before workflow execution",
+      "status": "session-start-unconfirmed-and-core-close-rejected",
+      "prepare": {
+        "exitCode": 0,
+        "coreClose": "fulfilled",
+        "twoWorktreesCreated": true
+      },
+      "firstWorker": {
+        "exitCode": 1,
+        "operationError": "job_start_unconfirmed",
+        "shutdownPlugin": "codex-autocontinue",
+        "shutdownError": "Task job workspace or private record root changed",
+        "modelOrEffort": "not verified",
+        "secondWorkerStarted": false,
+        "savedOrMerged": false
+      },
+      "safety": {
+        "stage": "shutdown_failed",
+        "requestsResent": 0,
+        "fixtureAndProtectionPreserved": true,
+        "olderWORKTREE1005AndWORKTREE324Unchanged": true
+      },
+      "cause": {
+        "provenSecondaryProductBug": "Failed worktree session startup leaves a durable job marker before any created session. Close resolves the project directory from the missing session rather than verifying the recorded worktree, causing a false workspace-change rejection.",
+        "primaryStartupFailure": "unknown; job_start_unconfirmed does not prove whether the original native job stopped",
+        "recordRootReplacement": "not demonstrated; recorded worktree/root still match the read-only snapshot",
+        "fixStatus": "W1037 source fix and 115/115 scoped regression complete; original scene preserved, no retirement claim"
+      },
+      "evidence": [
+        ".runtime/worktree1029/active.json",
+        ".runtime/worktree1029/prepare-execution.log",
+        ".runtime/worktree1029/run-a-execution.log",
+        ".runtime/worktree1029/failure-run-a.json",
+        ".runtime/worktree1029/diagnosis.md"
+      ],
+      "diagnosticSha256": "f0be8e272c50c01b414de9d8a553ed507d9e45f94dc672cf281b83c99d8e517d",
+      "conclusion": "The named shutdown diagnostics identify the failing plugin and nested message, but this real workflow did not pass. No later stage was run and no installed/deployed claim is made.",
+      "startupInvestigation": {
+        "observed": "Targeted macOS logs tie the exact native job process to a Documents-folder permission prompt immediately after launch. The service was removed about ten seconds later.",
+        "inference": "A pending filesystem permission decision is the leading explanation for startup not reaching its handshake.",
+        "unknown": "No final authorization disposition or exact internal timeout observed; label absence is not executor retirement proof.",
+        "systemPermissionsChanged": false,
+        "evidence": ".runtime/worktree1029/startup-diagnosis.md"
+      }
+    },
+    "WORKTREE1037": {
+      "date": "2026-10-30",
+      "status": "source-fix-tested-not-packaged-installed-or-deployed",
+      "scope": "Pre-session task-job workspace recovery verifies the authoritative worktree binding rather than falling back to the project directory. Original job identity and retirement gates remain required.",
+      "sourceSha256": {
+        "plugins/codex-autocontinue/host.mjs": "882cf373af2b4a57b5199af62301060cce54d96eff7dfe9426a8b3db5071f943",
+        "tests/plugin-host.test.mjs": "1b03c320734ad04b92fcd4cf7bc3e857c84599708888e5a98c20acfd40c56090",
+        "tests/plugin-worktree-startup-recovery.test.mjs": "370e3d4ccccbb9b16c1b3025899ceaafbdc60f9ed73195ffcc3575c3c8c6e06e"
+      },
+      "focusedTests": {
+        "passed": 7,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0
+      },
+      "combinedHostRegression": {
+        "baseCommit": "6125a5c6cdb1b25e0911673ae40759ff65dd2a6b",
+        "sourceOverlays": {
+          "plugins/codex-autocontinue/host.mjs": "882cf373af2b4a57b5199af62301060cce54d96eff7dfe9426a8b3db5071f943",
+          "tests/plugin-host.test.mjs": "1b03c320734ad04b92fcd4cf7bc3e857c84599708888e5a98c20acfd40c56090",
+          "tests/plugin-worktree-startup-recovery.test.mjs": "370e3d4ccccbb9b16c1b3025899ceaafbdc60f9ed73195ffcc3575c3c8c6e06e"
+        },
+        "sourceLocation": "outside Documents, private application test directory",
+        "tests": 115,
+        "passed": 115,
+        "failed": 0,
+        "skipped": 0,
+        "exitCode": 0,
+        "provider": "scripted, not real Codex",
+        "logSha256": "ae1f1b982405b496c4ffba5a18f466fa2e3a0816c64e3dd97404552a3fb31638",
+        "reviewSha256": "5584ad8758975ce1febbed7feaab71e8c483c26db24225c712900f5ee2c2f3fb",
+        "oldFixturesReopened": false,
+        "permissionsChanged": false
+      },
+      "earlierRuns": [
+        {
+          "location": "workspace under Documents",
+          "passed": 88,
+          "failed": 20,
+          "skipped": 0,
+          "exitCode": 1,
+          "interpretation": "Most native startup cases failed to confirm launch; permission prompt is a leading inference, not established final cause."
+        },
+        {
+          "location": "isolated source outside Documents",
+          "passed": 112,
+          "failed": 3,
+          "skipped": 0,
+          "exitCode": 1,
+          "interpretation": "Native startup checks passed; three expected cleanup errors needed exact updated assertions, while retaining original marker identity and unknown fence checks."
+        }
+      ],
+      "independentReview": "No demonstrated P1/P2 in the reviewed change; final source hashes and raw 115-pass log independently checked.",
+      "evidence": [
+        ".runtime/worktree1037/final-overlay-result.json",
+        ".runtime/worktree1037/root-focused-r2.log",
+        ".runtime/worktree1037/root-host-outside-documents-r2.log",
+        ".runtime/worktree1037/review.md"
+      ],
+      "limits": [
+        "Does not establish actual Codex success or retirement of W1029, W1005 or W324.",
+        "Real two-worker save/review/merge/close acceptance remains pending.",
+        "Not installed in Mac or deployed to Hub."
+      ]
+    }
+  },
+  "originalScenePreserved": true,
+  "evidenceDigests": {
+    "attemptResultSha256": "69d2b59282fb27e43b657f6d6d77ac390dcb075d24ce110f28d4a3a9eb288e04",
+    "workerLogSha256": "1eb75ab22e4936a406d3819b57a57a22696bb89ebfd1c1f923345bda9c9378b3"
+  },
+  "limitations": [
+    "Read-only follow-up absence checks do not prove the interrupted turn succeeded or clear its preserved unknown record.",
+    "The attempt does not demonstrate file changes, save, review, merge, or complete two-task collaboration.",
+    "IMPL356 bounded diagnostics and fake regressions are complete, but WORKTREE324's provider result shape and final verification predicate remain unconfirmed; no real-workflow fix or success is established."
+  ],
+  "WORKTREE1040": {
+    "date": "2026-10-30",
+    "testedSourceCommit": "a74d53b45ff0e1b6ec739bcda5aadf4b3a395ef6",
+    "testedArtifact": "BUILD1038 signed packaged Core and plugins",
+    "scope": "Serialized real two-task workflow in two independent disposable Git worktrees through save, independent review, merge and finalization; backend/API harness only, not installed UI or production project.",
+    "status": "passed-fresh-disposable-two-worktree-backend-acceptance",
+    "execution": {
+      "realStarts": 2,
+      "startsPerWorker": 1,
+      "resends": 0,
+      "providerCompletionAndTaskSubmissionConfirmedForBoth": true,
+      "verifiedStopProofsForBothTurns": true,
+      "actualModel": "gpt-6.1-sol",
+      "effort": "not verified",
+      "serialized": true,
+      "parallelWorkers": false,
+      "coreClose": "fulfilled_for_all_completed_stages"
+    },
+    "worktreeState": {
+      "twoIndependentWorktrees": true,
+      "separateOneFileDraftsConfirmed": true,
+      "aSavedSourceHead": "88e1c77a0d56660815a0ee19ad96c2d8a0cc9a2f",
+      "aMergeCommit": "46de2be8e739897b292cb8758b0c7fd589143055",
+      "bSavedSourceHead": "4d6d92f104192c713224256b9a77c9eb8c1b27d3",
+      "bMergeCommit": "26f6cf96af4da7f82ed16b5cc927e498290e5583",
+      "targetStage": "both_merged",
+      "bPreservedAExactBytes": true
+    },
+    "independentFinalReview": {
+      "status": "passed",
+      "checksPassed": 36,
+      "checksFailed": 0,
+      "fixtureFences": 0,
+      "evidence": ".runtime/worktree1040/final-result.json"
+    },
+    "conclusion": "Independent final audit passed 36/36 checks for this fresh disposable serialized backend workflow: both tasks merged, exactly two provider commands, both jobs retired, target contains only the two assigned files, worktrees clean, all 11 stage closes and four plugin-close callbacks per stage fulfilled, zero fences. This does not constitute installed UI, concurrent execution, full M5, or user acceptance; historical W1005/W1029/W324 remain unchanged.",
+    "originalScenes": {
+      "WORKTREE1005": "Preserved: prior A merge was staged but not finalized after shutdown failure; B dirty worktree and merge fence remain.",
+      "WORKTREE1029": "Preserved: prior failed session start and shutdown rejection remain separate historical evidence.",
+      "WORKTREE324": "Preserved: earlier overload/interrupted turns and unknown final predicate remain unchanged."
+    },
+    "evidence": [
+      ".runtime/worktree1040/active.json",
+      ".runtime/worktree1040/run-a-execution.log",
+      ".runtime/worktree1040/save-a-execution.log",
+      ".runtime/worktree1040/merge-a-execution.log",
+      ".runtime/worktree1040/finalize-a-execution.log",
+      ".runtime/worktree1040/run-b-execution.log",
+      ".runtime/worktree1040/save-b-execution.log",
+      ".runtime/worktree1040/merge-b-execution.log",
+      ".runtime/worktree1040/finalize-b-execution.log"
+    ],
+    "limitations": [
+      "Disposable backend/API flow only; installed UI, concurrent tasks, production project, and full M5 remain unverified.",
+      "No separate post-close in-memory lease query was possible; lease state was asserted empty during run and finalize stages.",
+      "W1005, W1029 and W324 original records and safety state are not repaired or cleared by this fresh fixture."
+    ],
+    "finalAudit": {
+      "status": "pass",
+      "scope": "fresh disposable serialized backend; no UI/user acceptance",
+      "finalStage": "both_merged",
+      "checksPassed": 36,
+      "checksFailed": 0,
+      "targetHead": "26f6cf96af4da7f82ed16b5cc927e498290e5583",
+      "targetOnlyTwoFiles": true,
+      "providerExactlyTwoCommands": true,
+      "bothJobsRetired": true,
+      "cleanTargetAndWorktrees": true,
+      "fenceCount": 0,
+      "allElevenStageShutdownsFulfilled": true,
+      "eachStagePluginCloseCallbacksFulfilled": true,
+      "postCloseNonPsProcesses": 0,
+      "reviewerPerformedCoreOrProviderOperation": false,
+      "postCloseInMemoryLeaseQuery": "not possible; lease state asserted empty during run and finalize stages",
+      "limitations": [
+        "No Core/provider operation performed in this independent audit.",
+        "Lease state was asserted empty within the run and finalize stages; no separate post-close in-memory lease query is possible.",
+        "This is fresh-fixture backend acceptance, not full UI/product or human end-user acceptance. Historical W1005 and W1029 were not reopened or reclassified."
+      ]
+    }
+  }
+}

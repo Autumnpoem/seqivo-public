@@ -1,0 +1,38 @@
+$ tsc --noEmit && vite build
+vite v8.3.1 building client environment for production...
+transforming...
+✓ 1922 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                               0.41 kB │ gzip:   0.32 kB
+dist/assets/App-IEbqvCxV.css                  4.99 kB │ gzip:   1.23 kB
+dist/assets/PreviewPanel-FWgQ4G7u.css        10.51 kB │ gzip:   2.09 kB
+dist/assets/TerminalWorkspace-DpUgunAI.css   24.68 kB │ gzip:   5.01 kB
+dist/assets/index-CCLuRB72.css               36.08 kB │ gzip:   7.48 kB
+dist/assets/api-Z2SQy6QB.js                   6.32 kB │ gzip:   3.18 kB
+dist/assets/PreviewPanel-Tjv_vEzu.js         65.79 kB │ gzip:  19.78 kB
+dist/assets/App-Df4Z3ymJ.js                 194.65 kB │ gzip:  54.59 kB
+dist/assets/index-4-zVlPLj.js               224.69 kB │ gzip:  70.79 kB
+dist/assets/TerminalWorkspace-74v1GDea.js   449.86 kB │ gzip: 114.53 kB
+
+[33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level directive "use client" in "node_modules/.pnpm/lucide-react@1.48.0_react@19.3.0/node_modules/lucide-react/dist/esm/context.mjs" may not be preserved when bundling.
+   [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/.pnpm/lucide-react@1.48.0_react@19.3.0/node_modules/lucide-react/dist/esm/context.mjs:2:1 [38;5;246m][0m
+   [38;5;246m│[0m
+ [38;5;246m2 │[0m "use client";
+ [38;5;240m  │[0m ──────┬──────  
+ [38;5;240m  │[0m       ╰──────── module level directive may not be preserved
+ [38;5;240m  │[0m 
+ [38;5;240m  │[0m [38;5;115mHelp[0m: For more information, see https://rolldown.rs/in-depth/directives#other-directives
+[38;5;246m───╯[0m
+
+[33m[MODULE_LEVEL_DIRECTIVE] [0mThe semantics of the module level directive "use client" in "node_modules/.pnpm/lucide-react@1.48.0_react@19.3.0/node_modules/lucide-react/dist/esm/Icon.mjs" may not be preserved when bundling.
+   [38;5;246m╭[0m[38;5;246m─[0m[38;5;246m[[0m node_modules/.pnpm/lucide-react@1.48.0_react@19.3.0/node_modules/lucide-react/dist/esm/Icon.mjs:2:1 [38;5;246m][0m
+   [38;5;246m│[0m
+ [38;5;246m2 │[0m "use client";
+ [38;5;240m  │[0m ──────┬──────  
+ [38;5;240m  │[0m       ╰──────── module level directive may not be preserved
+ [38;5;240m  │[0m 
+ [38;5;240m  │[0m [38;5;115mHelp[0m: For more information, see https://rolldown.rs/in-depth/directives#other-directives
+[38;5;246m───╯[0m
+
+✓ built in 194ms

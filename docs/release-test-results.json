@@ -1,0 +1,141 @@
+{
+  "version": "0.2.1",
+  "date": "2026-09-26",
+  "environment": {
+    "platform": "macOS arm64",
+    "node": "24.19.0"
+  },
+  "unit": {
+    "passed": 124,
+    "failed": 0,
+    "skipped": 0,
+    "command": "node --test tests/*.test.mjs"
+  },
+  "browser": [
+    {
+      "engine": "chromium",
+      "flow": "board",
+      "exitCode": 0
+    },
+    {
+      "engine": "chromium",
+      "flow": "features",
+      "exitCode": 0
+    },
+    {
+      "engine": "chromium",
+      "flow": "remote",
+      "exitCode": 0
+    },
+    {
+      "engine": "webkit",
+      "flow": "board",
+      "exitCode": 0
+    },
+    {
+      "engine": "webkit",
+      "flow": "features",
+      "exitCode": 0
+    },
+    {
+      "engine": "webkit",
+      "flow": "remote",
+      "exitCode": 0
+    },
+    {
+      "engine": "chromium",
+      "flow": "verification",
+      "exitCode": 0
+    },
+    {
+      "engine": "webkit",
+      "flow": "verification",
+      "exitCode": 0
+    }
+  ],
+  "realCodex": {
+    "isolatedSession": true,
+    "isolatedWorkflow": true,
+    "humanAcceptanceSeparate": true
+  },
+  "criteria": {
+    "D01": "pass",
+    "D02": "pass",
+    "D03": "pass",
+    "D04": "pass",
+    "M01": "partial",
+    "M02": "pass",
+    "M03": "pass",
+    "M04": "pass",
+    "M05": "pass",
+    "M06": "partial",
+    "M07": "partial",
+    "M08": "pass",
+    "M09": "partial",
+    "M10": "pass",
+    "M11": "partial",
+    "M12": "partial",
+    "M13": "partial",
+    "M14": "partial",
+    "E01": "partial",
+    "E02": "partial",
+    "E03": "partial",
+    "E04": "pass",
+    "E05": "unverified"
+  },
+  "counts": {
+    "pass": 11,
+    "partial": 11,
+    "unverified": 1,
+    "fail": 0
+  },
+  "independentReview": {
+    "findings": 2,
+    "fixed": 2,
+    "openBlocking": 0
+  },
+  "native": {
+    "macOSBuild": true,
+    "windowsRun": false,
+    "ubuntuRun": false,
+    "macOSUpgrade": {
+      "retainedTasks": 23,
+      "originalCriteriaUnchanged": true,
+      "humanAcceptanceUnchanged": true,
+      "enabledAutomaticPolicies": 0,
+      "displayedVerificationCounts": {
+        "passed": 11,
+        "partial": 11,
+        "unverified": 1
+      },
+      "restartedWithVerificationPersisted": true
+    }
+  },
+  "limitations": [
+    "真实五小时额度恢复尚未实测",
+    "未完成实体手机和公网HTTPS控制",
+    "Claude/Cursor按用户选择仅做假协议测试",
+    "Windows/Ubuntu原生交互安装更新卸载尚未实测",
+    "原生手机App、完整节点迁移及云计费尚未实现"
+  ],
+  "evidencePolicy": "Raw logs, screenshots, model session identifiers and task records remain local; this summary is safe for the private source repository.",
+  "github": {
+    "repository": "https://github.com/Autumnpoem/seqivo",
+    "visibility": "private",
+    "actions": {
+      "status": "blocked_before_execution",
+      "run": "https://github.com/Autumnpoem/seqivo/actions/runs/36166037142",
+      "reason": "GitHub reported recent account payments failed or spending limit needs to be increased. No job steps ran.",
+      "workflowState": "disabled_manually",
+      "userDecision": "Keep source private; do not run cloud CI for now"
+    },
+    "publicRelease": false
+  },
+  "userAcceptance": {
+    "confirmedInConversation": true,
+    "acceptedTasks": 11,
+    "remainingPartial": 11,
+    "notImplemented": 1,
+    "scope": "Only current fully verified tasks were accepted after the user explicitly confirmed acceptance."
+  }
+}
