@@ -1,5 +1,13 @@
 # 版本记录 / Changelog
 
+## v0.4.1-r2 — Android distribution and platform build guides — 2026-10-31
+
+- Publish a signed Android release APK: app version 0.4.1, versionCode 15; debugging disabled, no preset Hub or test CA.
+- Include LICENSE and NOTICE in the APK; add a repeatable local signing/build script. The publisher key remains outside the repository.
+- Add Chinese/English Android and iPhone web setup instructions and complete Windows NSIS / Ubuntu deb-AppImage self-build guides.
+- Reuse the existing macOS arm64 ZIP unchanged. No Windows/Ubuntu binary or native iOS IPA is included.
+- The new APK is not compatible with in-place upgrades from earlier debug-signed test APKs. Native fresh-install/device acceptance remains separate from build and artifact checks.
+
 ## 0.4.1 public distribution — 2026-10-31
 
 - Publish the current source as a clean snapshot under PolyForm Noncommercial 1.0.0; third-party licenses remain unchanged.

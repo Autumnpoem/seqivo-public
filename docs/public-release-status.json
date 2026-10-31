@@ -2,30 +2,33 @@
   "schema": "seqivo.public-release.v1",
   "applicationVersion": "0.4.1",
   "repository": "https://github.com/Autumnpoem/seqivo-public",
-  "tag": "v0.4.1",
+  "tag": "v0.4.1-r2",
   "distribution": "source-available, PolyForm Noncommercial 1.0.0 for Seqivo-owned code; third-party licenses retained",
   "status": {
     "code": "current product source complete for this release scope",
-    "documentation": "Chinese and English installation/configuration/first-project guides prepared",
+    "documentation": "Chinese/English install, configuration and first-project guides plus Android/iPhone and Windows/Ubuntu build guides",
     "publicRepository": "Public; repository and release read successfully without authentication",
-    "release": "Published v0.4.1 with macOS arm64 ZIP and SHA256SUMS.txt",
-    "installed": "existing v0.4.1 Mac installation unchanged by this documentation/licensing work",
+    "release": "Prepared v0.4.1-r2 with signed Android APK and unchanged macOS arm64 ZIP; publication pending",
+    "installed": "existing Mac installation and Android test installation unchanged in this publication task",
     "deployed": "no Hub deployment in this publication task"
   },
   "checks": {
     "privacy": {
-      "sourceFiles": 845,
+      "sourceFiles": 853,
       "appFiles": 4129,
       "knownPrivateTermAndTokenMatches": 0,
       "trackedRasterImagesReviewed": 83,
-      "oldGitHistoryExported": false
+      "oldGitHistoryExported": false,
+      "androidArchiveEntries": 12
     },
     "cloudCI": "disabled by owner preference",
     "newComputerNativeInstall": "not tested on a clean machine",
     "platformPackages": [
-      "macOS arm64"
+      "macOS arm64",
+      "Android API 26+ (signed release APK)"
     ],
     "remaining": [
+      "New publisher-signed Android APK fresh installation and complete current-device acceptance",
       "Windows / Ubuntu / Intel Mac native packages and acceptance",
       "real Claude provider execution",
       "complete iPhone SSH flow",
@@ -40,24 +43,28 @@
       "zipRoundTripHashesEqual": true,
       "deepStrictSignatureVerified": true,
       "applicationCodeOutsideSignatureUnchanged": true
-    }
+    },
+    "androidReleaseRecord": "android-public-release-results.json"
   },
-  "publishedAt": "2026-10-31T10:28:47Z",
-  "sourceTagCommit": "fb940d59f9da915dc13b2367b270efc6875c6a72",
-  "releaseUrl": "https://github.com/Autumnpoem/seqivo-public/releases/tag/v0.4.1",
+  "releaseUrl": "https://github.com/Autumnpoem/seqivo-public/releases/tag/v0.4.1-r2",
   "privateVulnerabilityReportingEnabled": true,
   "assets": [
     {
       "name": "Seqivo-0.4.1-macos-arm64.zip",
       "size": 174354491,
       "digest": "sha256:9188e3b399a26d63fb90698c204ef086df53073bc4f5a3adbcb087417821fbfa",
-      "url": "https://github.com/Autumnpoem/seqivo-public/releases/download/v0.4.1/Seqivo-0.4.1-macos-arm64.zip"
+      "url": "https://github.com/Autumnpoem/seqivo-public/releases/download/v0.4.1-r2/Seqivo-0.4.1-macos-arm64.zip"
     },
     {
-      "name": "SHA256SUMS.txt",
-      "size": 95,
-      "digest": "sha256:fe70389f7d2529ff3a69b62c756702f79309f5429280fcc81359137de0d33151",
-      "url": "https://github.com/Autumnpoem/seqivo-public/releases/download/v0.4.1/SHA256SUMS.txt"
+      "name": "Seqivo-0.4.1-android.apk",
+      "size": 25397,
+      "digest": "sha256:804682217b43b2d8993b8b4526b482b48b7732e663e14539c8e4561a69b5d902",
+      "url": "https://github.com/Autumnpoem/seqivo-public/releases/download/v0.4.1-r2/Seqivo-0.4.1-android.apk"
     }
-  ]
+  ],
+  "previousRelease": {
+    "tag": "v0.4.1",
+    "sourceTagCommit": "fb940d59f9da915dc13b2367b270efc6875c6a72",
+    "publishedAt": "2026-10-31T10:28:47Z"
+  }
 }

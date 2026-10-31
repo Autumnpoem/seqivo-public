@@ -4,7 +4,7 @@
   <p><strong>让 AI 的工作进度和交付证据有迹可循。</strong></p>
   <p>跨 AI 对话记录项目任务、进度、证据和人工验收。<br />本地优先；你决定 AI 做什么，也由你确认结果是否完成。</p>
   <p><strong>简体中文</strong> · <a href="README.en.md">English</a></p>
-  <p><code>公开首发 v0.4.1</code> · <code>Mac Apple Silicon</code> · <a href="LICENSE">PolyForm Noncommercial 1.0.0</a></p>
+  <p><code>发行 v0.4.1-r2 · 应用 0.4.1</code> · <code>Mac · Android</code> · <a href="LICENSE">PolyForm Noncommercial 1.0.0</a></p>
   <p><a href="#安装">安装</a> · <a href="#第一个项目">第一个项目</a> · <a href="#可选接入">可选接入</a> · <a href="#文档">文档</a></p>
 </div>
 
@@ -34,15 +34,25 @@ Codex 执行、手机 Hub 和 SSH/tmux 属于可选连接，需单独配置；�
 
 ## 安装
 
+| 平台 | 获取与安装 |
+| --- | --- |
+| Mac Apple Silicon | [ZIP 安装包](https://github.com/Autumnpoem/seqivo-public/releases/download/v0.4.1-r2/Seqivo-0.4.1-macos-arm64.zip)；下文有首次打开说明。 |
+| Android 8.0+ | [签名 APK](https://github.com/Autumnpoem/seqivo-public/releases/download/v0.4.1-r2/Seqivo-0.4.1-android.apk)；[手机安装与连接指南](docs/mobile-install.zh-CN.md)。 |
+| iPhone | Safari 网页／添加到主屏幕；[使用步骤](docs/mobile-install.zh-CN.md)。无原生 iOS 安装包。 |
+| Windows 10/11 x64 | 暂无发布安装包；[从依赖安装到 NSIS 打包的完整指南](docs/build-windows.zh-CN.md)。 |
+| Ubuntu 24.04 LTS x64 | 暂无发布安装包；[从依赖安装到 deb/AppImage 打包的完整指南](docs/build-ubuntu.zh-CN.md)。 |
+
+**手机版需要你自己的 HTTPS Hub。** 没有内置公共服务地址；安装 APK 不会自动部署服务器或同步项目。见[手机指南](docs/mobile-install.zh-CN.md)。
+
 ### Mac Apple Silicon
 
-当前公开首发和应用版本均为 **v0.4.1**。前往[最新 Release 页面](https://github.com/Autumnpoem/seqivo-public/releases/latest)，下载 Mac Apple Silicon ZIP，解压后将“序程.app”移到“应用程序”，再打开应用。
+当前发行编号为 **v0.4.1-r2**，应用版本仍为 **0.4.1**；本次沿用 v0.4.1 的同一 Mac 包。前往[最新 Release 页面](https://github.com/Autumnpoem/seqivo-public/releases/latest)，下载 Mac Apple Silicon ZIP，解压后将“序程.app”移到“应用程序”，再打开应用。
 
 此安装包使用本地临时签名，未经过 Apple Developer ID 签名或公证。首次打开时 macOS 可能提示无法验证开发者；只有在确认下载来源可信后，按系统“隐私与安全性”中的提示允许打开。不要为此关闭 Gatekeeper 或降低系统安全设置。Intel Mac 当前没有对应安装包。
 
 ### Windows、Ubuntu 或其他系统
 
-当前没有 Windows 或 Ubuntu 安装包。可以从源码启动本地 Web 看板；桌面原生应用也有构建配置，但 Windows、Ubuntu 和 Intel Mac 的原生安装与完整交互尚未全部验收。请勿把“可以构建”理解为这些平台已通过完整发布验证。
+当前没有 Windows 或 Ubuntu 安装包。按 [Windows 指南](docs/build-windows.zh-CN.md)或 [Ubuntu 指南](docs/build-ubuntu.zh-CN.md)自行编译安装，也可以从源码启动本地 Web 看板；桌面原生应用也有构建配置，但 Windows、Ubuntu 和 Intel Mac 的原生安装与完整交互尚未全部验收。请勿把“可以构建”理解为这些平台已通过完整发布验证。
 
 源码 Web 路径需要 Git、[Node.js 24 或更新版本](https://nodejs.org/)及 [pnpm 11](https://pnpm.io/installation)：
 
@@ -152,7 +162,9 @@ AI 提交“完成”或测试证据，表示工作已交付待检查，不代�
 
 - [新电脑安装与图文上手指南](docs/new-computer-guide.zh-CN.md)
 - [日常使用与任务验收](docs/getting-started.md)
+- [Android 安装、iPhone 网页与首次连接](docs/mobile-install.zh-CN.md)
 - [账号、手机和设备配对](docs/account-setup.md)
+- [Windows 编译安装](docs/build-windows.zh-CN.md) · [Ubuntu 编译安装](docs/build-ubuntu.zh-CN.md)
 - [桌面构建与数据位置](docs/desktop-build.md)
 - [SSH 终端](docs/ssh-terminal.zh-CN.md)
 - [变更记录](CHANGELOG.md)

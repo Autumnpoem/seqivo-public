@@ -4,7 +4,7 @@
   <p><strong>Keep AI progress and delivery evidence visible.</strong></p>
   <p>Track project tasks, progress, evidence, and human acceptance across AI conversations.<br />Local-first: you choose what the AI does and decide whether the result is complete.</p>
   <p><a href="README.md">简体中文</a> · <strong>English</strong></p>
-  <p><code>Public release v0.4.1</code> · <code>Mac Apple silicon</code> · <a href="LICENSE">PolyForm Noncommercial 1.0.0</a></p>
+  <p><code>Release v0.4.1-r2 · App 0.4.1</code> · <code>Mac · Android</code> · <a href="LICENSE">PolyForm Noncommercial 1.0.0</a></p>
   <p><a href="#install">Install</a> · <a href="#first-project">First project</a> · <a href="#optional-connections">Optional connections</a> · <a href="#documentation">Documentation</a></p>
 </div>
 
@@ -34,15 +34,25 @@ The Codex execution plugin, phone Hub, and SSH/tmux are optional connections tha
 
 ## Install
 
+| Platform | Download and setup |
+| --- | --- |
+| Mac Apple silicon | [ZIP package](https://github.com/Autumnpoem/seqivo-public/releases/download/v0.4.1-r2/Seqivo-0.4.1-macos-arm64.zip); first-launch details below. |
+| Android 8.0+ | [Signed APK](https://github.com/Autumnpoem/seqivo-public/releases/download/v0.4.1-r2/Seqivo-0.4.1-android.apk); [phone setup guide](docs/mobile-install.en.md). |
+| iPhone | Safari / Home Screen web app; [setup steps](docs/mobile-install.en.md#3-iphone-safari-and-home-screen). No native iOS package. |
+| Windows 10/11 x64 | No published installer yet; [complete dependencies-to-NSIS build guide](docs/build-windows.en.md). |
+| Ubuntu 24.04 LTS x64 | No published installer yet; [complete dependencies-to-deb/AppImage build guide](docs/build-ubuntu.en.md). |
+
+**Phones require your own HTTPS Hub.** There is no built-in public service address; installing the APK does not deploy a server or sync a project. See the [phone guide](docs/mobile-install.en.md).
+
 ### Mac with Apple silicon
 
-The first public release and app version are both **v0.4.1**. Open the [latest Release](https://github.com/Autumnpoem/seqivo-public/releases/latest), download the Mac Apple Silicon ZIP, extract it, move `序程.app` to Applications, and open it.
+The release is **v0.4.1-r2**, with app version **0.4.1**; it reuses the identical Mac package from v0.4.1. Open the [latest Release](https://github.com/Autumnpoem/seqivo-public/releases/latest), download the Mac Apple Silicon ZIP, extract it, move `序程.app` to Applications, and open it.
 
 This package uses a local ad-hoc signature. It is not signed with an Apple Developer ID or notarized. macOS may warn that it cannot verify the developer. Only continue after confirming that the download source is trusted, and follow the prompt in System Settings → Privacy & Security. Do not disable Gatekeeper or lower system security. There is no Intel Mac package at this time.
 
 ### Windows, Ubuntu, or other systems
 
-There is no Windows or Ubuntu installer at this time. You can run the local web board from source. Native desktop builds are also configured, but Windows, Ubuntu, and Intel Mac native installation and full interaction have not all been validated. A build configuration does not mean the platform has passed full release validation.
+There is no Windows or Ubuntu installer at this time. Follow the [Windows guide](docs/build-windows.en.md) or [Ubuntu guide](docs/build-ubuntu.en.md) to build and install locally, or run the local web board from source. Native desktop builds are also configured, but Windows, Ubuntu, and Intel Mac native installation and full interaction have not all been validated. A build configuration does not mean the platform has passed full release validation.
 
 The source web path requires Git, [Node.js 24 or later](https://nodejs.org/), and [pnpm 11](https://pnpm.io/installation):
 
@@ -150,6 +160,8 @@ Seqivo updates tasks from AI-submitted records. It does not read every chat, ver
 
 ## Documentation
 
+- [Android installation, iPhone web app and first connection](docs/mobile-install.en.md)
+- [Windows build/install](docs/build-windows.en.md) · [Ubuntu build/install](docs/build-ubuntu.en.md)
 - [New-computer setup and illustrated guide (Chinese)](docs/new-computer-guide.zh-CN.md)
 - [Everyday use and task acceptance (Chinese)](docs/getting-started.md)
 - [Accounts, phone, and device pairing (Chinese)](docs/account-setup.md)

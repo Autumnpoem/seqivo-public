@@ -2,7 +2,9 @@
 
 桌面端使用 Tauri 2，前端由 Vite 构建，任务服务运行在打包的 Node.js 24 sidecar 中。仓库定义了 macOS、Windows 和 Ubuntu 的构建工作流，用于在对应系统构建并上传测试产物，不发布或签名正式版本。
 
-当前公开安装包为 v0.4.1 Mac Apple Silicon 版，下载见[公开 Release](https://github.com/Autumnpoem/seqivo-public/releases/latest)。GitHub 云端工作流仍暂停；Windows、Ubuntu 与 Intel Mac 没有本次已验证安装包。完整公开发行内容见[发行记录](public-release-status.json)。
+当前公开发行 v0.4.1-r2 提供 Mac Apple Silicon 与 Android 包，应用版本均为 0.4.1，下载见[公开 Release](https://github.com/Autumnpoem/seqivo-public/releases/latest)。GitHub 云端工作流仍暂停；Windows、Ubuntu 与 Intel Mac 没有本次已验证安装包。完整公开发行内容见[发行记录](public-release-status.json)。
+
+按平台从零安装依赖、构建、安装和接入项目：**[Windows 中文](build-windows.zh-CN.md) / [English](build-windows.en.md)**、**[Ubuntu 中文](build-ubuntu.zh-CN.md) / [English](build-ubuntu.en.md)**。手机使用见[手机指南](mobile-install.zh-CN.md)。
 
 下文的测试编号和关闭记录属于历史工程证据，只覆盖当时列出的范围，不能代替当前版本或新电脑的完整验收。
 ## 本地依赖

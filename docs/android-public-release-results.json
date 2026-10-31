@@ -1,0 +1,90 @@
+{
+  "schema": "seqivo.android-public-release.v1",
+  "releaseTag": "v0.4.1-r2",
+  "releaseUrl": "https://github.com/Autumnpoem/seqivo-public/releases/tag/v0.4.1-r2",
+  "applicationVersion": "0.4.1",
+  "versionCode": 15,
+  "packageId": "app.seqivo.android",
+  "artifact": {
+    "name": "Seqivo-0.4.1-android.apk",
+    "bytes": 25397,
+    "sha256": "804682217b43b2d8993b8b4526b482b48b7732e663e14539c8e4561a69b5d902",
+    "certificateSha256": "05:9B:E2:86:18:A5:22:E6:68:CC:C4:11:A1:D3:D3:3A:3C:83:B8:B7:6F:8A:E3:F0:A9:A5:54:6A:D9:2C:D2:F2"
+  },
+  "delivery": {
+    "code": "implemented",
+    "tests": "build, two unit tests and artifact checks passed; lint has five warnings",
+    "installed": "not installed in this publication task; existing debug app and data preserved",
+    "deployed": "no Hub deployment in this task",
+    "published": "prepared, publication pending"
+  },
+  "checks": {
+    "releaseBuild": "passed",
+    "unitTests": {
+      "passed": 2,
+      "failed": 0,
+      "suite": "OriginPolicyTest",
+      "cases": [
+        "acceptsOnlyBareHttpsOrigins",
+        "permitsOnlySameOriginNavigation"
+      ]
+    },
+    "lint": {
+      "errors": 0,
+      "warnings": 5,
+      "ids": [
+        "SetJavaScriptEnabled",
+        "DataExtractionRules",
+        "ObsoleteSdkInt",
+        "MonochromeLauncherIcon",
+        "SetTextI18n"
+      ]
+    },
+    "signature": {
+      "verified": true,
+      "v2": true,
+      "v3": true,
+      "dedicatedPublisherKey": true,
+      "debugKeyUsed": false
+    },
+    "minSdk": 26,
+    "targetSdk": 35,
+    "debuggable": false,
+    "webViewDebugging": false,
+    "defaultOrigin": "",
+    "testCaBundled": false,
+    "cleartextTrafficAllowed": false,
+    "permissions": [
+      "android.permission.INTERNET"
+    ],
+    "legalAssetsMatchSource": true,
+    "independentArtifactReview": "passed",
+    "archiveEntries": 12,
+    "privateTermAndTokenMatches": 0
+  },
+  "buildInputsSha256": {
+    "android/app/build.gradle": "e763d1b7a88dfd8d05fe37c32cad0790b03ac33dc3dfb21136a2d4703dba1a38",
+    "android/build.gradle": "c3c0cf04da0fc239f391c774554d97d890018ab6e37e87cc62f6070d0c8c9909",
+    "android/settings.gradle": "db699a1bf6ecd3d9c96b4497fceba7008f89f217d740191c535ca81780496e5d",
+    "android/app/src/main/AndroidManifest.xml": "6c0faea3498cce4e4c96018c221ec3d2e1cd45ec769477999c6602f58cd5f5c0",
+    "android/app/src/main/java/app/seqivo/android/MainActivity.java": "0e104bfbf71e8fff14ef3a7c369982dcb2675289b926da978d648eb51b776465",
+    "android/app/src/main/java/app/seqivo/android/OriginPolicy.java": "9a405209b9c4a245633c84cfc12876f95d406eb71fb38ab0fb7b308fe118ec6b",
+    "scripts/release-android.mjs": "781e841ef1028bb01295a60d145220e5cf82faab039bafe578a72f876b14052c",
+    "LICENSE": "ffcca38841adb694b6f380647e15f17c446a4d1656fed51a1e2041d064c94cc8",
+    "NOTICE.md": "5649473ca6e5db5fcd644f3894343cb497b14e9db2580f8cf021dfba753f4664"
+  },
+  "knownLimits": [
+    "Fresh install and complete flows of this newly signed APK have not been tested on physical hardware. Earlier debug-APK device evidence retains its own scope.",
+    "The app is an online HTTPS Hub client; no server is preconfigured or hosted by this release.",
+    "Android 12+ device-transfer behavior can depend on OEM even with allowBackup=false; this release does not claim to forbid all device migration.",
+    "The publisher signature differs from earlier debug APKs; an in-place upgrade from those APKs is not possible.",
+    "No native iOS package or Windows/Ubuntu binary is provided."
+  ],
+  "toolchain": {
+    "jdk": "17",
+    "gradle": "8.9",
+    "androidPlatform": 35,
+    "buildTools": "35.0.0"
+  },
+  "checkedAt": "2026-10-31T10:44:16.182259+00:00"
+}

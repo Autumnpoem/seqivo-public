@@ -1,5 +1,24 @@
 # Android 应用接入与安装
 
+**公开安装入口：**下载普通签名 release APK（应用 0.4.1 / versionCode 15），按[手机安装与连接指南](mobile-install.zh-CN.md)操作。它不含测试 CA 或预设服务器；新发布签名不能覆盖旧 debug 测试包。发布检查见[验证记录](android-public-release-results.json)。
+
+## 自行构建签名发布包（macOS / Linux）
+
+准备 Node.js 24、Python 3、JDK 17、Gradle 8.9、Android SDK Platform 35 和 Build Tools 35.0.0。在仓库根目录设置 `JAVA_HOME`、`ANDROID_SDK_ROOT` 和 `SEQIVO_ANDROID_GRADLE`（Gradle 可执行文件的绝对路径），然后执行：
+
+```sh
+node scripts/release-android.mjs init-key
+node scripts/release-android.mjs build
+```
+
+`init-key` 仅供第一次创建你自己的发布密钥，已有密钥时会停止，避免覆盖；后续只运行 `build`。默认密钥和密码文件存于本机 `~/.local/share/seqivo-release-signing/android/`，与仓库分开，请自行安全备份，不要提交或分享。也可用 `SEQIVO_ANDROID_SIGNING_KEYSTORE` 和 `SEQIVO_ANDROID_SIGNING_PASSFILE` 指向已有材料；别名需为 `seqivo`，密码文件仅本人可读，密码至少 24 字符。自签名包不能覆盖作者或其他人签名的安装。
+
+脚本会测试、检查、生成版本 0.4.1 / code 15 的 APK，输出到 `.runtime/mobile1113/Seqivo-0.4.1-android.apk`；已有同名产物时会停止，请先核对并归档上一次结果。它不会安装到手机。后续版本需明确更新脚本中的版本号、应用版本及验证记录。原 `pnpm android:build` 仍是调试包构建流程，不能代替此发布步骤。
+
+## 历史实现与验证记录
+
+下文保留各次测试的原始版本范围；v14 debug 和未签名 release 的描述属于此前测试，不是当前公开下载包。
+
 **系统返回草稿修复（ANDROID1105）：**新建任务、编辑、添加证据和人工验收表单按系统返回时保留草稿；主动点“取消”仍丢弃。保存草稿失败时保持窗口打开。15 项相关检查、类型检查、网页构建和独立审查通过；已随 WEB1107 更新到私用网页，原生容器未改、APK 未重建。原生与真机仍需复测。见[验证记录](android-back-drafts-test-results.json)。
 
 **额度不足说明（UI1107）：**当启动任务的回执明确显示额度不可用时，页面会说明原因，并提示先核对、不要重复提交；核实完成后清除旧提示。6 项定向检查通过，与草稿检查合计 21/21，隔离浏览器组件检查通过；已随 WEB1107 部署。这些结果不代替真实 AI 或安卓验收。
@@ -8,11 +27,11 @@
 
 原生连接、加载和错误页跟随 Android 系统浅色／深色模式；Hub 网页的外观由网页自身设置控制。原生页面支持大字号和横屏滚动。证书校验严格执行，HTTP、无效证书和跨源顶层跳转会被拒绝。应用无 JavaScript 桥接，也不会自动重试超时请求。
 
-**当前普通 Android 包（versionCode 14）：**debug APK SHA-256 为 `dd8386c814ba2b7ff9985887c89baf46133fd2e26e25ff9739c4f9e15d99661e`。包内没有预设服务器地址，也没有测试 CA；release 虽已构建但未签名，不能作为正式安装包。v14 已用相同签名证书安装到隔离模拟器，核对的 4 个应用数据文件未改变；该轮没有启动应用，因此这是包体/安装证据，不是当前原生界面验收。最后记录的实体设备安装版本为 v13，本轮没有检查实体设备。详见 [BUILD1082 结果](client-build1082-results.json)。
+**历史普通 Android 包（versionCode 14）：**debug APK SHA-256 为 `dd8386c814ba2b7ff9985887c89baf46133fd2e26e25ff9739c4f9e15d99661e`。包内没有预设服务器地址，也没有测试 CA；release 虽已构建但未签名，不能作为正式安装包。v14 已用相同签名证书安装到隔离模拟器，核对的 4 个应用数据文件未改变；该轮没有启动应用，因此这是包体/安装证据，不是当前原生界面验收。最后记录的实体设备安装版本为 v13，本轮没有检查实体设备。详见 [BUILD1082 结果](client-build1082-results.json)。
 
-**v14 当前原生检查（APP1098）：**已在隔离模拟器登录真实可丢弃 Core/Hub，验证统计卡片、跨项目来源分组、任务详情，以及系统返回键逐层返回和只关闭 SSH 弹窗。未提交任务表单、未连接 SSH 或执行 AI；草稿、后台恢复和完整交付流程仍待验证。详见 [APP1098 结果](android-app1098-test-results.json)。
+**v14 历史原生检查（APP1098）：**已在隔离模拟器登录真实可丢弃 Core/Hub，验证统计卡片、跨项目来源分组、任务详情，以及系统返回键逐层返回和只关闭 SSH 弹窗。未提交任务表单、未连接 SSH 或执行 AI；草稿、后台恢复和完整交付流程仍待验证。详见 [APP1098 结果](android-app1098-test-results.json)。
 
-**快速开始：**在获准的测试设备上安装普通 debug v14 APK，首次打开时输入 Hub 提供的私用 HTTPS 源地址，然后在 Hub 网页登录。APK 不预置该地址或测试证书。新 Hub 网页已独立部署：更新 Hub 不会重建或更新原生 APK，安装 APK 也不会部署 Hub。原位升级时保持相同应用包名和签名密钥，不要清除应用数据；升级后核对服务器地址、登录和任务数据是否保留。
+**历史测试包安装步骤（非公开发行入口）：**在获准的测试设备上安装普通 debug v14 APK，首次打开时输入 Hub 提供的私用 HTTPS 源地址，然后在 Hub 网页登录。APK 不预置该地址或测试证书。新 Hub 网页已独立部署：更新 Hub 不会重建或更新原生 APK，安装 APK 也不会部署 Hub。原位升级时保持相同应用包名和签名密钥，不要清除应用数据；升级后核对服务器地址、登录和任务数据是否保留。
 
 **历史普通 APK 验证（v7，2026-10-18）：**隔离 API 35 模拟器与可丢弃 HTTPS Hub 上，同签名 v5→v7 原位升级保留登录态；实际表单保存了任务进展、证据和收件箱决策，刷新后仍可核对。Hub 源码与网页另按 APP203 的 `91bc7f0` 基线及已记录覆盖文件固定。此为 v7 历史结果，不代表 v14 原生验收通过。详见[普通包验证](android-ordinary-apk-validation.md)和[机器结果](android-ordinary-apk-test-results.json)。
 

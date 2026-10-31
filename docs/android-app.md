@@ -1,16 +1,35 @@
 # Android App
 
+**Public install:** use the signed release APK (app 0.4.1 / versionCode 15), following the [phone setup guide](mobile-install.en.md). It has no preset Hub or test CA. Its publisher signature cannot update earlier debug-signed APKs in place. See [release validation](android-public-release-results.json).
+
+## Build your own signed release (macOS / Linux)
+
+Prepare Node.js 24, Python 3, JDK 17, Gradle 8.9, Android SDK Platform 35 and Build Tools 35.0.0. Set `JAVA_HOME`, `ANDROID_SDK_ROOT` and `SEQIVO_ANDROID_GRADLE` (the absolute Gradle executable path), then run from the repository root:
+
+```sh
+node scripts/release-android.mjs init-key
+node scripts/release-android.mjs build
+```
+
+Use `init-key` only once to create your own publisher key; it refuses to overwrite an existing key. Subsequent builds use only `build`. The default key and protected passfile are outside the repository at `~/.local/share/seqivo-release-signing/android/`; keep a secure private backup and never commit or share them. Alternatively, set `SEQIVO_ANDROID_SIGNING_KEYSTORE` and `SEQIVO_ANDROID_SIGNING_PASSFILE` to existing materials; use alias `seqivo`, an owner-only passfile, and a password of at least 24 characters. Your own signature cannot update an installation signed by someone else.
+
+The script runs tests/checks and outputs app 0.4.1 / code 15 to `.runtime/mobile1113/Seqivo-0.4.1-android.apk`. It stops if that output already exists; inspect and archive the previous result before rebuilding. It does not install anything. Future releases must explicitly update the script's version, app metadata and validation record. The older `pnpm android:build` remains a debug-package workflow, not a substitute for release signing.
+
+## Historical implementation and validation
+
+The records below retain their original version scope; v14 debug and unsigned release references describe older test artifacts, not the current public download.
+
 中文接入、安装和升级说明见 [Android 应用交付说明](android-app.zh-CN.md)。
 
 **WEB1107 shared Web update:** Android system Back now preserves create/edit/evidence/review drafts; explicit Cancel still discards them, and a storage failure leaves the dialog open. Quota-limited task starts display a read-only explanation that clears after successful reconciliation. The 15 draft checks and 6 quota checks passed (21 total), as did TypeScript/Vite and independent review. A synthetic browser component verified the quota display and cleanup. These changes are deployed; the native host and APK were not rebuilt. Native Android, physical-phone and real-provider verification remain pending. See [draft results](android-back-drafts-test-results.json) and [current delivery](current-delivery-status.json).
 
 The Android app is a small native host for the existing Seqivo Hub website. It loads the Hub's real login, board, inbox, task, and conversation pages; the app contains no sample project data or separate API implementation. The phone must be able to reach a running Hub over HTTPS, and the project computer must already be connected to that Hub for live task and conversation updates.
 
-**Current ordinary Android package (versionCode 14):** debug APK SHA-256 `dd8386c814ba2b7ff9985887c89baf46133fd2e26e25ff9739c4f9e15d99661e`. It has no preset server address and contains no test CA; the release APK is assembled but unsigned and is not a release-ready install. The v14 APK was installed on an isolated emulator with the same signing certificate and four app data files unchanged. It was not launched in that check, so this is package/install evidence, not current native UI acceptance. The last recorded physical-device install is v13; no physical device was checked in this run. See [BUILD1082 results](client-build1082-results.json).
+**Historical ordinary Android package (versionCode 14):** debug APK SHA-256 `dd8386c814ba2b7ff9985887c89baf46133fd2e26e25ff9739c4f9e15d99661e`. It has no preset server address and contains no test CA; the release APK is assembled but unsigned and is not a release-ready install. The v14 APK was installed on an isolated emulator with the same signing certificate and four app data files unchanged. It was not launched in that check, so this is package/install evidence, not current native UI acceptance. The last recorded physical-device install is v13; no physical device was checked in this run. See [BUILD1082 results](client-build1082-results.json).
 
-**Current v14 native checks (APP1098):** on an isolated emulator connected to a real disposable Core/Hub, login, statistics, cross-project source groups, task details, layered Android Back, and SSH-modal Back passed. No task form, SSH connection, or AI execution was performed; draft persistence, background recovery and the complete delivery flow remain pending. See [APP1098 results](android-app1098-test-results.json).
+**Historical v14 native checks (APP1098):** on an isolated emulator connected to a real disposable Core/Hub, login, statistics, cross-project source groups, task details, layered Android Back, and SSH-modal Back passed. No task form, SSH connection, or AI execution was performed; draft persistence, background recovery and the complete delivery flow remain pending. See [APP1098 results](android-app1098-test-results.json).
 
-**Quick start:** install the ordinary debug v14 APK on an authorized test device, open it, enter the Hub's HTTPS origin, and sign in on the Hub page. Use the private HTTPS address supplied for your Hub; the APK does not contain it or a test certificate. The deployed Hub serves the latest web UI independently of the APK: updating the Hub does not rebuild or update the native app, and installing the APK does not deploy the Hub. During an in-place upgrade, keep the same app package and signing key and do not clear app data; verify the saved server setting, login, and task data after upgrade.
+**Historical test-package installation (not the public release):** install the ordinary debug v14 APK on an authorized test device, open it, enter the Hub's HTTPS origin, and sign in on the Hub page. Use the private HTTPS address supplied for your Hub; the APK does not contain it or a test certificate. The deployed Hub serves the latest web UI independently of the APK: updating the Hub does not rebuild or update the native app, and installing the APK does not deploy the Hub. During an in-place upgrade, keep the same app package and signing key and do not clear app data; verify the saved server setting, login, and task data after upgrade.
 
 **Historical ordinary APK verification (v7, 2026-10-18):** on an isolated API-35 emulator and disposable HTTPS Hub, same-signature v5→v7 upgrade preserved the login session. Real forms saved a task update, evidence, and an inbox decision; reload confirmed the results. The Hub source and web assets were pinned separately to the APP203 `91bc7f0` baseline. This is historical v7 evidence, not v14 native acceptance. See the [ordinary APK validation](android-ordinary-apk-validation.md) and [machine-readable results](android-ordinary-apk-test-results.json).
 

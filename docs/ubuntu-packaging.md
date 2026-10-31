@@ -1,16 +1,11 @@
 # Ubuntu `.deb` 打包状态
 
-当前仅配置了 Ubuntu/Debian 包的额外运行依赖，**尚未构建或安装 Ubuntu 原生应用**。Tauri CLI 2.11.5 会在 `bundle.linux.deb.depends` 的 `python3`、`tmux` 后追加 WebKitGTK 4.1、GTK 3 及按启用功能选择的托盘库依赖；该配置不影响其他平台或 RPM。打包脚本在 Linux 上不会内置 tmux，也不会内置仅支持 macOS arm64 的预览 Python。
+仓库包含 Ubuntu 24.04 x64 的 Tauri 打包步骤，但截至本文更新，**没有本机 Ubuntu 构建、安装或完整桌面验收记录**。请把下文视为候选构建说明，不要将其描述成已验证的 Ubuntu 发布包。面向新用户的依赖、安装、运行和首次项目步骤见 [Ubuntu 24.04 构建指南](build-ubuntu.zh-CN.md) / [English](build-ubuntu.en.md)。
 
-首个隔离构建需 Ubuntu 22.04 x86_64、Node.js 24、pnpm 11.25.0、稳定版 Rust/Cargo、`pkg-config`、`patchelf` 与 Tauri Linux 开发库（WebKitGTK 4.1、GTK 3、AppIndicator、rsvg；若链接要求则有 OpenSSL 开发库）。构建时提供与 Node 版本匹配的本地 `NODE_LICENSE_PATH`，并保持 `SEQIVO_PREVIEW_PYTHON_ARCHIVE` 未设置。完成依赖准备后在隔离源码和 target 中运行：
+Tauri CLI 2.11.5 会在 `bundle.linux.deb.depends` 声明的 `python3`、`tmux` 后追加 WebKitGTK 4.1、GTK 3 及启用托盘所需的系统库依赖。Debian 配置不会影响其他平台或 RPM。Linux 的打包脚本不会把 tmux 内置到应用，也不会提供固定的预览 Python；该预览运行时目前只支持 macOS arm64。
 
-```sh
-pnpm install --frozen-lockfile
-pnpm build
-NODE_LICENSE_PATH=<已核实的本地许可证路径> pnpm desktop:prepare
-CARGO_TARGET_DIR=<隔离的 target 路径> pnpm exec tauri build --bundles deb
-```
+仓库的 `.github/workflows/desktop.yml` 使用 Ubuntu 24.04 runner，依赖列表包括 WebKitGTK 4.1、build-essential、curl、wget、file、libxdo、OpenSSL、AppIndicator、rsvg 与 patchelf；workflow 还安装 Node.js 24、pnpm 11、Python 3.12 和 stable Rust，并请求生成 `.deb` 与 AppImage。workflow 配置只说明计划执行的命令，不构成 workflow 实际通过或产物可运行的证据。Node 许可证脚本会先尝试读取本机 Node 安装中的许可证，找不到时从匹配版本的 Node.js 官方地址下载；离线构建可用 `NODE_LICENSE_PATH` 提供对应完整许可证。
 
-包生成后应检查 `dpkg-deb -f <包路径> Depends`、安装到隔离 Ubuntu 桌面环境并验证窗口、sidecar、tmux 会话及退出。`python3` 是系统解释器依赖，基础看板不依赖 Codex 自动继续插件；因此 `.deb` 未将 Python 3.12 设为整包安装门槛。[桌面构建文档](desktop-build.md#本地依赖)将 Python 3.12 列为该可选插件桥接进程的目标版本，并允许在插件设置中指定解释器；当前插件代码只查找系统 `python3` 或指定路径，没有显式的 3.12 版本校验。Ubuntu 22.04 默认的 Python 3.10 对该插件的兼容性尚未验证，不能仅凭整包安装成功宣称自动继续可用。
+构建后仍需实际检查 `dpkg-deb -f <包路径> Depends`，安装到隔离的 Ubuntu 24.04 x64 图形桌面，再验证窗口、sidecar、文件汇报、终端/tmux 和退出流程。`.deb` 依赖系统 Python 3；基础任务看板不依赖 Codex 自动继续插件。可选 Codex 插件允许用户指定 Python 路径，但仅凭 Python 或安装包存在，不能据此宣称插件执行兼容。Windows/Ubuntu 全量原生功能验收仍未完成。
 
-依据：[Tauri 2.11.5 CLI 实现](https://docs.rs/tauri-cli/2.11.5/src/tauri_cli/interface/rust.rs.html#1386-1453)、[Tauri Debian 打包说明](https://v2.tauri.app/distribute/debian/)。
+官方参考：[Tauri 前置条件](https://v2.tauri.app/start/prerequisites/) · [Tauri Debian 打包说明](https://v2.tauri.app/distribute/debian/) · [仓库桌面构建工作流](../.github/workflows/desktop.yml)。
