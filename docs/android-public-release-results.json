@@ -16,7 +16,7 @@
     "tests": "build, two unit tests and artifact checks passed; lint has five warnings",
     "installed": "not installed in this publication task; existing debug app and data preserved",
     "deployed": "no Hub deployment in this task",
-    "published": "prepared, publication pending"
+    "published": "Published v0.4.1-r2; release and asset metadata readable without authentication"
   },
   "checks": {
     "releaseBuild": "passed",
@@ -60,7 +60,8 @@
     "legalAssetsMatchSource": true,
     "independentArtifactReview": "passed",
     "archiveEntries": 12,
-    "privateTermAndTokenMatches": 0
+    "privateTermAndTokenMatches": 0,
+    "anonymousApkDownloadVerified": true
   },
   "buildInputsSha256": {
     "android/app/build.gradle": "e763d1b7a88dfd8d05fe37c32cad0790b03ac33dc3dfb21136a2d4703dba1a38",
@@ -86,5 +87,7 @@
     "androidPlatform": 35,
     "buildTools": "35.0.0"
   },
-  "checkedAt": "2026-10-31T10:44:16.182259+00:00"
+  "checkedAt": "2026-10-31T10:44:16.182259+00:00",
+  "publishedAt": "2026-10-31T10:48:16Z",
+  "sourceTagCommit": "467f8ac537bb88200042f9af765f45a84b3aacb4"
 }
